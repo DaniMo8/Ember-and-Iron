@@ -1,0 +1,12 @@
+✔ new and uncreated workshops always use the humble backgrounds (26.2446ms)
+✔ art stages follow actual room milestones independently (14.1895ms)
+✔ hero following tracks shop, outward journey, battle, return, recovery, and shopping again (33.7353ms)
+✔ viewing room progression and hero activity does not mutate the save (15.0045ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 213.9379

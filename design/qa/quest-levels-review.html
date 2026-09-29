@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quest levels and furnishings review</title>
+<body style="background:#15232a;color:#eee;font:18px system-ui;padding:24px"><h1>Quest levels and furnishings review</h1><p>Creates disposable saves on port 8791 only.</p><div style="display:flex;flex-wrap:wrap;gap:12px"><button data-stage="smith">Smith and furnishings</button><button data-stage="1">Level 1 · four wins</button><button data-stage="2">Level 2 · four wins</button><button data-stage="3">Level 3 · four wins</button><button data-stage="boss">All three levels cleared</button><button data-stage="next">Boss won · next tier</button></div><p id="result"></p>
+<script src="../../data.js"></script><script src="../../engine.js"></script><script src="../../campaign.js"></script><script src="../../company.js"></script><script src="../../formation-combat.js"></script><script src="../../progression.js"></script><script src="../../world-engine.js"></script>
+<script>
+for(const button of document.querySelectorAll('[data-stage]'))button.onclick=()=>{try{
+ if(location.port!=='8791')throw Error('Use the isolated review port.');
+ const stage=button.dataset.stage,e=new EIWorldEngine(EIData),s=e.state;e.command('create',{name:'Quest review',stats:{strength:7,precision:7,charisma:7,knowledge:7}});
+ for(const h of s.adventurers){h.browseUntil=100000000;h.nextShopAt=100000000;}
+ if(stage==='smith'){s.player.gold=50000;s.player.level=4;s.player.points=5;e.command('hireStaff',{staffId:'apprentice'});}
+ else{const cleared=['boss','next'].includes(stage)?3:Number(stage)-1;for(let i=0;i<cleared;i++)s.questWins[e.data.questTiers[0][i]]=5;if(cleared<3)s.questWins[e.data.questTiers[0][cleared]]=4;if(stage==='next')s.questWins.smuggler_cache=1;}
+ e._refreshUnlocks();e.markSaved(Date.now());const valid=EIWorldEngine.validateSave(e.exportSave(),e.data);if(!valid.ok)throw Error(valid.message);localStorage.setItem('ember-iron-save-v3',e.exportSave());localStorage.removeItem('ember-iron-save-v3-backup');localStorage.removeItem('ember-iron-save-v3-owner');location.href='../../index.html?room='+(stage==='smith'?'smith':'adventurers');
+ }catch(error){document.querySelector('#result').textContent=error.message;}};
+</script></body></html>

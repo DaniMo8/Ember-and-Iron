@@ -1,0 +1,148 @@
+{
+  "mode": "Controlled progression check with level-30 heroes, tier-5 gear and party capacity granted; not an economy timing estimate",
+  "minutes": 174.08,
+  "bossOrders": 5,
+  "stalled": false,
+  "milestones": [
+    {
+      "tier": 1,
+      "level": 1,
+      "quest": "rat_nest",
+      "wins": 6,
+      "minute": 4.8
+    },
+    {
+      "tier": 1,
+      "level": 2,
+      "quest": "mill_cellar",
+      "wins": 6,
+      "minute": 9.93
+    },
+    {
+      "tier": 1,
+      "level": 3,
+      "quest": "smugglers_road",
+      "wins": 6,
+      "minute": 15.38
+    },
+    {
+      "tier": 1,
+      "level": "boss",
+      "quest": "smuggler_cache",
+      "wins": 1,
+      "minute": 18.18
+    },
+    {
+      "tier": 2,
+      "level": 1,
+      "quest": "quarry_road",
+      "wins": 6,
+      "minute": 25.07
+    },
+    {
+      "tier": 2,
+      "level": 2,
+      "quest": "abandoned_pit",
+      "wins": 6,
+      "minute": 32.45
+    },
+    {
+      "tier": 2,
+      "level": 3,
+      "quest": "sentinel_approach",
+      "wins": 6,
+      "minute": 40.38
+    },
+    {
+      "tier": 2,
+      "level": "boss",
+      "quest": "stone_sentinel",
+      "wins": 1,
+      "minute": 44.58
+    },
+    {
+      "tier": 3,
+      "level": 1,
+      "quest": "ash_courtyard",
+      "wins": 6,
+      "minute": 53
+    },
+    {
+      "tier": 3,
+      "level": 2,
+      "quest": "ember_shrine",
+      "wins": 6,
+      "minute": 62.45
+    },
+    {
+      "tier": 3,
+      "level": 3,
+      "quest": "thorn_pass",
+      "wins": 6,
+      "minute": 72.4
+    },
+    {
+      "tier": 3,
+      "level": "boss",
+      "quest": "wildwood_heart",
+      "wins": 1,
+      "minute": 78.35
+    },
+    {
+      "tier": 4,
+      "level": 1,
+      "quest": "frost_pass",
+      "wins": 6,
+      "minute": 89.88
+    },
+    {
+      "tier": 4,
+      "level": 2,
+      "quest": "whitewood_trail",
+      "wins": 6,
+      "minute": 102.37
+    },
+    {
+      "tier": 4,
+      "level": 3,
+      "quest": "glacier_gate",
+      "wins": 6,
+      "minute": 115.82
+    },
+    {
+      "tier": 4,
+      "level": "boss",
+      "quest": "frost_citadel",
+      "wins": 1,
+      "minute": 123.17
+    },
+    {
+      "tier": 5,
+      "level": 1,
+      "quest": "fallen_observatory",
+      "wins": 6,
+      "minute": 136.22
+    },
+    {
+      "tier": 5,
+      "level": 2,
+      "quest": "astral_vault",
+      "wins": 6,
+      "minute": 150.37
+    },
+    {
+      "tier": 5,
+      "level": 3,
+      "quest": "sovereign_stair",
+      "wins": 6,
+      "minute": 165.68
+    },
+    {
+      "tier": 5,
+      "level": "boss",
+      "quest": "void_sovereign",
+      "wins": 1,
+      "minute": 174.08
+    }
+  ]
+}

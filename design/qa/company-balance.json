@@ -1,0 +1,1357 @@
+{
+  "defeatFarming": {
+    "merits": 369,
+    "spent": 323,
+    "trees": {
+      "adventurers_training_0": 5,
+      "adventurers_training_1": 4,
+      "adventurers_training_2": 4,
+      "adventurers_training_3": 3
+    },
+    "bareBefore": {
+      "won": 0,
+      "trials": 160,
+      "winRate": 0,
+      "meanSurvivors": 0,
+      "meanBattleSeconds": 36.74467592592593
+    },
+    "bareAfter": {
+      "won": 0,
+      "trials": 160,
+      "winRate": 0,
+      "meanSurvivors": 0,
+      "meanBattleSeconds": 43.35722552910059
+    }
+  },
+  "generatedAt": "2026-09-29T02:58:20.410Z",
+  "method": "Isolated standard loadouts (tier1 weapon/body only; tier2 full), no enchantments/prefixes, 160 seeds per fixture. Training parents at rank 1; costs include those parents. Not a normal playthrough.",
+  "upgradeComparisons": [
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "None",
+      "cost": 0,
+      "outcomes": {
+        "won": 5,
+        "trials": 160,
+        "winRate": 0.03125,
+        "meanSurvivors": 0.03125,
+        "meanBattleSeconds": 40.260555555555555
+      },
+      "health": 45.28,
+      "attack": 7.17
+    },
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "Training yard",
+      "rank": 1,
+      "cost": 2,
+      "outcomes": {
+        "won": 8,
+        "trials": 160,
+        "winRate": 0.05,
+        "meanSurvivors": 0.0625,
+        "meanBattleSeconds": 41.13405092592593
+      },
+      "health": 47.9968,
+      "attack": 7.17
+    },
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "Training yard",
+      "rank": 5,
+      "cost": 55,
+      "outcomes": {
+        "won": 56,
+        "trials": 160,
+        "winRate": 0.35,
+        "meanSurvivors": 0.41875,
+        "meanBattleSeconds": 43.15254629629631
+      },
+      "health": 58.864000000000004,
+      "attack": 7.17
+    },
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "Sparring partners",
+      "rank": 1,
+      "cost": 6,
+      "outcomes": {
+        "won": 22,
+        "trials": 160,
+        "winRate": 0.1375,
+        "meanSurvivors": 0.1625,
+        "meanBattleSeconds": 40.89171296296298
+      },
+      "health": 47.9968,
+      "attack": 7.4568
+    },
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "Sparring partners",
+      "rank": 4,
+      "cost": 57,
+      "outcomes": {
+        "won": 61,
+        "trials": 160,
+        "winRate": 0.38125,
+        "meanSurvivors": 0.4625,
+        "meanBattleSeconds": 38.974467592592596
+      },
+      "health": 47.9968,
+      "attack": 8.3172
+    },
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "Shield drills",
+      "rank": 1,
+      "cost": 14,
+      "outcomes": {
+        "won": 24,
+        "trials": 160,
+        "winRate": 0.15,
+        "meanSurvivors": 0.175,
+        "meanBattleSeconds": 41.09358796296298
+      },
+      "health": 47.9968,
+      "attack": 7.4568
+    },
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "Shield drills",
+      "rank": 4,
+      "cost": 114,
+      "outcomes": {
+        "won": 58,
+        "trials": 160,
+        "winRate": 0.3625,
+        "meanSurvivors": 0.4875,
+        "meanBattleSeconds": 41.45592592592594
+      },
+      "health": 47.9968,
+      "attack": 7.4568
+    },
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "Combat reflexes",
+      "rank": 1,
+      "cost": 30,
+      "outcomes": {
+        "won": 35,
+        "trials": 160,
+        "winRate": 0.21875,
+        "meanSurvivors": 0.2625,
+        "meanBattleSeconds": 40.06739672364677
+      },
+      "health": 47.9968,
+      "attack": 7.4568
+    },
+    {
+      "tier": 1,
+      "q": 30,
+      "level": 1,
+      "boss": "smuggler_cache",
+      "upgrade": "Combat reflexes",
+      "rank": 4,
+      "cost": 229,
+      "outcomes": {
+        "won": 82,
+        "trials": 160,
+        "winRate": 0.5125,
+        "meanSurvivors": 0.6125,
+        "meanBattleSeconds": 37.489703065134115
+      },
+      "health": 47.9968,
+      "attack": 7.4568
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "None",
+      "cost": 0,
+      "outcomes": {
+        "won": 0,
+        "trials": 160,
+        "winRate": 0,
+        "meanSurvivors": 0,
+        "meanBattleSeconds": 56.19222222222223
+      },
+      "health": 93.47999999999999,
+      "attack": 14.861
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "Training yard",
+      "rank": 1,
+      "cost": 2,
+      "outcomes": {
+        "won": 1,
+        "trials": 160,
+        "winRate": 0.00625,
+        "meanSurvivors": 0.00625,
+        "meanBattleSeconds": 57.43222222222224
+      },
+      "health": 99.08879999999999,
+      "attack": 14.861
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "Training yard",
+      "rank": 5,
+      "cost": 55,
+      "outcomes": {
+        "won": 47,
+        "trials": 160,
+        "winRate": 0.29375,
+        "meanSurvivors": 0.34375,
+        "meanBattleSeconds": 63.530509259259304
+      },
+      "health": 121.52399999999999,
+      "attack": 14.861
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "Sparring partners",
+      "rank": 1,
+      "cost": 6,
+      "outcomes": {
+        "won": 4,
+        "trials": 160,
+        "winRate": 0.025,
+        "meanSurvivors": 0.0375,
+        "meanBattleSeconds": 56.324768518518525
+      },
+      "health": 99.08879999999999,
+      "attack": 15.455440000000001
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "Sparring partners",
+      "rank": 4,
+      "cost": 57,
+      "outcomes": {
+        "won": 49,
+        "trials": 160,
+        "winRate": 0.30625,
+        "meanSurvivors": 0.375,
+        "meanBattleSeconds": 52.695046296296326
+      },
+      "health": 99.08879999999999,
+      "attack": 17.23876
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "Shield drills",
+      "rank": 1,
+      "cost": 14,
+      "outcomes": {
+        "won": 7,
+        "trials": 160,
+        "winRate": 0.04375,
+        "meanSurvivors": 0.0625,
+        "meanBattleSeconds": 57.21921296296298
+      },
+      "health": 99.08879999999999,
+      "attack": 15.455440000000001
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "Shield drills",
+      "rank": 4,
+      "cost": 114,
+      "outcomes": {
+        "won": 19,
+        "trials": 160,
+        "winRate": 0.11875,
+        "meanSurvivors": 0.15,
+        "meanBattleSeconds": 59.56814814814816
+      },
+      "health": 99.08879999999999,
+      "attack": 15.455440000000001
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "Combat reflexes",
+      "rank": 1,
+      "cost": 30,
+      "outcomes": {
+        "won": 10,
+        "trials": 160,
+        "winRate": 0.0625,
+        "meanSurvivors": 0.0875,
+        "meanBattleSeconds": 56.083176638176646
+      },
+      "health": 99.08879999999999,
+      "attack": 15.455440000000001
+    },
+    {
+      "tier": 2,
+      "q": 65,
+      "level": 6,
+      "boss": "wildwood_heart",
+      "upgrade": "Combat reflexes",
+      "rank": 4,
+      "cost": 229,
+      "outcomes": {
+        "won": 48,
+        "trials": 160,
+        "winRate": 0.3,
+        "meanSurvivors": 0.38125,
+        "meanBattleSeconds": 52.87405012771393
+      },
+      "health": 99.08879999999999,
+      "attack": 15.455440000000001
+    }
+  ],
+  "pricing": {
+    "checks": 1020,
+    "clearanceArbitrage": 0,
+    "lowestCustomerMargins": [
+      {
+        "recipe": "bronze_daggers",
+        "quality": 45,
+        "replacement": 4,
+        "customer": 4,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_bows",
+        "quality": 45,
+        "replacement": 6,
+        "customer": 6,
+        "clearance": 3
+      },
+      {
+        "recipe": "bronze_foci",
+        "quality": 45,
+        "replacement": 4,
+        "customer": 4,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_shields",
+        "quality": 45,
+        "replacement": 5,
+        "customer": 5,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_rings",
+        "quality": 45,
+        "replacement": 4,
+        "customer": 4,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_charms",
+        "quality": 45,
+        "replacement": 4,
+        "customer": 4,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_tools",
+        "quality": 45,
+        "replacement": 4,
+        "customer": 4,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_offhands",
+        "quality": 45,
+        "replacement": 4,
+        "customer": 4,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_instruments",
+        "quality": 45,
+        "replacement": 4,
+        "customer": 4,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_talismans",
+        "quality": 45,
+        "replacement": 4,
+        "customer": 4,
+        "clearance": 2
+      },
+      {
+        "recipe": "bronze_armor",
+        "quality": 45,
+        "replacement": 5,
+        "customer": 6,
+        "clearance": 3
+      },
+      {
+        "recipe": "bronze_cloth_armor",
+        "quality": 45,
+        "replacement": 5,
+        "customer": 6,
+        "clearance": 3
+      }
+    ]
+  },
+  "patternExamples": [
+    {
+      "classId": "swords",
+      "tier": 1,
+      "patterns": [
+        {
+          "name": "Bronze Short Sword",
+          "pattern": "training",
+          "cost": 6,
+          "seconds": 62,
+          "stat": 2,
+          "proficiency": 0,
+          "attack": 3.8499999999999996,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Bronze Arming Sword",
+          "pattern": "standard",
+          "cost": 10,
+          "seconds": 88,
+          "stat": 3,
+          "proficiency": 4,
+          "attack": 5.5,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Bronze Greatsword",
+          "pattern": "prestige",
+          "cost": 22,
+          "seconds": 158,
+          "stat": 18,
+          "proficiency": 22,
+          "attack": 10.725,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "swords",
+      "tier": 2,
+      "patterns": [
+        {
+          "name": "Iron Short Sword",
+          "pattern": "training",
+          "cost": 19,
+          "seconds": 111,
+          "stat": 5,
+          "proficiency": 15,
+          "attack": 5.7749999999999995,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Iron Arming Sword",
+          "pattern": "standard",
+          "cost": 33,
+          "seconds": 158,
+          "stat": 6,
+          "proficiency": 19,
+          "attack": 8.25,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Iron Greatsword",
+          "pattern": "prestige",
+          "cost": 73,
+          "seconds": 284,
+          "stat": 30,
+          "proficiency": 37,
+          "attack": 16.0875,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "swords",
+      "tier": 3,
+      "patterns": [
+        {
+          "name": "Steel Short Sword",
+          "pattern": "training",
+          "cost": 50,
+          "seconds": 172,
+          "stat": 9,
+          "proficiency": 30,
+          "attack": 8.6625,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Steel Arming Sword",
+          "pattern": "standard",
+          "cost": 88,
+          "seconds": 246,
+          "stat": 10,
+          "proficiency": 34,
+          "attack": 12.375,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Steel Greatsword",
+          "pattern": "prestige",
+          "cost": 194,
+          "seconds": 443,
+          "stat": 46,
+          "proficiency": 55,
+          "attack": 24.131249999999998,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "swords",
+      "tier": 4,
+      "patterns": [
+        {
+          "name": "Mithril Short Sword",
+          "pattern": "training",
+          "cost": 134,
+          "seconds": 246,
+          "stat": 14,
+          "proficiency": 50,
+          "attack": 13.089999999999998,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Mithril Arming Sword",
+          "pattern": "standard",
+          "cost": 234,
+          "seconds": 352,
+          "stat": 15,
+          "proficiency": 54,
+          "attack": 18.7,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Mithril Greatsword",
+          "pattern": "prestige",
+          "cost": 518,
+          "seconds": 634,
+          "stat": 66,
+          "proficiency": 80,
+          "attack": 36.464999999999996,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "swords",
+      "tier": 5,
+      "patterns": [
+        {
+          "name": "Starforged Short Sword",
+          "pattern": "training",
+          "cost": 364,
+          "seconds": 339,
+          "stat": 20,
+          "proficiency": 75,
+          "attack": 20.02,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Starforged Arming Sword",
+          "pattern": "standard",
+          "cost": 634,
+          "seconds": 484,
+          "stat": 21,
+          "proficiency": 79,
+          "attack": 28.6,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Starforged Greatsword",
+          "pattern": "prestige",
+          "cost": 1404,
+          "seconds": 871,
+          "stat": 90,
+          "proficiency": 97,
+          "attack": 55.77,
+          "health": 0,
+          "armor": 0,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "armor",
+      "tier": 1,
+      "patterns": [
+        {
+          "name": "Bronze Mail Coif & Vest",
+          "pattern": "training",
+          "cost": 6,
+          "seconds": 77,
+          "stat": 2,
+          "proficiency": 0,
+          "attack": 0,
+          "health": 8.399999999999999,
+          "armor": 1.26,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Bronze Mail Haubergeon",
+          "pattern": "standard",
+          "cost": 10,
+          "seconds": 110,
+          "stat": 3,
+          "proficiency": 4,
+          "attack": 0,
+          "health": 12,
+          "armor": 1.8,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Bronze Mail Hauberk",
+          "pattern": "prestige",
+          "cost": 22,
+          "seconds": 198,
+          "stat": 18,
+          "proficiency": 22,
+          "attack": 0,
+          "health": 23.4,
+          "armor": 3.51,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "armor",
+      "tier": 2,
+      "patterns": [
+        {
+          "name": "Iron Mail Coif & Vest",
+          "pattern": "training",
+          "cost": 19,
+          "seconds": 139,
+          "stat": 5,
+          "proficiency": 15,
+          "attack": 0,
+          "health": 12.6,
+          "armor": 1.89,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Iron Mail Haubergeon",
+          "pattern": "standard",
+          "cost": 33,
+          "seconds": 198,
+          "stat": 6,
+          "proficiency": 19,
+          "attack": 0,
+          "health": 18,
+          "armor": 2.7,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Iron Mail Hauberk",
+          "pattern": "prestige",
+          "cost": 73,
+          "seconds": 356,
+          "stat": 30,
+          "proficiency": 37,
+          "attack": 0,
+          "health": 35.1,
+          "armor": 5.265000000000001,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "armor",
+      "tier": 3,
+      "patterns": [
+        {
+          "name": "Steel Mail Coif & Vest",
+          "pattern": "training",
+          "cost": 50,
+          "seconds": 216,
+          "stat": 9,
+          "proficiency": 30,
+          "attack": 0,
+          "health": 18.9,
+          "armor": 2.8349999999999995,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Steel Mail Haubergeon",
+          "pattern": "standard",
+          "cost": 88,
+          "seconds": 308,
+          "stat": 10,
+          "proficiency": 34,
+          "attack": 0,
+          "health": 27,
+          "armor": 4.05,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Steel Mail Hauberk",
+          "pattern": "prestige",
+          "cost": 194,
+          "seconds": 554,
+          "stat": 46,
+          "proficiency": 55,
+          "attack": 0,
+          "health": 52.65,
+          "armor": 7.897499999999999,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "armor",
+      "tier": 4,
+      "patterns": [
+        {
+          "name": "Mithril Mail Coif & Vest",
+          "pattern": "training",
+          "cost": 134,
+          "seconds": 308,
+          "stat": 14,
+          "proficiency": 50,
+          "attack": 0,
+          "health": 28.559999999999995,
+          "armor": 4.284,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Mithril Mail Haubergeon",
+          "pattern": "standard",
+          "cost": 234,
+          "seconds": 440,
+          "stat": 15,
+          "proficiency": 54,
+          "attack": 0,
+          "health": 40.8,
+          "armor": 6.12,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Mithril Mail Hauberk",
+          "pattern": "prestige",
+          "cost": 518,
+          "seconds": 792,
+          "stat": 66,
+          "proficiency": 80,
+          "attack": 0,
+          "health": 79.55999999999999,
+          "armor": 11.934,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "armor",
+      "tier": 5,
+      "patterns": [
+        {
+          "name": "Starforged Mail Coif & Vest",
+          "pattern": "training",
+          "cost": 364,
+          "seconds": 424,
+          "stat": 20,
+          "proficiency": 75,
+          "attack": 0,
+          "health": 43.68,
+          "armor": 6.552,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Starforged Mail Haubergeon",
+          "pattern": "standard",
+          "cost": 634,
+          "seconds": 605,
+          "stat": 21,
+          "proficiency": 79,
+          "attack": 0,
+          "health": 62.4,
+          "armor": 9.36,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Starforged Mail Hauberk",
+          "pattern": "prestige",
+          "cost": 1404,
+          "seconds": 1089,
+          "stat": 90,
+          "proficiency": 97,
+          "attack": 0,
+          "health": 121.67999999999999,
+          "armor": 18.252,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "cloth_armor",
+      "tier": 1,
+      "patterns": [
+        {
+          "name": "Linen Tunic · Bronze fittings",
+          "pattern": "training",
+          "cost": 6,
+          "seconds": 77,
+          "stat": 2,
+          "proficiency": 0,
+          "attack": 0.35,
+          "health": 6.3,
+          "armor": 0.45499999999999996,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Padded Gambeson · Bronze fittings",
+          "pattern": "standard",
+          "cost": 10,
+          "seconds": 110,
+          "stat": 3,
+          "proficiency": 4,
+          "attack": 0.5,
+          "health": 9,
+          "armor": 0.65,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Runesilk Robe · Bronze fittings",
+          "pattern": "prestige",
+          "cost": 22,
+          "seconds": 198,
+          "stat": 18,
+          "proficiency": 22,
+          "attack": 0.975,
+          "health": 17.55,
+          "armor": 1.2675,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "cloth_armor",
+      "tier": 2,
+      "patterns": [
+        {
+          "name": "Linen Tunic · Iron fittings",
+          "pattern": "training",
+          "cost": 19,
+          "seconds": 139,
+          "stat": 5,
+          "proficiency": 15,
+          "attack": 0.5249999999999999,
+          "health": 9.45,
+          "armor": 0.6825,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Padded Gambeson · Iron fittings",
+          "pattern": "standard",
+          "cost": 33,
+          "seconds": 198,
+          "stat": 6,
+          "proficiency": 19,
+          "attack": 0.75,
+          "health": 13.5,
+          "armor": 0.9750000000000001,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Runesilk Robe · Iron fittings",
+          "pattern": "prestige",
+          "cost": 73,
+          "seconds": 356,
+          "stat": 30,
+          "proficiency": 37,
+          "attack": 1.4625,
+          "health": 26.325,
+          "armor": 1.90125,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "cloth_armor",
+      "tier": 3,
+      "patterns": [
+        {
+          "name": "Linen Tunic · Steel fittings",
+          "pattern": "training",
+          "cost": 50,
+          "seconds": 216,
+          "stat": 9,
+          "proficiency": 30,
+          "attack": 0.7875,
+          "health": 14.174999999999999,
+          "armor": 1.02375,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Padded Gambeson · Steel fittings",
+          "pattern": "standard",
+          "cost": 88,
+          "seconds": 308,
+          "stat": 10,
+          "proficiency": 34,
+          "attack": 1.125,
+          "health": 20.25,
+          "armor": 1.4625000000000001,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Runesilk Robe · Steel fittings",
+          "pattern": "prestige",
+          "cost": 194,
+          "seconds": 554,
+          "stat": 46,
+          "proficiency": 55,
+          "attack": 2.19375,
+          "health": 39.4875,
+          "armor": 2.851875,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "cloth_armor",
+      "tier": 4,
+      "patterns": [
+        {
+          "name": "Linen Tunic · Mithril fittings",
+          "pattern": "training",
+          "cost": 134,
+          "seconds": 308,
+          "stat": 14,
+          "proficiency": 50,
+          "attack": 1.19,
+          "health": 21.419999999999998,
+          "armor": 1.547,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Padded Gambeson · Mithril fittings",
+          "pattern": "standard",
+          "cost": 234,
+          "seconds": 440,
+          "stat": 15,
+          "proficiency": 54,
+          "attack": 1.7,
+          "health": 30.599999999999998,
+          "armor": 2.21,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Runesilk Robe · Mithril fittings",
+          "pattern": "prestige",
+          "cost": 518,
+          "seconds": 792,
+          "stat": 66,
+          "proficiency": 80,
+          "attack": 3.315,
+          "health": 59.669999999999995,
+          "armor": 4.3095,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "cloth_armor",
+      "tier": 5,
+      "patterns": [
+        {
+          "name": "Linen Tunic · Starforged fittings",
+          "pattern": "training",
+          "cost": 364,
+          "seconds": 424,
+          "stat": 20,
+          "proficiency": 75,
+          "attack": 1.8199999999999998,
+          "health": 32.76,
+          "armor": 2.366,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Padded Gambeson · Starforged fittings",
+          "pattern": "standard",
+          "cost": 634,
+          "seconds": 605,
+          "stat": 21,
+          "proficiency": 79,
+          "attack": 2.6,
+          "health": 46.800000000000004,
+          "armor": 3.3800000000000003,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Runesilk Robe · Starforged fittings",
+          "pattern": "prestige",
+          "cost": 1404,
+          "seconds": 1089,
+          "stat": 90,
+          "proficiency": 97,
+          "attack": 5.07,
+          "health": 91.26,
+          "armor": 6.591,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "offhands",
+      "tier": 1,
+      "patterns": [
+        {
+          "name": "Bronze Prayer Book",
+          "pattern": "training",
+          "cost": 4,
+          "seconds": 55,
+          "stat": 2,
+          "proficiency": 0,
+          "attack": 1.0499999999999998,
+          "health": 2.0999999999999996,
+          "armor": 0.13999999999999999,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Bronze Grimoire",
+          "pattern": "standard",
+          "cost": 7,
+          "seconds": 79,
+          "stat": 3,
+          "proficiency": 4,
+          "attack": 1.5,
+          "health": 3,
+          "armor": 0.2,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Bronze Illuminated Codex",
+          "pattern": "prestige",
+          "cost": 16,
+          "seconds": 142,
+          "stat": 18,
+          "proficiency": 22,
+          "attack": 2.925,
+          "health": 5.85,
+          "armor": 0.39,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "offhands",
+      "tier": 2,
+      "patterns": [
+        {
+          "name": "Iron Prayer Book",
+          "pattern": "training",
+          "cost": 14,
+          "seconds": 100,
+          "stat": 5,
+          "proficiency": 15,
+          "attack": 1.575,
+          "health": 3.15,
+          "armor": 0.21000000000000002,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Iron Grimoire",
+          "pattern": "standard",
+          "cost": 24,
+          "seconds": 143,
+          "stat": 6,
+          "proficiency": 19,
+          "attack": 2.25,
+          "health": 4.5,
+          "armor": 0.30000000000000004,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Iron Illuminated Codex",
+          "pattern": "prestige",
+          "cost": 54,
+          "seconds": 257,
+          "stat": 30,
+          "proficiency": 37,
+          "attack": 4.3875,
+          "health": 8.775,
+          "armor": 0.5850000000000001,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "offhands",
+      "tier": 3,
+      "patterns": [
+        {
+          "name": "Steel Prayer Book",
+          "pattern": "training",
+          "cost": 38,
+          "seconds": 155,
+          "stat": 9,
+          "proficiency": 30,
+          "attack": 2.3625,
+          "health": 4.725,
+          "armor": 0.315,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Steel Grimoire",
+          "pattern": "standard",
+          "cost": 66,
+          "seconds": 222,
+          "stat": 10,
+          "proficiency": 34,
+          "attack": 3.375,
+          "health": 6.75,
+          "armor": 0.45,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Steel Illuminated Codex",
+          "pattern": "prestige",
+          "cost": 146,
+          "seconds": 400,
+          "stat": 46,
+          "proficiency": 55,
+          "attack": 6.58125,
+          "health": 13.1625,
+          "armor": 0.8775,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "offhands",
+      "tier": 4,
+      "patterns": [
+        {
+          "name": "Mithril Prayer Book",
+          "pattern": "training",
+          "cost": 101,
+          "seconds": 222,
+          "stat": 14,
+          "proficiency": 50,
+          "attack": 3.5699999999999994,
+          "health": 7.139999999999999,
+          "armor": 0.476,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Mithril Grimoire",
+          "pattern": "standard",
+          "cost": 176,
+          "seconds": 317,
+          "stat": 15,
+          "proficiency": 54,
+          "attack": 5.1,
+          "health": 10.2,
+          "armor": 0.68,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Mithril Illuminated Codex",
+          "pattern": "prestige",
+          "cost": 389,
+          "seconds": 571,
+          "stat": 66,
+          "proficiency": 80,
+          "attack": 9.944999999999999,
+          "health": 19.889999999999997,
+          "armor": 1.326,
+          "qualityOffset": 12
+        }
+      ]
+    },
+    {
+      "classId": "offhands",
+      "tier": 5,
+      "patterns": [
+        {
+          "name": "Starforged Prayer Book",
+          "pattern": "training",
+          "cost": 273,
+          "seconds": 305,
+          "stat": 20,
+          "proficiency": 75,
+          "attack": 5.46,
+          "health": 10.92,
+          "armor": 0.728,
+          "qualityOffset": -12
+        },
+        {
+          "name": "Starforged Grimoire",
+          "pattern": "standard",
+          "cost": 476,
+          "seconds": 436,
+          "stat": 21,
+          "proficiency": 79,
+          "attack": 7.800000000000001,
+          "health": 15.600000000000001,
+          "armor": 1.04,
+          "qualityOffset": 0
+        },
+        {
+          "name": "Starforged Illuminated Codex",
+          "pattern": "prestige",
+          "cost": 1053,
+          "seconds": 785,
+          "stat": 90,
+          "proficiency": 97,
+          "attack": 15.21,
+          "health": 30.42,
+          "armor": 2.028,
+          "qualityOffset": 12
+        }
+      ]
+    }
+  ],
+  "furnishings": [
+    {
+      "name": "Hearth Banner",
+      "cost": 260,
+      "effects": {
+        "arrival": 0.15,
+        "budget": 0.08
+      },
+      "craftSeconds": 49.342441988739694,
+      "baselineSeconds": 49.342441988739694,
+      "quality": 36,
+      "baselineQuality": 36
+    },
+    {
+      "name": "Warming Brazier",
+      "cost": 420,
+      "effects": {
+        "speed": 0.12,
+        "staffRecovery": 0.2
+      },
+      "craftSeconds": 45.04096248217154,
+      "baselineSeconds": 49.342441988739694,
+      "quality": 36,
+      "baselineQuality": 36
+    },
+    {
+      "name": "Maker's Plaque",
+      "cost": 700,
+      "effects": {
+        "quality": 5,
+        "proficiencyXp": 0.08
+      },
+      "craftSeconds": 49.342441988739694,
+      "baselineSeconds": 49.342441988739694,
+      "quality": 41,
+      "baselineQuality": 36
+    },
+    {
+      "name": "Guild Trophy",
+      "cost": 1100,
+      "effects": {
+        "budget": 0.18,
+        "relationship": 1
+      },
+      "craftSeconds": 49.342441988739694,
+      "baselineSeconds": 49.342441988739694,
+      "quality": 36,
+      "baselineQuality": 36
+    },
+    {
+      "name": "Staff Rest Chamber",
+      "cost": 1700,
+      "effects": {
+        "staffRecovery": 0.5
+      },
+      "craftSeconds": 49.342441988739694,
+      "baselineSeconds": 49.342441988739694,
+      "quality": 36,
+      "baselineQuality": 36
+    },
+    {
+      "name": "Guild Library",
+      "cost": 2600,
+      "effects": {
+        "proficiencyXp": 0.2,
+        "enchant": 0.12
+      },
+      "craftSeconds": 49.342441988739694,
+      "baselineSeconds": 49.342441988739694,
+      "quality": 36,
+      "baselineQuality": 36
+    }
+  ]
+}

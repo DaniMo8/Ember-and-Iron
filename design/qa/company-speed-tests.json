@@ -1,0 +1,1016 @@
+{
+  "generatedAt": "2026-09-29T02:51:06.505Z",
+  "method": "Normal commands every 30 simulated seconds. No resources or progression granted. Separate isolated balance fixtures live in company-balance.js.",
+  "profiles": [
+    {
+      "minutes": 360,
+      "policy": "30-second active manager; all available classes; material sales; first-rank upgrades; boss launch at >=65% estimated chance",
+      "milestones": {
+        "firstCraft": 1.5,
+        "firstSale": 4,
+        "level2": 8,
+        "firstVictory": 18,
+        "smuggler_cache": 43.5,
+        "stone_sentinel": 68,
+        "wildwood_heart": 325.5
+      },
+      "bossAttempts": [
+        {
+          "minute": 40.5,
+          "quest": "smuggler_cache",
+          "estimate": 100
+        },
+        {
+          "minute": 63.5,
+          "quest": "stone_sentinel",
+          "estimate": 100
+        },
+        {
+          "minute": 319.5,
+          "quest": "wildwood_heart",
+          "estimate": 70
+        }
+      ],
+      "level": 13,
+      "gold": 8431,
+      "crafted": 564,
+      "sold": 554,
+      "wins": 167,
+      "losses": 34,
+      "questWins": {
+        "rat_nest": 26,
+        "smuggler_cache": 1,
+        "quarry_road": 148,
+        "stone_sentinel": 1,
+        "ash_courtyard": 20,
+        "ember_shrine": 21,
+        "thorn_pass": 78,
+        "wildwood_heart": 1,
+        "frost_pass": 9
+      },
+      "heroLevels": [
+        {
+          "name": "Mara",
+          "level": 10,
+          "status": "fighting",
+          "gear": 6
+        },
+        {
+          "name": "Renn",
+          "level": 9,
+          "status": "fighting",
+          "gear": 5
+        },
+        {
+          "name": "Wren",
+          "level": 9,
+          "status": "fighting",
+          "gear": 5
+        },
+        {
+          "name": "Hire bren",
+          "level": 9,
+          "status": "browsing",
+          "gear": 6
+        }
+      ],
+      "workers": 3,
+      "highestCraftedTier": 3,
+      "staffCare": true,
+      "staff": {
+        "quartermaster": {
+          "hired": true,
+          "active": true,
+          "level": 5,
+          "xp": 0.7000000000000028,
+          "unpaid": false,
+          "stamina": 86.00000000002157
+        },
+        "envoy": {
+          "hired": true,
+          "active": true,
+          "level": 5,
+          "xp": 0.3000000000000256,
+          "unpaid": false,
+          "stamina": 19.000000000020318
+        },
+        "apprentice": {
+          "hired": true,
+          "active": true,
+          "level": 5,
+          "xp": 2.25,
+          "unpaid": false,
+          "stamina": 36.00000000002107
+        },
+        "runekeeper": {
+          "hired": true,
+          "active": true,
+          "level": 1,
+          "xp": 0,
+          "unpaid": false,
+          "stamina": 73.00000000001882
+        }
+      },
+      "highestProficiency": 48,
+      "materialsLost": 130,
+      "trees": {
+        "adventurers_training_0": 1,
+        "adventurers_training_1": 1,
+        "mine_extraction_0": 1,
+        "adventurers_expeditions_0": 1,
+        "forge_machinery_0": 1,
+        "adventurers_expeditions_1": 1,
+        "mine_logistics_0": 1,
+        "shop_warehouse_0": 1,
+        "forge_workflow_0": 1,
+        "shop_commerce_0": 1,
+        "adventurers_recruitment_0": 1,
+        "forge_mastery_0": 1,
+        "shop_warehouse_1": 1,
+        "adventurers_expeditions_2": 1,
+        "adventurers_training_2": 1,
+        "forge_workflow_1": 1,
+        "shop_commerce_1": 1,
+        "forge_machinery_1": 1,
+        "forge_mastery_1": 1,
+        "shop_commerce_2": 1,
+        "adventurers_expeditions_3": 1,
+        "mine_depths_0": 1,
+        "forge_machinery_2": 1,
+        "adventurers_training_3": 1,
+        "mine_extraction_1": 1,
+        "forge_workflow_2": 1,
+        "forge_mastery_2": 1,
+        "mine_logistics_1": 1,
+        "forge_machinery_3": 1,
+        "adventurers_expeditions_4": 1,
+        "forge_mastery_3": 1,
+        "mine_extraction_2": 1,
+        "mine_depths_1": 1,
+        "mine_logistics_2": 1
+      },
+      "legacy": {
+        "eligible": false,
+        "sparks": 0,
+        "heirlooms": [
+          {
+            "id": "item-4480",
+            "recipeId": "steel_leather_armor",
+            "quality": 78,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 20971978,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4492",
+            "recipeId": "iron_daggers_v1",
+            "quality": 104,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 21039170,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4494",
+            "recipeId": "iron_cloth_armor_v1",
+            "quality": 93,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 21042881,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4503",
+            "recipeId": "steel_armor",
+            "quality": 89,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 21152855,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4520",
+            "recipeId": "steel_daggers",
+            "quality": 86,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 21225821,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4547",
+            "recipeId": "steel_armor_v1",
+            "quality": 101,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 21367520,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4554",
+            "recipeId": "iron_foci_v1",
+            "quality": 99,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 21425443,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4561",
+            "recipeId": "steel_charms_v1",
+            "quality": 97,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 21480786,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4565",
+            "recipeId": "steel_bows",
+            "quality": 85,
+            "affixId": "keen",
+            "enchantmentId": null,
+            "createdAt": 21525707,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-4570",
+            "recipeId": "iron_instruments_v1",
+            "quality": 96,
+            "affixId": "nimble",
+            "enchantmentId": null,
+            "createdAt": 21560152,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          }
+        ],
+        "retained": [
+          "Legacy sparks and talents",
+          "Collection records",
+          "Decorations",
+          "One heirloom and its recipe discovery"
+        ],
+        "reset": [
+          "Smith level, stats and proficiency",
+          "Gold and materials",
+          "Quarry and shop upgrades",
+          "Staff and adventurers",
+          "Quests and recipe discoveries"
+        ],
+        "breakdown": {
+          "finalBoss": 0,
+          "tierBosses": 7,
+          "smithMilestones": 0,
+          "masterworkDesigns": 0,
+          "bossesDefeated": 3,
+          "masterworks": 0
+        }
+      },
+      "maxOverdue": 0,
+      "validationErrors": [],
+      "history": [
+        {
+          "minute": 0.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 0
+        },
+        {
+          "minute": 30.5,
+          "level": 3,
+          "gold": 52,
+          "crafted": 37,
+          "wins": 10,
+          "losses": 19
+        },
+        {
+          "minute": 60.5,
+          "level": 4,
+          "gold": 96,
+          "crafted": 71,
+          "wins": 25,
+          "losses": 28
+        },
+        {
+          "minute": 90.5,
+          "level": 5,
+          "gold": 98,
+          "crafted": 111,
+          "wins": 37,
+          "losses": 33
+        },
+        {
+          "minute": 120.5,
+          "level": 6,
+          "gold": 114,
+          "crafted": 176,
+          "wins": 55,
+          "losses": 33
+        },
+        {
+          "minute": 150.5,
+          "level": 7,
+          "gold": 187,
+          "crafted": 236,
+          "wins": 72,
+          "losses": 33
+        },
+        {
+          "minute": 180.5,
+          "level": 8,
+          "gold": 1142,
+          "crafted": 294,
+          "wins": 88,
+          "losses": 33
+        },
+        {
+          "minute": 210.5,
+          "level": 9,
+          "gold": 2222,
+          "crafted": 346,
+          "wins": 103,
+          "losses": 33
+        },
+        {
+          "minute": 240.5,
+          "level": 10,
+          "gold": 3245,
+          "crafted": 396,
+          "wins": 118,
+          "losses": 33
+        },
+        {
+          "minute": 270.5,
+          "level": 11,
+          "gold": 4631,
+          "crafted": 442,
+          "wins": 132,
+          "losses": 33
+        },
+        {
+          "minute": 300.5,
+          "level": 12,
+          "gold": 5503,
+          "crafted": 487,
+          "wins": 142,
+          "losses": 33
+        },
+        {
+          "minute": 330.5,
+          "level": 13,
+          "gold": 6994,
+          "crafted": 528,
+          "wins": 154,
+          "losses": 33
+        }
+      ],
+      "failedActions": {}
+    },
+    {
+      "minutes": 240,
+      "policy": "30-second active manager; all available classes; material sales; first-rank upgrades; boss launch at >=65% estimated chance",
+      "milestones": {
+        "firstCraft": 1.5,
+        "firstSale": 4,
+        "level2": 8,
+        "firstVictory": 18,
+        "smuggler_cache": 43.5,
+        "stone_sentinel": 68
+      },
+      "bossAttempts": [
+        {
+          "minute": 40.5,
+          "quest": "smuggler_cache",
+          "estimate": 100
+        },
+        {
+          "minute": 63.5,
+          "quest": "stone_sentinel",
+          "estimate": 100
+        }
+      ],
+      "level": 10,
+      "gold": 2862,
+      "crafted": 387,
+      "sold": 372,
+      "wins": 111,
+      "losses": 37,
+      "questWins": {
+        "rat_nest": 26,
+        "smuggler_cache": 1,
+        "quarry_road": 101,
+        "stone_sentinel": 1,
+        "ash_courtyard": 28,
+        "ember_shrine": 21,
+        "thorn_pass": 18
+      },
+      "heroLevels": [
+        {
+          "name": "Mara",
+          "level": 7,
+          "status": "fighting",
+          "gear": 6
+        },
+        {
+          "name": "Renn",
+          "level": 7,
+          "status": "fighting",
+          "gear": 5
+        },
+        {
+          "name": "Wren",
+          "level": 6,
+          "status": "fighting",
+          "gear": 5
+        },
+        {
+          "name": "Hire bren",
+          "level": 6,
+          "status": "fighting",
+          "gear": 6
+        }
+      ],
+      "workers": 3,
+      "highestCraftedTier": 2,
+      "staffCare": false,
+      "staff": {
+        "quartermaster": {
+          "hired": true,
+          "active": true,
+          "level": 2,
+          "xp": 35.549999999999976,
+          "unpaid": false,
+          "stamina": 0
+        },
+        "envoy": {
+          "hired": true,
+          "active": true,
+          "level": 4,
+          "xp": 15.000000000000036,
+          "unpaid": false,
+          "stamina": 0
+        },
+        "apprentice": {
+          "hired": true,
+          "active": true,
+          "level": 4,
+          "xp": 49.95000000000002,
+          "unpaid": false,
+          "stamina": 0
+        },
+        "runekeeper": {
+          "hired": true,
+          "active": true,
+          "level": 1,
+          "xp": 0,
+          "unpaid": false,
+          "stamina": 0
+        }
+      },
+      "highestProficiency": 28,
+      "materialsLost": 42,
+      "trees": {
+        "adventurers_training_0": 1,
+        "adventurers_training_1": 1,
+        "mine_extraction_0": 1,
+        "adventurers_expeditions_0": 1,
+        "forge_machinery_0": 1,
+        "adventurers_expeditions_1": 1,
+        "mine_logistics_0": 1,
+        "shop_warehouse_0": 1,
+        "forge_workflow_0": 1,
+        "shop_commerce_0": 1,
+        "adventurers_recruitment_0": 1,
+        "forge_mastery_0": 1,
+        "shop_warehouse_1": 1,
+        "adventurers_expeditions_2": 1,
+        "adventurers_training_2": 1,
+        "forge_workflow_1": 1,
+        "shop_commerce_1": 1,
+        "forge_machinery_1": 1,
+        "forge_mastery_1": 1,
+        "shop_commerce_2": 1,
+        "adventurers_expeditions_3": 1,
+        "mine_depths_0": 1,
+        "forge_machinery_2": 1,
+        "adventurers_training_3": 1,
+        "mine_extraction_1": 1,
+        "forge_workflow_2": 1,
+        "forge_mastery_2": 1,
+        "mine_logistics_1": 1,
+        "forge_machinery_3": 1,
+        "adventurers_expeditions_4": 1,
+        "forge_mastery_3": 1,
+        "mine_extraction_2": 1,
+        "mine_depths_1": 1
+      },
+      "legacy": {
+        "eligible": false,
+        "sparks": 0,
+        "heirlooms": [
+          {
+            "id": "item-3127",
+            "recipeId": "iron_bows_v1",
+            "quality": 91,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 13791243,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3136",
+            "recipeId": "iron_daggers",
+            "quality": 79,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 13845688,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3146",
+            "recipeId": "iron_foci",
+            "quality": 76,
+            "affixId": "precise",
+            "enchantmentId": null,
+            "createdAt": 13922942,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3148",
+            "recipeId": "iron_instruments",
+            "quality": 73,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 13933566,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3156",
+            "recipeId": "bronze_bows_v1",
+            "quality": 97,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 13981622,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3161",
+            "recipeId": "bronze_cloth_armor_v1",
+            "quality": 88,
+            "affixId": "stout",
+            "enchantmentId": null,
+            "createdAt": 14001340,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3178",
+            "recipeId": "bronze_daggers_v1",
+            "quality": 98,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 14043559,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3183",
+            "recipeId": "iron_daggers_v1",
+            "quality": 92,
+            "affixId": "balanced",
+            "enchantmentId": null,
+            "createdAt": 14058822,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3191",
+            "recipeId": "bronze_offhands_v1",
+            "quality": 86,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 14092995,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3195",
+            "recipeId": "bronze_instruments_v1",
+            "quality": 91,
+            "affixId": "stout",
+            "enchantmentId": null,
+            "createdAt": 14109638,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3203",
+            "recipeId": "bronze_armor_v1",
+            "quality": 100,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 14176182,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3205",
+            "recipeId": "iron_cloth_armor",
+            "quality": 71,
+            "affixId": "tempered",
+            "enchantmentId": null,
+            "createdAt": 14178374,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3214",
+            "recipeId": "iron_leather_armor",
+            "quality": 73,
+            "affixId": "nimble",
+            "enchantmentId": null,
+            "createdAt": 14260525,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3227",
+            "recipeId": "iron_cloth_armor_v1",
+            "quality": 83,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 14299992,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-3236",
+            "recipeId": "iron_instruments_v1",
+            "quality": 85,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 14351267,
+            "displayed": false,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          }
+        ],
+        "retained": [
+          "Legacy sparks and talents",
+          "Collection records",
+          "Decorations",
+          "One heirloom and its recipe discovery"
+        ],
+        "reset": [
+          "Smith level, stats and proficiency",
+          "Gold and materials",
+          "Quarry and shop upgrades",
+          "Staff and adventurers",
+          "Quests and recipe discoveries"
+        ],
+        "breakdown": {
+          "finalBoss": 0,
+          "tierBosses": 3,
+          "smithMilestones": 0,
+          "masterworkDesigns": 0,
+          "bossesDefeated": 2,
+          "masterworks": 0
+        }
+      },
+      "maxOverdue": 0,
+      "validationErrors": [],
+      "history": [
+        {
+          "minute": 0.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 0
+        },
+        {
+          "minute": 30.5,
+          "level": 3,
+          "gold": 52,
+          "crafted": 37,
+          "wins": 10,
+          "losses": 19
+        },
+        {
+          "minute": 60.5,
+          "level": 4,
+          "gold": 96,
+          "crafted": 71,
+          "wins": 25,
+          "losses": 28
+        },
+        {
+          "minute": 90.5,
+          "level": 5,
+          "gold": 98,
+          "crafted": 111,
+          "wins": 37,
+          "losses": 33
+        },
+        {
+          "minute": 120.5,
+          "level": 6,
+          "gold": 114,
+          "crafted": 176,
+          "wins": 55,
+          "losses": 33
+        },
+        {
+          "minute": 150.5,
+          "level": 7,
+          "gold": 180,
+          "crafted": 235,
+          "wins": 70,
+          "losses": 34
+        },
+        {
+          "minute": 180.5,
+          "level": 8,
+          "gold": 983,
+          "crafted": 293,
+          "wins": 83,
+          "losses": 36
+        },
+        {
+          "minute": 210.5,
+          "level": 9,
+          "gold": 1935,
+          "crafted": 342,
+          "wins": 97,
+          "losses": 37
+        }
+      ],
+      "failedActions": {}
+    },
+    {
+      "minutes": 480,
+      "policy": "Unattended with empty shop",
+      "milestones": {},
+      "bossAttempts": [],
+      "level": 1,
+      "gold": 12,
+      "crafted": 0,
+      "sold": 0,
+      "wins": 0,
+      "losses": 369,
+      "questWins": {},
+      "heroLevels": [
+        {
+          "name": "Mara",
+          "level": 1,
+          "status": "browsing",
+          "gear": 0
+        },
+        {
+          "name": "Renn",
+          "level": 1,
+          "status": "browsing",
+          "gear": 0
+        },
+        {
+          "name": "Wren",
+          "level": 1,
+          "status": "browsing",
+          "gear": 0
+        }
+      ],
+      "workers": 1,
+      "highestCraftedTier": 0,
+      "staffCare": true,
+      "staff": {},
+      "highestProficiency": 0,
+      "materialsLost": 0,
+      "trees": {},
+      "legacy": {
+        "eligible": false,
+        "sparks": 0,
+        "heirlooms": [],
+        "retained": [
+          "Legacy sparks and talents",
+          "Collection records",
+          "Decorations",
+          "One heirloom and its recipe discovery"
+        ],
+        "reset": [
+          "Smith level, stats and proficiency",
+          "Gold and materials",
+          "Quarry and shop upgrades",
+          "Staff and adventurers",
+          "Quests and recipe discoveries"
+        ],
+        "breakdown": {
+          "finalBoss": 0,
+          "tierBosses": 0,
+          "smithMilestones": 0,
+          "masterworkDesigns": 0,
+          "bossesDefeated": 0,
+          "masterworks": 0
+        }
+      },
+      "maxOverdue": 0,
+      "validationErrors": [],
+      "history": [
+        {
+          "minute": 0.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 0
+        },
+        {
+          "minute": 30.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 24
+        },
+        {
+          "minute": 60.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 45
+        },
+        {
+          "minute": 90.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 69
+        },
+        {
+          "minute": 120.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 93
+        },
+        {
+          "minute": 150.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 114
+        },
+        {
+          "minute": 180.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 138
+        },
+        {
+          "minute": 210.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 162
+        },
+        {
+          "minute": 240.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 186
+        },
+        {
+          "minute": 270.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 207
+        },
+        {
+          "minute": 300.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 231
+        },
+        {
+          "minute": 330.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 255
+        },
+        {
+          "minute": 360.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 276
+        },
+        {
+          "minute": 390.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 300
+        },
+        {
+          "minute": 420.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 324
+        },
+        {
+          "minute": 450.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 345
+        }
+      ],
+      "failedActions": {}
+    }
+  ]
+}

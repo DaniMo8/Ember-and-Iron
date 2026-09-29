@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1420" viewBox="0 0 1500 1420" role="img" aria-labelledby="title desc">
+<title id="title">Ember and Iron — focused desktop workspace</title><desc id="desc">A compact header and a persistent Next goal lead into Mine, Forge and Shop. One focused scene and selected recipe dominate. Manage and the adventure theatre expand only when chosen.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b6109"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#292823}.muted{fill:#66645c}.amber{fill:#9b6109}.heading{font-weight:700}.label{font-size:17px}.small{font-size:16px}</style>
+<rect width="1500" height="1420" fill="#f7f4ec"/>
+<text x="55" y="49" font-size="19" font-weight="700" fill="#236fa5" style="fill:#236fa5" text-anchor="start">
+<tspan x="55" dy="0">EMBER &amp; IRON · DESKTOP CONCEPT · v0.5</tspan>
+</text>
+<text x="55" y="92" font-size="33" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="55" dy="0">A clear job in front of you</tspan>
+</text>
+<rect x="55" y="120" width="1390" height="58" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="77" y="157" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="77" dy="0">EMBER &amp; IRON</tspan>
+</text>
+<text x="1420" y="157" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="end">
+<tspan x="1420" dy="0">18 gold     Lv. 1     Settings</tspan>
+</text>
+<rect x="55" y="196" width="1390" height="106" rx="14" fill="#e5f0d5" stroke="#7f9a60" stroke-width="1.5"/>
+<text x="77" y="223" font-size="14" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="77" dy="0">NEXT GOAL</tspan>
+</text>
+<text x="77" y="252" font-size="23" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="77" dy="0">Forge your first Bronze Shortsword</tspan>
+</text>
+<text x="77" y="280" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="77" dy="0">Your materials are ready. Make one useful piece for the shop.</tspan>
+</text>
+<rect x="1213" y="224" width="210" height="50" rx="14" fill="#167c74" stroke="#167c74" stroke-width="1.5"/>
+<text x="1318" y="256" font-size="17" font-weight="700" fill="#ffffff" style="fill:#ffffff" text-anchor="middle">
+<tspan x="1318" dy="0">GO TO FORGE  →</tspan>
+</text>
+<rect x="55" y="323" width="1390" height="61" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="82" y="361" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="82" dy="0">MINE       FORGE       SHOP</tspan>
+</text>
+<rect x="177" y="374" width="81" height="4" rx="0" fill="#167c74" stroke="#167c74" stroke-width="1.5"/>
+<text x="1420" y="361" font-size="18" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="end">
+<tspan x="1420" dy="0">Manage  ☰</tspan>
+</text>
+<g transform="translate(55 405) scale(1.6)">
+<rect x="0" y="0" width="640" height="240" fill="#55bbed"/>
+<rect x="30" y="25" width="75" height="18" fill="#fff6da"/>
+<rect x="45" y="15" width="42" height="12" fill="#fff6da"/>
+<rect x="215" y="16" width="75" height="18" fill="#fff6da"/>
+<rect x="230" y="6" width="42" height="12" fill="#fff6da"/>
+<rect x="486" y="24" width="75" height="18" fill="#fff6da"/>
+<rect x="501" y="14" width="42" height="12" fill="#fff6da"/>
+<path d="M0 151 L90 45 L169 147 L278 61 L386 151 L479 39 L583 142 L640 89 V220 H0Z" fill="#6d94d0"/>
+<path d="M0 170 Q80 63 181 173 Q297 68 429 173 Q548 94 640 170 V220 H0Z" fill="#57ad72"/>
+<rect x="0" y="190" width="640" height="50" fill="#b98552"/>
+<rect x="0" y="187" width="640" height="12" fill="#4a9b48"/>
+<rect x="0" y="200" width="640" height="8" fill="#ebbc6d"/>
+<rect x="12" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="46" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="80" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="114" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="148" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="182" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="216" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="250" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="284" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="318" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="352" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="386" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="420" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="454" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="488" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="522" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="556" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="590" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="624" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="48" y="46" width="544" height="152" fill="#dc9c64" stroke="#293453" stroke-width="3"/>
+<rect x="35" y="33" width="570" height="22" fill="#c95658" stroke="#293453" stroke-width="3"/>
+<rect x="48" y="36" width="544" height="7" fill="#f48d69"/>
+<rect x="48" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="207" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="395" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="578" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="67" y="64" width="510" height="119" fill="#f1c080"/>
+<rect x="77" y="78" width="94" height="107" fill="#87959c" stroke="#293453" stroke-width="3"/>
+<rect x="78" y="92" width="92" height="4" fill="#596d82"/>
+<rect x="78" y="111" width="92" height="4" fill="#596d82"/>
+<rect x="78" y="130" width="92" height="4" fill="#596d82"/>
+<rect x="88" y="125" width="70" height="56" fill="#454661" stroke="#293453" stroke-width="3"/>
+<path d="M95 176 L104 144 L116 157 L130 133 L147 176Z" fill="#ff8c3d"/><path d="M108 178 L119 159 L132 151 L138 178Z" fill="#ffe076"/>
+<rect x="111" y="52" width="30" height="31" fill="#738796" stroke="#293453" stroke-width="3"/>
+<rect x="221" y="92" width="66" height="49" fill="#58c3dd" stroke="#293453" stroke-width="3"/>
+<rect x="252" y="92" width="4" height="49" fill="#775451"/>
+<rect x="214" y="153" width="87" height="15" fill="#b5d4da" stroke="#293453" stroke-width="3"/>
+<rect x="228" y="168" width="46" height="24" fill="#718ea8" stroke="#293453" stroke-width="3"/>
+<rect x="437" y="135" width="111" height="13" fill="#9d704b" stroke="#293453" stroke-width="3"/>
+<rect x="444" y="148" width="9" height="46" fill="#79534b"/>
+<rect x="531" y="148" width="9" height="46" fill="#79534b"/>
+<rect x="459" y="128" width="44" height="5" fill="#c4dce3"/>
+<rect x="495" y="122" width="4" height="15" fill="#ffe099"/>
+<g transform="translate(332 129) scale(1.35)">
+<rect x="5" y="0" width="20" height="18" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="6" y="0" width="20" height="5" fill="#584767"/>
+<rect x="3" y="4" width="6" height="9" fill="#584767"/>
+<rect x="16" y="6" width="5" height="6" fill="#fff8de"/>
+<rect x="19" y="8" width="2" height="4" fill="#293453"/>
+<rect x="11" y="10" width="5" height="4" fill="#e68c70"/>
+<rect x="20" y="15" width="5" height="2" fill="#9b4f62"/>
+<rect x="3" y="18" width="24" height="18" fill="#9961be" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="20" width="7" height="12" fill="#d29bde"/>
+<rect x="9" y="24" width="14" height="15" fill="#d2a344" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="20" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="2" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="20" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="26" y="20" width="9" height="7" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="33" y="8" width="4" height="21" fill="#b58150" stroke="#293453" stroke-width="3"/>
+<rect x="28" y="4" width="18" height="8" fill="#b6c9d5" stroke="#293453" stroke-width="3"/>
+</g>
+</g>
+<rect x="1103" y="405" width="342" height="119" rx="14" fill="#e2eef5" stroke="#9dbace" stroke-width="1.5"/>
+<text x="1124" y="440" font-size="17" font-weight="700" fill="#236fa5" style="fill:#236fa5" text-anchor="start">
+<tspan x="1124" dy="0">ADVENTURE THEATRE</tspan>
+</text>
+<text x="1124" y="472" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1124" dy="0">Customers are out exploring.</tspan>
+</text>
+<text x="1124" y="502" font-size="17" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="1124" dy="0">Open to watch  →</tspan>
+</text>
+<text x="1124" y="573" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1124" dy="0">Collapsed by default.</tspan>
+<tspan x="1124" dy="27">Opens beside your work.</tspan>
+<tspan x="1124" dy="27">Watch only; no party chores.</tspan>
+</text>
+<rect x="55" y="812" width="1024" height="256" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="79" y="847" font-size="15" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="79" dy="0">AT THE FORGE</tspan>
+</text>
+<text x="79" y="884" font-size="29" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="79" dy="0">Bronze Shortsword</tspan>
+</text>
+<text x="1054" y="880" font-size="17" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="end">
+<tspan x="1054" dy="0">Change recipe  ▾</tspan>
+</text>
+<text x="79" y="919" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="79" dy="0">Quality 34     35 seconds     8 gold shelf price</tspan>
+</text>
+<text x="79" y="958" font-size="18" font-weight="400" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="79" dy="0">Needs: 2 bronze / 6 held    1 leather / 4 held    1 fuel / 6 held</tspan>
+</text>
+<rect x="79" y="981" width="322" height="62" rx="14" fill="#167c74" stroke="#167c74" stroke-width="1.5"/>
+<text x="240" y="1020" font-size="20" font-weight="700" fill="#ffffff" style="fill:#ffffff" text-anchor="middle">
+<tspan x="240" dy="0">CRAFT ONE</tspan>
+</text>
+<text x="432" y="1020" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="432" dy="0">Sword practice grows with each piece.</tspan>
+</text>
+<rect x="55" y="1091" width="1024" height="112" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="79" y="1128" font-size="15" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="79" dy="0">ACTIVE JOB</tspan>
+</text>
+<text x="79" y="1164" font-size="19" font-weight="400" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="79" dy="0">Progress, optional tempering, and waiting work appear here.</tspan>
+</text>
+<rect x="1103" y="833" width="342" height="227" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="1125" y="869" font-size="16" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="1125" dy="0">WHEN MANAGE IS OPEN</tspan>
+</text>
+<text x="1125" y="907" font-size="19" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1125" dy="0">Upgrades</tspan>
+<tspan x="1125" dy="34">Smith</tspan>
+<tspan x="1125" dy="34">Journal</tspan>
+<tspan x="1125" dy="34">Legacy</tspan>
+</text>
+<rect x="55" y="1234" width="1390" height="105" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="79" y="1272" font-size="17" font-weight="700" fill="#236fa5" style="fill:#236fa5" text-anchor="start">
+<tspan x="79" dy="0">SAME FRAME, THREE FOCUSED PLACES</tspan>
+</text>
+<text x="79" y="1308" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="79" dy="0">Mine: deposit and gathering.   Forge: selected craft.   Shop: display stock and one recent purchase.</tspan>
+</text>
+<text x="55" y="1388" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="55" dy="0">Layout concept. The theatre and Manage illustration describe optional states, not extra permanent cards.</tspan>
+</text>
+</svg>

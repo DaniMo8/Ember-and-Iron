@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1500" viewBox="0 0 1500 1500" role="img" aria-labelledby="title desc">
+<title id="title">Ember and Iron — autonomous shop flow</title><desc id="desc">The smith produces and displays equipment. Customers automatically buy, equip, select quests, form parties, recover and return. All loops continue offline under the shared cap.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b6109"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#292823}.muted{fill:#66645c}.amber{fill:#9b6109}.heading{font-weight:700}.label{font-size:17px}.small{font-size:16px}</style>
+<rect width="1500" height="1500" fill="#f7f4ec"/>
+<text x="70" y="56" font-size="20" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="70" dy="0">EMBER &amp; IRON · v0.5</tspan>
+</text>
+<text x="70" y="101" font-size="34" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="70" dy="0">Run the forge. Let the world come to you.</tspan>
+</text>
+<text x="70" y="139" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="70" dy="0">One Next goal guides Mine, Forge and Shop. The adventurer loop continues automatically.</tspan>
+</text>
+<rect x="70" y="195" width="430" height="120" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="90" y="227" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="90" dy="0">Mine and improve the quarry</tspan>
+</text>
+<text x="90" y="256" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="90" dy="0">Deposits, workers and tools</tspan>
+<tspan x="90" dy="25">Choose the material supply</tspan>
+</text>
+<rect x="535" y="195" width="430" height="120" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="555" y="227" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="555" dy="0">Craft and practice</tspan>
+</text>
+<text x="555" y="256" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="555" dy="0">Only currently usable recipes</tspan>
+<tspan x="555" dy="25">Quality, stats and proficiency</tspan>
+</text>
+<rect x="1000" y="195" width="430" height="120" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="1020" y="227" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="1020" dy="0">Stock the shelves</tspan>
+</text>
+<text x="1020" y="256" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1020" dy="0">Finished work fills free positions</tspan>
+<tspan x="1020" dy="25">List, withdraw or protect stock</tspan>
+</text>
+<path d="M500 255 H535" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M965 255 H1000" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="70" y="369" font-size="19" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="70" dy="0">AUTONOMOUS CUSTOMERS</tspan>
+</text>
+<rect x="70" y="400" width="430" height="130" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="90" y="432" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="90" dy="0">Walk in and browse</tspan>
+</text>
+<text x="90" y="461" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="90" dy="0">Stock attracts compatible archetypes</tspan>
+<tspan x="90" dy="25">Compare useful items and budgets</tspan>
+</text>
+<rect x="535" y="400" width="430" height="130" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="555" y="432" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="555" dy="0">Buy, equip and commission</tspan>
+</text>
+<text x="555" y="461" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="555" dy="0">Displayed, unprotected stock only</tspan>
+<tspan x="555" dy="25">One real checkout per transaction</tspan>
+</text>
+<rect x="1000" y="400" width="430" height="130" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="1020" y="432" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="1020" dy="0">Prepare an expedition</tspan>
+</text>
+<text x="1020" y="461" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1020" dy="0">Choose a quest; gather guild allies</tspan>
+<tspan x="1020" dy="25">No manual sale or dispatch required</tspan>
+</text>
+<rect x="1000" y="605" width="430" height="130" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="1020" y="637" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="1020" dy="0">Travel and battle</tspan>
+</text>
+<text x="1020" y="666" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1020" dy="0">Seeded combat, gear and boss phases</tspan>
+<tspan x="1020" dy="25">Watch while the forge keeps working</tspan>
+</text>
+<rect x="535" y="605" width="430" height="130" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="555" y="637" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="555" dy="0">Win or retreat</tspan>
+</text>
+<text x="555" y="666" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="555" dy="0">Win: gifts, reputation and discoveries</tspan>
+<tspan x="555" dy="25">Retreat: recover and remember needs</tspan>
+</text>
+<rect x="70" y="605" width="430" height="130" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="90" y="637" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="90" dy="0">Return to the village</tspan>
+</text>
+<text x="90" y="666" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="90" dy="0">Seek better gear or a safer route</tspan>
+<tspan x="90" dy="25">New demand reaches the shelves</tspan>
+</text>
+<path d="M500 465 H535" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M965 465 H1000" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M1215 530 V605" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M1000 670 H965" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M535 670 H500" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M285 605 V530" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M1215 315 V350 H285 V400" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M70 670 H35 V345 H750 V315" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)" stroke-dasharray="7 7"/>
+<text x="270" y="793" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="270" dy="0">Improved demand, recipe discoveries and material returns guide the next craft.</tspan>
+</text>
+<rect x="70" y="835" width="1360" height="165" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="94" y="873" font-size="19" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="94" dy="0">PRODUCTION POLICIES ARE SEPARATE</tspan>
+</text>
+<text x="94" y="909" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="94" dy="0">Customers shop and adventure from the beginning, online and offline.</tspan>
+<tspan x="94" dy="28">The production assistant only repeats crafts and buys permitted materials within limits.</tspan>
+<tspan x="94" dy="28">Private, protected and reserved items stay off sale; a displayed rare item is genuinely for sale.</tspan>
+</text>
+<rect x="70" y="1040" width="1360" height="170" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="94" y="1078" font-size="19" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="94" dy="0">OPTIONAL LEGACY</tspan>
+</text>
+<text x="94" y="1114" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="94" dy="0">At level 8 and six wins, choose to retire into a new generation.</tspan>
+<tspan x="94" dy="28">Keep family records, decor, permanent talents and one heirloom with its recipe exemption.</tspan>
+<tspan x="94" dy="28">Spend Sparks across Force, Artifice, Commerce and Lore. Continue the current shop if preferred.</tspan>
+</text>
+<rect x="70" y="1250" width="1360" height="160" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="94" y="1288" font-size="19" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="94" dy="0">THE WORLD KEEPS ITS PROMISES</tspan>
+</text>
+<text x="94" y="1324" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="94" dy="0">Scene animation follows actual events; it does not invent stock, purchases or victories.</tspan>
+<tspan x="94" dy="28">Offline catch-up uses the same customer decisions and combat model, capped at eight hours.</tspan>
+<tspan x="94" dy="28">Capacity pauses safely. Rewards apply once. The return recap groups activity without claim chores.</tspan>
+</text>
+<text x="70" y="1460" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="70" dy="0">Sixty recipes · twelve proficiencies · six archetypes · six regions · twenty-four Legacy talents</tspan>
+</text>
+</svg>

@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8"><title>Hero layout test workshop</title>
+<body style="background:#15232a;color:#eee;font:18px system-ui;padding:40px">
+<h1>Hero layout test workshop</h1><p>Disposable workshop on port 8787 only. Grants three classes, equipment with modifiers, mastery, supplies and a short quest history for interface checks.</p><button id="load">Load hero layout workshop</button>
+<script src="../../data.js"></script><script src="../../engine.js"></script><script src="../../campaign.js"></script><script src="../../company.js"></script><script src="../../formation-combat.js"></script><script src="../../progression.js"></script><script src="../../world-engine.js"></script>
+<script>
+document.querySelector('#load').onclick=()=>{
+ if(location.port!=='8787')throw Error('Only the isolated QA port is allowed');
+ const e=new EIWorldEngine(EIData);
+ e.command('create',{name:'Hero layout QA',stats:{strength:7,precision:7,charisma:7,knowledge:7},heroes:[{name:'Mara',archetypeId:'vanguard'},{name:'Elowen',archetypeId:'mage'},{name:'Robin',archetypeId:'ranger'}]});
+ e.state.player.level=10;e.state.player.gold=1200;e.state.player.stats={strength:25,precision:25,charisma:7,knowledge:25};
+ for(const p of Object.values(e.state.player.proficiency))p.level=30;
+ for(let i=0;i<=2;i++)e.state.world.trees['forge_machinery_'+i]=1;
+ e.state.world.trees.mine_depths_0=1;for(const id of Object.keys(e.state.materials))e.state.materials[id]=20;
+ e.state.materials.alchemical_oil=0;e.state.questWins.rat_nest=4;e.state.stats.questsWon=4;
+ e.state.unlocks.recipes=Object.values(e.data.recipes).filter(r=>r.tier<=3).map(r=>r.id);
+ for(const h of e.state.adventurers){h.level=4;h.xp=50;h.budget=120;h.memories=[{questId:'rat_nest',victory:true,time:0},{questId:'rat_nest',victory:false,time:0}];h.failures=1;const r=Object.values(e.data.recipes).find(r=>r.slot==='weapon'&&r.tier===1&&r.variant===0&&e.data.archetypes[h.archetypeId].preferences.includes(r.classId));h.equipment.weapon={id:e._id('fixture'),recipeId:r.id,quality:45,makerGeneration:1,affixId:'keen',enchantmentId:'flame',enchantStrength:1.4};}
+ e.state.adventurers[2].equipment.weapon.recipeId='bronze_bows';
+ e.state.adventurers[0].equipment.body={id:e._id('fixture'),recipeId:'bronze_armor',quality:35,makerGeneration:1,affixId:'warded',enchantmentId:'frost_ward',enchantStrength:1.3};
+ e.markSaved(Date.now());const valid=EIWorldEngine.validateSave(e.exportSave(),e.data);if(!valid.ok)throw Error(valid.message);
+ localStorage.setItem('ember-iron-save-v3',e.exportSave());localStorage.removeItem('ember-iron-save-v3-owner');location.href='../../index.html?room=adventurers';
+};
+</script></body>

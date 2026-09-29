@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Responsive workshop review</title>
+<body style="background:#15232a;color:#eee;font:18px system-ui;padding:24px"><h1>Responsive workshop review</h1><p>Disposable saves on port 8791 only. Select a milestone to review room layouts and background gates.</p><div style="display:flex;flex-wrap:wrap;gap:12px"><button data-stage="creation">Character creation</button><button data-stage="starter">Starter workshop</button><button data-stage="middle">Established workshop</button><button data-stage="first-endgame">First-life endgame</button><button data-stage="legacy">Late Legacy workshop</button></div><p id="result"></p>
+<script src="../../data.js"></script><script src="../../engine.js"></script><script src="../../campaign.js"></script><script src="../../company.js"></script><script src="../../formation-combat.js"></script><script src="../../progression.js"></script><script src="../../world-engine.js"></script>
+<script>
+for(const b of document.querySelectorAll('[data-stage]'))b.onclick=()=>{try{
+ if(location.port!=='8791')throw Error('This fixture only runs on the isolated review port');
+ const stage=b.dataset.stage,e=new EIWorldEngine(EIData),s=e.state;
+ if(stage!=='creation')e.command('create',{name:'Layout review',stats:{strength:7,precision:7,charisma:7,knowledge:7},heroes:[{name:'Mara',archetypeId:'vanguard'},{name:'Elowen',archetypeId:'mage'},{name:'Robin',archetypeId:'ranger'}]});
+ if(!['creation','starter'].includes(stage)){
+ const late=stage!=='middle';s.player.level=late?30:12;s.player.gold=late?50000:5000;s.player.stats={strength:late?100:30,precision:late?100:30,charisma:12,knowledge:late?100:30};s.player.reputation=late?1000:80;s.player.legacy.generation=stage==='legacy'?2:1;
+ for(const p of Object.values(s.player.proficiency))p.level=late?80:30;
+ if(late)for(const n of Object.values(EIProgression.nodes))s.world.trees[n.id]=n.maxRank;
+ else {for(let i=0;i<=2;i++)s.world.trees['forge_machinery_'+i]=1;s.world.trees.mine_depths_0=1;s.world.trees.mine_depths_1=1;s.world.trees.shop_warehouse_0=2;}
+ s.questWins.rat_nest=5;s.questWins.smuggler_cache=1;if(late)for(const q of Object.values(e.data.quests))if(!q.manualBoss)s.questWins[q.id]=5;s.stats.questsWon=late?300:30;if(late)for(const id of ['stone_sentinel','wildwood_heart','frost_citadel','void_sovereign'])s.questWins[id]=1;
+ s.world.totalMined=late?100000:1500;s.world.unlockedHeroIds=late?e.data.heroes.map(h=>h.id):[...new Set([...EIProgression.startingHeroes,e.data.heroes.find(h=>!EIProgression.startingHeroes.includes(h.id)).id])];
+ for(const h of e.data.heroes.filter(h=>s.world.unlockedHeroIds.includes(h.id)))if(!s.world.heroChoices[h.id])s.world.heroChoices[h.id]={name:h.name,archetypeId:h.archetypeId};
+ for(let i=0;i<12;i++)e._arrive(true);
+ const seams=e.seams();s.world.miners=Array.from({length:late?18:5},(_,i)=>({id:'miner-'+(i+1),assigned:seams[i%seams.length].id,working:seams[i%seams.length].id,progress:(i%6)/6}));
+ s.unlocks.recipes=Object.values(e.data.recipes).filter(r=>r.tier<=(late?5:3)).map(r=>r.id);for(const id of Object.keys(s.materials))s.materials[id]=late?100:20;
+ for(const h of s.adventurers){h.relationship=30;h.level=late?15:4;h.xp=20;h.budget=200;h.memories=[{questId:'rat_nest',victory:true,time:0},{questId:'rat_nest',victory:false,time:0}];e._relationshipMilestones(h);const r=Object.values(e.data.recipes).find(r=>r.slot==='weapon'&&r.tier===1&&r.variant===0&&e.data.archetypes[h.archetypeId].preferences.includes(r.classId));h.equipment.weapon={id:e._id('fixture'),recipeId:r.id,quality:45,makerGeneration:1,affixId:'keen',enchantmentId:'flame',enchantStrength:1.4};}
+ const types=e.availableClasses();for(const r of Object.values(e.data.recipes).filter(r=>r.tier===1&&r.variant===0&&types.includes(r.classId)).slice(0,8))s.inventory.push({id:e._id('fixture'),recipeId:r.id,quality:40,makerGeneration:1,displayed:true});
+ for(const id of Object.keys(e.data.staff).slice(0,2))e.command('hireStaff',{staffId:id});
+ e._refreshUnlocks();e.command('craft',{recipeId:'bronze_swords',quantity:2});
+ }
+ e.markSaved(Date.now());const valid=EIWorldEngine.validateSave(e.exportSave(),e.data);if(!valid.ok)throw Error(valid.message);localStorage.setItem('ember-iron-save-v3',e.exportSave());localStorage.removeItem('ember-iron-save-v3-owner');location.href='../../index.html?room=mine';
+}catch(error){document.querySelector('#result').textContent=error.message;}};
+</script></body></html>

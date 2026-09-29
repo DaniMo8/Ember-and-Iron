@@ -1,0 +1,72 @@
+from pathlib import Path
+import html
+ROOT=Path(__file__).resolve().parent
+
+def svg(w,h,title):
+ return [f'<svg class="company-diagram" xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img"><title>{html.escape(title)}</title><style>svg.company-diagram text{{font-family:Segoe UI,Arial;fill:#c3d1d8}}svg.company-diagram .title{{font:26px Georgia;fill:#e5c88b}}svg.company-diagram .label{{font-size:16px;fill:#e5c88b}}svg.company-diagram .small{{font-size:12px}}</style><rect width="100%" height="100%" rx="12" fill="#111d25"/>']
+def text(s,x,y,value,cls='small'):
+ s.append(f'<text x="{x}" y="{y}" class="{cls}">{html.escape(value)}</text>')
+def box(s,x,y,w,h,label,lines=()):
+ s.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="7" fill="#21343f" stroke="#69808c" stroke-opacity=".5"/>');text(s,x+16,y+27,label,'label')
+ for i,line in enumerate(lines):text(s,x+16,y+51+i*22,line)
+def write(name,s):
+ (ROOT/name).write_text(''.join(s)+'</svg>',encoding='utf-8')
+s=svg(1120,710,'Dense dashboard layout, version 1.3')
+text(s,30,44,'A working dashboard over a living-world backdrop','title')
+text(s,30,70,'Backgrounds show progress. Controls and information belong to compact panels.')
+box(s,30,96,1060,55,'Smith | Mine | Forge | Shop | Adventurers                         Gold / Settings')
+box(s,30,165,1060,64,'Room title / stage                                    Room currency / Upgrades')
+box(s,30,243,1060,62,'NEXT STEP  -  One objective, reason and direct action')
+box(s,30,319,1060,63,'KEY FIGURES  -  Capacity | Workers | Materials | Progress | Currency')
+box(s,30,398,725,210,'PRIMARY WORKSPACE',['Smith: attributes, staff XP/stamina, mastery, furnishings','Mine: seams and worker assignment slots','Forge: Weapons / Armour / Other; class + tier; 1 / 5 / max','Shop: displays above compact warehouse; requests and customers beside them','Adventurers: selectable roster + compact live hero viewer'])
+box(s,770,398,320,210,'CONTEXT',['Active work and time remaining','Resources and storage','Gear gaps / quest records','Follow hero and party policies','Quest mastery: 20 hero victories'])
+text(s,30,644,'All work continues while overlays are open. Manual navigation ends automatic hero following.','small')
+text(s,30,675,'Mobile: stack panels, retain all information, scroll the page. No floating image hotspots.','small')
+write('ui-layout.svg',s)
+s=svg(430,1030,'Dense mobile layout, version 1.3')
+text(s,22,42,'The same game, a narrow screen','title')
+box(s,20,70,390,82,'Ember & Iron       Gold / Settings',['Smith | Mine | Forge | Shop | Heroes'])
+box(s,20,168,390,71,'Room title          Upgrades',['Stage and room currency'])
+box(s,20,255,390,93,'NEXT STEP',['One current goal and its reason','Direct action'])
+box(s,20,365,390,88,'KEY FIGURES',['Two compact rows of three metrics'])
+box(s,20,470,390,156,'PRIMARY WORK',['Recipes: two-column grid','Mine: assignment and mining rows','Heroes: three-column starting roster','Selected hero: follow / live view / gear'])
+box(s,20,643,390,160,'CONTEXT BELOW',['Work queue and resources','Formation rounds and quest mastery','All panels scroll naturally','No controls require touching artwork'])
+box(s,20,820,390,116,'UPGRADE OVERLAY',['Section currency and current balance','Three horizontal branching columns','Escape or close returns to the room'])
+text(s,22,980,'Art remains a passive full-page background.','small')
+write('ui-mobile.svg',s)
+
+
+def arrow(s,x1,y1,x2,y2):
+ s.append(f'<path d="M{x1},{y1} L{x2},{y2}" stroke="#aa976e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>')
+def arrows(s):
+ s.append('<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="#aa976e"/></marker></defs>')
+s=svg(1120,840,'The maker and autonomous company loop, version 1.3');arrows(s)
+text(s,30,44,'Make the equipment. Shape the company.','title')
+box(s,30,78,1060,76,'CREATE A GENERATION',['Choose profession + 20 attributes; name and choose classes for three heroes.'])
+box(s,30,189,320,118,'MINE',['Assign workers to seams; coal first.','Extract materials; buy wood/leather.','Trade in Open workings.'])
+box(s,400,189,320,118,'FORGE',['Choose group, class, then tier.','Training → standard → next tier.','Optional high-attribute prestige gear.'])
+box(s,770,189,320,118,'SHOP',['Fill display slots automatically.','Heroes buy useful, compatible gear.','Five easiest requests; track visitors.'])
+arrow(s,350,248,400,248);arrow(s,720,248,770,248);arrow(s,930,307,930,345)
+box(s,770,345,320,119,'AUTOMATIC QUESTS',['Short travel; two combat rounds.','Front line shields the back line.','Win: one mastery count per hero.'])
+box(s,400,345,320,119,'RETURN / RECOVER',['Win: rewards, shopping, next journey.','Lose: rest, shop for upgrades, retry.','No material overflow or held returns.'])
+arrow(s,770,407,720,407);arrow(s,560,345,560,307)
+box(s,30,345,320,119,'SMITH & INVESTMENT',['Gain attributes and class mastery.','Give employees leave; resume duty.','Room trees and six lasting furnishings.'])
+arrow(s,400,407,350,407);arrow(s,190,345,190,307)
+box(s,400,505,690,109,'20 HERO VICTORIES → NEXT ENCOUNTER / BOSS APPROACH',['Pressure grows until 20. A winning trio adds three counts.','Manually gather a boss party; three rounds; one clear opens the next tier.'])
+arrow(s,930,464,930,505)
+box(s,30,654,1060,105,'TIER 5 VOID SOVEREIGN → OPTIONAL LEGACY',['Retain sparks, talents, furnishings, records and one heirloom.','Restart with a new chosen company. Staff and ordinary room progress reset.'])
+arrow(s,744,614,744,654)
+text(s,30,799,'One deterministic scheduler; eight offline hours; employee stamina and storage limits continue to apply.')
+write('game-flow.svg',s)
+s=svg(1120,720,'Seventeen item classes and 255 patterns, version 1.3');arrows(s)
+text(s,30,44,'255 patterns · 17 class masteries · 5 material tiers','title')
+box(s,30,82,1060,76,'CHOSEN HERO CLASSES DETERMINE AVAILABLE EQUIPMENT',['Every item records material, quality, crafted prefix, enchanted suffix and maker generation.'])
+box(s,30,200,320,230,'WEAPONS · 7 CLASSES',['Daggers · Swords · Axes · Maces','Polearms · Bows · Arcane foci','One class filter at a time.','Wand / sceptre: one hand.','Prestige staff: two hands.'])
+box(s,400,200,320,230,'ARMOUR · 3 CLASSES',['Mail: Vanguard, Breaker, Guardian','Leather: Duelist, Ranger','Cloth: Mage','Separate mastery for each class.','Higher-tier fittings improve protection.'])
+box(s,770,200,320,230,'OTHER · 7 CLASSES',['Offhand: Shields · Books & relics','Ring: Rings','Charm: Charms · Talismans','Tool: Tools · Instruments','Compatibility varies by hero class.'])
+for x in [190,560,930]:arrow(s,x,158,x,200)
+box(s,30,469,1060,76,'BRONZE → IRON → STEEL → MITHRIL → STARFORGED',['Each material repeats three patterns per class; discoveries, machinery, attributes and mastery still apply.'])
+box(s,30,574,320,100,'TRAINING',['Cheap and quick; -12 quality.','Entry point into the material tier.'])
+box(s,400,574,320,100,'STANDARD',['Dependable all-round equipment.','+4 proficiency / +1 attribute to unlock.'])
+box(s,770,574,320,100,'PRESTIGE',['+12 quality; 1.95× core combat stats.','High requirements; optional progression.'])
+write('item-tree.svg',s)

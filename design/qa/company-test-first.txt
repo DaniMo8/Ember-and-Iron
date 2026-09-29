@@ -1,0 +1,244 @@
+✖ campaign catalogue has exactly three distinct patterns per class and tier; application is idempotent (32.3463ms)
+✔ quality labels use fixed standards across the entire 200-quality range (1.175ms)
+✖ crafted prefix and enchanted suffix compose medieval names, improve combat and customer value (14.3321ms)
+✔ quality115 commissions survive export, validation and reload (102.943ms)
+✔ every quest above tier1 requires the previous boss and all bosses are manual (81.3807ms)
+✖ boss reservation gathers away heroes through recovery, launches three before charter and rejects duplicate preparation (64.2685ms)
+✔ active and queued cancellation return exact escrow once; a full bin blocks cancellation until space exists (16.9757ms)
+✔ displays fill lowest quality first, honor holds and protection, and refill immediately after clearance (42.752ms)
+✔ Legacy depth costs are exponential and the complete tree costs304 sparks (74.7436ms)
+✔ Legacy requires the tier5 boss and rewards distinct boss difficulty (12.8444ms)
+✔ one full campaign buys a meaningful subset of Legacy and old sparks/talents survive (54.9305ms)
+✔ all common materials and batch sizes1–30 lose money on immediate resale, including maximum legitimate discounts (59.5032ms)
+✔ raw-sale quotes match execution; bulk and split sales cannot manufacture coins (27.2082ms)
+✔ clearance offers remain below customer value and current replacement inputs at every tier (333.1299ms)
+✔ paid Quartermaster and migrated material warehouses increase actual per-bin storage (28.5307ms)
+✔ all96 room nodes and worker hires have positive exponentially escalating prices (42.5151ms)
+✔ all legal creation builds support all starter recipe gates; stats change real outcomes (45.6242ms)
+✔ queue escrows exactly once; technique once; cancel refunds; output awards only once (3.4818ms)
+✔ queue capacity, storage reservation and parallel lanes prevent overproduction (1.6528ms)
+✔ quarry uses free elapsed-time production, worker yield and exact manual cooldown (3.3497ms)
+✔ advanced quarry and supplier unlocks preserve AND gates around alternate routes (0.97ms)
+✔ seeded battle results agree after reload and quality changes actual combat (7.736ms)
+✔ guild ranks permit parties and finale actually requires three heroes (41.195ms)
+✔ failed adventurer recovers with same identity, quest, history and equipment (18.4851ms)
+✔ save validation rejects malformed state without changing current save (3.8126ms)
+✔ offline cap consumes discarded wall time; no repeated craft or return rewards (2482.2971ms)
+✔ equivalent time chunks produce identical scheduled production and seeded events (30.6405ms)
+✔ enchantments respect slots and add authored flat values with captured knowledge scaling (1.1564ms)
+✔ legacy reset keeps exactly promised records and enforces sequential talents (1.0409ms)
+✔ full resource storage has explicit liquidation recovery without spending escrow (1.318ms)
+✔ active craft affix seed is stable across online customer activity and offline time (1.6996ms)
+✔ customers who recover offline continue the same autonomous retry lifecycle (98.5152ms)
+✔ mailbox reward delivery and claim cannot duplicate quest proceeds (2.4578ms)
+✔ relationship milestones create named commissions and delivery pays exactly once (2.0254ms)
+✔ masterwork commission requires quality85 and cannot spend protected heirlooms (1.0224ms)
+✔ unlocked advanced quests reach new visitors and failed returnees retain retry targets (1.8839ms)
+✔ hidden ticks and reloads share one eight-hour allowance until foreground resumes (2687.1955ms)
+✔ offline procurement cap persists across hidden ticks and reload but resets on foreground (10.8482ms)
+✔ story choices apply lasting bonuses once and preserve the generation branch (0.97ms)
+✔ shelf customers buy and depart autonomously from a fresh forge (3.3895ms)
+✔ NPC checkout respects budget, two-handed equipment and displayed stock (0.8202ms)
+✔ autonomous commissions accept and deliver only matching shelf stock (0.6501ms)
+✔ online and offline autonomous customers produce the same purchases, returns and battles (104.514ms)
+✔ the three-hero finale assembles itself and story branches resolve autonomously (71.9806ms)
+✔ old saves migrate NPC clocks without changing existing equipment or reserved items (1.1672ms)
+✔ customers value resistance for their quest and deferred rewards unpack automatically (1.1018ms)
+✔ fresh guidance honors a valid selected recipe and both selectors are read-only (7.3011ms)
+✔ fuel and bronze shortages lead to free gathering, not automatic purchases or another recipe (2.4906ms)
+✔ fittings purchases show actual deficits while a penniless empty forge gets valid rescue guidance (2.7366ms)
+✔ storage pressure does not direct players to gather into a full warehouse or sell keepsakes (2.6023ms)
+✔ working forge offers one real temper action then timer guidance without duplicating the craft (3.7899ms)
+✔ stored stock, a matching customer, and the first departure each have a different next step (43.717ms)
+✔ the next tier uses exact proficiency, stat and station gates and respects discovery OR (2.7041ms)
+✔ mastered tiers point to mastery or genuine commissions, with no unrelated collection progress (2.5984ms)
+✔ full materials and waiting parties point to gift space after points and finished-storage priorities (3.0402ms)
+✔ gift guidance clears when the next bundle has room and never watches a pending battle (1.3333ms)
+✔ returning heroes come home with full bins and full mailbox; currencies awarded once and excess materials discarded (91.7887ms)
+✔ old pending saves recover immediately on load without losing their quest reward (76.819ms)
+✔ old quest cargo is delivered up to capacity once and excess is discarded on migration (77.3296ms)
+✔ stale returning statuses with missing or completed runs are repaired without duplicate rewards (30.4703ms)
+✔ hero follow activity reports shop, outward journey, battle, homeward journey and recovery (60.8767ms)
+✔ cargo validation rejects unsafe, negative and unknown material balances (100.6596ms)
+✔ repeated successful returns discard overflow without overflowing expedition history or blocking another trip (375.7207ms)
+✔ new and uncreated workshops always use the humble backgrounds (69.1986ms)
+✔ art stages follow actual room milestones independently (17.867ms)
+✔ hero following tracks shop, outward journey, battle, return, recovery, and shopping again (62.6518ms)
+✔ viewing room progression and hero activity does not mutate the save (17.6797ms)
+✖ twenty creation points, five professions, exactly three starter heroes and restricted recipe classes (40.6581ms)
+✖ profession benefits change actual quality, sales, learning and mining output (84.4379ms)
+✔ uncapped attributes and levels survive save validation; level rewards five points (31.0359ms)
+✔ worker assignments use independent progress, overflow to another seam and return without exceeding bins (18.5728ms)
+✔ mining points exclude purchases, liquidation and refunds; thresholds escalate (16.81ms)
+✔ upgrade parents, section currencies, exponential costs and extra gates are enforced (15.0021ms)
+✔ worker recruitment grows costs and respects capacity; two iron workers and one coal worker can coexist (88.3496ms)
+✖ recruitment unlocks matching heroes and craft classes, while locked gear stays hidden (40.3962ms)
+✔ new metallurgy machinery satisfies recipe stations and runic workbench enables enchanting (16.7841ms)
+✔ quality breakthroughs exceed 100, and reloading preserves captured quality (147.0768ms)
+✖ craft batches reserve exact inputs, cannot exceed warehouse or queue, and refund safely (28.218ms)
+✔ per-material cap drops excess rewards while gold arrives immediately (39.8503ms)
+✔ automatic salvage protects displayed and reserved pieces, and automatic restock fills spaces (22.8295ms)
+✔ training, journey speed, recovery and party policy upgrades change real adventurer behavior (25.9082ms)
+✔ old saves retain inventories and investments, get extra starting and level points exactly once (50.7098ms)
+✔ malformed room saves are rejected without replacing the active workshop (33.5327ms)
+✔ offline and online chunking preserve mining and autonomous outcomes (681.8144ms)
+✔ retirement resets room investment, retains selected heirloom and opens legacy talents (23.1304ms)
+✔ Prospecting has no 250-point ceiling and cumulative thresholds stay exact (0.1581ms)
+✔ explicit worker reassignment cannot transfer an almost-finished cheap load into rare ore (19.787ms)
+✔ recovery upgrades shorten actual retreat downtime without awarding a second Merit (17.9372ms)
+ℹ tests 88
+ℹ suites 0
+ℹ pass 81
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6119.8642
+
+✖ failing tests:
+
+test at tests\campaign.test.js:5:1
+✖ campaign catalogue has exactly three distinct patterns per class and tier; application is idempotent (32.3463ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  255 !== 180
+  
+      at TestContext.<anonymous> (C:\Users\DaniMo\Desktop\Smith\tests\campaign.test.js:5:169)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 255,
+    expected: 180,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\campaign.test.js:7:1
+✖ crafted prefix and enchanted suffix compose medieval names, improve combat and customer value (14.3321ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Balanced Bronze Short Sword of Embers'
+  - 'Balanced Bronze Arming Sword of Embers'
+                     ^
+  
+      at TestContext.<anonymous> (C:\Users\DaniMo\Desktop\Smith\tests\campaign.test.js:7:223)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Balanced Bronze Short Sword of Embers',
+    expected: 'Balanced Bronze Arming Sword of Embers',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\campaign.test.js:10:1
+✖ boss reservation gathers away heroes through recovery, launches three before charter and rejects duplicate preparation (64.2685ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(e.command('prepareBoss',{questId:'smuggler_cache',heroIds:ids}).ok)
+  
+      at TestContext.<anonymous> (C:\Users\DaniMo\Desktop\Smith\tests\campaign.test.js:10:284)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\world.test.js:9:1
+✖ twenty creation points, five professions, exactly three starter heroes and restricted recipe classes (40.6581ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  33 !== 21
+  
+      at TestContext.<anonymous> (C:\Users\DaniMo\Desktop\Smith\tests\world.test.js:9:266)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 33,
+    expected: 21,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\world.test.js:10:1
+✖ profession benefits change actual quality, sales, learning and mining output (84.4379ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(m.craftPreview('bronze_swords').price>w.craftPreview('bronze_swords').price)
+  
+      at TestContext.<anonymous> (C:\Users\DaniMo\Desktop\Smith\tests\world.test.js:10:357)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\world.test.js:16:1
+✖ recruitment unlocks matching heroes and craft classes, while locked gear stays hidden (40.3962ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert(e.availableClasses().includes('axes'))
+  
+      at TestContext.<anonymous> (C:\Users\DaniMo\Desktop\Smith\tests\world.test.js:16:152)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\world.test.js:19:1
+✖ craft batches reserve exact inputs, cannot exceed warehouse or queue, and refund safely (28.218ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  25 !== 20
+  
+      at TestContext.<anonymous> (C:\Users\DaniMo\Desktop\Smith\tests\world.test.js:19:274)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 25,
+    expected: 20,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

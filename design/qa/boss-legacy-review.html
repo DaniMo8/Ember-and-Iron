@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Boss and Legacy review</title>
+<body style="background:#15232a;color:#eee;font:18px system-ui;padding:24px"><h1>Boss and Legacy review</h1><p>Creates disposable saves on port 8791 only.</p><div style="display:flex;flex-wrap:wrap;gap:12px"><button data-state="locked">Four victories · Legacy locked</button><button data-state="ready">Five victories · ready boss party</button><button data-state="away">Five victories · returning party</button><button data-state="legacy">First-life Legacy eligible</button><button data-state="retired">After first retirement</button></div><p id="result"></p>
+<script src="../../data.js"></script><script src="../../engine.js"></script><script src="../../campaign.js"></script><script src="../../company.js"></script><script src="../../formation-combat.js"></script><script src="../../progression.js"></script><script src="../../world-engine.js"></script>
+<script>
+for(const button of document.querySelectorAll('[data-state]'))button.onclick=()=>{try{
+ if(location.port!=='8791')throw Error('Use the isolated review port.');
+ const stage=button.dataset.state,e=new EIWorldEngine(EIData),s=e.state;
+ e.command('create',{name:'Legacy review',stats:{strength:7,precision:7,charisma:7,knowledge:7}});
+ s.questWins.rat_nest=stage==='locked'?4:5;if(stage!=='locked')for(const id of e.data.questTiers[0].slice(0,3))s.questWins[id]=5;
+ for(const h of s.adventurers){h.browseUntil=100000000;h.nextShopAt=100000000;}
+ const ids=s.adventurers.map(h=>h.id);
+ if(stage==='away'){e.command('dispatch',{questId:'rat_nest',heroIds:[ids[0]]});s.runs[0].result.victory=false;}
+ if(['ready','away'].includes(stage))e.command('prepareBoss',{questId:'smuggler_cache',heroIds:ids});
+ if(['legacy','retired'].includes(stage)){
+  for(const q of Object.values(e.data.quests))s.questWins[q.id]=q.manualBoss?1:5;
+  s.stats.questsWon=20;e._refreshUnlocks();
+  if(stage==='retired')e.command('retire',{confirmed:true});
+ }
+ e.markSaved(Date.now());const valid=EIWorldEngine.validateSave(e.exportSave(),e.data);if(!valid.ok)throw Error(valid.message);
+ localStorage.setItem('ember-iron-save-v3',e.exportSave());localStorage.removeItem('ember-iron-save-v3-backup');localStorage.removeItem('ember-iron-save-v3-owner');location.href='../../index.html?room='+(['legacy','retired','locked'].includes(stage)?'legacy':'adventurers');
+ }catch(error){document.querySelector('#result').textContent=error.message;}};
+</script></body></html>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="720" viewBox="0 0 1120 720"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3 0 6" fill="none" stroke="#dfbc7c"/></marker></defs><rect width="100%" height="100%" rx="14" fill="#121c22"/>
+<text x="38" y="47" fill="#dfbc7c" font-family="Georgia,serif" font-size="26">Four currencies. Twelve development paths.</text>
+<text x="38" y="75" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="13">96 room upgrades; repeated ranks cost 1.9× more and deeper nodes have exponentially growing base costs.</text>
+<rect x="40" y="120" width="260" height="112" rx="7" fill="#1c2a31" stroke="#8db3ab" stroke-opacity=".6"/>
+<text x="57" y="148" fill="#8db3ab" font-family="Segoe UI,Arial" font-size="17">Mine</text>
+<text x="57" y="173" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Prospecting from mined materials</text>
+<text x="57" y="194" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Three paths · eight nodes each</text>
+<rect x="350" y="127" width="210" height="92" rx="7" fill="#1c2a31" stroke="#8db3ab" stroke-opacity=".6"/>
+<text x="367" y="155" fill="#8db3ab" font-family="Segoe UI,Arial" font-size="17">Extraction</text>
+<text x="367" y="180" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="367" y="201" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<rect x="595" y="127" width="210" height="92" rx="7" fill="#1c2a31" stroke="#8db3ab" stroke-opacity=".6"/>
+<text x="612" y="155" fill="#8db3ab" font-family="Segoe UI,Arial" font-size="17">Depths</text>
+<text x="612" y="180" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="612" y="201" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<rect x="840" y="127" width="210" height="92" rx="7" fill="#1c2a31" stroke="#8db3ab" stroke-opacity=".6"/>
+<text x="857" y="155" fill="#8db3ab" font-family="Segoe UI,Arial" font-size="17">Logistics</text>
+<text x="857" y="180" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="857" y="201" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<path d="M300 175L350 175" stroke="#dfbc7c" stroke-opacity=".7" fill="none" marker-end="url(#arrow)"/>
+<rect x="40" y="260" width="260" height="112" rx="7" fill="#1c2a31" stroke="#dda666" stroke-opacity=".6"/>
+<text x="57" y="288" fill="#dda666" font-family="Segoe UI,Arial" font-size="17">Forge</text>
+<text x="57" y="313" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Gold from sales and rewards</text>
+<text x="57" y="334" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Three paths · eight nodes each</text>
+<rect x="350" y="267" width="210" height="92" rx="7" fill="#1c2a31" stroke="#dda666" stroke-opacity=".6"/>
+<text x="367" y="295" fill="#dda666" font-family="Segoe UI,Arial" font-size="17">Machinery</text>
+<text x="367" y="320" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="367" y="341" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<rect x="595" y="267" width="210" height="92" rx="7" fill="#1c2a31" stroke="#dda666" stroke-opacity=".6"/>
+<text x="612" y="295" fill="#dda666" font-family="Segoe UI,Arial" font-size="17">Mastery</text>
+<text x="612" y="320" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="612" y="341" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<rect x="840" y="267" width="210" height="92" rx="7" fill="#1c2a31" stroke="#dda666" stroke-opacity=".6"/>
+<text x="857" y="295" fill="#dda666" font-family="Segoe UI,Arial" font-size="17">Workflow</text>
+<text x="857" y="320" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="857" y="341" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<path d="M300 315L350 315" stroke="#dfbc7c" stroke-opacity=".7" fill="none" marker-end="url(#arrow)"/>
+<rect x="40" y="400" width="260" height="112" rx="7" fill="#1c2a31" stroke="#b9a4cb" stroke-opacity=".6"/>
+<text x="57" y="428" fill="#b9a4cb" font-family="Segoe UI,Arial" font-size="17">Shop</text>
+<text x="57" y="453" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Influence from lifetime reputation</text>
+<text x="57" y="474" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Three paths · eight nodes each</text>
+<rect x="350" y="407" width="210" height="92" rx="7" fill="#1c2a31" stroke="#b9a4cb" stroke-opacity=".6"/>
+<text x="367" y="435" fill="#b9a4cb" font-family="Segoe UI,Arial" font-size="17">Commerce</text>
+<text x="367" y="460" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="367" y="481" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<rect x="595" y="407" width="210" height="92" rx="7" fill="#1c2a31" stroke="#b9a4cb" stroke-opacity=".6"/>
+<text x="612" y="435" fill="#b9a4cb" font-family="Segoe UI,Arial" font-size="17">Warehouse</text>
+<text x="612" y="460" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="612" y="481" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<rect x="840" y="407" width="210" height="92" rx="7" fill="#1c2a31" stroke="#b9a4cb" stroke-opacity=".6"/>
+<text x="857" y="435" fill="#b9a4cb" font-family="Segoe UI,Arial" font-size="17">Relations</text>
+<text x="857" y="460" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="857" y="481" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<path d="M300 455L350 455" stroke="#dfbc7c" stroke-opacity=".7" fill="none" marker-end="url(#arrow)"/>
+<rect x="40" y="540" width="260" height="112" rx="7" fill="#1c2a31" stroke="#9ab0cd" stroke-opacity=".6"/>
+<text x="57" y="568" fill="#9ab0cd" font-family="Segoe UI,Arial" font-size="17">Adventurers</text>
+<text x="57" y="593" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Merits from completed expeditions</text>
+<text x="57" y="614" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Three paths · eight nodes each</text>
+<rect x="350" y="547" width="210" height="92" rx="7" fill="#1c2a31" stroke="#9ab0cd" stroke-opacity=".6"/>
+<text x="367" y="575" fill="#9ab0cd" font-family="Segoe UI,Arial" font-size="17">Training</text>
+<text x="367" y="600" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="367" y="621" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<rect x="595" y="547" width="210" height="92" rx="7" fill="#1c2a31" stroke="#9ab0cd" stroke-opacity=".6"/>
+<text x="612" y="575" fill="#9ab0cd" font-family="Segoe UI,Arial" font-size="17">Expeditions</text>
+<text x="612" y="600" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="612" y="621" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<rect x="840" y="547" width="210" height="92" rx="7" fill="#1c2a31" stroke="#9ab0cd" stroke-opacity=".6"/>
+<text x="857" y="575" fill="#9ab0cd" font-family="Segoe UI,Arial" font-size="17">Recruitment</text>
+<text x="857" y="600" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Previous node requires one rank</text>
+<text x="857" y="621" fill="#a4b0ad" font-family="Segoe UI,Arial" font-size="12">Choose depth or another rank</text>
+<path d="M300 595L350 595" stroke="#dfbc7c" stroke-opacity=".7" fill="none" marker-end="url(#arrow)"/>
+</svg>

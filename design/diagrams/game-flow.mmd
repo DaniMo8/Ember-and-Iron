@@ -1,0 +1,22 @@
+flowchart TD
+  C[Create smith and name/class three heroes] --> M[Mine seams and trade in Open workings]
+  M --> F[Craft training or standard gear; gain mastery]
+  F --> S[Automatically stock displays lowest quality first]
+  S --> B[Heroes browse compatible upgrades]
+  B --> Q[Short travel; two rounds; front protects back]
+  Q --> W{Victory?}
+  W -->|Yes| P[One progress count per party member; rewards once]
+  W -->|No| R[Return, rest, shop and retry]
+  R --> B
+  P --> G{20 counts?}
+  G -->|No| B
+  G -->|Yes| N[Next ordinary quest or boss approach]
+  N --> H[Gather selected party; launch three-round boss]
+  H --> T[Boss victory opens next tier]
+  T --> M
+  T --> L{Tier 5 boss defeated?}
+  L -->|Yes| X[Optional Legacy: talents, furnishings, records, heirloom]
+  X --> C
+  F --> E[Employees gain XP and lose stamina]
+  E --> O[Give time off; recover; manually resume]
+  O --> F

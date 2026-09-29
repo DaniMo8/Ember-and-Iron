@@ -1,0 +1,2988 @@
+{
+  "format": "ember-and-iron",
+  "version": 1,
+  "state": {
+    "schemaVersion": 1,
+    "contentVersion": "0.3.0",
+    "started": true,
+    "shopName": "QA Starter Shelves - crafted display demo",
+    "simTime": 162107,
+    "lastWallTime": 1790228481551,
+    "rngState": 3707535418,
+    "nextId": 53,
+    "player": {
+      "level": 1,
+      "xp": 48,
+      "points": 0,
+      "stats": {
+        "strength": 4,
+        "precision": 4,
+        "charisma": 4,
+        "knowledge": 4
+      },
+      "proficiency": {
+        "daggers": {
+          "level": 1,
+          "xp": 2.960000000000001
+        },
+        "swords": {
+          "level": 1,
+          "xp": 2.960000000000001
+        },
+        "axes": {
+          "level": 1,
+          "xp": 2.960000000000001
+        },
+        "maces": {
+          "level": 1,
+          "xp": 2.960000000000001
+        },
+        "polearms": {
+          "level": 0,
+          "xp": 0
+        },
+        "bows": {
+          "level": 0,
+          "xp": 0
+        },
+        "foci": {
+          "level": 0,
+          "xp": 0
+        },
+        "armor": {
+          "level": 0,
+          "xp": 0
+        },
+        "shields": {
+          "level": 0,
+          "xp": 0
+        },
+        "rings": {
+          "level": 0,
+          "xp": 0
+        },
+        "charms": {
+          "level": 0,
+          "xp": 0
+        },
+        "tools": {
+          "level": 0,
+          "xp": 0
+        }
+      },
+      "gold": 10,
+      "reputation": 0,
+      "respecTokens": 0,
+      "talents": [],
+      "legacy": {
+        "generation": 1,
+        "points": 0,
+        "totalPoints": 0,
+        "heirlooms": [],
+        "unlockedRecipes": [],
+        "collection": {
+          "bronze_swords": 34,
+          "bronze_axes": 35,
+          "bronze_daggers": 34,
+          "bronze_maces": 35
+        }
+      }
+    },
+    "materials": {
+      "bronze": 7,
+      "iron": 0,
+      "steel": 0,
+      "mithril": 0,
+      "starforged": 0,
+      "wood": 4,
+      "leather": 4,
+      "fuel": 6,
+      "gem": 0,
+      "ember_shard": 0,
+      "frost_crystal": 0,
+      "star_fragment": 0
+    },
+    "inventory": [
+      {
+        "id": "item-10",
+        "recipeId": "bronze_swords",
+        "quality": 34,
+        "affixId": null,
+        "enchantmentId": null,
+        "createdAt": 55088,
+        "displayed": true,
+        "protected": false,
+        "reservedFor": null,
+        "makerGeneration": 1
+      },
+      {
+        "id": "item-27",
+        "recipeId": "bronze_axes",
+        "quality": 35,
+        "affixId": null,
+        "enchantmentId": null,
+        "createdAt": 93685,
+        "displayed": true,
+        "protected": false,
+        "reservedFor": null,
+        "makerGeneration": 1
+      },
+      {
+        "id": "item-40",
+        "recipeId": "bronze_daggers",
+        "quality": 34,
+        "affixId": null,
+        "enchantmentId": null,
+        "createdAt": 121756,
+        "displayed": true,
+        "protected": false,
+        "reservedFor": null,
+        "makerGeneration": 1
+      },
+      {
+        "id": "item-51",
+        "recipeId": "bronze_maces",
+        "quality": 35,
+        "affixId": null,
+        "enchantmentId": null,
+        "createdAt": 162107,
+        "displayed": false,
+        "protected": true,
+        "reservedFor": null,
+        "makerGeneration": 1
+      }
+    ],
+    "jobs": [],
+    "adventurers": [
+      {
+        "id": "mara",
+        "name": "Mara",
+        "archetypeId": "vanguard",
+        "level": 1,
+        "xp": 0,
+        "status": "recovering",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 0,
+        "leaveAt": 57000,
+        "recoverUntil": 208000,
+        "runId": null,
+        "failures": 1,
+        "memories": [
+          {
+            "questId": "rat_nest",
+            "victory": false,
+            "time": 118000
+          }
+        ],
+        "browseUntil": 57000,
+        "nextShopAt": 64000,
+        "lastPurchaseAt": null,
+        "departAt": 58000,
+        "shoppingReason": "Recovering after a defeat",
+        "relationshipMilestones": []
+      },
+      {
+        "id": "bren",
+        "name": "Bren",
+        "archetypeId": "breaker",
+        "level": 1,
+        "xp": 0,
+        "status": "recovering",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 0,
+        "leaveAt": 57000,
+        "recoverUntil": 208000,
+        "runId": null,
+        "failures": 1,
+        "memories": [
+          {
+            "questId": "rat_nest",
+            "victory": false,
+            "time": 118000
+          }
+        ],
+        "browseUntil": 57000,
+        "nextShopAt": 64000,
+        "lastPurchaseAt": null,
+        "departAt": 58000,
+        "shoppingReason": "Recovering after a defeat",
+        "relationshipMilestones": []
+      },
+      {
+        "id": "renn",
+        "name": "Renn",
+        "archetypeId": "duelist",
+        "level": 1,
+        "xp": 0,
+        "status": "recovering",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 30000,
+        "leaveAt": 87000,
+        "recoverUntil": 238000,
+        "runId": null,
+        "failures": 1,
+        "memories": [
+          {
+            "questId": "rat_nest",
+            "victory": false,
+            "time": 148000
+          }
+        ],
+        "browseUntil": 87000,
+        "nextShopAt": 94000,
+        "lastPurchaseAt": null,
+        "departAt": 88000,
+        "shoppingReason": "Recovering after a defeat",
+        "relationshipMilestones": []
+      },
+      {
+        "id": "sable",
+        "name": "Sable",
+        "archetypeId": "mage",
+        "level": 1,
+        "xp": 0,
+        "status": "fighting",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 60000,
+        "leaveAt": 117000,
+        "recoverUntil": 0,
+        "runId": "run-35",
+        "failures": 0,
+        "memories": [],
+        "browseUntil": 117000,
+        "nextShopAt": 124000,
+        "lastPurchaseAt": null,
+        "departAt": 118000,
+        "shoppingReason": "Adventuring",
+        "relationshipMilestones": []
+      },
+      {
+        "id": "hark",
+        "name": "Hark",
+        "archetypeId": "breaker",
+        "level": 1,
+        "xp": 0,
+        "status": "fighting",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 90000,
+        "leaveAt": 147000,
+        "recoverUntil": 0,
+        "runId": "run-46",
+        "failures": 0,
+        "memories": [],
+        "browseUntil": 147000,
+        "nextShopAt": 154000,
+        "lastPurchaseAt": null,
+        "departAt": 148000,
+        "shoppingReason": "Adventuring",
+        "relationshipMilestones": []
+      },
+      {
+        "id": "vesper",
+        "name": "Vesper",
+        "archetypeId": "mage",
+        "level": 1,
+        "xp": 0,
+        "status": "browsing",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 120000,
+        "leaveAt": 177000,
+        "recoverUntil": 0,
+        "runId": null,
+        "failures": 0,
+        "memories": [],
+        "browseUntil": 177000,
+        "nextShopAt": 166000,
+        "lastPurchaseAt": null,
+        "departAt": null,
+        "shoppingReason": "Browsing for an affordable upgrade",
+        "relationshipMilestones": []
+      },
+      {
+        "id": "thane",
+        "name": "Thane",
+        "archetypeId": "guardian",
+        "level": 1,
+        "xp": 0,
+        "status": "browsing",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 150000,
+        "leaveAt": 207000,
+        "recoverUntil": 0,
+        "runId": null,
+        "failures": 0,
+        "memories": [],
+        "browseUntil": 207000,
+        "nextShopAt": 166000,
+        "lastPurchaseAt": null,
+        "departAt": null,
+        "shoppingReason": "Browsing for an affordable upgrade",
+        "relationshipMilestones": []
+      }
+    ],
+    "runs": [
+      {
+        "id": "run-14",
+        "questId": "rat_nest",
+        "heroIds": [
+          "mara"
+        ],
+        "seed": 3532304608,
+        "startAt": 58000,
+        "battleAt": 70000,
+        "battleEndAt": 106000,
+        "returnAt": 118000,
+        "status": "complete",
+        "result": {
+          "victory": false,
+          "events": [
+            {
+              "at": 2000,
+              "actorId": "mara",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.2453871089965105,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Mara hits Giant Rat for 4.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 37,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 35.75461289100349,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 2300,
+              "actorId": "giant_rat",
+              "targetId": "mara",
+              "type": "attack",
+              "damage": 7.3762039869674485,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Mara for 7.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 29.623796013032553,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 35.75461289100349,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4000,
+              "actorId": "mara",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 7.515153610147536,
+              "critical": true,
+              "blocked": false,
+              "dodged": false,
+              "text": "Mara hits Giant Rat for 8 (critical).",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 29.623796013032553,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 28.239459280855954,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4600,
+              "actorId": "giant_rat",
+              "targetId": "mara",
+              "type": "attack",
+              "damage": 7.269689752056729,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Mara for 7.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 22.354106260975826,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 28.239459280855954,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6000,
+              "actorId": "mara",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.445212057325989,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Mara hits Giant Rat for 4.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 22.354106260975826,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 23.794247223529965,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6900,
+              "actorId": "giant_rat",
+              "targetId": "mara",
+              "type": "attack",
+              "damage": 7.125795112550259,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Mara for 7.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 15.228311148425567,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 23.794247223529965,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 8000,
+              "actorId": "mara",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.192200926365331,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Mara hits Giant Rat for 4.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 15.228311148425567,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 19.602046297164634,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 9200,
+              "actorId": "giant_rat",
+              "targetId": "mara",
+              "type": "attack",
+              "damage": 7.198002230911516,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Mara for 7.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 8.03030891751405,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 19.602046297164634,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 10000,
+              "actorId": "mara",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.043591033900157,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Mara hits Giant Rat for 4.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 8.03030891751405,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 15.558455263264477,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 11500,
+              "actorId": "giant_rat",
+              "targetId": "mara",
+              "type": "attack",
+              "damage": 7.105281637725421,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Mara for 7.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 0.9250272797886296,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 15.558455263264477,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 12000,
+              "actorId": "mara",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.7480888839345425,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Mara hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 0.9250272797886296,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 10.810366379329935,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 13800,
+              "actorId": "giant_rat",
+              "targetId": "mara",
+              "type": "attack",
+              "damage": 7.778162330994382,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Mara for 8.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 0,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 10.810366379329935,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 13800,
+              "type": "outcome",
+              "text": "Retreat. The survivors need rest and better equipment.",
+              "heroes": [
+                {
+                  "id": "mara",
+                  "name": "Mara",
+                  "hp": 0,
+                  "maxHp": 37
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 10.810366379329935,
+                  "maxHp": 40
+                }
+              ]
+            }
+          ],
+          "duration": 13800,
+          "heroStats": [
+            {
+              "id": "mara",
+              "name": "Mara",
+              "role": "frontline",
+              "archetypeId": "vanguard",
+              "health": 37,
+              "attack": 5,
+              "armor": 1,
+              "interval": 2,
+              "crit": 0.05,
+              "evasion": 0.02,
+              "block": 0.02,
+              "armorPen": 0,
+              "damageType": "physical",
+              "resistances": {},
+              "traits": [],
+              "hp": 37,
+              "next": 2000
+            }
+          ],
+          "enemyStats": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "health": 40,
+              "attack": 8.25,
+              "armor": 0.5,
+              "interval": 2.3,
+              "damageType": "physical",
+              "hp": 40,
+              "next": 2300,
+              "phase": false
+            }
+          ],
+          "survivors": 0,
+          "finalHeroes": [
+            {
+              "id": "mara",
+              "name": "Mara",
+              "hp": 0,
+              "maxHp": 37
+            }
+          ],
+          "finalEnemies": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "hp": 10.810366379329935,
+              "maxHp": 40
+            }
+          ]
+        },
+        "reward": null,
+        "rewardApplied": true,
+        "wellEquipped": false,
+        "gearRatio": 0.6459223840801355,
+        "charisma": 4,
+        "heroSnapshots": [
+          {
+            "id": "mara",
+            "name": "Mara",
+            "archetypeId": "vanguard",
+            "level": 1,
+            "xp": 0,
+            "status": "browsing",
+            "budget": 17,
+            "relationship": 0,
+            "questId": "rat_nest",
+            "equipment": {
+              "weapon": null,
+              "body": null,
+              "offhand": null,
+              "ring": null,
+              "charm": null,
+              "tool": null
+            },
+            "arrivedAt": 0,
+            "leaveAt": 57000,
+            "recoverUntil": 0,
+            "runId": null,
+            "failures": 0,
+            "memories": [],
+            "browseUntil": 57000,
+            "nextShopAt": 64000,
+            "lastPurchaseAt": null,
+            "departAt": null,
+            "shoppingReason": "Browsing for an affordable upgrade",
+            "relationshipMilestones": []
+          }
+        ]
+      },
+      {
+        "id": "run-17",
+        "questId": "rat_nest",
+        "heroIds": [
+          "bren"
+        ],
+        "seed": 374114281,
+        "startAt": 58000,
+        "battleAt": 70000,
+        "battleEndAt": 106000,
+        "returnAt": 118000,
+        "status": "complete",
+        "result": {
+          "victory": false,
+          "events": [
+            {
+              "at": 2000,
+              "actorId": "bren",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.6545258125662805,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Bren hits Giant Rat for 6.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 39,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 34.34547418743372,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 2300,
+              "actorId": "giant_rat",
+              "targetId": "bren",
+              "type": "attack",
+              "damage": 6.913620806403924,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Bren for 7.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 32.08637919359607,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 34.34547418743372,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4000,
+              "actorId": "bren",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.157321478817612,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Bren hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 32.08637919359607,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 29.188152708616112,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4600,
+              "actorId": "giant_rat",
+              "targetId": "bren",
+              "type": "attack",
+              "damage": 7.375636441807728,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Bren for 7.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 24.710742751788345,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 29.188152708616112,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6000,
+              "actorId": "bren",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.66816334778443,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Bren hits Giant Rat for 6.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 24.710742751788345,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 23.51998936083168,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6900,
+              "actorId": "giant_rat",
+              "targetId": "bren",
+              "type": "attack",
+              "damage": 7.713507179915906,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Bren for 8.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 16.997235571872437,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 23.51998936083168,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 8000,
+              "actorId": "bren",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.6091044713556775,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Bren hits Giant Rat for 6.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 16.997235571872437,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 17.910884889476,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 9200,
+              "actorId": "giant_rat",
+              "targetId": "bren",
+              "type": "attack",
+              "damage": 7.073530336085241,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Bren for 7.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 9.923705235787196,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 17.910884889476,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 10000,
+              "actorId": "bren",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.434582645464689,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Bren hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 9.923705235787196,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 12.476302244011313,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 11500,
+              "actorId": "giant_rat",
+              "targetId": "bren",
+              "type": "attack",
+              "damage": 6.980014022707474,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Bren for 7.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 2.943691213079722,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 12.476302244011313,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 12000,
+              "actorId": "bren",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.163426319248974,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Bren hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 2.943691213079722,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 7.312875924762339,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 13800,
+              "actorId": "giant_rat",
+              "targetId": "bren",
+              "type": "attack",
+              "damage": 7.053578286198899,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Bren for 7.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 0,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 7.312875924762339,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 13800,
+              "type": "outcome",
+              "text": "Retreat. The survivors need rest and better equipment.",
+              "heroes": [
+                {
+                  "id": "bren",
+                  "name": "Bren",
+                  "hp": 0,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 7.312875924762339,
+                  "maxHp": 40
+                }
+              ]
+            }
+          ],
+          "duration": 13800,
+          "heroStats": [
+            {
+              "id": "bren",
+              "name": "Bren",
+              "role": "breaker",
+              "archetypeId": "breaker",
+              "health": 39,
+              "attack": 5.2,
+              "armor": 1,
+              "interval": 2,
+              "crit": 0.03,
+              "evasion": 0.02,
+              "block": 0,
+              "armorPen": 1,
+              "damageType": "physical",
+              "resistances": {},
+              "traits": [],
+              "hp": 39,
+              "next": 2000
+            }
+          ],
+          "enemyStats": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "health": 40,
+              "attack": 8.25,
+              "armor": 0.5,
+              "interval": 2.3,
+              "damageType": "physical",
+              "hp": 40,
+              "next": 2300,
+              "phase": false
+            }
+          ],
+          "survivors": 0,
+          "finalHeroes": [
+            {
+              "id": "bren",
+              "name": "Bren",
+              "hp": 0,
+              "maxHp": 39
+            }
+          ],
+          "finalEnemies": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "hp": 7.312875924762339,
+              "maxHp": 40
+            }
+          ]
+        },
+        "reward": null,
+        "rewardApplied": true,
+        "wellEquipped": false,
+        "gearRatio": 0.6792035373936666,
+        "charisma": 4,
+        "heroSnapshots": [
+          {
+            "id": "bren",
+            "name": "Bren",
+            "archetypeId": "breaker",
+            "level": 1,
+            "xp": 0,
+            "status": "browsing",
+            "budget": 17,
+            "relationship": 0,
+            "questId": "rat_nest",
+            "equipment": {
+              "weapon": null,
+              "body": null,
+              "offhand": null,
+              "ring": null,
+              "charm": null,
+              "tool": null
+            },
+            "arrivedAt": 0,
+            "leaveAt": 57000,
+            "recoverUntil": 0,
+            "runId": null,
+            "failures": 0,
+            "memories": [],
+            "browseUntil": 57000,
+            "nextShopAt": 64000,
+            "lastPurchaseAt": null,
+            "departAt": null,
+            "shoppingReason": "Browsing for an affordable upgrade",
+            "relationshipMilestones": []
+          }
+        ]
+      },
+      {
+        "id": "run-22",
+        "questId": "rat_nest",
+        "heroIds": [
+          "renn"
+        ],
+        "seed": 746858950,
+        "startAt": 88000,
+        "battleAt": 100000,
+        "battleEndAt": 136000,
+        "returnAt": 148000,
+        "status": "complete",
+        "result": {
+          "victory": false,
+          "events": [
+            {
+              "at": 1851.8518518518517,
+              "actorId": "renn",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.744085664162412,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Renn hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 35,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 35.25591433583759,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 2300,
+              "actorId": "giant_rat",
+              "targetId": "renn",
+              "type": "attack",
+              "damage": 6.559252941876184,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Renn for 7.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 28.440747058123815,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 35.25591433583759,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 3703.7037037037035,
+              "actorId": "renn",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.437515516765416,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Renn hits Giant Rat for 4.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 28.440747058123815,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 30.818398819072172,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4600,
+              "actorId": "giant_rat",
+              "targetId": "renn",
+              "type": "attack",
+              "damage": 0,
+              "critical": false,
+              "blocked": false,
+              "dodged": true,
+              "text": "Giant Rat misses Renn.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 28.440747058123815,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 30.818398819072172,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 5555.555555555555,
+              "actorId": "renn",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.719486620509997,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Renn hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 28.440747058123815,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 26.098912198562175,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6900,
+              "actorId": "giant_rat",
+              "targetId": "renn",
+              "type": "attack",
+              "damage": 7.476750819094013,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Renn for 7.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 20.963996239029804,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 26.098912198562175,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 7407.407407407407,
+              "actorId": "renn",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.937056709546596,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Renn hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 20.963996239029804,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 21.16185548901558,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 9200,
+              "actorId": "giant_rat",
+              "targetId": "renn",
+              "type": "attack",
+              "damage": 6.891639578365721,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Renn for 7.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 14.072356660664083,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 21.16185548901558,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 9259.25925925926,
+              "actorId": "renn",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.370296090375632,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Renn hits Giant Rat for 4.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 14.072356660664083,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 16.791559398639947,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 11111.111111111111,
+              "actorId": "renn",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.250552407931536,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Renn hits Giant Rat for 4.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 14.072356660664083,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 12.54100699070841,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 11500,
+              "actorId": "giant_rat",
+              "targetId": "renn",
+              "type": "attack",
+              "damage": 7.84564105886966,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Renn for 8.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 6.226715601794423,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 12.54100699070841,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 12962.962962962964,
+              "actorId": "renn",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 6.606309087947011,
+              "critical": true,
+              "blocked": false,
+              "dodged": false,
+              "text": "Renn hits Giant Rat for 7 (critical).",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 6.226715601794423,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 5.9346979027614,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 13800,
+              "actorId": "giant_rat",
+              "targetId": "renn",
+              "type": "attack",
+              "damage": 7.11175451023737,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Renn for 7.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 0,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 5.9346979027614,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 13800,
+              "type": "outcome",
+              "text": "Retreat. The survivors need rest and better equipment.",
+              "heroes": [
+                {
+                  "id": "renn",
+                  "name": "Renn",
+                  "hp": 0,
+                  "maxHp": 35
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 5.9346979027614,
+                  "maxHp": 40
+                }
+              ]
+            }
+          ],
+          "duration": 13800,
+          "heroStats": [
+            {
+              "id": "renn",
+              "name": "Renn",
+              "role": "skirmisher",
+              "archetypeId": "duelist",
+              "health": 35,
+              "attack": 5,
+              "armor": 1,
+              "interval": 1.8518518518518516,
+              "crit": 0.03,
+              "evasion": 0.04,
+              "block": 0,
+              "armorPen": 0,
+              "damageType": "physical",
+              "resistances": {},
+              "traits": [],
+              "hp": 35,
+              "next": 1851.8518518518517
+            }
+          ],
+          "enemyStats": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "health": 40,
+              "attack": 8.25,
+              "armor": 0.5,
+              "interval": 2.3,
+              "damageType": "physical",
+              "hp": 40,
+              "next": 2300,
+              "phase": false
+            }
+          ],
+          "survivors": 0,
+          "finalHeroes": [
+            {
+              "id": "renn",
+              "name": "Renn",
+              "hp": 0,
+              "maxHp": 35
+            }
+          ],
+          "finalEnemies": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "hp": 5.9346979027614,
+              "maxHp": 40
+            }
+          ]
+        },
+        "reward": null,
+        "rewardApplied": true,
+        "wellEquipped": false,
+        "gearRatio": 0.6247112405975581,
+        "charisma": 4,
+        "heroSnapshots": [
+          {
+            "id": "renn",
+            "name": "Renn",
+            "archetypeId": "duelist",
+            "level": 1,
+            "xp": 0,
+            "status": "browsing",
+            "budget": 17,
+            "relationship": 0,
+            "questId": "rat_nest",
+            "equipment": {
+              "weapon": null,
+              "body": null,
+              "offhand": null,
+              "ring": null,
+              "charm": null,
+              "tool": null
+            },
+            "arrivedAt": 30000,
+            "leaveAt": 87000,
+            "recoverUntil": 0,
+            "runId": null,
+            "failures": 0,
+            "memories": [],
+            "browseUntil": 87000,
+            "nextShopAt": 94000,
+            "lastPurchaseAt": null,
+            "departAt": null,
+            "shoppingReason": "Browsing for an affordable upgrade",
+            "relationshipMilestones": []
+          }
+        ]
+      },
+      {
+        "id": "run-35",
+        "questId": "rat_nest",
+        "heroIds": [
+          "sable"
+        ],
+        "seed": 2888432805,
+        "startAt": 118000,
+        "battleAt": 130000,
+        "battleEndAt": 166000,
+        "returnAt": 178000,
+        "status": "fighting",
+        "result": {
+          "victory": false,
+          "events": [
+            {
+              "at": 2000,
+              "actorId": "sable",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.515075967349112,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Sable hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 33,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 35.48492403265089,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 2300,
+              "actorId": "giant_rat",
+              "targetId": "sable",
+              "type": "attack",
+              "damage": 8.247407364670652,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Sable for 8.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 24.75259263532935,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 35.48492403265089,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4000,
+              "actorId": "sable",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.370033802101389,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Sable hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 24.75259263532935,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 30.1148902305495,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4600,
+              "actorId": "giant_rat",
+              "targetId": "sable",
+              "type": "attack",
+              "damage": 7.956634965899865,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Sable for 8.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 16.795957669429484,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 30.1148902305495,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6000,
+              "actorId": "sable",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.47497175116092,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Sable hits Giant Rat for 4.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 16.795957669429484,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 25.639918479388577,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6900,
+              "actorId": "giant_rat",
+              "targetId": "sable",
+              "type": "attack",
+              "damage": 7.412017752649263,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Sable for 7.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 9.383939916780221,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 25.639918479388577,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 8000,
+              "actorId": "sable",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.999071357371285,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Sable hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 9.383939916780221,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 20.64084712201729,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 9200,
+              "actorId": "giant_rat",
+              "targetId": "sable",
+              "type": "attack",
+              "damage": 6.67882419162197,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Sable for 7.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 2.705115725158251,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 20.64084712201729,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 10000,
+              "actorId": "sable",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.732389797428624,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Sable hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 2.705115725158251,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 15.908457324588667,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 11500,
+              "actorId": "giant_rat",
+              "targetId": "sable",
+              "type": "attack",
+              "damage": 7.417036533821375,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Sable for 7.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 0,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 15.908457324588667,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 11500,
+              "type": "outcome",
+              "text": "Retreat. The survivors need rest and better equipment.",
+              "heroes": [
+                {
+                  "id": "sable",
+                  "name": "Sable",
+                  "hp": 0,
+                  "maxHp": 33
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 15.908457324588667,
+                  "maxHp": 40
+                }
+              ]
+            }
+          ],
+          "duration": 11500,
+          "heroStats": [
+            {
+              "id": "sable",
+              "name": "Sable",
+              "role": "caster",
+              "archetypeId": "mage",
+              "health": 33,
+              "attack": 5.4,
+              "armor": 0.8,
+              "interval": 2,
+              "crit": 0.03,
+              "evasion": 0.02,
+              "block": 0,
+              "armorPen": 0,
+              "damageType": "arcane",
+              "resistances": {},
+              "traits": [],
+              "aoe": 0.25,
+              "hp": 33,
+              "next": 2000
+            }
+          ],
+          "enemyStats": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "health": 40,
+              "attack": 8.25,
+              "armor": 0.5,
+              "interval": 2.3,
+              "damageType": "physical",
+              "hp": 40,
+              "next": 2300,
+              "phase": false
+            }
+          ],
+          "survivors": 0,
+          "finalHeroes": [
+            {
+              "id": "sable",
+              "name": "Sable",
+              "hp": 0,
+              "maxHp": 33
+            }
+          ],
+          "finalEnemies": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "hp": 15.908457324588667,
+              "maxHp": 40
+            }
+          ]
+        },
+        "reward": null,
+        "rewardApplied": false,
+        "wellEquipped": false,
+        "gearRatio": 0.646919308114122,
+        "charisma": 4,
+        "heroSnapshots": [
+          {
+            "id": "sable",
+            "name": "Sable",
+            "archetypeId": "mage",
+            "level": 1,
+            "xp": 0,
+            "status": "browsing",
+            "budget": 17,
+            "relationship": 0,
+            "questId": "rat_nest",
+            "equipment": {
+              "weapon": null,
+              "body": null,
+              "offhand": null,
+              "ring": null,
+              "charm": null,
+              "tool": null
+            },
+            "arrivedAt": 60000,
+            "leaveAt": 117000,
+            "recoverUntil": 0,
+            "runId": null,
+            "failures": 0,
+            "memories": [],
+            "browseUntil": 117000,
+            "nextShopAt": 124000,
+            "lastPurchaseAt": null,
+            "departAt": null,
+            "shoppingReason": "Browsing for an affordable upgrade",
+            "relationshipMilestones": []
+          }
+        ]
+      },
+      {
+        "id": "run-46",
+        "questId": "rat_nest",
+        "heroIds": [
+          "hark"
+        ],
+        "seed": 1427053828,
+        "startAt": 148000,
+        "battleAt": 160000,
+        "battleEndAt": 196000,
+        "returnAt": 208000,
+        "status": "fighting",
+        "result": {
+          "victory": false,
+          "events": [
+            {
+              "at": 2000,
+              "actorId": "hark",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.648858456853778,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Hark hits Giant Rat for 6.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 39,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 34.35114154314622,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 2300,
+              "actorId": "giant_rat",
+              "targetId": "hark",
+              "type": "attack",
+              "damage": 6.743619811406825,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Hark for 7.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 32.25638018859318,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 34.35114154314622,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4000,
+              "actorId": "hark",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 8.237067507393657,
+              "critical": true,
+              "blocked": false,
+              "dodged": false,
+              "text": "Hark hits Giant Rat for 8 (critical).",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 32.25638018859318,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 26.114074035752562,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 4600,
+              "actorId": "giant_rat",
+              "targetId": "hark",
+              "type": "attack",
+              "damage": 7.5881842412636615,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Hark for 8.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 24.668195947329515,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 26.114074035752562,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6000,
+              "actorId": "hark",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 4.97365795377642,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Hark hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 24.668195947329515,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 21.14041608197614,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 6900,
+              "actorId": "giant_rat",
+              "targetId": "hark",
+              "type": "attack",
+              "damage": 7.953767697582952,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Hark for 8.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 16.71442824974656,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 21.14041608197614,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 8000,
+              "actorId": "hark",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.316815941408277,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Hark hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 16.71442824974656,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 15.823600140567866,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 9200,
+              "actorId": "giant_rat",
+              "targetId": "hark",
+              "type": "attack",
+              "damage": 7.9985547592514195,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Hark for 8.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 8.715873490495142,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 15.823600140567866,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 10000,
+              "actorId": "hark",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.228104873746633,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Hark hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 8.715873490495142,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 10.595495266821231,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 11500,
+              "actorId": "giant_rat",
+              "targetId": "hark",
+              "type": "attack",
+              "damage": 6.632448542618659,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Hark for 7.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 2.083424947876483,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 10.595495266821231,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 12000,
+              "actorId": "hark",
+              "targetId": "giant_rat",
+              "type": "attack",
+              "damage": 5.330991410128773,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Hark hits Giant Rat for 5.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 2.083424947876483,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 5.264503856692459,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 13800,
+              "actorId": "giant_rat",
+              "targetId": "hark",
+              "type": "attack",
+              "damage": 7.573058441246394,
+              "critical": false,
+              "blocked": false,
+              "dodged": false,
+              "text": "Giant Rat hits Hark for 8.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 0,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 5.264503856692459,
+                  "maxHp": 40
+                }
+              ]
+            },
+            {
+              "at": 13800,
+              "type": "outcome",
+              "text": "Retreat. The survivors need rest and better equipment.",
+              "heroes": [
+                {
+                  "id": "hark",
+                  "name": "Hark",
+                  "hp": 0,
+                  "maxHp": 39
+                }
+              ],
+              "enemies": [
+                {
+                  "id": "giant_rat",
+                  "name": "Giant Rat",
+                  "hp": 5.264503856692459,
+                  "maxHp": 40
+                }
+              ]
+            }
+          ],
+          "duration": 13800,
+          "heroStats": [
+            {
+              "id": "hark",
+              "name": "Hark",
+              "role": "breaker",
+              "archetypeId": "breaker",
+              "health": 39,
+              "attack": 5.2,
+              "armor": 1,
+              "interval": 2,
+              "crit": 0.03,
+              "evasion": 0.02,
+              "block": 0,
+              "armorPen": 1,
+              "damageType": "physical",
+              "resistances": {},
+              "traits": [],
+              "hp": 39,
+              "next": 2000
+            }
+          ],
+          "enemyStats": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "health": 40,
+              "attack": 8.25,
+              "armor": 0.5,
+              "interval": 2.3,
+              "damageType": "physical",
+              "hp": 40,
+              "next": 2300,
+              "phase": false
+            }
+          ],
+          "survivors": 0,
+          "finalHeroes": [
+            {
+              "id": "hark",
+              "name": "Hark",
+              "hp": 0,
+              "maxHp": 39
+            }
+          ],
+          "finalEnemies": [
+            {
+              "id": "giant_rat",
+              "name": "Giant Rat",
+              "hp": 5.264503856692459,
+              "maxHp": 40
+            }
+          ]
+        },
+        "reward": null,
+        "rewardApplied": false,
+        "wellEquipped": false,
+        "gearRatio": 0.6792035373936666,
+        "charisma": 4,
+        "heroSnapshots": [
+          {
+            "id": "hark",
+            "name": "Hark",
+            "archetypeId": "breaker",
+            "level": 1,
+            "xp": 0,
+            "status": "browsing",
+            "budget": 17,
+            "relationship": 0,
+            "questId": "rat_nest",
+            "equipment": {
+              "weapon": null,
+              "body": null,
+              "offhand": null,
+              "ring": null,
+              "charm": null,
+              "tool": null
+            },
+            "arrivedAt": 90000,
+            "leaveAt": 147000,
+            "recoverUntil": 0,
+            "runId": null,
+            "failures": 0,
+            "memories": [],
+            "browseUntil": 147000,
+            "nextShopAt": 154000,
+            "lastPurchaseAt": null,
+            "departAt": null,
+            "shoppingReason": "Browsing for an affordable upgrade",
+            "relationshipMilestones": []
+          }
+        ]
+      }
+    ],
+    "commissions": [],
+    "upgrades": {},
+    "staff": {},
+    "decorations": [],
+    "unlocks": {
+      "recipes": [
+        "bronze_daggers",
+        "bronze_swords",
+        "bronze_axes",
+        "bronze_maces",
+        "bronze_polearms",
+        "bronze_bows",
+        "bronze_foci",
+        "bronze_armor",
+        "bronze_shields",
+        "bronze_rings",
+        "bronze_charms",
+        "bronze_tools"
+      ],
+      "quests": [
+        "rat_nest"
+      ],
+      "milestones": [],
+      "routes": {}
+    },
+    "questWins": {},
+    "discoveryMisses": 0,
+    "mailbox": [],
+    "automation": {
+      "enabled": false,
+      "recipeId": null,
+      "targetStock": 3,
+      "autoBuy": false,
+      "autoSell": false,
+      "autoDispatch": false,
+      "goldReserve": 12,
+      "spendCap": 60,
+      "allowRare": false
+    },
+    "nextArrivalAt": 180000,
+    "nextAutomationAt": 165000,
+    "nextNpcAt": 164000,
+    "shopEvents": [
+      {
+        "id": "scene-49",
+        "type": "arrive",
+        "time": 150000,
+        "heroId": "thane",
+        "questId": "rat_nest"
+      },
+      {
+        "id": "scene-47",
+        "type": "depart",
+        "time": 148000,
+        "heroId": "hark",
+        "heroIds": [
+          "hark"
+        ],
+        "questId": "rat_nest",
+        "runId": "run-46"
+      },
+      {
+        "id": "scene-45",
+        "type": "return",
+        "time": 148000,
+        "heroId": "renn",
+        "questId": "rat_nest",
+        "runId": "run-22",
+        "victory": false
+      },
+      {
+        "id": "scene-38",
+        "type": "arrive",
+        "time": 120000,
+        "heroId": "vesper",
+        "questId": "rat_nest"
+      },
+      {
+        "id": "scene-36",
+        "type": "depart",
+        "time": 118000,
+        "heroId": "sable",
+        "heroIds": [
+          "sable"
+        ],
+        "questId": "rat_nest",
+        "runId": "run-35"
+      },
+      {
+        "id": "scene-34",
+        "type": "return",
+        "time": 118000,
+        "heroId": "bren",
+        "questId": "rat_nest",
+        "runId": "run-17",
+        "victory": false
+      },
+      {
+        "id": "scene-32",
+        "type": "return",
+        "time": 118000,
+        "heroId": "mara",
+        "questId": "rat_nest",
+        "runId": "run-14",
+        "victory": false
+      },
+      {
+        "id": "scene-25",
+        "type": "arrive",
+        "time": 90000,
+        "heroId": "hark",
+        "questId": "rat_nest"
+      },
+      {
+        "id": "scene-23",
+        "type": "depart",
+        "time": 88000,
+        "heroId": "renn",
+        "heroIds": [
+          "renn"
+        ],
+        "questId": "rat_nest",
+        "runId": "run-22"
+      },
+      {
+        "id": "scene-20",
+        "type": "arrive",
+        "time": 60000,
+        "heroId": "sable",
+        "questId": "rat_nest"
+      },
+      {
+        "id": "scene-18",
+        "type": "depart",
+        "time": 58000,
+        "heroId": "bren",
+        "heroIds": [
+          "bren"
+        ],
+        "questId": "rat_nest",
+        "runId": "run-17"
+      },
+      {
+        "id": "scene-15",
+        "type": "depart",
+        "time": 58000,
+        "heroId": "mara",
+        "heroIds": [
+          "mara"
+        ],
+        "questId": "rat_nest",
+        "runId": "run-14"
+      },
+      {
+        "id": "scene-8",
+        "type": "arrive",
+        "time": 30000,
+        "heroId": "renn",
+        "questId": "rat_nest"
+      },
+      {
+        "id": "scene-3",
+        "type": "arrive",
+        "time": 0,
+        "heroId": "bren",
+        "questId": "rat_nest"
+      },
+      {
+        "id": "scene-1",
+        "type": "arrive",
+        "time": 0,
+        "heroId": "mara",
+        "questId": "rat_nest"
+      }
+    ],
+    "quarry": {
+      "workers": {},
+      "upgrades": {},
+      "activeDeposit": "bronze",
+      "progress": 0.6023777777777778,
+      "lastYieldAt": 135000,
+      "nextYieldAt": 180000,
+      "nextManualAt": 25000,
+      "pausedReason": ""
+    },
+    "logs": [
+      {
+        "id": "log-52",
+        "time": 162107,
+        "text": "Forged Bronze Mace · quality 35.",
+        "type": "craft"
+      },
+      {
+        "id": "log-50",
+        "time": 150000,
+        "text": "Thane is browsing for Rat Nest.",
+        "type": "customer"
+      },
+      {
+        "id": "log-48",
+        "time": 148000,
+        "text": "Hark departed for Rat Nest.",
+        "type": "quest"
+      },
+      {
+        "id": "log-44",
+        "time": 148000,
+        "text": "Rat Nest failed. The party returns to recover and seek better gear.",
+        "type": "defeat"
+      },
+      {
+        "id": "log-43",
+        "time": 121756,
+        "text": "Queued 1 × Bronze Mace; materials reserved.",
+        "type": "craft"
+      },
+      {
+        "id": "log-41",
+        "time": 121756,
+        "text": "Forged Bronze Dagger · quality 34.",
+        "type": "craft"
+      },
+      {
+        "id": "log-39",
+        "time": 120000,
+        "text": "Vesper is browsing for Rat Nest.",
+        "type": "customer"
+      },
+      {
+        "id": "log-37",
+        "time": 118000,
+        "text": "Sable departed for Rat Nest.",
+        "type": "quest"
+      },
+      {
+        "id": "log-33",
+        "time": 118000,
+        "text": "Rat Nest failed. The party returns to recover and seek better gear.",
+        "type": "defeat"
+      },
+      {
+        "id": "log-31",
+        "time": 118000,
+        "text": "Rat Nest failed. The party returns to recover and seek better gear.",
+        "type": "defeat"
+      },
+      {
+        "id": "log-30",
+        "time": 93685,
+        "text": "Queued 1 × Bronze Dagger; materials reserved.",
+        "type": "craft"
+      },
+      {
+        "id": "log-28",
+        "time": 93685,
+        "text": "Forged Bronze Hatchet · quality 35.",
+        "type": "craft"
+      },
+      {
+        "id": "log-26",
+        "time": 90000,
+        "text": "Hark is browsing for Rat Nest.",
+        "type": "customer"
+      },
+      {
+        "id": "log-24",
+        "time": 88000,
+        "text": "Renn departed for Rat Nest.",
+        "type": "quest"
+      },
+      {
+        "id": "log-21",
+        "time": 60000,
+        "text": "Sable is browsing for Rat Nest.",
+        "type": "customer"
+      },
+      {
+        "id": "log-19",
+        "time": 58000,
+        "text": "Bren departed for Rat Nest.",
+        "type": "quest"
+      },
+      {
+        "id": "log-16",
+        "time": 58000,
+        "text": "Mara departed for Rat Nest.",
+        "type": "quest"
+      },
+      {
+        "id": "log-13",
+        "time": 55088,
+        "text": "Queued 1 × Bronze Hatchet; materials reserved.",
+        "type": "craft"
+      },
+      {
+        "id": "log-11",
+        "time": 55088,
+        "text": "Forged Bronze Shortsword · quality 34.",
+        "type": "craft"
+      },
+      {
+        "id": "log-9",
+        "time": 30000,
+        "text": "Renn is browsing for Rat Nest.",
+        "type": "customer"
+      },
+      {
+        "id": "log-7",
+        "time": 20000,
+        "text": "Queued 1 × Bronze Shortsword; materials reserved.",
+        "type": "craft"
+      },
+      {
+        "id": "log-5",
+        "time": 0,
+        "text": "The doors of QA Starter Shelves - crafted display demo are open.",
+        "type": "milestone"
+      },
+      {
+        "id": "log-4",
+        "time": 0,
+        "text": "Bren is browsing for Rat Nest.",
+        "type": "customer"
+      },
+      {
+        "id": "log-2",
+        "time": 0,
+        "text": "Mara is browsing for Rat Nest.",
+        "type": "customer"
+      }
+    ],
+    "stats": {
+      "crafted": 4,
+      "sold": 0,
+      "questsWon": 0,
+      "questsLost": 3,
+      "goldEarned": 0,
+      "masterworks": []
+    },
+    "tutorial": {
+      "stage": 2
+    },
+    "offlineReport": null,
+    "offlineSession": {
+      "active": false,
+      "credited": 0,
+      "spent": 0
+    }
+  }
+}

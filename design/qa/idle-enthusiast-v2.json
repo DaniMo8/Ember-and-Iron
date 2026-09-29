@@ -1,0 +1,598 @@
+{
+  "generatedAt": "2026-09-27T04:12:19.336Z",
+  "reviewer": "AI reviewer using idle-game enthusiast lens",
+  "method": "Deterministic accelerated engine play, no state grants in player profiles. Fixture section explicitly grants wins/loadouts to isolate gates and combat; it does not prove full-campaign completion.",
+  "profiles": [
+    {
+      "minutes": 240,
+      "policy": "30-second active manager; 5 useful classes; material sales; first-rank upgrades; boss launch at >=65% estimated chance",
+      "milestones": {
+        "firstCraft": 1.5,
+        "firstSale": 5,
+        "level2": 7.5,
+        "firstVictory": 12.5,
+        "smuggler_cache": 22.5,
+        "stone_sentinel": 46.5,
+        "wildwood_heart": 192
+      },
+      "bossAttempts": [
+        {
+          "minute": 18.5,
+          "quest": "smuggler_cache",
+          "estimate": 100
+        },
+        {
+          "minute": 41,
+          "quest": "stone_sentinel",
+          "estimate": 100
+        },
+        {
+          "minute": 184,
+          "quest": "wildwood_heart",
+          "estimate": 90
+        }
+      ],
+      "level": 10,
+      "gold": 5445,
+      "crafted": 257,
+      "sold": 251,
+      "wins": 97,
+      "losses": 13,
+      "questWins": {
+        "rat_nest": 17,
+        "smuggler_cache": 1,
+        "quarry_road": 26,
+        "stone_sentinel": 1,
+        "ash_courtyard": 36,
+        "ember_shrine": 1,
+        "thorn_pass": 14,
+        "wildwood_heart": 1
+      },
+      "heroLevels": [
+        {
+          "name": "Mara",
+          "level": 7,
+          "status": "fighting",
+          "gear": 3
+        },
+        {
+          "name": "Renn",
+          "level": 7,
+          "status": "returning",
+          "gear": 2
+        },
+        {
+          "name": "Wren",
+          "level": 6,
+          "status": "fighting",
+          "gear": 2
+        },
+        {
+          "name": "Bren",
+          "level": 6,
+          "status": "fighting",
+          "gear": 2
+        }
+      ],
+      "workers": 3,
+      "highestCraftedTier": 3,
+      "highestProficiency": 46,
+      "materialsLost": 13,
+      "trees": {
+        "adventurers_training_0": 1,
+        "mine_extraction_0": 1,
+        "adventurers_training_1": 1,
+        "forge_machinery_0": 1,
+        "shop_warehouse_0": 1,
+        "adventurers_expeditions_0": 1,
+        "forge_workflow_0": 1,
+        "shop_commerce_0": 1,
+        "mine_logistics_0": 1,
+        "adventurers_expeditions_1": 1,
+        "forge_mastery_0": 1,
+        "shop_warehouse_1": 1,
+        "adventurers_recruitment_0": 1,
+        "forge_workflow_1": 1,
+        "shop_commerce_1": 1,
+        "adventurers_expeditions_2": 1,
+        "forge_machinery_1": 1,
+        "shop_commerce_2": 1,
+        "adventurers_training_2": 1,
+        "forge_mastery_1": 1,
+        "mine_depths_0": 1,
+        "forge_machinery_2": 1,
+        "forge_workflow_2": 1,
+        "mine_extraction_1": 1,
+        "adventurers_expeditions_3": 1,
+        "forge_mastery_2": 1,
+        "mine_logistics_1": 1,
+        "forge_machinery_3": 1,
+        "forge_mastery_3": 1,
+        "adventurers_training_3": 1,
+        "mine_extraction_2": 1,
+        "adventurers_expeditions_4": 1,
+        "mine_depths_1": 1
+      },
+      "legacy": {
+        "eligible": false,
+        "sparks": 0,
+        "heirlooms": [
+          {
+            "id": "item-2209",
+            "recipeId": "iron_armor",
+            "quality": 103,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 13791385,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-2216",
+            "recipeId": "iron_bows_v1",
+            "quality": 92,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 13883163,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-2250",
+            "recipeId": "iron_shields",
+            "quality": 97,
+            "affixId": "tempered",
+            "enchantmentId": null,
+            "createdAt": 14182677,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-2254",
+            "recipeId": "steel_armor_v2",
+            "quality": 94,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 14202669,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-2258",
+            "recipeId": "iron_swords",
+            "quality": 94,
+            "affixId": "piercing",
+            "enchantmentId": null,
+            "createdAt": 14296547,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          },
+          {
+            "id": "item-2263",
+            "recipeId": "steel_swords",
+            "quality": 88,
+            "affixId": null,
+            "enchantmentId": null,
+            "createdAt": 14328841,
+            "displayed": true,
+            "protected": false,
+            "reservedFor": null,
+            "makerGeneration": 1
+          }
+        ],
+        "retained": [
+          "Legacy sparks and talents",
+          "Collection records",
+          "Decorations",
+          "One heirloom and its recipe discovery"
+        ],
+        "reset": [
+          "Smith level, stats and proficiency",
+          "Gold and materials",
+          "Quarry and shop upgrades",
+          "Staff and adventurers",
+          "Quests and recipe discoveries"
+        ],
+        "breakdown": {
+          "finalBoss": 0,
+          "tierBosses": 7,
+          "smithMilestones": 0,
+          "masterworkDesigns": 0,
+          "bossesDefeated": 3,
+          "masterworks": 0
+        }
+      },
+      "maxOverdue": 0,
+      "validationErrors": [],
+      "history": [
+        {
+          "minute": 0.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 0
+        },
+        {
+          "minute": 30.5,
+          "level": 3,
+          "gold": 42,
+          "crafted": 25,
+          "wins": 12,
+          "losses": 9
+        },
+        {
+          "minute": 60.5,
+          "level": 4,
+          "gold": 33,
+          "crafted": 50,
+          "wins": 30,
+          "losses": 10
+        },
+        {
+          "minute": 90.5,
+          "level": 5,
+          "gold": 210,
+          "crafted": 90,
+          "wins": 41,
+          "losses": 11
+        },
+        {
+          "minute": 120.5,
+          "level": 7,
+          "gold": 289,
+          "crafted": 134,
+          "wins": 52,
+          "losses": 12
+        },
+        {
+          "minute": 150.5,
+          "level": 8,
+          "gold": 1261,
+          "crafted": 171,
+          "wins": 61,
+          "losses": 13
+        },
+        {
+          "minute": 180.5,
+          "level": 9,
+          "gold": 2560,
+          "crafted": 203,
+          "wins": 73,
+          "losses": 13
+        },
+        {
+          "minute": 210.5,
+          "level": 9,
+          "gold": 4142,
+          "crafted": 232,
+          "wins": 87,
+          "losses": 13
+        }
+      ],
+      "failedActions": {}
+    },
+    {
+      "minutes": 480,
+      "policy": "Unattended with empty shop",
+      "milestones": {},
+      "bossAttempts": [],
+      "level": 1,
+      "gold": 12,
+      "crafted": 0,
+      "sold": 0,
+      "wins": 0,
+      "losses": 315,
+      "questWins": {},
+      "heroLevels": [
+        {
+          "name": "Mara",
+          "level": 1,
+          "status": "browsing",
+          "gear": 0
+        },
+        {
+          "name": "Renn",
+          "level": 1,
+          "status": "browsing",
+          "gear": 0
+        },
+        {
+          "name": "Wren",
+          "level": 1,
+          "status": "browsing",
+          "gear": 0
+        }
+      ],
+      "workers": 1,
+      "highestCraftedTier": 0,
+      "highestProficiency": 0,
+      "materialsLost": 0,
+      "trees": {},
+      "legacy": {
+        "eligible": false,
+        "sparks": 0,
+        "heirlooms": [],
+        "retained": [
+          "Legacy sparks and talents",
+          "Collection records",
+          "Decorations",
+          "One heirloom and its recipe discovery"
+        ],
+        "reset": [
+          "Smith level, stats and proficiency",
+          "Gold and materials",
+          "Quarry and shop upgrades",
+          "Staff and adventurers",
+          "Quests and recipe discoveries"
+        ],
+        "breakdown": {
+          "finalBoss": 0,
+          "tierBosses": 0,
+          "smithMilestones": 0,
+          "masterworkDesigns": 0,
+          "bossesDefeated": 0,
+          "masterworks": 0
+        }
+      },
+      "maxOverdue": 0,
+      "validationErrors": [],
+      "history": [
+        {
+          "minute": 0.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 0
+        },
+        {
+          "minute": 30.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 21
+        },
+        {
+          "minute": 60.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 39
+        },
+        {
+          "minute": 90.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 60
+        },
+        {
+          "minute": 120.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 78
+        },
+        {
+          "minute": 150.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 99
+        },
+        {
+          "minute": 180.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 117
+        },
+        {
+          "minute": 210.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 138
+        },
+        {
+          "minute": 240.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 156
+        },
+        {
+          "minute": 270.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 177
+        },
+        {
+          "minute": 300.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 198
+        },
+        {
+          "minute": 330.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 216
+        },
+        {
+          "minute": 360.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 237
+        },
+        {
+          "minute": 390.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 255
+        },
+        {
+          "minute": 420.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 276
+        },
+        {
+          "minute": 450.5,
+          "level": 1,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 294
+        }
+      ],
+      "failedActions": {}
+    }
+  ],
+  "fixtures": {
+    "checks": [
+      "180 recipes; exactly 3 patterns for every tier/class; every next-tier quest requires preceding tier boss.",
+      "Quest prerequisite graph has no cycles.",
+      "10,000 ordinary victories cannot retire; final boss permits retirement; repeated final boss kills do not farm sparks.",
+      "All 5 manual bosses accept selected ready parties and resolve normally with same-tier synthetic loadouts.",
+      "Starter trio gathers through travel, defeat and recovery; all 3 launch despite regular party size1."
+    ],
+    "bossLoadouts": [
+      {
+        "tier": 1,
+        "heroLevel": 1,
+        "quality": 45,
+        "party": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "estimatedWin": 100,
+        "actualVictory": true
+      },
+      {
+        "tier": 2,
+        "heroLevel": 3,
+        "quality": 55,
+        "party": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "estimatedWin": 100,
+        "actualVictory": true
+      },
+      {
+        "tier": 3,
+        "heroLevel": 5,
+        "quality": 65,
+        "party": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "estimatedWin": 100,
+        "actualVictory": true
+      },
+      {
+        "tier": 4,
+        "heroLevel": 7,
+        "quality": 75,
+        "party": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "estimatedWin": 100,
+        "actualVictory": true
+      },
+      {
+        "tier": 5,
+        "heroLevel": 9,
+        "quality": 85,
+        "party": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "estimatedWin": 100,
+        "actualVictory": true
+      }
+    ],
+    "legacyRewardFixture": 58,
+    "totalTalentCost": 304,
+    "pricingByTier": [
+      {
+        "tier": 1,
+        "minMargin": 2,
+        "maxMargin": 5,
+        "negativeMargin": 0,
+        "patterns": 36,
+        "townNegativeMargin": 36
+      },
+      {
+        "tier": 2,
+        "minMargin": 8,
+        "maxMargin": 21,
+        "negativeMargin": 0,
+        "patterns": 36,
+        "townNegativeMargin": 36
+      },
+      {
+        "tier": 3,
+        "minMargin": 26,
+        "maxMargin": 61,
+        "negativeMargin": 0,
+        "patterns": 36,
+        "townNegativeMargin": 36
+      },
+      {
+        "tier": 4,
+        "minMargin": 72,
+        "maxMargin": 166,
+        "negativeMargin": 0,
+        "patterns": 36,
+        "townNegativeMargin": 36
+      },
+      {
+        "tier": 5,
+        "minMargin": 211,
+        "maxMargin": 470,
+        "negativeMargin": 0,
+        "patterns": 36,
+        "townNegativeMargin": 36
+      }
+    ]
+  }
+}

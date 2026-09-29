@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><title>Quality finishing test workshop</title>
+<body style="background:#15232a;color:#eee;font:18px system-ui;padding:40px">
+<h1>Quality finishing test workshop</h1><p>Disposable workshop on port 8786 only. Creates a new smith with supplies and three sword orders to verify active and queued finishing.</p><button id="load">Load finishing test workshop</button>
+<script src="../../data.js"></script><script src="../../engine.js"></script><script src="../../campaign.js"></script><script src="../../company.js"></script><script src="../../formation-combat.js"></script><script src="../../progression.js"></script><script src="../../world-engine.js"></script>
+<script>
+document.querySelector('#load').onclick=()=>{
+ if(location.port!=='8786')throw Error('Only the isolated QA port is allowed');
+ const e=new EIWorldEngine(EIData);
+ e.command('create',{name:'Quality finishing QA',stats:{strength:7,precision:7,charisma:7,knowledge:7}});
+ e.state.materials.bronze=20;e.state.materials.fuel=20;
+ const queued=e.command('craft',{recipeId:'bronze_swords',quantity:3});if(!queued.ok)throw Error(queued.message);
+ e.markSaved(Date.now());localStorage.setItem('ember-iron-save-v3',e.exportSave());localStorage.removeItem('ember-iron-save-v3-owner');
+ location.href='../../index.html?room=forge';
+};
+</script></body>

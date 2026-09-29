@@ -1,0 +1,463 @@
+{
+  "format": "ember-and-iron",
+  "version": 1,
+  "state": {
+    "schemaVersion": 1,
+    "contentVersion": "0.3.0",
+    "started": true,
+    "shopName": "QA Review Workshop — advanced fixture",
+    "simTime": 0,
+    "lastWallTime": 1790225122362,
+    "rngState": 2463534242,
+    "nextId": 16,
+    "player": {
+      "level": 8,
+      "xp": 0,
+      "points": 0,
+      "stats": {
+        "strength": 10,
+        "precision": 10,
+        "charisma": 7,
+        "knowledge": 10
+      },
+      "proficiency": {
+        "daggers": {
+          "level": 0,
+          "xp": 0
+        },
+        "swords": {
+          "level": 35,
+          "xp": 10
+        },
+        "axes": {
+          "level": 0,
+          "xp": 0
+        },
+        "maces": {
+          "level": 0,
+          "xp": 0
+        },
+        "polearms": {
+          "level": 0,
+          "xp": 0
+        },
+        "bows": {
+          "level": 0,
+          "xp": 0
+        },
+        "foci": {
+          "level": 0,
+          "xp": 0
+        },
+        "armor": {
+          "level": 20,
+          "xp": 5
+        },
+        "shields": {
+          "level": 18,
+          "xp": 2
+        },
+        "rings": {
+          "level": 0,
+          "xp": 0
+        },
+        "charms": {
+          "level": 0,
+          "xp": 0
+        },
+        "tools": {
+          "level": 0,
+          "xp": 0
+        }
+      },
+      "gold": 650,
+      "reputation": 12,
+      "respecTokens": 0,
+      "talents": [],
+      "legacy": {
+        "generation": 1,
+        "points": 0,
+        "totalPoints": 0,
+        "heirlooms": [],
+        "unlockedRecipes": [],
+        "collection": {
+          "bronze_swords": 65,
+          "iron_swords": 75,
+          "steel_swords": 90,
+          "iron_armor": 68,
+          "iron_shields": 70,
+          "mithril_swords": 92
+        }
+      }
+    },
+    "materials": {
+      "bronze": 20,
+      "iron": 15,
+      "steel": 10,
+      "mithril": 4,
+      "starforged": 0,
+      "wood": 16,
+      "leather": 16,
+      "fuel": 20,
+      "gem": 11,
+      "ember_shard": 4,
+      "frost_crystal": 3,
+      "star_fragment": 2
+    },
+    "inventory": [
+      {
+        "id": "qa-item-4",
+        "recipeId": "bronze_swords",
+        "quality": 65,
+        "affixId": "keen",
+        "enchantmentId": null,
+        "makerGeneration": 1,
+        "createdAt": 0,
+        "protected": false,
+        "reservedFor": null,
+        "displayed": true
+      },
+      {
+        "id": "qa-item-5",
+        "recipeId": "iron_swords",
+        "quality": 75,
+        "affixId": null,
+        "enchantmentId": null,
+        "makerGeneration": 1,
+        "createdAt": 0,
+        "protected": false,
+        "reservedFor": null,
+        "displayed": true
+      },
+      {
+        "id": "qa-item-6",
+        "recipeId": "steel_swords",
+        "quality": 90,
+        "affixId": "precise",
+        "enchantmentId": null,
+        "makerGeneration": 1,
+        "createdAt": 0,
+        "protected": false,
+        "reservedFor": null,
+        "displayed": true
+      },
+      {
+        "id": "qa-item-7",
+        "recipeId": "iron_armor",
+        "quality": 68,
+        "affixId": null,
+        "enchantmentId": null,
+        "makerGeneration": 1,
+        "createdAt": 0,
+        "protected": false,
+        "reservedFor": null,
+        "displayed": true
+      },
+      {
+        "id": "qa-item-8",
+        "recipeId": "iron_shields",
+        "quality": 70,
+        "affixId": null,
+        "enchantmentId": null,
+        "makerGeneration": 1,
+        "createdAt": 0,
+        "protected": false,
+        "reservedFor": null,
+        "displayed": true
+      },
+      {
+        "id": "qa-item-9",
+        "recipeId": "mithril_swords",
+        "quality": 92,
+        "affixId": null,
+        "enchantmentId": null,
+        "makerGeneration": 1,
+        "createdAt": 0,
+        "protected": true,
+        "reservedFor": null,
+        "displayed": false
+      }
+    ],
+    "jobs": [],
+    "adventurers": [
+      {
+        "id": "mara",
+        "name": "Mara",
+        "archetypeId": "vanguard",
+        "level": 5,
+        "xp": 0,
+        "status": "browsing",
+        "budget": 132,
+        "relationship": 30,
+        "questId": "ember_shrine",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 0,
+        "leaveAt": 3600000,
+        "recoverUntil": 0,
+        "runId": null,
+        "failures": 0,
+        "memories": [],
+        "relationshipMilestones": [
+          5,
+          15,
+          30
+        ]
+      },
+      {
+        "id": "bren",
+        "name": "Bren",
+        "archetypeId": "breaker",
+        "level": 4,
+        "xp": 0,
+        "status": "browsing",
+        "budget": 48,
+        "relationship": 4,
+        "questId": "quarry_road",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 0,
+        "leaveAt": 3600000,
+        "recoverUntil": 0,
+        "runId": null,
+        "failures": 0,
+        "memories": []
+      }
+    ],
+    "runs": [],
+    "commissions": [
+      {
+        "id": "commission-10",
+        "templateId": "named_order",
+        "name": "A Trusted Commission",
+        "heroId": "mara",
+        "classId": "swords",
+        "minTier": 1,
+        "minQuality": 50,
+        "premium": 1.5,
+        "bonusGold": 3,
+        "rewardMaterials": {
+          "leather": 1
+        },
+        "smithXp": 12,
+        "status": "accepted",
+        "createdAt": 0,
+        "completedAt": null
+      },
+      {
+        "id": "commission-12",
+        "templateId": "veteran_order",
+        "name": "Veteran Equipment",
+        "heroId": "mara",
+        "classId": "swords",
+        "minTier": 2,
+        "minQuality": 70,
+        "premium": 1.75,
+        "bonusGold": 8,
+        "rewardMaterials": {
+          "gem": 1
+        },
+        "smithXp": 24,
+        "status": "offered",
+        "createdAt": 0,
+        "completedAt": null
+      },
+      {
+        "id": "commission-14",
+        "templateId": "masterwork_order",
+        "name": "A Signature Masterwork",
+        "heroId": "mara",
+        "classId": "swords",
+        "minTier": 3,
+        "minQuality": 85,
+        "premium": 2,
+        "bonusGold": 15,
+        "rewardMaterials": {
+          "gem": 2
+        },
+        "smithXp": 40,
+        "status": "offered",
+        "createdAt": 0,
+        "completedAt": null
+      }
+    ],
+    "upgrades": {
+      "heavy_forge": 2,
+      "fitting_bench": 2,
+      "enchanting_table": 2,
+      "guild_hall": 2,
+      "automation_desk": 1
+    },
+    "staff": {
+      "apprentice": {
+        "active": true,
+        "level": 2,
+        "xp": 8,
+        "hired": true
+      }
+    },
+    "decorations": [
+      "hearth_banner"
+    ],
+    "unlocks": {
+      "recipes": [
+        "bronze_daggers",
+        "bronze_swords",
+        "bronze_axes",
+        "bronze_maces",
+        "bronze_polearms",
+        "bronze_bows",
+        "bronze_foci",
+        "bronze_armor",
+        "bronze_shields",
+        "bronze_rings",
+        "bronze_charms",
+        "bronze_tools",
+        "mithril_daggers",
+        "iron_daggers",
+        "steel_daggers",
+        "iron_swords",
+        "steel_swords",
+        "iron_axes",
+        "steel_axes",
+        "iron_maces",
+        "steel_maces",
+        "iron_polearms",
+        "steel_polearms",
+        "iron_bows",
+        "steel_bows",
+        "iron_foci",
+        "steel_foci",
+        "iron_armor",
+        "steel_armor",
+        "iron_shields",
+        "steel_shields",
+        "iron_rings",
+        "steel_rings",
+        "iron_charms",
+        "steel_charms",
+        "iron_tools",
+        "steel_tools"
+      ],
+      "quests": [
+        "rat_nest",
+        "smuggler_cache",
+        "quarry_road",
+        "stone_sentinel",
+        "ash_courtyard",
+        "ember_shrine",
+        "thorn_pass"
+      ],
+      "milestones": [],
+      "routes": {}
+    },
+    "questWins": {
+      "rat_nest": 1,
+      "smuggler_cache": 1,
+      "quarry_road": 1,
+      "stone_sentinel": 1,
+      "ash_courtyard": 1,
+      "ember_shrine": 1
+    },
+    "discoveryMisses": 0,
+    "mailbox": [],
+    "automation": {
+      "enabled": false,
+      "recipeId": null,
+      "targetStock": 3,
+      "autoBuy": false,
+      "autoSell": false,
+      "autoDispatch": false,
+      "goldReserve": 12,
+      "spendCap": 60,
+      "allowRare": false
+    },
+    "nextArrivalAt": 30000,
+    "nextAutomationAt": 5000,
+    "quarry": {
+      "workers": {
+        "miner": 1
+      },
+      "upgrades": {
+        "depth": 2,
+        "tools": 1
+      },
+      "activeDeposit": "bronze",
+      "progress": 0,
+      "lastYieldAt": 0,
+      "nextYieldAt": 45000,
+      "nextManualAt": 0,
+      "pausedReason": ""
+    },
+    "logs": [
+      {
+        "id": "log-15",
+        "time": 0,
+        "text": "Mara reached relationship 30 and sent a gift with a named commission.",
+        "type": "relationship"
+      },
+      {
+        "id": "log-13",
+        "time": 0,
+        "text": "Mara reached relationship 15 and sent a gift with a named commission.",
+        "type": "relationship"
+      },
+      {
+        "id": "log-11",
+        "time": 0,
+        "text": "Mara reached relationship 5 and sent a gift with a named commission.",
+        "type": "relationship"
+      },
+      {
+        "id": "log-3",
+        "time": 0,
+        "text": "The doors of QA Review Workshop — advanced fixture are open.",
+        "type": "milestone"
+      },
+      {
+        "id": "log-2",
+        "time": 0,
+        "text": "Bren is browsing for Rat Nest.",
+        "type": "customer"
+      },
+      {
+        "id": "log-1",
+        "time": 0,
+        "text": "Mara is browsing for Rat Nest.",
+        "type": "customer"
+      }
+    ],
+    "stats": {
+      "crafted": 75,
+      "sold": 55,
+      "questsWon": 6,
+      "questsLost": 4,
+      "goldEarned": 1000,
+      "masterworks": [
+        "steel_swords",
+        "mithril_swords"
+      ]
+    },
+    "tutorial": {
+      "stage": 1
+    },
+    "offlineReport": null,
+    "offlineSession": {
+      "active": false,
+      "credited": 0,
+      "spent": 0
+    }
+  }
+}

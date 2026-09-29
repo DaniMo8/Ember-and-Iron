@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shop stock review</title>
+<body style="background:#15232a;color:#eee;font:18px system-ui;padding:24px"><h1>Shop stock review</h1><p>Creates disposable saves on port 8791 only.</p><button data-mode="empty">Empty Shop</button> <button data-mode="stock">Mixed warehouse stock</button> <button data-mode="salvage">Salvage settings unlocked</button><p id="result"></p>
+<script src="../../data.js"></script><script src="../../engine.js"></script><script src="../../campaign.js"></script><script src="../../company.js"></script><script src="../../formation-combat.js"></script><script src="../../progression.js"></script><script src="../../world-engine.js"></script>
+<script>
+for(const button of document.querySelectorAll('[data-mode]'))button.onclick=()=>{try{
+ if(location.port!=='8791')throw Error('Use the isolated review port.');
+ const e=new EIWorldEngine(EIData),s=e.state,mode=button.dataset.mode;e.command('create',{name:'Shop review',stats:{strength:7,precision:7,charisma:7,knowledge:7}});
+ for(const h of s.adventurers){h.browseUntil=100000000;h.nextShopAt=100000000;}
+ const piece=(recipeId,quality,extra={})=>({id:e._id('item'),recipeId,quality,createdAt:0,makerGeneration:1,displayed:false,protected:false,reservedFor:null,affixId:null,enchantmentId:null,...extra});
+ if(mode!=='empty'){
+  for(const [id,q] of [['bronze_swords',55],['bronze_daggers',30],['bronze_bows',80],['bronze_shields',45],['bronze_armor',70],['bronze_rings',100]])s.inventory.push(piece(id,q,{displayed:true}));
+  s.inventory.push(piece('bronze_swords_v1',50,{affixId:'keen'}),piece('iron_swords_v1',95,{affixId:'balanced',enchantmentId:'flame',enchantStrength:1,autoDisplayHold:true}),piece('bronze_daggers_v2',130,{protected:true}),piece('bronze_armor_v1',32,{autoDisplayHold:true}),piece('iron_rings_v1',115,{reservedFor:'renn'}));
+ }
+ if(mode==='salvage'){s.player.reputation=100;for(let n=0;n<=3;n++)s.world.trees['shop_warehouse_'+n]=1;}
+ e.markSaved(Date.now());const valid=EIWorldEngine.validateSave(e.exportSave(),e.data);if(!valid.ok)throw Error(valid.message);localStorage.setItem('ember-iron-save-v3',e.exportSave());localStorage.removeItem('ember-iron-save-v3-backup');localStorage.removeItem('ember-iron-save-v3-owner');location.href='../../index.html?room=shop';
+ }catch(error){document.querySelector('#result').textContent=error.message;}};
+</script></body></html>

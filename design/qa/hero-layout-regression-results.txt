@@ -1,0 +1,20 @@
+✔ purchased oil is required only for tiers3–5, cannot be mined, and applying content is idempotent (37.517ms)
+✔ oil purchases, advanced crafting and cancellation account for real materials and gold (24.3061ms)
+✔ old supply-free orders and saves migrate without inventing an oil refund (45.763ms)
+✔ hero forge suggestions are read-only, class-compatible and match the actual purchase comparison (23.213ms)
+✔ suggestions separate shortages and queue limits, and reject downgrades to strong enchanted gear (44.7465ms)
+✔ offhand recommendations respect two-handed gear and include the cost of losing an equipped offhand (85.0144ms)
+✔ hero combat summary uses final equipment/training stats and actual level experience thresholds (18.0334ms)
+✔ active combat stat cards use the dispatched party snapshot and replay health (36.7056ms)
+✔ new and uncreated workshops always use the humble backgrounds (33.2392ms)
+✔ art stages follow actual room milestones independently (18.2041ms)
+✔ hero following tracks shop, outward journey, battle, return, recovery, and shopping again (44.3173ms)
+✔ viewing room progression and hero activity does not mutate the save (18.7868ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 452.3412

@@ -1,0 +1,328 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="2350" viewBox="0 0 1500 2350" role="img" aria-labelledby="title desc">
+<title id="title">Ember and Iron — Legacy talent tree</title><desc id="desc">Twenty-four permanent talents in four independent sequential chains: Force, Artifice, Commerce and Lore. Each talent has one rank and requires the previous talent in its branch. Costs by depth are two, four, seven, eleven, nineteen and thirty-three Legacy points. The first talent requires one completed retirement.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b6109"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#292823}.muted{fill:#66645c}.amber{fill:#9b6109}.heading{font-weight:700}.label{font-size:17px}.small{font-size:16px}</style>
+<rect width="1500" height="2350" fill="#f7f4ec"/>
+<text x="70" y="57" font-size="20" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="70" dy="0">EMBER &amp; IRON</tspan>
+</text>
+<text x="70" y="104" font-size="35" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="70" dy="0">A master retires. Their craft remains.</tspan>
+</text>
+<text x="70" y="142" font-size="19" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="70" dy="0">Legacy tree · 24 permanent talents · four independent paths · one rank per talent</tspan>
+</text>
+<rect x="70" y="174" width="1360" height="116" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="94" y="211" font-size="20" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="94" dy="0">SHARED LEGACY POINT POOL</tspan>
+</text>
+<text x="94" y="245" font-size="19" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="94" dy="0">First node: complete one retirement. Later nodes: own the previous node in that branch.</tspan>
+<tspan x="94" dy="28">Spend across any branch. Costs by depth: 2 → 4 → 7 → 11 → 19 → 33 points; 76 points completes one branch.</tspan>
+</text>
+<rect x="70" y="330" width="650" height="814" rx="14" fill="#f7f4ec" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="96" y="370" font-size="24" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="96" dy="0">FORCE</tspan>
+</text>
+<text x="96" y="400" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="96" dy="0">Production capacity and the strength of the forge</tspan>
+</text>
+<rect x="97" y="425" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="456" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">01  Practiced Hands</tspan>
+</text>
+<text x="117" y="487" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+12% crafting speed</tspan>
+</text>
+<text x="672" y="457" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">2 Sparks</tspan>
+</text>
+<path d="M395 514 V540" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="540" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="571" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">02  Deep Stores</tspan>
+</text>
+<text x="117" y="602" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+8 storage capacity</tspan>
+</text>
+<text x="672" y="572" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">4 Sparks</tspan>
+</text>
+<path d="M395 629 V655" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="655" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="686" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">03  Heavy Forms</tspan>
+</text>
+<text x="117" y="717" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+6 quality for heavy equipment</tspan>
+</text>
+<text x="672" y="687" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">7 Sparks</tspan>
+</text>
+<path d="M395 744 V770" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="770" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="801" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">04  Tireless Furnace</tspan>
+</text>
+<text x="117" y="832" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+2 craft queue slots</tspan>
+</text>
+<text x="672" y="802" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">11 Sparks</tspan>
+</text>
+<path d="M395 859 V885" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="885" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="916" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">05  Twin Anvils</tspan>
+</text>
+<text x="117" y="947" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+1 parallel production lane</tspan>
+</text>
+<text x="672" y="917" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">19 Sparks</tspan>
+</text>
+<path d="M395 974 V1000" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="1000" width="596" height="89" rx="12" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="117" y="1031" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">06  Founders Strength</tspan>
+</text>
+<text x="117" y="1062" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+2 starting Strength</tspan>
+</text>
+<text x="672" y="1032" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">33 Sparks</tspan>
+</text>
+<rect x="780" y="330" width="650" height="814" rx="14" fill="#f7f4ec" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="806" y="370" font-size="24" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="806" dy="0">ARTIFICE</tspan>
+</text>
+<text x="806" y="400" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="806" dy="0">Fine workmanship, magic and the chosen heirloom</tspan>
+</text>
+<rect x="807" y="425" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="456" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">01  Steady Eye</tspan>
+</text>
+<text x="827" y="487" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+4 quality for all crafts</tspan>
+</text>
+<text x="1382" y="457" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">2 Sparks</tspan>
+</text>
+<path d="M1105 514 V540" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="540" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="571" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">02  Keen Edges</tspan>
+</text>
+<text x="827" y="602" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+8% equipment attack</tspan>
+</text>
+<text x="1382" y="572" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">4 Sparks</tspan>
+</text>
+<path d="M1105 629 V655" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="655" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="686" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">03  Measured Lines</tspan>
+</text>
+<text x="827" y="717" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+15 percentage points affix chance</tspan>
+</text>
+<text x="1382" y="687" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">7 Sparks</tspan>
+</text>
+<path d="M1105 744 V770" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="770" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="801" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">04  Runic Resonance</tspan>
+</text>
+<text x="827" y="832" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+25% enchantment effect</tspan>
+</text>
+<text x="1382" y="802" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">11 Sparks</tspan>
+</text>
+<path d="M1105 859 V885" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="885" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="916" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">05  Masterwork Tradition</tspan>
+</text>
+<text x="827" y="947" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+8 quality for all crafts</tspan>
+</text>
+<text x="1382" y="917" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">19 Sparks</tspan>
+</text>
+<path d="M1105 974 V1000" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="1000" width="596" height="89" rx="12" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="827" y="1031" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">06  Heirloom Bond</tspan>
+</text>
+<text x="827" y="1062" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+20% heirloom combat effects</tspan>
+</text>
+<text x="1382" y="1032" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">33 Sparks</tspan>
+</text>
+<rect x="70" y="1190" width="650" height="814" rx="14" fill="#f7f4ec" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="96" y="1230" font-size="24" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="96" dy="0">COMMERCE</tspan>
+</text>
+<text x="96" y="1260" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="96" dy="0">A lasting reputation and an efficient business</tspan>
+</text>
+<rect x="97" y="1285" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="1316" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">01  Trusted Name</tspan>
+</text>
+<text x="117" y="1347" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+10% sale price</tspan>
+</text>
+<text x="672" y="1317" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">2 Sparks</tspan>
+</text>
+<path d="M395 1374 V1400" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="1400" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="1431" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">02  Busy Counter</tspan>
+</text>
+<text x="117" y="1462" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">Customer arrivals 20% faster</tspan>
+</text>
+<text x="672" y="1432" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">4 Sparks</tspan>
+</text>
+<path d="M395 1489 V1515" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="1515" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="1546" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">03  Guild Purse</tspan>
+</text>
+<text x="117" y="1577" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+20% customer budgets</tspan>
+</text>
+<text x="672" y="1547" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">7 Sparks</tspan>
+</text>
+<path d="M395 1604 V1630" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="1630" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="1661" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">04  Fair Contracts</tspan>
+</text>
+<text x="117" y="1692" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">Staff costs 25% less</tspan>
+</text>
+<text x="672" y="1662" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">11 Sparks</tspan>
+</text>
+<path d="M395 1719 V1745" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="1745" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="117" y="1776" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">05  Trade Network</tspan>
+</text>
+<text x="117" y="1807" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">Materials cost 15% less</tspan>
+</text>
+<text x="672" y="1777" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">19 Sparks</tspan>
+</text>
+<path d="M395 1834 V1860" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="97" y="1860" width="596" height="89" rx="12" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="117" y="1891" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="117" dy="0">06  Family Fortune</tspan>
+</text>
+<text x="117" y="1922" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="117" dy="0">+250 starting gold</tspan>
+</text>
+<text x="672" y="1892" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="672" dy="0">33 Sparks</tspan>
+</text>
+<rect x="780" y="1190" width="650" height="814" rx="14" fill="#f7f4ec" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="806" y="1230" font-size="24" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="806" dy="0">LORE</tspan>
+</text>
+<text x="806" y="1260" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="806" dy="0">Faster learning, richer returns and stronger parties</tspan>
+</text>
+<rect x="807" y="1285" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="1316" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">01  Patient Study</tspan>
+</text>
+<text x="827" y="1347" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+20% proficiency XP</tspan>
+</text>
+<text x="1382" y="1317" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">2 Sparks</tspan>
+</text>
+<path d="M1105 1374 V1400" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="1400" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="1431" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">02  Field Notes</tspan>
+</text>
+<text x="827" y="1462" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+20% adventurer XP</tspan>
+</text>
+<text x="1382" y="1432" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">4 Sparks</tspan>
+</text>
+<path d="M1105 1489 V1515" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="1515" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="1546" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">03  Hidden Veins</tspan>
+</text>
+<text x="827" y="1577" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">+25% quest loot</tspan>
+</text>
+<text x="1382" y="1547" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">7 Sparks</tspan>
+</text>
+<path d="M1105 1604 V1630" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="1630" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="1661" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">04  Ancient Script</tspan>
+</text>
+<text x="827" y="1692" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">Recipe proficiency gates −5; floor 0</tspan>
+</text>
+<text x="1382" y="1662" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">11 Sparks</tspan>
+</text>
+<path d="M1105 1719 V1745" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="1745" width="596" height="89" rx="12" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="827" y="1776" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">05  Shared Purpose</tspan>
+</text>
+<text x="827" y="1807" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">Party synergy: 20% instead of 10%</tspan>
+</text>
+<text x="1382" y="1777" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">19 Sparks</tspan>
+</text>
+<path d="M1105 1834 V1860" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="807" y="1860" width="596" height="89" rx="12" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="827" y="1891" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="827" dy="0">06  Living Archive</tspan>
+</text>
+<text x="827" y="1922" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="827" dy="0">Start every proficiency at 10</tspan>
+</text>
+<text x="1382" y="1892" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="end">
+<tspan x="1382" dy="0">33 Sparks</tspan>
+</text>
+<path d="M395 290 V330" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M1105 290 V330" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M90 290 V309 H40 V1230 H70" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M1410 290 V309 H1460 V1230 H1430" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="70" y="2050" width="1360" height="214" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="94" y="2087" font-size="20" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="94" dy="0">RETIREMENT RULES</tspan>
+</text>
+<text x="94" y="2124" font-size="19" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="94" dy="0">Eligible at smith level 8 and 6 quest wins. Retirement is optional and requires a reset preview.</tspan>
+<tspan x="94" dy="33">Points earned = 1 + floor(level / 5) + floor(quest wins / 5) + floor(masterworks / 3).</tspan>
+<tspan x="94" dy="33">Keep purchased Legacy talents, collection records, decor, and one physical heirloom plus its recipe.</tspan>
+<tspan x="94" dy="33">Reset run progress, heroes, stats, stations and gold; retained collection records do not unlock every recipe.</tspan>
+</text>
+<text x="70" y="2315" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="70" dy="0">Arrows are prerequisites, not exclusive choices. Sparks are Legacy points. Permanent effects apply to later generations. Full design · v1.1</tspan>
+</text>
+</svg>

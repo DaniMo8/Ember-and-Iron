@@ -1,0 +1,266 @@
+[
+  {
+    "minutes": 360,
+    "policy": "30-second active manager; 5 useful classes; material sales; first-rank upgrades; boss launch at >=65% estimated chance",
+    "milestones": {
+      "firstCraft": 1.5,
+      "firstSale": 4,
+      "level2": 8,
+      "firstVictory": 18,
+      "smuggler_cache": 43.5,
+      "stone_sentinel": 68,
+      "wildwood_heart": 325.5
+    },
+    "bossAttempts": [
+      {
+        "minute": 40.5,
+        "quest": "smuggler_cache",
+        "estimate": 100
+      },
+      {
+        "minute": 63.5,
+        "quest": "stone_sentinel",
+        "estimate": 100
+      },
+      {
+        "minute": 319.5,
+        "quest": "wildwood_heart",
+        "estimate": 70
+      }
+    ],
+    "level": 13,
+    "gold": 8431,
+    "crafted": 564,
+    "sold": 554,
+    "wins": 167,
+    "losses": 34,
+    "questWins": {
+      "rat_nest": 26,
+      "smuggler_cache": 1,
+      "quarry_road": 148,
+      "stone_sentinel": 1,
+      "ash_courtyard": 20,
+      "ember_shrine": 21,
+      "thorn_pass": 78,
+      "wildwood_heart": 1,
+      "frost_pass": 9
+    },
+    "heroLevels": [
+      {
+        "name": "Mara",
+        "level": 10,
+        "status": "fighting",
+        "gear": 6
+      },
+      {
+        "name": "Renn",
+        "level": 9,
+        "status": "fighting",
+        "gear": 5
+      },
+      {
+        "name": "Wren",
+        "level": 9,
+        "status": "fighting",
+        "gear": 5
+      },
+      {
+        "name": "Hire bren",
+        "level": 9,
+        "status": "browsing",
+        "gear": 6
+      }
+    ],
+    "workers": 3,
+    "highestCraftedTier": 3,
+    "staffCare": true,
+    "staff": {
+      "quartermaster": {
+        "hired": true,
+        "active": true,
+        "level": 5,
+        "xp": 0.7000000000000028,
+        "unpaid": false,
+        "stamina": 86.00000000002157
+      },
+      "envoy": {
+        "hired": true,
+        "active": true,
+        "level": 5,
+        "xp": 0.3000000000000256,
+        "unpaid": false,
+        "stamina": 19.000000000020318
+      },
+      "apprentice": {
+        "hired": true,
+        "active": true,
+        "level": 5,
+        "xp": 2.25,
+        "unpaid": false,
+        "stamina": 36.00000000002107
+      },
+      "runekeeper": {
+        "hired": true,
+        "active": true,
+        "level": 1,
+        "xp": 0,
+        "unpaid": false,
+        "stamina": 73.00000000001882
+      }
+    },
+    "highestProficiency": 48,
+    "materialsLost": 130,
+    "maxOverdue": 0,
+    "validationErrors": [],
+    "failedActions": {}
+  },
+  {
+    "minutes": 240,
+    "policy": "30-second active manager; 5 useful classes; material sales; first-rank upgrades; boss launch at >=65% estimated chance",
+    "milestones": {
+      "firstCraft": 1.5,
+      "firstSale": 4,
+      "level2": 8,
+      "firstVictory": 18,
+      "smuggler_cache": 43.5,
+      "stone_sentinel": 68
+    },
+    "bossAttempts": [
+      {
+        "minute": 40.5,
+        "quest": "smuggler_cache",
+        "estimate": 100
+      },
+      {
+        "minute": 63.5,
+        "quest": "stone_sentinel",
+        "estimate": 100
+      }
+    ],
+    "level": 10,
+    "gold": 2862,
+    "crafted": 387,
+    "sold": 372,
+    "wins": 111,
+    "losses": 37,
+    "questWins": {
+      "rat_nest": 26,
+      "smuggler_cache": 1,
+      "quarry_road": 101,
+      "stone_sentinel": 1,
+      "ash_courtyard": 28,
+      "ember_shrine": 21,
+      "thorn_pass": 18
+    },
+    "heroLevels": [
+      {
+        "name": "Mara",
+        "level": 7,
+        "status": "fighting",
+        "gear": 6
+      },
+      {
+        "name": "Renn",
+        "level": 7,
+        "status": "fighting",
+        "gear": 5
+      },
+      {
+        "name": "Wren",
+        "level": 6,
+        "status": "fighting",
+        "gear": 5
+      },
+      {
+        "name": "Hire bren",
+        "level": 6,
+        "status": "fighting",
+        "gear": 6
+      }
+    ],
+    "workers": 3,
+    "highestCraftedTier": 2,
+    "staffCare": false,
+    "staff": {
+      "quartermaster": {
+        "hired": true,
+        "active": true,
+        "level": 2,
+        "xp": 35.549999999999976,
+        "unpaid": false,
+        "stamina": 0
+      },
+      "envoy": {
+        "hired": true,
+        "active": true,
+        "level": 4,
+        "xp": 15.000000000000036,
+        "unpaid": false,
+        "stamina": 0
+      },
+      "apprentice": {
+        "hired": true,
+        "active": true,
+        "level": 4,
+        "xp": 49.95000000000002,
+        "unpaid": false,
+        "stamina": 0
+      },
+      "runekeeper": {
+        "hired": true,
+        "active": true,
+        "level": 1,
+        "xp": 0,
+        "unpaid": false,
+        "stamina": 0
+      }
+    },
+    "highestProficiency": 28,
+    "materialsLost": 42,
+    "maxOverdue": 0,
+    "validationErrors": [],
+    "failedActions": {}
+  },
+  {
+    "minutes": 480,
+    "policy": "Unattended with empty shop",
+    "milestones": {},
+    "bossAttempts": [],
+    "level": 1,
+    "gold": 12,
+    "crafted": 0,
+    "sold": 0,
+    "wins": 0,
+    "losses": 369,
+    "questWins": {},
+    "heroLevels": [
+      {
+        "name": "Mara",
+        "level": 1,
+        "status": "browsing",
+        "gear": 0
+      },
+      {
+        "name": "Renn",
+        "level": 1,
+        "status": "browsing",
+        "gear": 0
+      },
+      {
+        "name": "Wren",
+        "level": 1,
+        "status": "browsing",
+        "gear": 0
+      }
+    ],
+    "workers": 1,
+    "highestCraftedTier": 0,
+    "staffCare": true,
+    "staff": {},
+    "highestProficiency": 0,
+    "materialsLost": 0,
+    "maxOverdue": 0,
+    "validationErrors": [],
+    "failedActions": {}
+  }
+]

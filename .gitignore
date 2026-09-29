@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+Ember-and-Iron-save*.json
+tmp/

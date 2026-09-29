@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1560" viewBox="0 0 1500 1560" role="img" aria-labelledby="title desc">
+<title id="title">Ember and Iron — full item category tree</title><desc id="desc">Twelve proficiencies and sixty core recipes across bronze, iron, steel, mithril and starforged tiers. Six adventurer archetypes use the equipment. Quality, rarity, affixes, enchantments and requirements are separate attributes.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b6109"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#292823}.muted{fill:#66645c}.amber{fill:#9b6109}.heading{font-weight:700}.label{font-size:17px}.small{font-size:16px}</style>
+<rect width="1500" height="1560" fill="#f7f4ec"/>
+<text x="65" y="57" font-size="20" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="65" dy="0">EMBER &amp; IRON</tspan>
+</text>
+<text x="65" y="101" font-size="33" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="65" dy="0">Twelve crafts, six kinds of adventurer</tspan>
+</text>
+<text x="65" y="136" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="65" dy="0">Category defines the craft; material, quality and rarity describe the individual item.</tspan>
+</text>
+<rect x="540" y="178" width="420" height="90" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="560" y="210" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="560" dy="0">Craftable equipment</tspan>
+</text>
+<text x="560" y="239" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="560" dy="0">12 proficiencies · 60 core recipes</tspan>
+</text>
+<path d="M750 268 V300 H285 V333" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M750 268 V333" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M750 300 H1210 V333" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="70" y="333" width="430" height="67" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="285.0" y="375" font-size="19" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="middle">
+<tspan x="285.0" dy="0">WEAPONS</tspan>
+</text>
+<rect x="550" y="333" width="430" height="67" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="765.0" y="375" font-size="19" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="middle">
+<tspan x="765.0" dy="0">PROTECTION</tspan>
+</text>
+<rect x="1030" y="333" width="400" height="67" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="1230.0" y="375" font-size="19" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="middle">
+<tspan x="1230.0" dy="0">ACCESSORIES + UTILITY</tspan>
+</text>
+<path d="M285 400 V419 H88 V1075" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M88 475 H120" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="120" y="437" width="380" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="140" y="469" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="140" dy="0">Daggers</tspan>
+</text>
+<text x="140" y="498" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="140" dy="0">Proficiency class 01</tspan>
+</text>
+<path d="M88 575 H120" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="120" y="537" width="380" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="140" y="569" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="140" dy="0">Swords</tspan>
+</text>
+<text x="140" y="598" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="140" dy="0">Proficiency class 02</tspan>
+</text>
+<path d="M88 675 H120" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="120" y="637" width="380" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="140" y="669" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="140" dy="0">Axes</tspan>
+</text>
+<text x="140" y="698" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="140" dy="0">Proficiency class 03</tspan>
+</text>
+<path d="M88 775 H120" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="120" y="737" width="380" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="140" y="769" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="140" dy="0">Maces</tspan>
+</text>
+<text x="140" y="798" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="140" dy="0">Proficiency class 04</tspan>
+</text>
+<path d="M88 875 H120" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="120" y="837" width="380" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="140" y="869" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="140" dy="0">Polearms</tspan>
+</text>
+<text x="140" y="898" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="140" dy="0">Proficiency class 05</tspan>
+</text>
+<path d="M88 975 H120" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="120" y="937" width="380" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="140" y="969" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="140" dy="0">Bows</tspan>
+</text>
+<text x="140" y="998" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="140" dy="0">Proficiency class 06</tspan>
+</text>
+<path d="M88 1075 H120" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="120" y="1037" width="380" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="140" y="1069" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="140" dy="0">Arcane foci</tspan>
+</text>
+<text x="140" y="1098" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="140" dy="0">Proficiency class 07</tspan>
+</text>
+<path d="M765 400 V418 H565 V721" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M565 484 H595" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="595" y="437" width="385" height="94" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="615" y="469" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="615" dy="0">Armor</tspan>
+</text>
+<text x="615" y="498" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="615" dy="0">Proficiency class 08</tspan>
+</text>
+<path d="M787 531 V556" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="620" y="556" width="360" height="97" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="640" y="589" font-size="19" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="640" dy="0">Light · Medium · Heavy</tspan>
+</text>
+<text x="640" y="619" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="640" dy="0">Variants share one armor proficiency.</tspan>
+<tspan x="640" dy="23">Weight, defense and mobility vary.</tspan>
+</text>
+<path d="M565 721 H595" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="595" y="674" width="385" height="94" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="615" y="706" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="615" dy="0">Shields</tspan>
+</text>
+<text x="615" y="735" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="615" dy="0">Proficiency class 09</tspan>
+</text>
+<path d="M787 768 V793" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="620" y="793" width="360" height="97" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="640" y="826" font-size="19" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="640" dy="0">Buckler · Kite · Tower</tspan>
+</text>
+<text x="640" y="856" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="640" dy="0">Variants share one shield proficiency.</tspan>
+</text>
+<path d="M1230 400 V420 H1055 V689" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1055 476 H1083" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="1083" y="437" width="347" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="1103" y="469" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="1103" dy="0">Rings</tspan>
+</text>
+<text x="1103" y="498" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1103" dy="0">Proficiency class 10</tspan>
+</text>
+<path d="M1055 577 H1083" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="1083" y="538" width="347" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="1103" y="570" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="1103" dy="0">Charms</tspan>
+</text>
+<text x="1103" y="599" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1103" dy="0">Proficiency class 11</tspan>
+</text>
+<path d="M1055 678 H1083" fill="none" stroke="#9b6109" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="1083" y="639" width="347" height="81" rx="14" fill="#f3e4c3" stroke="#9b6109" stroke-width="1.5"/>
+<text x="1103" y="671" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="1103" dy="0">Tools</tspan>
+</text>
+<text x="1103" y="700" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1103" dy="0">Proficiency class 12</tspan>
+</text>
+<rect x="595" y="945" width="385" height="173" rx="14" fill="#f7f4ec" stroke="#d7d1c4" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="617" y="980" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="617" dy="0">Progress follows the craft</tspan>
+</text>
+<text x="617" y="1015" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="617" dy="0">Every completed recipe trains its class.</tspan>
+<tspan x="617" dy="26">Material, rarity and item variants</tspan>
+<tspan x="617" dy="26">do not create extra proficiencies.</tspan>
+<tspan x="617" dy="26">Tools here are adventurer equipment.</tspan>
+</text>
+<rect x="1030" y="780" width="400" height="338" rx="14" fill="#f7f4ec" stroke="#d7d1c4" stroke-width="1.5" stroke-dasharray="6 6"/>
+<text x="1052" y="815" font-size="20" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="1052" dy="0">Adventurer archetypes</tspan>
+</text>
+<text x="1052" y="853" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="1052" dy="0">Vanguard · reliable front line</tspan>
+<tspan x="1052" dy="27">Duelist · speed and precision</tspan>
+<tspan x="1052" dy="27">Breaker · heavy offense</tspan>
+<tspan x="1052" dy="27">Ranger · ranged pressure</tspan>
+<tspan x="1052" dy="27">Guardian · protection and control</tspan>
+<tspan x="1052" dy="27">Mage · elemental power</tspan>
+<tspan x="1052" dy="27"></tspan>
+<tspan x="1052" dy="27">Stock and compatibility shape arrivals.</tspan>
+<tspan x="1052" dy="27">Party roles complement equipment.</tspan>
+</text>
+<rect x="70" y="1170" width="1360" height="310" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="94" y="1207" font-size="19" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="94" dy="0">SEPARATE ITEM ATTRIBUTES · NOT A SINGLE UPGRADE LADDER</tspan>
+</text>
+<text x="94" y="1250" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="94" dy="0">Materials: bronze / iron / steel / mithril / starforged</tspan>
+<tspan x="94" dy="36">Five material variants per class: 60 core recipes</tspan>
+<tspan x="94" dy="36">Quality: workmanship scored from 0 to 100</tspan>
+<tspan x="94" dy="36">Rarity: common / uncommon / rare / epic / legendary</tspan>
+<tspan x="94" dy="36">Provenance: maker, owner and notable exploits</tspan>
+</text>
+<text x="820" y="1250" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="820" dy="0">Affixes: item modifiers with explicit effects</tspan>
+<tspan x="820" dy="36">Enchantment: separately applied magical effects</tspan>
+<tspan x="820" dy="36">Requirements: stats + proficiency + station</tspan>
+<tspan x="820" dy="36">Discovery gates: recipe and/or quest milestone</tspan>
+<tspan x="820" dy="36">Collections preserve discovery and masterwork records.</tspan>
+</text>
+<text x="70" y="1528" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="70" dy="0">Amber nodes: all twelve proficiency classes      Paper nodes: equipment variants or supporting rules      Full scope · v0.5</tspan>
+</text>
+</svg>

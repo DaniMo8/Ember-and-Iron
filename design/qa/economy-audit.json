@@ -1,0 +1,439 @@
+{
+  "generatedAt": "2026-09-26T04:43:03.697Z",
+  "treeTotals": {
+    "mine": {
+      "currency": "Prospecting",
+      "nodes": 24,
+      "ranks": 82,
+      "firstRanks": 1112,
+      "allRanks": 19141
+    },
+    "forge": {
+      "currency": "Gold",
+      "nodes": 24,
+      "ranks": 78,
+      "firstRanks": 63625,
+      "allRanks": 898835
+    },
+    "shop": {
+      "currency": "Influence",
+      "nodes": 24,
+      "ranks": 89,
+      "firstRanks": 1530,
+      "allRanks": 19279
+    },
+    "adventurers": {
+      "currency": "Merits",
+      "nodes": 24,
+      "ranks": 67,
+      "firstRanks": 2040,
+      "allRanks": 13796
+    }
+  },
+  "legacyCosts": [
+    2,
+    4,
+    7,
+    11,
+    19,
+    33
+  ],
+  "legacyTotal": 304,
+  "legacyFixtures": [
+    {
+      "name": "Minimum retirement",
+      "level": 8,
+      "wins": 6,
+      "quests": 1,
+      "masterworks": 0,
+      "before": 3,
+      "after": 2
+    },
+    {
+      "name": "Easy-quest farm",
+      "level": 8,
+      "wins": 300,
+      "quests": 1,
+      "masterworks": 0,
+      "before": 62,
+      "after": 2
+    },
+    {
+      "name": "Established workshop",
+      "level": 16,
+      "wins": 300,
+      "quests": 6,
+      "masterworks": 12,
+      "before": 68,
+      "after": 7
+    },
+    {
+      "name": "Late workshop",
+      "level": 32,
+      "wins": 1000,
+      "quests": 12,
+      "masterworks": 30,
+      "before": 217,
+      "after": 13
+    }
+  ],
+  "profiles": [
+    {
+      "name": "Post-audit sword specialist",
+      "profession": "weaponsmith",
+      "minutes": 240,
+      "passive": false,
+      "focus": true,
+      "milestones": {
+        "firstCraft": 1.5,
+        "firstSale": 3,
+        "firstVictory": 5.5,
+        "level2": 7.5,
+        "ironCraft": 40,
+        "ironSeam": 56.5
+      },
+      "level": 8,
+      "gold": 4449,
+      "crafted": 194,
+      "sold": 191,
+      "wins": 156,
+      "losses": 21,
+      "heroes": 4,
+      "workers": 3,
+      "mined": 1730,
+      "upgrades": 20,
+      "highestProficiency": 54,
+      "highestTier": 2,
+      "inventory": 3,
+      "maxOverdue": 0,
+      "maxCargo": 46,
+      "stockBlockedMinutes": 0,
+      "states": {
+        "browsing": 534,
+        "travelling": 267,
+        "fighting": 726,
+        "recovering": 110,
+        "returning": 255
+      },
+      "failedActions": {},
+      "history": [
+        {
+          "minute": 0.5,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 0
+        },
+        {
+          "minute": 10.5,
+          "gold": 37,
+          "crafted": 9,
+          "wins": 6,
+          "losses": 5
+        },
+        {
+          "minute": 20.5,
+          "gold": 53,
+          "crafted": 17,
+          "wins": 15,
+          "losses": 10
+        },
+        {
+          "minute": 30.5,
+          "gold": 38,
+          "crafted": 25,
+          "wins": 19,
+          "losses": 13
+        },
+        {
+          "minute": 40.5,
+          "gold": 25,
+          "crafted": 34,
+          "wins": 27,
+          "losses": 13
+        },
+        {
+          "minute": 50.5,
+          "gold": 246,
+          "crafted": 41,
+          "wins": 34,
+          "losses": 14
+        },
+        {
+          "minute": 60.5,
+          "gold": 436,
+          "crafted": 48,
+          "wins": 38,
+          "losses": 16
+        },
+        {
+          "minute": 70.5,
+          "gold": 565,
+          "crafted": 56,
+          "wins": 42,
+          "losses": 17
+        },
+        {
+          "minute": 80.5,
+          "gold": 763,
+          "crafted": 63,
+          "wins": 50,
+          "losses": 17
+        },
+        {
+          "minute": 90.5,
+          "gold": 1011,
+          "crafted": 71,
+          "wins": 58,
+          "losses": 17
+        },
+        {
+          "minute": 100.5,
+          "gold": 1182,
+          "crafted": 79,
+          "wins": 65,
+          "losses": 17
+        },
+        {
+          "minute": 110.5,
+          "gold": 1413,
+          "crafted": 87,
+          "wins": 72,
+          "losses": 17
+        },
+        {
+          "minute": 120.5,
+          "gold": 1604,
+          "crafted": 95,
+          "wins": 79,
+          "losses": 17
+        },
+        {
+          "minute": 130.5,
+          "gold": 1781,
+          "crafted": 103,
+          "wins": 85,
+          "losses": 18
+        },
+        {
+          "minute": 140.5,
+          "gold": 1952,
+          "crafted": 111,
+          "wins": 89,
+          "losses": 19
+        },
+        {
+          "minute": 150.5,
+          "gold": 2184,
+          "crafted": 118,
+          "wins": 96,
+          "losses": 20
+        },
+        {
+          "minute": 160.5,
+          "gold": 2430,
+          "crafted": 127,
+          "wins": 102,
+          "losses": 20
+        },
+        {
+          "minute": 170.5,
+          "gold": 2656,
+          "crafted": 135,
+          "wins": 109,
+          "losses": 20
+        },
+        {
+          "minute": 180.5,
+          "gold": 2910,
+          "crafted": 144,
+          "wins": 115,
+          "losses": 21
+        },
+        {
+          "minute": 190.5,
+          "gold": 3126,
+          "crafted": 151,
+          "wins": 121,
+          "losses": 21
+        },
+        {
+          "minute": 200.5,
+          "gold": 3381,
+          "crafted": 160,
+          "wins": 128,
+          "losses": 21
+        },
+        {
+          "minute": 210.5,
+          "gold": 3683,
+          "crafted": 169,
+          "wins": 136,
+          "losses": 21
+        },
+        {
+          "minute": 220.5,
+          "gold": 3931,
+          "crafted": 177,
+          "wins": 142,
+          "losses": 21
+        },
+        {
+          "minute": 230.5,
+          "gold": 4166,
+          "crafted": 185,
+          "wins": 150,
+          "losses": 21
+        }
+      ],
+      "legacy": {
+        "eligible": true,
+        "sparks": 4,
+        "breakdown": {
+          "foundation": 2,
+          "smithMilestones": 0,
+          "exploration": 2,
+          "masterworkDesigns": 0,
+          "uniqueQuests": 7,
+          "masterworks": 2
+        }
+      }
+    },
+    {
+      "name": "Post-audit generalist",
+      "profession": "weaponsmith",
+      "minutes": 120,
+      "passive": false,
+      "focus": false,
+      "milestones": {
+        "firstCraft": 1.5,
+        "firstSale": 3.5,
+        "firstVictory": 5.5,
+        "level2": 7,
+        "ironSeam": 56.5
+      },
+      "level": 5,
+      "gold": 1479,
+      "crafted": 68,
+      "sold": 50,
+      "wins": 79,
+      "losses": 10,
+      "heroes": 4,
+      "workers": 2,
+      "mined": 638,
+      "upgrades": 19,
+      "highestProficiency": 9,
+      "highestTier": 1,
+      "inventory": 18,
+      "maxOverdue": 0,
+      "maxCargo": 131,
+      "stockBlockedMinutes": 0,
+      "states": {
+        "browsing": 254,
+        "travelling": 135,
+        "fighting": 377,
+        "recovering": 55,
+        "returning": 109
+      },
+      "failedActions": {},
+      "history": [
+        {
+          "minute": 0.5,
+          "gold": 12,
+          "crafted": 0,
+          "wins": 0,
+          "losses": 0
+        },
+        {
+          "minute": 10.5,
+          "gold": 55,
+          "crafted": 9,
+          "wins": 7,
+          "losses": 4
+        },
+        {
+          "minute": 20.5,
+          "gold": 34,
+          "crafted": 17,
+          "wins": 20,
+          "losses": 5
+        },
+        {
+          "minute": 30.5,
+          "gold": 88,
+          "crafted": 27,
+          "wins": 31,
+          "losses": 5
+        },
+        {
+          "minute": 40.5,
+          "gold": 213,
+          "crafted": 36,
+          "wins": 38,
+          "losses": 5
+        },
+        {
+          "minute": 50.5,
+          "gold": 336,
+          "crafted": 46,
+          "wins": 45,
+          "losses": 5
+        },
+        {
+          "minute": 60.5,
+          "gold": 623,
+          "crafted": 56,
+          "wins": 49,
+          "losses": 7
+        },
+        {
+          "minute": 70.5,
+          "gold": 731,
+          "crafted": 66,
+          "wins": 51,
+          "losses": 9
+        },
+        {
+          "minute": 80.5,
+          "gold": 835,
+          "crafted": 68,
+          "wins": 55,
+          "losses": 10
+        },
+        {
+          "minute": 90.5,
+          "gold": 1009,
+          "crafted": 68,
+          "wins": 61,
+          "losses": 10
+        },
+        {
+          "minute": 100.5,
+          "gold": 1159,
+          "crafted": 68,
+          "wins": 67,
+          "losses": 10
+        },
+        {
+          "minute": 110.5,
+          "gold": 1317,
+          "crafted": 68,
+          "wins": 73,
+          "losses": 10
+        }
+      ],
+      "legacy": {
+        "eligible": false,
+        "sparks": 4,
+        "breakdown": {
+          "foundation": 2,
+          "smithMilestones": 0,
+          "exploration": 2,
+          "masterworkDesigns": 0,
+          "uniqueQuests": 7,
+          "masterworks": 0
+        }
+      }
+    }
+  ]
+}

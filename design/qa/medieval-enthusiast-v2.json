@@ -1,0 +1,3253 @@
+{
+  "generatedAt": "2026-09-27T04:13:14.137Z",
+  "perspective": "Medieval-fantasy game enthusiast design review; AI reviewer, not a human historian.",
+  "method": "Seeded controlled combat/equipment fixtures, engine commands for boss gathering, exhaustive catalogue/price checks; not a natural complete campaign playthrough.",
+  "recipeCount": 180,
+  "families": 60,
+  "checkedPrices": 1080,
+  "modifiersChecked": 20,
+  "controlledBattles": 4080,
+  "findings": {
+    "commissionSave": {
+      "minQuality": 115,
+      "valid": true,
+      "message": "Valid save."
+    },
+    "modifierPrice": {
+      "plain": 256,
+      "craftedAndEnchanted": 288,
+      "name": "Peerless Mithril Arming Sword of Embers",
+      "samePrice": false
+    },
+    "invalidNames": [],
+    "underInputCustomerPrices": [],
+    "nonWeaponVariantsHaveNoSpeedOrMobilityCost": true,
+    "qualityNames": [
+      {
+        "q": 44,
+        "label": "common"
+      },
+      {
+        "q": 45,
+        "label": "fine"
+      },
+      {
+        "q": 79,
+        "label": "fine"
+      },
+      {
+        "q": 80,
+        "label": "superior"
+      },
+      {
+        "q": 114,
+        "label": "superior"
+      },
+      {
+        "q": 115,
+        "label": "masterwork"
+      },
+      {
+        "q": 149,
+        "label": "masterwork"
+      },
+      {
+        "q": 150,
+        "label": "epic"
+      },
+      {
+        "q": 179,
+        "label": "epic"
+      },
+      {
+        "q": 180,
+        "label": "legendary"
+      },
+      {
+        "q": 200,
+        "label": "legendary"
+      }
+    ]
+  },
+  "priceRows": [
+    {
+      "id": "bronze_daggers",
+      "name": "Bronze Rondel Dagger",
+      "tier": 1,
+      "variant": 0,
+      "customer": 7,
+      "town": 2,
+      "input": 4,
+      "margin": 3,
+      "seconds": 70
+    },
+    {
+      "id": "iron_daggers",
+      "name": "Iron Rondel Dagger",
+      "tier": 2,
+      "variant": 0,
+      "customer": 24,
+      "town": 7,
+      "input": 12,
+      "margin": 12,
+      "seconds": 128
+    },
+    {
+      "id": "steel_daggers",
+      "name": "Steel Rondel Dagger",
+      "tier": 3,
+      "variant": 0,
+      "customer": 64,
+      "town": 16,
+      "input": 26,
+      "margin": 38,
+      "seconds": 198
+    },
+    {
+      "id": "mithril_daggers",
+      "name": "Mithril Rondel Dagger",
+      "tier": 4,
+      "variant": 0,
+      "customer": 170,
+      "town": 40,
+      "input": 62,
+      "margin": 108,
+      "seconds": 282
+    },
+    {
+      "id": "starforged_daggers",
+      "name": "Starforged Rondel Dagger",
+      "tier": 5,
+      "variant": 0,
+      "customer": 459,
+      "town": 92,
+      "input": 142,
+      "margin": 317,
+      "seconds": 387
+    },
+    {
+      "id": "bronze_swords",
+      "name": "Bronze Arming Sword",
+      "tier": 1,
+      "variant": 0,
+      "customer": 9,
+      "town": 3,
+      "input": 6,
+      "margin": 3,
+      "seconds": 88
+    },
+    {
+      "id": "iron_swords",
+      "name": "Iron Arming Sword",
+      "tier": 2,
+      "variant": 0,
+      "customer": 32,
+      "town": 11,
+      "input": 17,
+      "margin": 15,
+      "seconds": 158
+    },
+    {
+      "id": "steel_swords",
+      "name": "Steel Arming Sword",
+      "tier": 3,
+      "variant": 0,
+      "customer": 85,
+      "town": 24,
+      "input": 38,
+      "margin": 47,
+      "seconds": 246
+    },
+    {
+      "id": "mithril_swords",
+      "name": "Mithril Arming Sword",
+      "tier": 4,
+      "variant": 0,
+      "customer": 226,
+      "town": 59,
+      "input": 92,
+      "margin": 134,
+      "seconds": 352
+    },
+    {
+      "id": "starforged_swords",
+      "name": "Starforged Arming Sword",
+      "tier": 5,
+      "variant": 0,
+      "customer": 612,
+      "town": 137,
+      "input": 212,
+      "margin": 400,
+      "seconds": 484
+    },
+    {
+      "id": "bronze_axes",
+      "name": "Bronze Hatchet",
+      "tier": 1,
+      "variant": 0,
+      "customer": 9,
+      "town": 3,
+      "input": 6,
+      "margin": 3,
+      "seconds": 97
+    },
+    {
+      "id": "iron_axes",
+      "name": "Iron Hatchet",
+      "tier": 2,
+      "variant": 0,
+      "customer": 32,
+      "town": 11,
+      "input": 17,
+      "margin": 15,
+      "seconds": 174
+    },
+    {
+      "id": "steel_axes",
+      "name": "Steel Hatchet",
+      "tier": 3,
+      "variant": 0,
+      "customer": 85,
+      "town": 24,
+      "input": 38,
+      "margin": 47,
+      "seconds": 271
+    },
+    {
+      "id": "mithril_axes",
+      "name": "Mithril Hatchet",
+      "tier": 4,
+      "variant": 0,
+      "customer": 226,
+      "town": 59,
+      "input": 92,
+      "margin": 134,
+      "seconds": 387
+    },
+    {
+      "id": "starforged_axes",
+      "name": "Starforged Hatchet",
+      "tier": 5,
+      "variant": 0,
+      "customer": 612,
+      "town": 137,
+      "input": 212,
+      "margin": 400,
+      "seconds": 532
+    },
+    {
+      "id": "bronze_maces",
+      "name": "Bronze Pernach",
+      "tier": 1,
+      "variant": 0,
+      "customer": 9,
+      "town": 3,
+      "input": 6,
+      "margin": 3,
+      "seconds": 101
+    },
+    {
+      "id": "iron_maces",
+      "name": "Iron Pernach",
+      "tier": 2,
+      "variant": 0,
+      "customer": 32,
+      "town": 11,
+      "input": 17,
+      "margin": 15,
+      "seconds": 183
+    },
+    {
+      "id": "steel_maces",
+      "name": "Steel Pernach",
+      "tier": 3,
+      "variant": 0,
+      "customer": 85,
+      "town": 24,
+      "input": 38,
+      "margin": 47,
+      "seconds": 284
+    },
+    {
+      "id": "mithril_maces",
+      "name": "Mithril Pernach",
+      "tier": 4,
+      "variant": 0,
+      "customer": 226,
+      "town": 59,
+      "input": 92,
+      "margin": 134,
+      "seconds": 405
+    },
+    {
+      "id": "starforged_maces",
+      "name": "Starforged Pernach",
+      "tier": 5,
+      "variant": 0,
+      "customer": 612,
+      "town": 137,
+      "input": 212,
+      "margin": 400,
+      "seconds": 557
+    },
+    {
+      "id": "bronze_polearms",
+      "name": "Bronze Billhook",
+      "tier": 1,
+      "variant": 0,
+      "customer": 9,
+      "town": 3,
+      "input": 6,
+      "margin": 3,
+      "seconds": 106
+    },
+    {
+      "id": "iron_polearms",
+      "name": "Iron Billhook",
+      "tier": 2,
+      "variant": 0,
+      "customer": 32,
+      "town": 11,
+      "input": 17,
+      "margin": 15,
+      "seconds": 189
+    },
+    {
+      "id": "steel_polearms",
+      "name": "Steel Billhook",
+      "tier": 3,
+      "variant": 0,
+      "customer": 85,
+      "town": 24,
+      "input": 38,
+      "margin": 47,
+      "seconds": 295
+    },
+    {
+      "id": "mithril_polearms",
+      "name": "Mithril Billhook",
+      "tier": 4,
+      "variant": 0,
+      "customer": 226,
+      "town": 59,
+      "input": 92,
+      "margin": 134,
+      "seconds": 422
+    },
+    {
+      "id": "starforged_polearms",
+      "name": "Starforged Billhook",
+      "tier": 5,
+      "variant": 0,
+      "customer": 612,
+      "town": 137,
+      "input": 212,
+      "margin": 400,
+      "seconds": 581
+    },
+    {
+      "id": "bronze_bows",
+      "name": "Bronze Longbow",
+      "tier": 1,
+      "variant": 0,
+      "customer": 9,
+      "town": 3,
+      "input": 6,
+      "margin": 3,
+      "seconds": 97
+    },
+    {
+      "id": "iron_bows",
+      "name": "Iron Longbow",
+      "tier": 2,
+      "variant": 0,
+      "customer": 32,
+      "town": 9,
+      "input": 14,
+      "margin": 18,
+      "seconds": 174
+    },
+    {
+      "id": "steel_bows",
+      "name": "Steel Longbow",
+      "tier": 3,
+      "variant": 0,
+      "customer": 85,
+      "town": 18,
+      "input": 28,
+      "margin": 57,
+      "seconds": 271
+    },
+    {
+      "id": "mithril_bows",
+      "name": "Mithril Longbow",
+      "tier": 4,
+      "variant": 0,
+      "customer": 226,
+      "town": 41,
+      "input": 64,
+      "margin": 162,
+      "seconds": 387
+    },
+    {
+      "id": "starforged_bows",
+      "name": "Starforged Longbow",
+      "tier": 5,
+      "variant": 0,
+      "customer": 612,
+      "town": 93,
+      "input": 144,
+      "margin": 468,
+      "seconds": 532
+    },
+    {
+      "id": "bronze_foci",
+      "name": "Bronze Sceptre",
+      "tier": 1,
+      "variant": 0,
+      "customer": 7,
+      "town": 2,
+      "input": 4,
+      "margin": 3,
+      "seconds": 99
+    },
+    {
+      "id": "iron_foci",
+      "name": "Iron Sceptre",
+      "tier": 2,
+      "variant": 0,
+      "customer": 24,
+      "town": 7,
+      "input": 12,
+      "margin": 12,
+      "seconds": 178
+    },
+    {
+      "id": "steel_foci",
+      "name": "Steel Sceptre",
+      "tier": 3,
+      "variant": 0,
+      "customer": 64,
+      "town": 16,
+      "input": 26,
+      "margin": 38,
+      "seconds": 277
+    },
+    {
+      "id": "mithril_foci",
+      "name": "Mithril Sceptre",
+      "tier": 4,
+      "variant": 0,
+      "customer": 170,
+      "town": 40,
+      "input": 62,
+      "margin": 108,
+      "seconds": 396
+    },
+    {
+      "id": "starforged_foci",
+      "name": "Starforged Sceptre",
+      "tier": 5,
+      "variant": 0,
+      "customer": 459,
+      "town": 92,
+      "input": 142,
+      "margin": 317,
+      "seconds": 546
+    },
+    {
+      "id": "bronze_armor",
+      "name": "Bronze Lamellar Cuirass",
+      "tier": 1,
+      "variant": 0,
+      "customer": 9,
+      "town": 3,
+      "input": 5,
+      "margin": 4,
+      "seconds": 110
+    },
+    {
+      "id": "iron_armor",
+      "name": "Iron Lamellar Cuirass",
+      "tier": 2,
+      "variant": 0,
+      "customer": 32,
+      "town": 8,
+      "input": 13,
+      "margin": 19,
+      "seconds": 198
+    },
+    {
+      "id": "steel_armor",
+      "name": "Steel Lamellar Cuirass",
+      "tier": 3,
+      "variant": 0,
+      "customer": 85,
+      "town": 17,
+      "input": 27,
+      "margin": 58,
+      "seconds": 308
+    },
+    {
+      "id": "mithril_armor",
+      "name": "Mithril Lamellar Cuirass",
+      "tier": 4,
+      "variant": 0,
+      "customer": 226,
+      "town": 40,
+      "input": 63,
+      "margin": 163,
+      "seconds": 440
+    },
+    {
+      "id": "starforged_armor",
+      "name": "Starforged Lamellar Cuirass",
+      "tier": 5,
+      "variant": 0,
+      "customer": 612,
+      "town": 92,
+      "input": 143,
+      "margin": 469,
+      "seconds": 605
+    },
+    {
+      "id": "bronze_shields",
+      "name": "Bronze Buckler",
+      "tier": 1,
+      "variant": 0,
+      "customer": 8,
+      "town": 3,
+      "input": 5,
+      "margin": 3,
+      "seconds": 88
+    },
+    {
+      "id": "iron_shields",
+      "name": "Iron Buckler",
+      "tier": 2,
+      "variant": 0,
+      "customer": 28,
+      "town": 8,
+      "input": 13,
+      "margin": 15,
+      "seconds": 158
+    },
+    {
+      "id": "steel_shields",
+      "name": "Steel Buckler",
+      "tier": 3,
+      "variant": 0,
+      "customer": 74,
+      "town": 17,
+      "input": 27,
+      "margin": 47,
+      "seconds": 246
+    },
+    {
+      "id": "mithril_shields",
+      "name": "Mithril Buckler",
+      "tier": 4,
+      "variant": 0,
+      "customer": 198,
+      "town": 40,
+      "input": 63,
+      "margin": 135,
+      "seconds": 352
+    },
+    {
+      "id": "starforged_shields",
+      "name": "Starforged Buckler",
+      "tier": 5,
+      "variant": 0,
+      "customer": 536,
+      "town": 92,
+      "input": 143,
+      "margin": 393,
+      "seconds": 484
+    },
+    {
+      "id": "bronze_rings",
+      "name": "Bronze Signet Ring",
+      "tier": 1,
+      "variant": 0,
+      "customer": 7,
+      "town": 2,
+      "input": 4,
+      "margin": 3,
+      "seconds": 75
+    },
+    {
+      "id": "iron_rings",
+      "name": "Iron Signet Ring",
+      "tier": 2,
+      "variant": 0,
+      "customer": 24,
+      "town": 7,
+      "input": 12,
+      "margin": 12,
+      "seconds": 134
+    },
+    {
+      "id": "steel_rings",
+      "name": "Steel Signet Ring",
+      "tier": 3,
+      "variant": 0,
+      "customer": 64,
+      "town": 16,
+      "input": 26,
+      "margin": 38,
+      "seconds": 209
+    },
+    {
+      "id": "mithril_rings",
+      "name": "Mithril Signet Ring",
+      "tier": 4,
+      "variant": 0,
+      "customer": 170,
+      "town": 40,
+      "input": 62,
+      "margin": 108,
+      "seconds": 299
+    },
+    {
+      "id": "starforged_rings",
+      "name": "Starforged Signet Ring",
+      "tier": 5,
+      "variant": 0,
+      "customer": 459,
+      "town": 92,
+      "input": 142,
+      "margin": 317,
+      "seconds": 411
+    },
+    {
+      "id": "bronze_charms",
+      "name": "Bronze Reliquary",
+      "tier": 1,
+      "variant": 0,
+      "customer": 7,
+      "town": 2,
+      "input": 4,
+      "margin": 3,
+      "seconds": 79
+    },
+    {
+      "id": "iron_charms",
+      "name": "Iron Reliquary",
+      "tier": 2,
+      "variant": 0,
+      "customer": 24,
+      "town": 7,
+      "input": 12,
+      "margin": 12,
+      "seconds": 143
+    },
+    {
+      "id": "steel_charms",
+      "name": "Steel Reliquary",
+      "tier": 3,
+      "variant": 0,
+      "customer": 64,
+      "town": 16,
+      "input": 26,
+      "margin": 38,
+      "seconds": 222
+    },
+    {
+      "id": "mithril_charms",
+      "name": "Mithril Reliquary",
+      "tier": 4,
+      "variant": 0,
+      "customer": 170,
+      "town": 40,
+      "input": 62,
+      "margin": 108,
+      "seconds": 317
+    },
+    {
+      "id": "starforged_charms",
+      "name": "Starforged Reliquary",
+      "tier": 5,
+      "variant": 0,
+      "customer": 459,
+      "town": 92,
+      "input": 142,
+      "margin": 317,
+      "seconds": 436
+    },
+    {
+      "id": "bronze_tools",
+      "name": "Bronze Delver Kit",
+      "tier": 1,
+      "variant": 0,
+      "customer": 7,
+      "town": 2,
+      "input": 4,
+      "margin": 3,
+      "seconds": 84
+    },
+    {
+      "id": "iron_tools",
+      "name": "Iron Delver Kit",
+      "tier": 2,
+      "variant": 0,
+      "customer": 24,
+      "town": 7,
+      "input": 12,
+      "margin": 12,
+      "seconds": 150
+    },
+    {
+      "id": "steel_tools",
+      "name": "Steel Delver Kit",
+      "tier": 3,
+      "variant": 0,
+      "customer": 64,
+      "town": 16,
+      "input": 26,
+      "margin": 38,
+      "seconds": 233
+    },
+    {
+      "id": "mithril_tools",
+      "name": "Mithril Delver Kit",
+      "tier": 4,
+      "variant": 0,
+      "customer": 170,
+      "town": 40,
+      "input": 62,
+      "margin": 108,
+      "seconds": 334
+    },
+    {
+      "id": "starforged_tools",
+      "name": "Starforged Delver Kit",
+      "tier": 5,
+      "variant": 0,
+      "customer": 459,
+      "town": 92,
+      "input": 142,
+      "margin": 317,
+      "seconds": 460
+    },
+    {
+      "id": "bronze_daggers_v1",
+      "name": "Bronze Baselard",
+      "tier": 1,
+      "variant": 1,
+      "customer": 9,
+      "town": 3,
+      "input": 5,
+      "margin": 4,
+      "seconds": 82
+    },
+    {
+      "id": "bronze_daggers_v2",
+      "name": "Bronze Quillon Dagger",
+      "tier": 1,
+      "variant": 2,
+      "customer": 11,
+      "town": 3,
+      "input": 6,
+      "margin": 5,
+      "seconds": 94
+    },
+    {
+      "id": "iron_daggers_v1",
+      "name": "Iron Baselard",
+      "tier": 2,
+      "variant": 1,
+      "customer": 29,
+      "town": 8,
+      "input": 13,
+      "margin": 16,
+      "seconds": 150
+    },
+    {
+      "id": "iron_daggers_v2",
+      "name": "Iron Quillon Dagger",
+      "tier": 2,
+      "variant": 2,
+      "customer": 34,
+      "town": 11,
+      "input": 17,
+      "margin": 17,
+      "seconds": 172
+    },
+    {
+      "id": "steel_daggers_v1",
+      "name": "Steel Baselard",
+      "tier": 3,
+      "variant": 1,
+      "customer": 78,
+      "town": 17,
+      "input": 27,
+      "margin": 51,
+      "seconds": 232
+    },
+    {
+      "id": "steel_daggers_v2",
+      "name": "Steel Quillon Dagger",
+      "tier": 3,
+      "variant": 2,
+      "customer": 92,
+      "town": 24,
+      "input": 38,
+      "margin": 54,
+      "seconds": 265
+    },
+    {
+      "id": "mithril_daggers_v1",
+      "name": "Mithril Baselard",
+      "tier": 4,
+      "variant": 1,
+      "customer": 207,
+      "town": 40,
+      "input": 63,
+      "margin": 144,
+      "seconds": 330
+    },
+    {
+      "id": "mithril_daggers_v2",
+      "name": "Mithril Quillon Dagger",
+      "tier": 4,
+      "variant": 2,
+      "customer": 245,
+      "town": 59,
+      "input": 92,
+      "margin": 153,
+      "seconds": 378
+    },
+    {
+      "id": "starforged_daggers_v1",
+      "name": "Starforged Baselard",
+      "tier": 5,
+      "variant": 1,
+      "customer": 561,
+      "town": 92,
+      "input": 143,
+      "margin": 418,
+      "seconds": 453
+    },
+    {
+      "id": "starforged_daggers_v2",
+      "name": "Starforged Quillon Dagger",
+      "tier": 5,
+      "variant": 2,
+      "customer": 662,
+      "town": 137,
+      "input": 212,
+      "margin": 450,
+      "seconds": 519
+    },
+    {
+      "id": "bronze_swords_v1",
+      "name": "Bronze Falchion",
+      "tier": 1,
+      "variant": 1,
+      "customer": 12,
+      "town": 4,
+      "input": 7,
+      "margin": 5,
+      "seconds": 103
+    },
+    {
+      "id": "bronze_swords_v2",
+      "name": "Bronze Longsword",
+      "tier": 1,
+      "variant": 2,
+      "customer": 14,
+      "town": 5,
+      "input": 8,
+      "margin": 6,
+      "seconds": 118
+    },
+    {
+      "id": "iron_swords_v1",
+      "name": "Iron Falchion",
+      "tier": 2,
+      "variant": 1,
+      "customer": 39,
+      "town": 11,
+      "input": 18,
+      "margin": 21,
+      "seconds": 185
+    },
+    {
+      "id": "iron_swords_v2",
+      "name": "Iron Longsword",
+      "tier": 2,
+      "variant": 2,
+      "customer": 46,
+      "town": 14,
+      "input": 22,
+      "margin": 24,
+      "seconds": 212
+    },
+    {
+      "id": "steel_swords_v1",
+      "name": "Steel Falchion",
+      "tier": 3,
+      "variant": 1,
+      "customer": 104,
+      "town": 25,
+      "input": 39,
+      "margin": 65,
+      "seconds": 288
+    },
+    {
+      "id": "steel_swords_v2",
+      "name": "Steel Longsword",
+      "tier": 3,
+      "variant": 2,
+      "customer": 122,
+      "town": 32,
+      "input": 50,
+      "margin": 72,
+      "seconds": 330
+    },
+    {
+      "id": "mithril_swords_v1",
+      "name": "Mithril Falchion",
+      "tier": 4,
+      "variant": 1,
+      "customer": 277,
+      "town": 60,
+      "input": 93,
+      "margin": 184,
+      "seconds": 412
+    },
+    {
+      "id": "mithril_swords_v2",
+      "name": "Mithril Longsword",
+      "tier": 4,
+      "variant": 2,
+      "customer": 326,
+      "town": 79,
+      "input": 122,
+      "margin": 204,
+      "seconds": 472
+    },
+    {
+      "id": "starforged_swords_v1",
+      "name": "Starforged Falchion",
+      "tier": 5,
+      "variant": 1,
+      "customer": 748,
+      "town": 138,
+      "input": 213,
+      "margin": 535,
+      "seconds": 566
+    },
+    {
+      "id": "starforged_swords_v2",
+      "name": "Starforged Longsword",
+      "tier": 5,
+      "variant": 2,
+      "customer": 882,
+      "town": 183,
+      "input": 282,
+      "margin": 600,
+      "seconds": 649
+    },
+    {
+      "id": "bronze_axes_v1",
+      "name": "Bronze Hand Axe",
+      "tier": 1,
+      "variant": 1,
+      "customer": 12,
+      "town": 4,
+      "input": 7,
+      "margin": 5,
+      "seconds": 113
+    },
+    {
+      "id": "bronze_axes_v2",
+      "name": "Bronze Bearded Axe",
+      "tier": 1,
+      "variant": 2,
+      "customer": 14,
+      "town": 5,
+      "input": 8,
+      "margin": 6,
+      "seconds": 130
+    },
+    {
+      "id": "iron_axes_v1",
+      "name": "Iron Hand Axe",
+      "tier": 2,
+      "variant": 1,
+      "customer": 39,
+      "town": 11,
+      "input": 18,
+      "margin": 21,
+      "seconds": 204
+    },
+    {
+      "id": "iron_axes_v2",
+      "name": "Iron Bearded Axe",
+      "tier": 2,
+      "variant": 2,
+      "customer": 46,
+      "town": 14,
+      "input": 22,
+      "margin": 24,
+      "seconds": 233
+    },
+    {
+      "id": "steel_axes_v1",
+      "name": "Steel Hand Axe",
+      "tier": 3,
+      "variant": 1,
+      "customer": 104,
+      "town": 25,
+      "input": 39,
+      "margin": 65,
+      "seconds": 317
+    },
+    {
+      "id": "steel_axes_v2",
+      "name": "Steel Bearded Axe",
+      "tier": 3,
+      "variant": 2,
+      "customer": 122,
+      "town": 32,
+      "input": 50,
+      "margin": 72,
+      "seconds": 363
+    },
+    {
+      "id": "mithril_axes_v1",
+      "name": "Mithril Hand Axe",
+      "tier": 4,
+      "variant": 1,
+      "customer": 277,
+      "town": 60,
+      "input": 93,
+      "margin": 184,
+      "seconds": 453
+    },
+    {
+      "id": "mithril_axes_v2",
+      "name": "Mithril Bearded Axe",
+      "tier": 4,
+      "variant": 2,
+      "customer": 326,
+      "town": 79,
+      "input": 122,
+      "margin": 204,
+      "seconds": 519
+    },
+    {
+      "id": "starforged_axes_v1",
+      "name": "Starforged Hand Axe",
+      "tier": 5,
+      "variant": 1,
+      "customer": 748,
+      "town": 138,
+      "input": 213,
+      "margin": 535,
+      "seconds": 622
+    },
+    {
+      "id": "starforged_axes_v2",
+      "name": "Starforged Bearded Axe",
+      "tier": 5,
+      "variant": 2,
+      "customer": 882,
+      "town": 183,
+      "input": 282,
+      "margin": 600,
+      "seconds": 713
+    },
+    {
+      "id": "bronze_maces_v1",
+      "name": "Bronze Flanged Mace",
+      "tier": 1,
+      "variant": 1,
+      "customer": 12,
+      "town": 4,
+      "input": 7,
+      "margin": 5,
+      "seconds": 118
+    },
+    {
+      "id": "bronze_maces_v2",
+      "name": "Bronze War Hammer",
+      "tier": 1,
+      "variant": 2,
+      "customer": 14,
+      "town": 5,
+      "input": 8,
+      "margin": 6,
+      "seconds": 135
+    },
+    {
+      "id": "iron_maces_v1",
+      "name": "Iron Flanged Mace",
+      "tier": 2,
+      "variant": 1,
+      "customer": 39,
+      "town": 11,
+      "input": 18,
+      "margin": 21,
+      "seconds": 214
+    },
+    {
+      "id": "iron_maces_v2",
+      "name": "Iron War Hammer",
+      "tier": 2,
+      "variant": 2,
+      "customer": 46,
+      "town": 14,
+      "input": 22,
+      "margin": 24,
+      "seconds": 245
+    },
+    {
+      "id": "steel_maces_v1",
+      "name": "Steel Flanged Mace",
+      "tier": 3,
+      "variant": 1,
+      "customer": 104,
+      "town": 25,
+      "input": 39,
+      "margin": 65,
+      "seconds": 332
+    },
+    {
+      "id": "steel_maces_v2",
+      "name": "Steel War Hammer",
+      "tier": 3,
+      "variant": 2,
+      "customer": 122,
+      "town": 32,
+      "input": 50,
+      "margin": 72,
+      "seconds": 381
+    },
+    {
+      "id": "mithril_maces_v1",
+      "name": "Mithril Flanged Mace",
+      "tier": 4,
+      "variant": 1,
+      "customer": 277,
+      "town": 60,
+      "input": 93,
+      "margin": 184,
+      "seconds": 474
+    },
+    {
+      "id": "mithril_maces_v2",
+      "name": "Mithril War Hammer",
+      "tier": 4,
+      "variant": 2,
+      "customer": 326,
+      "town": 79,
+      "input": 122,
+      "margin": 204,
+      "seconds": 543
+    },
+    {
+      "id": "starforged_maces_v1",
+      "name": "Starforged Flanged Mace",
+      "tier": 5,
+      "variant": 1,
+      "customer": 748,
+      "town": 138,
+      "input": 213,
+      "margin": 535,
+      "seconds": 652
+    },
+    {
+      "id": "starforged_maces_v2",
+      "name": "Starforged War Hammer",
+      "tier": 5,
+      "variant": 2,
+      "customer": 882,
+      "town": 183,
+      "input": 282,
+      "margin": 600,
+      "seconds": 746
+    },
+    {
+      "id": "bronze_polearms_v1",
+      "name": "Bronze Spear",
+      "tier": 1,
+      "variant": 1,
+      "customer": 12,
+      "town": 4,
+      "input": 7,
+      "margin": 5,
+      "seconds": 124
+    },
+    {
+      "id": "bronze_polearms_v2",
+      "name": "Bronze Glaive",
+      "tier": 1,
+      "variant": 2,
+      "customer": 14,
+      "town": 5,
+      "input": 8,
+      "margin": 6,
+      "seconds": 142
+    },
+    {
+      "id": "iron_polearms_v1",
+      "name": "Iron Spear",
+      "tier": 2,
+      "variant": 1,
+      "customer": 39,
+      "town": 11,
+      "input": 18,
+      "margin": 21,
+      "seconds": 221
+    },
+    {
+      "id": "iron_polearms_v2",
+      "name": "Iron Glaive",
+      "tier": 2,
+      "variant": 2,
+      "customer": 46,
+      "town": 14,
+      "input": 22,
+      "margin": 24,
+      "seconds": 253
+    },
+    {
+      "id": "steel_polearms_v1",
+      "name": "Steel Spear",
+      "tier": 3,
+      "variant": 1,
+      "customer": 104,
+      "town": 25,
+      "input": 39,
+      "margin": 65,
+      "seconds": 345
+    },
+    {
+      "id": "steel_polearms_v2",
+      "name": "Steel Glaive",
+      "tier": 3,
+      "variant": 2,
+      "customer": 122,
+      "town": 32,
+      "input": 50,
+      "margin": 72,
+      "seconds": 395
+    },
+    {
+      "id": "mithril_polearms_v1",
+      "name": "Mithril Spear",
+      "tier": 4,
+      "variant": 1,
+      "customer": 277,
+      "town": 60,
+      "input": 93,
+      "margin": 184,
+      "seconds": 494
+    },
+    {
+      "id": "mithril_polearms_v2",
+      "name": "Mithril Glaive",
+      "tier": 4,
+      "variant": 2,
+      "customer": 326,
+      "town": 79,
+      "input": 122,
+      "margin": 204,
+      "seconds": 565
+    },
+    {
+      "id": "starforged_polearms_v1",
+      "name": "Starforged Spear",
+      "tier": 5,
+      "variant": 1,
+      "customer": 748,
+      "town": 138,
+      "input": 213,
+      "margin": 535,
+      "seconds": 680
+    },
+    {
+      "id": "starforged_polearms_v2",
+      "name": "Starforged Glaive",
+      "tier": 5,
+      "variant": 2,
+      "customer": 882,
+      "town": 183,
+      "input": 282,
+      "margin": 600,
+      "seconds": 779
+    },
+    {
+      "id": "bronze_bows_v1",
+      "name": "Bronze Shortbow",
+      "tier": 1,
+      "variant": 1,
+      "customer": 12,
+      "town": 4,
+      "input": 7,
+      "margin": 5,
+      "seconds": 113
+    },
+    {
+      "id": "bronze_bows_v2",
+      "name": "Bronze War Bow",
+      "tier": 1,
+      "variant": 2,
+      "customer": 14,
+      "town": 5,
+      "input": 8,
+      "margin": 6,
+      "seconds": 130
+    },
+    {
+      "id": "iron_bows_v1",
+      "name": "Iron Shortbow",
+      "tier": 2,
+      "variant": 1,
+      "customer": 39,
+      "town": 9,
+      "input": 15,
+      "margin": 24,
+      "seconds": 204
+    },
+    {
+      "id": "iron_bows_v2",
+      "name": "Iron War Bow",
+      "tier": 2,
+      "variant": 2,
+      "customer": 46,
+      "town": 12,
+      "input": 19,
+      "margin": 27,
+      "seconds": 233
+    },
+    {
+      "id": "steel_bows_v1",
+      "name": "Steel Shortbow",
+      "tier": 3,
+      "variant": 1,
+      "customer": 104,
+      "town": 18,
+      "input": 29,
+      "margin": 75,
+      "seconds": 317
+    },
+    {
+      "id": "steel_bows_v2",
+      "name": "Steel War Bow",
+      "tier": 3,
+      "variant": 2,
+      "customer": 122,
+      "town": 26,
+      "input": 40,
+      "margin": 82,
+      "seconds": 363
+    },
+    {
+      "id": "mithril_bows_v1",
+      "name": "Mithril Shortbow",
+      "tier": 4,
+      "variant": 1,
+      "customer": 277,
+      "town": 42,
+      "input": 65,
+      "margin": 212,
+      "seconds": 453
+    },
+    {
+      "id": "mithril_bows_v2",
+      "name": "Mithril War Bow",
+      "tier": 4,
+      "variant": 2,
+      "customer": 326,
+      "town": 61,
+      "input": 94,
+      "margin": 232,
+      "seconds": 519
+    },
+    {
+      "id": "starforged_bows_v1",
+      "name": "Starforged Shortbow",
+      "tier": 5,
+      "variant": 1,
+      "customer": 748,
+      "town": 94,
+      "input": 145,
+      "margin": 603,
+      "seconds": 622
+    },
+    {
+      "id": "starforged_bows_v2",
+      "name": "Starforged War Bow",
+      "tier": 5,
+      "variant": 2,
+      "customer": 882,
+      "town": 139,
+      "input": 214,
+      "margin": 668,
+      "seconds": 713
+    },
+    {
+      "id": "bronze_foci_v1",
+      "name": "Bronze Channeling Wand",
+      "tier": 1,
+      "variant": 1,
+      "customer": 9,
+      "town": 3,
+      "input": 5,
+      "margin": 4,
+      "seconds": 116
+    },
+    {
+      "id": "bronze_foci_v2",
+      "name": "Bronze Runic Staff",
+      "tier": 1,
+      "variant": 2,
+      "customer": 11,
+      "town": 3,
+      "input": 6,
+      "margin": 5,
+      "seconds": 133
+    },
+    {
+      "id": "iron_foci_v1",
+      "name": "Iron Channeling Wand",
+      "tier": 2,
+      "variant": 1,
+      "customer": 29,
+      "town": 8,
+      "input": 13,
+      "margin": 16,
+      "seconds": 208
+    },
+    {
+      "id": "iron_foci_v2",
+      "name": "Iron Runic Staff",
+      "tier": 2,
+      "variant": 2,
+      "customer": 34,
+      "town": 11,
+      "input": 17,
+      "margin": 17,
+      "seconds": 239
+    },
+    {
+      "id": "steel_foci_v1",
+      "name": "Steel Channeling Wand",
+      "tier": 3,
+      "variant": 1,
+      "customer": 78,
+      "town": 17,
+      "input": 27,
+      "margin": 51,
+      "seconds": 324
+    },
+    {
+      "id": "steel_foci_v2",
+      "name": "Steel Runic Staff",
+      "tier": 3,
+      "variant": 2,
+      "customer": 92,
+      "town": 24,
+      "input": 38,
+      "margin": 54,
+      "seconds": 371
+    },
+    {
+      "id": "mithril_foci_v1",
+      "name": "Mithril Channeling Wand",
+      "tier": 4,
+      "variant": 1,
+      "customer": 207,
+      "town": 40,
+      "input": 63,
+      "margin": 144,
+      "seconds": 463
+    },
+    {
+      "id": "mithril_foci_v2",
+      "name": "Mithril Runic Staff",
+      "tier": 4,
+      "variant": 2,
+      "customer": 245,
+      "town": 59,
+      "input": 92,
+      "margin": 153,
+      "seconds": 531
+    },
+    {
+      "id": "starforged_foci_v1",
+      "name": "Starforged Channeling Wand",
+      "tier": 5,
+      "variant": 1,
+      "customer": 561,
+      "town": 92,
+      "input": 143,
+      "margin": 418,
+      "seconds": 639
+    },
+    {
+      "id": "starforged_foci_v2",
+      "name": "Starforged Runic Staff",
+      "tier": 5,
+      "variant": 2,
+      "customer": 662,
+      "town": 137,
+      "input": 212,
+      "margin": 450,
+      "seconds": 732
+    },
+    {
+      "id": "bronze_armor_v1",
+      "name": "Bronze Jack of Plates",
+      "tier": 1,
+      "variant": 1,
+      "customer": 12,
+      "town": 3,
+      "input": 6,
+      "margin": 6,
+      "seconds": 129
+    },
+    {
+      "id": "bronze_armor_v2",
+      "name": "Bronze Brigandine",
+      "tier": 1,
+      "variant": 2,
+      "customer": 14,
+      "town": 4,
+      "input": 7,
+      "margin": 7,
+      "seconds": 147
+    },
+    {
+      "id": "iron_armor_v1",
+      "name": "Iron Jack of Plates",
+      "tier": 2,
+      "variant": 1,
+      "customer": 39,
+      "town": 9,
+      "input": 14,
+      "margin": 25,
+      "seconds": 232
+    },
+    {
+      "id": "iron_armor_v2",
+      "name": "Iron Brigandine",
+      "tier": 2,
+      "variant": 2,
+      "customer": 46,
+      "town": 11,
+      "input": 18,
+      "margin": 28,
+      "seconds": 265
+    },
+    {
+      "id": "steel_armor_v1",
+      "name": "Steel Jack of Plates",
+      "tier": 3,
+      "variant": 1,
+      "customer": 104,
+      "town": 18,
+      "input": 28,
+      "margin": 76,
+      "seconds": 360
+    },
+    {
+      "id": "steel_armor_v2",
+      "name": "Steel Brigandine",
+      "tier": 3,
+      "variant": 2,
+      "customer": 122,
+      "town": 25,
+      "input": 39,
+      "margin": 83,
+      "seconds": 413
+    },
+    {
+      "id": "mithril_armor_v1",
+      "name": "Mithril Jack of Plates",
+      "tier": 4,
+      "variant": 1,
+      "customer": 277,
+      "town": 41,
+      "input": 64,
+      "margin": 213,
+      "seconds": 515
+    },
+    {
+      "id": "mithril_armor_v2",
+      "name": "Mithril Brigandine",
+      "tier": 4,
+      "variant": 2,
+      "customer": 326,
+      "town": 60,
+      "input": 93,
+      "margin": 233,
+      "seconds": 590
+    },
+    {
+      "id": "starforged_armor_v1",
+      "name": "Starforged Jack of Plates",
+      "tier": 5,
+      "variant": 1,
+      "customer": 748,
+      "town": 93,
+      "input": 144,
+      "margin": 604,
+      "seconds": 708
+    },
+    {
+      "id": "starforged_armor_v2",
+      "name": "Starforged Brigandine",
+      "tier": 5,
+      "variant": 2,
+      "customer": 882,
+      "town": 138,
+      "input": 213,
+      "margin": 669,
+      "seconds": 811
+    },
+    {
+      "id": "bronze_shields_v1",
+      "name": "Bronze Round Shield",
+      "tier": 1,
+      "variant": 1,
+      "customer": 11,
+      "town": 3,
+      "input": 6,
+      "margin": 5,
+      "seconds": 103
+    },
+    {
+      "id": "bronze_shields_v2",
+      "name": "Bronze Kite Shield",
+      "tier": 1,
+      "variant": 2,
+      "customer": 13,
+      "town": 4,
+      "input": 7,
+      "margin": 6,
+      "seconds": 118
+    },
+    {
+      "id": "iron_shields_v1",
+      "name": "Iron Round Shield",
+      "tier": 2,
+      "variant": 1,
+      "customer": 35,
+      "town": 9,
+      "input": 14,
+      "margin": 21,
+      "seconds": 185
+    },
+    {
+      "id": "iron_shields_v2",
+      "name": "Iron Kite Shield",
+      "tier": 2,
+      "variant": 2,
+      "customer": 41,
+      "town": 11,
+      "input": 18,
+      "margin": 23,
+      "seconds": 212
+    },
+    {
+      "id": "steel_shields_v1",
+      "name": "Steel Round Shield",
+      "tier": 3,
+      "variant": 1,
+      "customer": 91,
+      "town": 18,
+      "input": 28,
+      "margin": 63,
+      "seconds": 288
+    },
+    {
+      "id": "steel_shields_v2",
+      "name": "Steel Kite Shield",
+      "tier": 3,
+      "variant": 2,
+      "customer": 107,
+      "town": 25,
+      "input": 39,
+      "margin": 68,
+      "seconds": 330
+    },
+    {
+      "id": "mithril_shields_v1",
+      "name": "Mithril Round Shield",
+      "tier": 4,
+      "variant": 1,
+      "customer": 241,
+      "town": 41,
+      "input": 64,
+      "margin": 177,
+      "seconds": 412
+    },
+    {
+      "id": "mithril_shields_v2",
+      "name": "Mithril Kite Shield",
+      "tier": 4,
+      "variant": 2,
+      "customer": 285,
+      "town": 60,
+      "input": 93,
+      "margin": 192,
+      "seconds": 472
+    },
+    {
+      "id": "starforged_shields_v1",
+      "name": "Starforged Round Shield",
+      "tier": 5,
+      "variant": 1,
+      "customer": 655,
+      "town": 93,
+      "input": 144,
+      "margin": 511,
+      "seconds": 566
+    },
+    {
+      "id": "starforged_shields_v2",
+      "name": "Starforged Kite Shield",
+      "tier": 5,
+      "variant": 2,
+      "customer": 773,
+      "town": 138,
+      "input": 213,
+      "margin": 560,
+      "seconds": 649
+    },
+    {
+      "id": "bronze_rings_v1",
+      "name": "Bronze Duelist Ring",
+      "tier": 1,
+      "variant": 1,
+      "customer": 9,
+      "town": 3,
+      "input": 5,
+      "margin": 4,
+      "seconds": 88
+    },
+    {
+      "id": "bronze_rings_v2",
+      "name": "Bronze Ward Ring",
+      "tier": 1,
+      "variant": 2,
+      "customer": 11,
+      "town": 3,
+      "input": 6,
+      "margin": 5,
+      "seconds": 101
+    },
+    {
+      "id": "iron_rings_v1",
+      "name": "Iron Duelist Ring",
+      "tier": 2,
+      "variant": 1,
+      "customer": 29,
+      "town": 8,
+      "input": 13,
+      "margin": 16,
+      "seconds": 157
+    },
+    {
+      "id": "iron_rings_v2",
+      "name": "Iron Ward Ring",
+      "tier": 2,
+      "variant": 2,
+      "customer": 34,
+      "town": 11,
+      "input": 17,
+      "margin": 17,
+      "seconds": 180
+    },
+    {
+      "id": "steel_rings_v1",
+      "name": "Steel Duelist Ring",
+      "tier": 3,
+      "variant": 1,
+      "customer": 78,
+      "town": 17,
+      "input": 27,
+      "margin": 51,
+      "seconds": 245
+    },
+    {
+      "id": "steel_rings_v2",
+      "name": "Steel Ward Ring",
+      "tier": 3,
+      "variant": 2,
+      "customer": 92,
+      "town": 24,
+      "input": 38,
+      "margin": 54,
+      "seconds": 280
+    },
+    {
+      "id": "mithril_rings_v1",
+      "name": "Mithril Duelist Ring",
+      "tier": 4,
+      "variant": 1,
+      "customer": 207,
+      "town": 40,
+      "input": 63,
+      "margin": 144,
+      "seconds": 350
+    },
+    {
+      "id": "mithril_rings_v2",
+      "name": "Mithril Ward Ring",
+      "tier": 4,
+      "variant": 2,
+      "customer": 245,
+      "town": 59,
+      "input": 92,
+      "margin": 153,
+      "seconds": 401
+    },
+    {
+      "id": "starforged_rings_v1",
+      "name": "Starforged Duelist Ring",
+      "tier": 5,
+      "variant": 1,
+      "customer": 561,
+      "town": 92,
+      "input": 143,
+      "margin": 418,
+      "seconds": 481
+    },
+    {
+      "id": "starforged_rings_v2",
+      "name": "Starforged Ward Ring",
+      "tier": 5,
+      "variant": 2,
+      "customer": 662,
+      "town": 137,
+      "input": 212,
+      "margin": 450,
+      "seconds": 551
+    },
+    {
+      "id": "bronze_charms_v1",
+      "name": "Bronze Scout Talisman",
+      "tier": 1,
+      "variant": 1,
+      "customer": 9,
+      "town": 3,
+      "input": 5,
+      "margin": 4,
+      "seconds": 92
+    },
+    {
+      "id": "bronze_charms_v2",
+      "name": "Bronze Guardian Talisman",
+      "tier": 1,
+      "variant": 2,
+      "customer": 11,
+      "town": 3,
+      "input": 6,
+      "margin": 5,
+      "seconds": 106
+    },
+    {
+      "id": "iron_charms_v1",
+      "name": "Iron Scout Talisman",
+      "tier": 2,
+      "variant": 1,
+      "customer": 29,
+      "town": 8,
+      "input": 13,
+      "margin": 16,
+      "seconds": 167
+    },
+    {
+      "id": "iron_charms_v2",
+      "name": "Iron Guardian Talisman",
+      "tier": 2,
+      "variant": 2,
+      "customer": 34,
+      "town": 11,
+      "input": 17,
+      "margin": 17,
+      "seconds": 192
+    },
+    {
+      "id": "steel_charms_v1",
+      "name": "Steel Scout Talisman",
+      "tier": 3,
+      "variant": 1,
+      "customer": 78,
+      "town": 17,
+      "input": 27,
+      "margin": 51,
+      "seconds": 260
+    },
+    {
+      "id": "steel_charms_v2",
+      "name": "Steel Guardian Talisman",
+      "tier": 3,
+      "variant": 2,
+      "customer": 92,
+      "town": 24,
+      "input": 38,
+      "margin": 54,
+      "seconds": 297
+    },
+    {
+      "id": "mithril_charms_v1",
+      "name": "Mithril Scout Talisman",
+      "tier": 4,
+      "variant": 1,
+      "customer": 207,
+      "town": 40,
+      "input": 63,
+      "margin": 144,
+      "seconds": 371
+    },
+    {
+      "id": "mithril_charms_v2",
+      "name": "Mithril Guardian Talisman",
+      "tier": 4,
+      "variant": 2,
+      "customer": 245,
+      "town": 59,
+      "input": 92,
+      "margin": 153,
+      "seconds": 425
+    },
+    {
+      "id": "starforged_charms_v1",
+      "name": "Starforged Scout Talisman",
+      "tier": 5,
+      "variant": 1,
+      "customer": 561,
+      "town": 92,
+      "input": 143,
+      "margin": 418,
+      "seconds": 510
+    },
+    {
+      "id": "starforged_charms_v2",
+      "name": "Starforged Guardian Talisman",
+      "tier": 5,
+      "variant": 2,
+      "customer": 662,
+      "town": 137,
+      "input": 212,
+      "margin": 450,
+      "seconds": 584
+    },
+    {
+      "id": "bronze_tools_v1",
+      "name": "Bronze Scout Kit",
+      "tier": 1,
+      "variant": 1,
+      "customer": 9,
+      "town": 3,
+      "input": 5,
+      "margin": 4,
+      "seconds": 98
+    },
+    {
+      "id": "bronze_tools_v2",
+      "name": "Bronze Siege Kit",
+      "tier": 1,
+      "variant": 2,
+      "customer": 11,
+      "town": 3,
+      "input": 6,
+      "margin": 5,
+      "seconds": 113
+    },
+    {
+      "id": "iron_tools_v1",
+      "name": "Iron Scout Kit",
+      "tier": 2,
+      "variant": 1,
+      "customer": 29,
+      "town": 8,
+      "input": 13,
+      "margin": 16,
+      "seconds": 176
+    },
+    {
+      "id": "iron_tools_v2",
+      "name": "Iron Siege Kit",
+      "tier": 2,
+      "variant": 2,
+      "customer": 34,
+      "town": 11,
+      "input": 17,
+      "margin": 17,
+      "seconds": 201
+    },
+    {
+      "id": "steel_tools_v1",
+      "name": "Steel Scout Kit",
+      "tier": 3,
+      "variant": 1,
+      "customer": 78,
+      "town": 17,
+      "input": 27,
+      "margin": 51,
+      "seconds": 273
+    },
+    {
+      "id": "steel_tools_v2",
+      "name": "Steel Siege Kit",
+      "tier": 3,
+      "variant": 2,
+      "customer": 92,
+      "town": 24,
+      "input": 38,
+      "margin": 54,
+      "seconds": 312
+    },
+    {
+      "id": "mithril_tools_v1",
+      "name": "Mithril Scout Kit",
+      "tier": 4,
+      "variant": 1,
+      "customer": 207,
+      "town": 40,
+      "input": 63,
+      "margin": 144,
+      "seconds": 391
+    },
+    {
+      "id": "mithril_tools_v2",
+      "name": "Mithril Siege Kit",
+      "tier": 4,
+      "variant": 2,
+      "customer": 245,
+      "town": 59,
+      "input": 92,
+      "margin": 153,
+      "seconds": 448
+    },
+    {
+      "id": "starforged_tools_v1",
+      "name": "Starforged Scout Kit",
+      "tier": 5,
+      "variant": 1,
+      "customer": 561,
+      "town": 92,
+      "input": 143,
+      "margin": 418,
+      "seconds": 538
+    },
+    {
+      "id": "starforged_tools_v2",
+      "name": "Starforged Siege Kit",
+      "tier": 5,
+      "variant": 2,
+      "customer": 662,
+      "town": 137,
+      "input": 212,
+      "margin": 450,
+      "seconds": 616
+    }
+  ],
+  "modifierChecks": [
+    {
+      "id": "keen",
+      "type": "crafted prefix",
+      "name": "Keen Bronze Rondel Dagger",
+      "changed": [
+        "attack",
+        "resistances"
+      ]
+    },
+    {
+      "id": "stout",
+      "type": "crafted prefix",
+      "name": "Stout Bronze Lamellar Cuirass",
+      "changed": [
+        "health",
+        "resistances"
+      ]
+    },
+    {
+      "id": "warded",
+      "type": "crafted prefix",
+      "name": "Warded Bronze Lamellar Cuirass",
+      "changed": [
+        "armor",
+        "resistances"
+      ]
+    },
+    {
+      "id": "precise",
+      "type": "crafted prefix",
+      "name": "Precise Bronze Rondel Dagger",
+      "changed": [
+        "crit",
+        "resistances"
+      ]
+    },
+    {
+      "id": "nimble",
+      "type": "crafted prefix",
+      "name": "Nimble Bronze Lamellar Cuirass",
+      "changed": [
+        "evasion",
+        "resistances"
+      ]
+    },
+    {
+      "id": "piercing",
+      "type": "crafted prefix",
+      "name": "Piercing Bronze Rondel Dagger",
+      "changed": [
+        "armorPen",
+        "resistances"
+      ]
+    },
+    {
+      "id": "balanced",
+      "type": "crafted prefix",
+      "name": "Balanced Bronze Rondel Dagger",
+      "changed": [
+        "interval",
+        "resistances"
+      ]
+    },
+    {
+      "id": "tempered",
+      "type": "crafted prefix",
+      "name": "Tempered Iron Lamellar Cuirass",
+      "changed": [
+        "armor",
+        "resistances"
+      ]
+    },
+    {
+      "id": "resolute",
+      "type": "crafted prefix",
+      "name": "Resolute Iron Lamellar Cuirass",
+      "changed": [
+        "health",
+        "resistances"
+      ]
+    },
+    {
+      "id": "razored",
+      "type": "crafted prefix",
+      "name": "Razored Steel Rondel Dagger",
+      "changed": [
+        "armorPen",
+        "resistances"
+      ]
+    },
+    {
+      "id": "stalwart",
+      "type": "crafted prefix",
+      "name": "Stalwart Steel Lamellar Cuirass",
+      "changed": [
+        "block",
+        "resistances"
+      ]
+    },
+    {
+      "id": "peerless",
+      "type": "crafted prefix",
+      "name": "Peerless Mithril Rondel Dagger",
+      "changed": [
+        "attack",
+        "crit",
+        "resistances"
+      ]
+    },
+    {
+      "id": "flame",
+      "type": "enchanted suffix",
+      "name": "Bronze Rondel Dagger of Embers",
+      "changed": [
+        "attack",
+        "resistances"
+      ]
+    },
+    {
+      "id": "frost_ward",
+      "type": "enchanted suffix",
+      "name": "Bronze Lamellar Cuirass of the Hearth",
+      "changed": [
+        "resistances"
+      ]
+    },
+    {
+      "id": "ember_ward",
+      "type": "enchanted suffix",
+      "name": "Bronze Lamellar Cuirass of Ash",
+      "changed": [
+        "resistances"
+      ]
+    },
+    {
+      "id": "vitality",
+      "type": "enchanted suffix",
+      "name": "Bronze Lamellar Cuirass of Vigor",
+      "changed": [
+        "health",
+        "resistances"
+      ]
+    },
+    {
+      "id": "starlight",
+      "type": "enchanted suffix",
+      "name": "Bronze Rondel Dagger of the Firmament",
+      "changed": [
+        "attack",
+        "resistances"
+      ]
+    },
+    {
+      "id": "accuracy",
+      "type": "enchanted suffix",
+      "name": "Bronze Rondel Dagger of the Hawk",
+      "changed": [
+        "crit",
+        "resistances"
+      ]
+    },
+    {
+      "id": "bulwark",
+      "type": "enchanted suffix",
+      "name": "Bronze Lamellar Cuirass of the Bastion",
+      "changed": [
+        "armor",
+        "block",
+        "resistances"
+      ]
+    },
+    {
+      "id": "haste",
+      "type": "enchanted suffix",
+      "name": "Bronze Rondel Dagger of Alacrity",
+      "changed": [
+        "interval",
+        "resistances"
+      ]
+    }
+  ],
+  "bossResults": [
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 45,
+      "heroLevel": 3,
+      "heroes": 1,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 9.125
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 45,
+      "heroLevel": 3,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 33,
+      "trials": 40,
+      "winPercent": 82.5,
+      "meanCombatSeconds": 19.318
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 80,
+      "heroLevel": 3,
+      "heroes": 1,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 10.188
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 80,
+      "heroLevel": 3,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 14.615
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 115,
+      "heroLevel": 3,
+      "heroes": 1,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 10.313
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 115,
+      "heroLevel": 3,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 12.306
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 45,
+      "heroLevel": 3,
+      "heroes": 1,
+      "fullLoadout": true,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 13.313
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 45,
+      "heroLevel": 3,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 14.025
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 80,
+      "heroLevel": 3,
+      "heroes": 1,
+      "fullLoadout": true,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 15.188
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 80,
+      "heroLevel": 3,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 11.799
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 115,
+      "heroLevel": 3,
+      "heroes": 1,
+      "fullLoadout": true,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 17.438
+    },
+    {
+      "boss": "smuggler_cache",
+      "tier": 1,
+      "gearTier": 1,
+      "quality": 115,
+      "heroLevel": 3,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 10.12
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 45,
+      "heroLevel": 5,
+      "heroes": 2,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 20.548
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 45,
+      "heroLevel": 5,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 12.893
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 80,
+      "heroLevel": 5,
+      "heroes": 2,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 15.063
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 80,
+      "heroLevel": 5,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 10.033
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 115,
+      "heroLevel": 5,
+      "heroes": 2,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 12.306
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 115,
+      "heroLevel": 5,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 8.263
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 45,
+      "heroLevel": 5,
+      "heroes": 2,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 14.563
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 45,
+      "heroLevel": 5,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 9.799
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 80,
+      "heroLevel": 5,
+      "heroes": 2,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 11.606
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 80,
+      "heroLevel": 5,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 7.742
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 115,
+      "heroLevel": 5,
+      "heroes": 2,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 9.7
+    },
+    {
+      "boss": "stone_sentinel",
+      "tier": 2,
+      "gearTier": 2,
+      "quality": 115,
+      "heroLevel": 5,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 6.54
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 45,
+      "heroLevel": 8,
+      "heroes": 2,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 21.905
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 45,
+      "heroLevel": 8,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 28.925
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 80,
+      "heroLevel": 8,
+      "heroes": 2,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 23.075
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 80,
+      "heroLevel": 8,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 37,
+      "trials": 40,
+      "winPercent": 92.5,
+      "meanCombatSeconds": 24.94
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 115,
+      "heroLevel": 8,
+      "heroes": 2,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 24.44
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 115,
+      "heroLevel": 8,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 18.379
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 45,
+      "heroLevel": 8,
+      "heroes": 2,
+      "fullLoadout": true,
+      "wins": 1,
+      "trials": 40,
+      "winPercent": 2.5,
+      "meanCombatSeconds": 29.58
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 45,
+      "heroLevel": 8,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 21.89
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 80,
+      "heroLevel": 8,
+      "heroes": 2,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 25.939
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 80,
+      "heroLevel": 8,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 16.887
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 115,
+      "heroLevel": 8,
+      "heroes": 2,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 20.646
+    },
+    {
+      "boss": "wildwood_heart",
+      "tier": 3,
+      "gearTier": 3,
+      "quality": 115,
+      "heroLevel": 8,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 13.786
+    },
+    {
+      "boss": "frost_citadel",
+      "tier": 4,
+      "gearTier": 3,
+      "quality": 45,
+      "heroLevel": 12,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 25.718
+    },
+    {
+      "boss": "frost_citadel",
+      "tier": 4,
+      "gearTier": 3,
+      "quality": 80,
+      "heroLevel": 12,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 28.418
+    },
+    {
+      "boss": "frost_citadel",
+      "tier": 4,
+      "gearTier": 3,
+      "quality": 115,
+      "heroLevel": 12,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 1,
+      "trials": 40,
+      "winPercent": 2.5,
+      "meanCombatSeconds": 29.138
+    },
+    {
+      "boss": "frost_citadel",
+      "tier": 4,
+      "gearTier": 3,
+      "quality": 45,
+      "heroLevel": 12,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 1,
+      "trials": 40,
+      "winPercent": 2.5,
+      "meanCombatSeconds": 36.1
+    },
+    {
+      "boss": "frost_citadel",
+      "tier": 4,
+      "gearTier": 3,
+      "quality": 80,
+      "heroLevel": 12,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 28.606
+    },
+    {
+      "boss": "frost_citadel",
+      "tier": 4,
+      "gearTier": 3,
+      "quality": 115,
+      "heroLevel": 12,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 22.165
+    },
+    {
+      "boss": "void_sovereign",
+      "tier": 5,
+      "gearTier": 4,
+      "quality": 45,
+      "heroLevel": 16,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 22.938
+    },
+    {
+      "boss": "void_sovereign",
+      "tier": 5,
+      "gearTier": 4,
+      "quality": 80,
+      "heroLevel": 16,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 24.75
+    },
+    {
+      "boss": "void_sovereign",
+      "tier": 5,
+      "gearTier": 4,
+      "quality": 115,
+      "heroLevel": 16,
+      "heroes": 3,
+      "fullLoadout": false,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 27.625
+    },
+    {
+      "boss": "void_sovereign",
+      "tier": 5,
+      "gearTier": 4,
+      "quality": 45,
+      "heroLevel": 16,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 0,
+      "trials": 40,
+      "winPercent": 0,
+      "meanCombatSeconds": 32.813
+    },
+    {
+      "boss": "void_sovereign",
+      "tier": 5,
+      "gearTier": 4,
+      "quality": 80,
+      "heroLevel": 16,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 9,
+      "trials": 40,
+      "winPercent": 22.5,
+      "meanCombatSeconds": 34.968
+    },
+    {
+      "boss": "void_sovereign",
+      "tier": 5,
+      "gearTier": 4,
+      "quality": 115,
+      "heroLevel": 16,
+      "heroes": 3,
+      "fullLoadout": true,
+      "wins": 40,
+      "trials": 40,
+      "winPercent": 100,
+      "meanCombatSeconds": 27.315
+    }
+  ],
+  "weaponTrials": [
+    {
+      "armor": 0,
+      "variant": 0,
+      "name": "Iron Arming Sword",
+      "heroAttack": 13.535,
+      "interval": 2,
+      "armorPen": 0,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 18.275
+    },
+    {
+      "armor": 0,
+      "variant": 1,
+      "name": "Iron Falchion",
+      "heroAttack": 12.43,
+      "interval": 1.6,
+      "armorPen": 0,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 15.64
+    },
+    {
+      "armor": 0,
+      "variant": 2,
+      "name": "Iron Longsword",
+      "heroAttack": 15.746,
+      "interval": 2.36,
+      "armorPen": 0.7,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 18.408
+    },
+    {
+      "armor": 3,
+      "variant": 0,
+      "name": "Iron Arming Sword",
+      "heroAttack": 13.535,
+      "interval": 2,
+      "armorPen": 0,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 23.175
+    },
+    {
+      "armor": 3,
+      "variant": 1,
+      "name": "Iron Falchion",
+      "heroAttack": 12.43,
+      "interval": 1.6,
+      "armorPen": 0,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 20.2
+    },
+    {
+      "armor": 3,
+      "variant": 2,
+      "name": "Iron Longsword",
+      "heroAttack": 15.746,
+      "interval": 2.36,
+      "armorPen": 0.7,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 21.417
+    },
+    {
+      "armor": 6,
+      "variant": 0,
+      "name": "Iron Arming Sword",
+      "heroAttack": 13.535,
+      "interval": 2,
+      "armorPen": 0,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 31.35
+    },
+    {
+      "armor": 6,
+      "variant": 1,
+      "name": "Iron Falchion",
+      "heroAttack": 12.43,
+      "interval": 1.6,
+      "armorPen": 0,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 28.98
+    },
+    {
+      "armor": 6,
+      "variant": 2,
+      "name": "Iron Longsword",
+      "heroAttack": 15.746,
+      "interval": 2.36,
+      "armorPen": 0.7,
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100,
+      "meanCombatSeconds": 27.199
+    },
+    {
+      "armor": 9,
+      "variant": 0,
+      "name": "Iron Arming Sword",
+      "heroAttack": 13.535,
+      "interval": 2,
+      "armorPen": 0,
+      "wins": 0,
+      "trials": 80,
+      "winPercent": 0,
+      "meanCombatSeconds": 35.594
+    },
+    {
+      "armor": 9,
+      "variant": 1,
+      "name": "Iron Falchion",
+      "heroAttack": 12.43,
+      "interval": 1.6,
+      "armorPen": 0,
+      "wins": 0,
+      "trials": 80,
+      "winPercent": 0,
+      "meanCombatSeconds": 35.469
+    },
+    {
+      "armor": 9,
+      "variant": 2,
+      "name": "Iron Longsword",
+      "heroAttack": 15.746,
+      "interval": 2.36,
+      "armorPen": 0.7,
+      "wins": 17,
+      "trials": 80,
+      "winPercent": 21.25,
+      "meanCombatSeconds": 34.792
+    }
+  ],
+  "ungearedBosses": [
+    {
+      "boss": "smuggler_cache",
+      "heroLevel": 1,
+      "heroes": 3,
+      "gear": "Starting worn weapon/body only",
+      "wins": 0,
+      "trials": 80,
+      "winPercent": 0
+    },
+    {
+      "boss": "stone_sentinel",
+      "heroLevel": 1,
+      "heroes": 3,
+      "gear": "Starting worn weapon/body only",
+      "wins": 0,
+      "trials": 80,
+      "winPercent": 0
+    },
+    {
+      "boss": "wildwood_heart",
+      "heroLevel": 1,
+      "heroes": 3,
+      "gear": "Starting worn weapon/body only",
+      "wins": 0,
+      "trials": 80,
+      "winPercent": 0
+    },
+    {
+      "boss": "frost_citadel",
+      "heroLevel": 1,
+      "heroes": 3,
+      "gear": "Starting worn weapon/body only",
+      "wins": 0,
+      "trials": 80,
+      "winPercent": 0
+    },
+    {
+      "boss": "void_sovereign",
+      "heroLevel": 1,
+      "heroes": 3,
+      "gear": "Starting worn weapon/body only",
+      "wins": 0,
+      "trials": 80,
+      "winPercent": 0
+    }
+  ],
+  "counterTrials": [
+    {
+      "boss": "frost_citadel",
+      "tier": 3,
+      "quality": 45,
+      "level": 12,
+      "enchantment": null,
+      "wins": 2,
+      "trials": 80,
+      "winPercent": 2.5
+    },
+    {
+      "boss": "frost_citadel",
+      "tier": 3,
+      "quality": 45,
+      "level": 12,
+      "enchantment": "frost_ward",
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100
+    },
+    {
+      "boss": "void_sovereign",
+      "tier": 4,
+      "quality": 80,
+      "level": 16,
+      "enchantment": null,
+      "wins": 14,
+      "trials": 80,
+      "winPercent": 17.5
+    },
+    {
+      "boss": "void_sovereign",
+      "tier": 4,
+      "quality": 80,
+      "level": 16,
+      "enchantment": "starlight",
+      "wins": 80,
+      "trials": 80,
+      "winPercent": 100
+    }
+  ],
+  "firstBossCalibration": [
+    {
+      "config": "worn",
+      "heroLevel": 1,
+      "heroes": 3,
+      "quality": null,
+      "wins": 0,
+      "trials": 160,
+      "winPercent": 0
+    },
+    {
+      "config": "basic",
+      "heroLevel": 1,
+      "heroes": 3,
+      "quality": 45,
+      "wins": 91,
+      "trials": 160,
+      "winPercent": 56.875
+    },
+    {
+      "config": "full",
+      "heroLevel": 1,
+      "heroes": 3,
+      "quality": 55,
+      "wins": 160,
+      "trials": 160,
+      "winPercent": 100
+    }
+  ],
+  "transitions": [
+    {
+      "quest": "rat_nest",
+      "boss": false,
+      "tier": 1,
+      "requirements": {},
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "smuggler_cache",
+      "boss": true,
+      "tier": 1,
+      "requirements": {
+        "rat_nest": 5
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "quarry_road",
+      "boss": false,
+      "tier": 2,
+      "requirements": {
+        "smuggler_cache": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "stone_sentinel",
+      "boss": true,
+      "tier": 2,
+      "requirements": {
+        "quarry_road": 4,
+        "smuggler_cache": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "ash_courtyard",
+      "boss": false,
+      "tier": 3,
+      "requirements": {
+        "stone_sentinel": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "ember_shrine",
+      "boss": false,
+      "tier": 3,
+      "requirements": {
+        "ash_courtyard": 1,
+        "stone_sentinel": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "thorn_pass",
+      "boss": false,
+      "tier": 3,
+      "requirements": {
+        "ember_shrine": 1,
+        "stone_sentinel": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "wildwood_heart",
+      "boss": true,
+      "tier": 3,
+      "requirements": {
+        "thorn_pass": 3,
+        "stone_sentinel": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "frost_pass",
+      "boss": false,
+      "tier": 4,
+      "requirements": {
+        "wildwood_heart": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "frost_citadel",
+      "boss": true,
+      "tier": 4,
+      "requirements": {
+        "frost_pass": 3,
+        "wildwood_heart": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "fallen_observatory",
+      "boss": false,
+      "tier": 5,
+      "requirements": {
+        "frost_citadel": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    },
+    {
+      "quest": "void_sovereign",
+      "boss": true,
+      "tier": 5,
+      "requirements": {
+        "fallen_observatory": 3,
+        "frost_citadel": 1
+      },
+      "initialEligible": false,
+      "requirementsSufficient": true
+    }
+  ],
+  "gatheredAwayHeroSuccessfully": true
+}

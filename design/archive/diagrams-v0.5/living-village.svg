@@ -1,0 +1,320 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1360" viewBox="0 0 1500 1360" role="img" aria-labelledby="title desc">
+<title id="title">Ember and Iron — one goal, three places</title><desc id="desc">One Next goal guides the player through Mine, Forge and Shop. Each tab has a focused scene. Manage holds the deeper RPG systems, and the adventure theatre is optional.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b6109"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#292823}.muted{fill:#66645c}.amber{fill:#9b6109}.heading{font-weight:700}.label{font-size:17px}.small{font-size:16px}</style>
+<rect width="1500" height="1360" fill="#f7f4ec"/>
+<text x="65" y="53" font-size="19" font-weight="700" fill="#236fa5" style="fill:#236fa5" text-anchor="start">
+<tspan x="65" dy="0">EMBER &amp; IRON · v0.5</tspan>
+</text>
+<text x="65" y="98" font-size="34" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="65" dy="0">Know your next step. Enjoy the place.</tspan>
+</text>
+<text x="65" y="135" font-size="19" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="65" dy="0">One focused workspace, with the full blacksmith RPG a step away.</tspan>
+</text>
+<rect x="65" y="170" width="1370" height="106" rx="14" fill="#e5f0d5" stroke="#7f9a60" stroke-width="1.5"/>
+<text x="87" y="197" font-size="14" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="87" dy="0">NEXT GOAL</tspan>
+</text>
+<text x="87" y="226" font-size="23" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="87" dy="0">Forge your first Bronze Shortsword</tspan>
+</text>
+<text x="87" y="254" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="87" dy="0">Your materials are ready. Make one useful piece for the shop.</tspan>
+</text>
+<rect x="1203" y="198" width="210" height="50" rx="14" fill="#167c74" stroke="#167c74" stroke-width="1.5"/>
+<text x="1308" y="230" font-size="17" font-weight="700" fill="#ffffff" style="fill:#ffffff" text-anchor="middle">
+<tspan x="1308" dy="0">GO TO FORGE  →</tspan>
+</text>
+<text x="65" y="321" font-size="21" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="65" dy="0">1  MINE</tspan>
+</text>
+<g transform="translate(65 343) scale(0.6875)">
+<rect x="0" y="0" width="640" height="240" fill="#55bbed"/>
+<rect x="30" y="25" width="75" height="18" fill="#fff6da"/>
+<rect x="45" y="15" width="42" height="12" fill="#fff6da"/>
+<rect x="215" y="16" width="75" height="18" fill="#fff6da"/>
+<rect x="230" y="6" width="42" height="12" fill="#fff6da"/>
+<rect x="486" y="24" width="75" height="18" fill="#fff6da"/>
+<rect x="501" y="14" width="42" height="12" fill="#fff6da"/>
+<path d="M0 151 L90 45 L169 147 L278 61 L386 151 L479 39 L583 142 L640 89 V220 H0Z" fill="#6d94d0"/>
+<path d="M0 170 Q80 63 181 173 Q297 68 429 173 Q548 94 640 170 V220 H0Z" fill="#57ad72"/>
+<rect x="0" y="190" width="640" height="50" fill="#b98552"/>
+<rect x="0" y="187" width="640" height="12" fill="#4a9b48"/>
+<rect x="0" y="200" width="640" height="8" fill="#ebbc6d"/>
+<rect x="12" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="46" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="80" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="114" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="148" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="182" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="216" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="250" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="284" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="318" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="352" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="386" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="420" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="454" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="488" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="522" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="556" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="590" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="624" y="214" width="12" height="5" fill="#93604b"/>
+<path d="M135 186 L166 89 L258 53 L367 52 L467 92 L505 189Z" fill="#9183b1" stroke="#293453" stroke-width="4"/>
+<path d="M172 110 L257 71 L358 69 L433 104 L392 105 L331 87 L256 91 L220 121Z" fill="#c3afe0"/>
+<rect x="233" y="108" width="151" height="87" fill="#474463" stroke="#293453" stroke-width="3"/>
+<rect x="223" y="95" width="171" height="16" fill="#b58154" stroke="#293453" stroke-width="3"/>
+<rect x="224" y="110" width="13" height="87" fill="#b58154" stroke="#293453" stroke-width="3"/>
+<rect x="381" y="110" width="13" height="87" fill="#b58154" stroke="#293453" stroke-width="3"/>
+<path d="M168 170 L175 149 L190 155 L195 170Z" fill="#f2b952" stroke="#293453" stroke-width="3"/>
+<path d="M418 161 L425 140 L440 146 L445 161Z" fill="#f2b952" stroke="#293453" stroke-width="3"/>
+<path d="M449 187 L456 166 L471 172 L476 187Z" fill="#f2b952" stroke="#293453" stroke-width="3"/>
+<rect x="63" y="164" width="95" height="34" fill="#a9785d" stroke="#293453" stroke-width="3"/>
+<rect x="70" y="157" width="80" height="11" fill="#e5ae68" stroke="#293453" stroke-width="3"/>
+<rect x="74" y="195" width="13" height="12" fill="#374665" stroke="#293453" stroke-width="3"/>
+<rect x="134" y="195" width="13" height="12" fill="#374665" stroke="#293453" stroke-width="3"/>
+<rect x="251" y="189" width="124" height="6" fill="#78808b"/>
+<rect x="272" y="197" width="124" height="6" fill="#78808b"/>
+<g transform="translate(465 133) scale(1.35)">
+<rect x="5" y="0" width="20" height="18" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="6" y="0" width="20" height="5" fill="#584767"/>
+<rect x="3" y="4" width="6" height="9" fill="#584767"/>
+<rect x="16" y="6" width="5" height="6" fill="#fff8de"/>
+<rect x="19" y="8" width="2" height="4" fill="#293453"/>
+<rect x="11" y="10" width="5" height="4" fill="#e68c70"/>
+<rect x="20" y="15" width="5" height="2" fill="#9b4f62"/>
+<rect x="3" y="18" width="24" height="18" fill="#5c9fba" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="20" width="7" height="12" fill="#d29bde"/>
+<rect x="9" y="24" width="14" height="15" fill="#d2a344" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="20" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="2" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="20" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="26" y="20" width="9" height="7" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="33" y="8" width="4" height="21" fill="#b58150" stroke="#293453" stroke-width="3"/>
+<rect x="28" y="4" width="18" height="8" fill="#b6c9d5" stroke="#293453" stroke-width="3"/>
+</g>
+</g>
+<text x="65" y="545" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="65" dy="0">Gather the materials you need.</tspan>
+<tspan x="65" dy="29">Develop the supply you depend on.</tspan>
+</text>
+<text x="530" y="321" font-size="21" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="530" dy="0">2  FORGE</tspan>
+</text>
+<g transform="translate(530 343) scale(0.6875)">
+<rect x="0" y="0" width="640" height="240" fill="#55bbed"/>
+<rect x="30" y="25" width="75" height="18" fill="#fff6da"/>
+<rect x="45" y="15" width="42" height="12" fill="#fff6da"/>
+<rect x="215" y="16" width="75" height="18" fill="#fff6da"/>
+<rect x="230" y="6" width="42" height="12" fill="#fff6da"/>
+<rect x="486" y="24" width="75" height="18" fill="#fff6da"/>
+<rect x="501" y="14" width="42" height="12" fill="#fff6da"/>
+<path d="M0 151 L90 45 L169 147 L278 61 L386 151 L479 39 L583 142 L640 89 V220 H0Z" fill="#6d94d0"/>
+<path d="M0 170 Q80 63 181 173 Q297 68 429 173 Q548 94 640 170 V220 H0Z" fill="#57ad72"/>
+<rect x="0" y="190" width="640" height="50" fill="#b98552"/>
+<rect x="0" y="187" width="640" height="12" fill="#4a9b48"/>
+<rect x="0" y="200" width="640" height="8" fill="#ebbc6d"/>
+<rect x="12" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="46" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="80" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="114" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="148" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="182" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="216" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="250" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="284" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="318" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="352" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="386" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="420" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="454" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="488" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="522" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="556" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="590" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="624" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="48" y="46" width="544" height="152" fill="#dc9c64" stroke="#293453" stroke-width="3"/>
+<rect x="35" y="33" width="570" height="22" fill="#c95658" stroke="#293453" stroke-width="3"/>
+<rect x="48" y="36" width="544" height="7" fill="#f48d69"/>
+<rect x="48" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="207" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="395" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="578" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="67" y="64" width="510" height="119" fill="#f1c080"/>
+<rect x="77" y="78" width="94" height="107" fill="#87959c" stroke="#293453" stroke-width="3"/>
+<rect x="78" y="92" width="92" height="4" fill="#596d82"/>
+<rect x="78" y="111" width="92" height="4" fill="#596d82"/>
+<rect x="78" y="130" width="92" height="4" fill="#596d82"/>
+<rect x="88" y="125" width="70" height="56" fill="#454661" stroke="#293453" stroke-width="3"/>
+<path d="M95 176 L104 144 L116 157 L130 133 L147 176Z" fill="#ff8c3d"/><path d="M108 178 L119 159 L132 151 L138 178Z" fill="#ffe076"/>
+<rect x="111" y="52" width="30" height="31" fill="#738796" stroke="#293453" stroke-width="3"/>
+<rect x="221" y="92" width="66" height="49" fill="#58c3dd" stroke="#293453" stroke-width="3"/>
+<rect x="252" y="92" width="4" height="49" fill="#775451"/>
+<rect x="214" y="153" width="87" height="15" fill="#b5d4da" stroke="#293453" stroke-width="3"/>
+<rect x="228" y="168" width="46" height="24" fill="#718ea8" stroke="#293453" stroke-width="3"/>
+<rect x="437" y="135" width="111" height="13" fill="#9d704b" stroke="#293453" stroke-width="3"/>
+<rect x="444" y="148" width="9" height="46" fill="#79534b"/>
+<rect x="531" y="148" width="9" height="46" fill="#79534b"/>
+<rect x="459" y="128" width="44" height="5" fill="#c4dce3"/>
+<rect x="495" y="122" width="4" height="15" fill="#ffe099"/>
+<g transform="translate(332 129) scale(1.35)">
+<rect x="5" y="0" width="20" height="18" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="6" y="0" width="20" height="5" fill="#584767"/>
+<rect x="3" y="4" width="6" height="9" fill="#584767"/>
+<rect x="16" y="6" width="5" height="6" fill="#fff8de"/>
+<rect x="19" y="8" width="2" height="4" fill="#293453"/>
+<rect x="11" y="10" width="5" height="4" fill="#e68c70"/>
+<rect x="20" y="15" width="5" height="2" fill="#9b4f62"/>
+<rect x="3" y="18" width="24" height="18" fill="#9961be" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="20" width="7" height="12" fill="#d29bde"/>
+<rect x="9" y="24" width="14" height="15" fill="#d2a344" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="20" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="2" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="20" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="26" y="20" width="9" height="7" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="33" y="8" width="4" height="21" fill="#b58150" stroke="#293453" stroke-width="3"/>
+<rect x="28" y="4" width="18" height="8" fill="#b6c9d5" stroke="#293453" stroke-width="3"/>
+</g>
+</g>
+<text x="530" y="545" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="530" dy="0">Choose one available recipe.</tspan>
+<tspan x="530" dy="29">Make it, improve it, practice it.</tspan>
+</text>
+<text x="995" y="321" font-size="21" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="995" dy="0">3  SHOP</tspan>
+</text>
+<g transform="translate(995 343) scale(0.6875)">
+<rect x="0" y="0" width="640" height="240" fill="#55bbed"/>
+<rect x="30" y="25" width="75" height="18" fill="#fff6da"/>
+<rect x="45" y="15" width="42" height="12" fill="#fff6da"/>
+<rect x="215" y="16" width="75" height="18" fill="#fff6da"/>
+<rect x="230" y="6" width="42" height="12" fill="#fff6da"/>
+<rect x="486" y="24" width="75" height="18" fill="#fff6da"/>
+<rect x="501" y="14" width="42" height="12" fill="#fff6da"/>
+<path d="M0 151 L90 45 L169 147 L278 61 L386 151 L479 39 L583 142 L640 89 V220 H0Z" fill="#6d94d0"/>
+<path d="M0 170 Q80 63 181 173 Q297 68 429 173 Q548 94 640 170 V220 H0Z" fill="#57ad72"/>
+<rect x="0" y="190" width="640" height="50" fill="#b98552"/>
+<rect x="0" y="187" width="640" height="12" fill="#4a9b48"/>
+<rect x="0" y="200" width="640" height="8" fill="#ebbc6d"/>
+<rect x="12" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="46" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="80" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="114" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="148" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="182" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="216" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="250" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="284" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="318" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="352" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="386" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="420" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="454" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="488" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="522" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="556" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="590" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="624" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="43" y="49" width="551" height="146" fill="#edbb75" stroke="#293453" stroke-width="3"/>
+<rect x="34" y="34" width="570" height="23" fill="#348f97" stroke="#293453" stroke-width="3"/>
+<rect x="45" y="36" width="548" height="7" fill="#6bd5c2"/>
+<rect x="64" y="79" width="115" height="104" fill="#a77853" stroke="#293453" stroke-width="3"/>
+<rect x="64" y="113" width="115" height="7" fill="#725152" stroke="#293453" stroke-width="3"/>
+<rect x="64" y="153" width="115" height="7" fill="#725152" stroke="#293453" stroke-width="3"/>
+<rect x="83" y="91" width="5" height="20" fill="#c6e5ed" stroke="#293453" stroke-width="3"/>
+<rect x="78" y="108" width="15" height="5" fill="#efcb66" stroke="#293453" stroke-width="3"/>
+<rect x="91" y="133" width="18" height="17" fill="#54a1a4" stroke="#293453" stroke-width="3"/>
+<rect x="129" y="91" width="5" height="20" fill="#c6e5ed" stroke="#293453" stroke-width="3"/>
+<rect x="124" y="108" width="15" height="5" fill="#efcb66" stroke="#293453" stroke-width="3"/>
+<rect x="137" y="133" width="18" height="17" fill="#54a1a4" stroke="#293453" stroke-width="3"/>
+<rect x="209" y="79" width="115" height="104" fill="#a77853" stroke="#293453" stroke-width="3"/>
+<rect x="209" y="113" width="115" height="7" fill="#725152" stroke="#293453" stroke-width="3"/>
+<rect x="209" y="153" width="115" height="7" fill="#725152" stroke="#293453" stroke-width="3"/>
+<rect x="228" y="91" width="5" height="20" fill="#c6e5ed" stroke="#293453" stroke-width="3"/>
+<rect x="223" y="108" width="15" height="5" fill="#efcb66" stroke="#293453" stroke-width="3"/>
+<rect x="236" y="133" width="18" height="17" fill="#54a1a4" stroke="#293453" stroke-width="3"/>
+<rect x="274" y="91" width="5" height="20" fill="#c6e5ed" stroke="#293453" stroke-width="3"/>
+<rect x="269" y="108" width="15" height="5" fill="#efcb66" stroke="#293453" stroke-width="3"/>
+<rect x="282" y="133" width="18" height="17" fill="#54a1a4" stroke="#293453" stroke-width="3"/>
+<rect x="363" y="147" width="127" height="45" fill="#b87b52" stroke="#293453" stroke-width="3"/>
+<rect x="356" y="139" width="141" height="12" fill="#f4d18c" stroke="#293453" stroke-width="3"/>
+<rect x="526" y="88" width="46" height="105" fill="#51657e" stroke="#293453" stroke-width="3"/>
+<rect x="533" y="96" width="32" height="93" fill="#658b93"/>
+<g transform="translate(294 130) scale(1.35)">
+<rect x="5" y="0" width="20" height="18" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="6" y="0" width="20" height="5" fill="#584767"/>
+<rect x="3" y="4" width="6" height="9" fill="#584767"/>
+<rect x="16" y="6" width="5" height="6" fill="#fff8de"/>
+<rect x="19" y="8" width="2" height="4" fill="#293453"/>
+<rect x="11" y="10" width="5" height="4" fill="#e68c70"/>
+<rect x="20" y="15" width="5" height="2" fill="#9b4f62"/>
+<rect x="3" y="18" width="24" height="18" fill="#7c7bc7" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="20" width="7" height="12" fill="#d29bde"/>
+<rect x="9" y="24" width="14" height="15" fill="#d2a344" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="20" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="2" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="20" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="26" y="20" width="9" height="7" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+</g>
+<g transform="translate(460 143) scale(1.0)">
+<rect x="5" y="0" width="20" height="18" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="6" y="0" width="20" height="5" fill="#584767"/>
+<rect x="3" y="4" width="6" height="9" fill="#584767"/>
+<rect x="16" y="6" width="5" height="6" fill="#fff8de"/>
+<rect x="19" y="8" width="2" height="4" fill="#293453"/>
+<rect x="11" y="10" width="5" height="4" fill="#e68c70"/>
+<rect x="20" y="15" width="5" height="2" fill="#9b4f62"/>
+<rect x="3" y="18" width="24" height="18" fill="#dd7a91" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="20" width="7" height="12" fill="#d29bde"/>
+<rect x="9" y="24" width="14" height="15" fill="#d2a344" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="20" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="2" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="20" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="26" y="20" width="9" height="7" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+</g>
+</g>
+<text x="995" y="545" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="995" dy="0">Fill the shelves; see the outcome.</tspan>
+<tspan x="995" dy="29">Customers handle their own lives.</tspan>
+</text>
+<rect x="65" y="622" width="1370" height="178" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="88" y="659" font-size="18" font-weight="700" fill="#9b6109" style="fill:#9b6109" text-anchor="start">
+<tspan x="88" dy="0">MANAGE · OPEN WHEN YOU NEED IT</tspan>
+</text>
+<text x="88" y="701" font-size="27" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="88" dy="0">Upgrades     Smith     Journal     Legacy</tspan>
+</text>
+<text x="88" y="744" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="88" dy="0">Stations, staff, stats, mastery, collection, customer history and permanent talents remain available.</tspan>
+</text>
+<text x="88" y="774" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="88" dy="0">Their depth stays intact without becoming a row of competing tasks on the workbench.</tspan>
+</text>
+<rect x="65" y="833" width="1370" height="176" rx="14" fill="#e2eef5" stroke="#9dbace" stroke-width="1.5"/>
+<text x="88" y="872" font-size="18" font-weight="700" fill="#236fa5" style="fill:#236fa5" text-anchor="start">
+<tspan x="88" dy="0">ADVENTURE THEATRE · OPTIONAL</tspan>
+</text>
+<text x="88" y="912" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="88" dy="0">Open a watch-only panel when you want to follow a customer.</tspan>
+<tspan x="88" dy="29">Their gear drives the actual battle. NPCs buy, form parties, travel, recover and retry themselves.</tspan>
+<tspan x="88" dy="29">Close the theatre at any time; the world keeps moving while you mine, forge or arrange the shop.</tspan>
+</text>
+<rect x="65" y="1042" width="1370" height="192" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="88" y="1080" font-size="18" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="88" dy="0">ART THAT MAKES THE WORK READABLE</tspan>
+</text>
+<text x="88" y="1120" font-size="18" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="88" dy="0">Original 16-bit landscapes, large expressive characters, strong outlines and bright shading.</tspan>
+<tspan x="88" dy="29">Forge, Shop and Mine have distinct close-ups at a native 640 × 240 aspect.</tspan>
+<tspan x="88" dy="29">Activity follows real crafts, displayed stock and customer events. No invented purchases or rewards.</tspan>
+<tspan x="88" dy="29">Labeled controls and reduced motion keep the same information accessible.</tspan>
+</text>
+<text x="65" y="1307" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="65" dy="0">Sixty recipes · twelve proficiencies · six regions · twenty-four Legacy talents · unchanged gameplay rules</tspan>
+</text>
+</svg>

@@ -1,0 +1,271 @@
+{
+  "format": "ember-and-iron",
+  "version": 1,
+  "state": {
+    "schemaVersion": 1,
+    "contentVersion": "0.3.0",
+    "started": true,
+    "shopName": "QA Fresh Workshop - balanced start",
+    "simTime": 0,
+    "lastWallTime": 1790228481529,
+    "rngState": 2463534242,
+    "nextId": 6,
+    "player": {
+      "level": 1,
+      "xp": 0,
+      "points": 0,
+      "stats": {
+        "strength": 4,
+        "precision": 4,
+        "charisma": 4,
+        "knowledge": 4
+      },
+      "proficiency": {
+        "daggers": {
+          "level": 0,
+          "xp": 0
+        },
+        "swords": {
+          "level": 0,
+          "xp": 0
+        },
+        "axes": {
+          "level": 0,
+          "xp": 0
+        },
+        "maces": {
+          "level": 0,
+          "xp": 0
+        },
+        "polearms": {
+          "level": 0,
+          "xp": 0
+        },
+        "bows": {
+          "level": 0,
+          "xp": 0
+        },
+        "foci": {
+          "level": 0,
+          "xp": 0
+        },
+        "armor": {
+          "level": 0,
+          "xp": 0
+        },
+        "shields": {
+          "level": 0,
+          "xp": 0
+        },
+        "rings": {
+          "level": 0,
+          "xp": 0
+        },
+        "charms": {
+          "level": 0,
+          "xp": 0
+        },
+        "tools": {
+          "level": 0,
+          "xp": 0
+        }
+      },
+      "gold": 18,
+      "reputation": 0,
+      "respecTokens": 0,
+      "talents": [],
+      "legacy": {
+        "generation": 1,
+        "points": 0,
+        "totalPoints": 0,
+        "heirlooms": [],
+        "unlockedRecipes": [],
+        "collection": {}
+      }
+    },
+    "materials": {
+      "bronze": 6,
+      "iron": 0,
+      "steel": 0,
+      "mithril": 0,
+      "starforged": 0,
+      "wood": 4,
+      "leather": 4,
+      "fuel": 6,
+      "gem": 0,
+      "ember_shard": 0,
+      "frost_crystal": 0,
+      "star_fragment": 0
+    },
+    "inventory": [],
+    "jobs": [],
+    "adventurers": [
+      {
+        "id": "mara",
+        "name": "Mara",
+        "archetypeId": "vanguard",
+        "level": 1,
+        "xp": 0,
+        "status": "browsing",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 0,
+        "leaveAt": 57000,
+        "recoverUntil": 0,
+        "runId": null,
+        "failures": 0,
+        "memories": [],
+        "browseUntil": 57000,
+        "nextShopAt": 4000,
+        "lastPurchaseAt": null,
+        "departAt": null,
+        "shoppingReason": "Looking for useful equipment"
+      },
+      {
+        "id": "bren",
+        "name": "Bren",
+        "archetypeId": "breaker",
+        "level": 1,
+        "xp": 0,
+        "status": "browsing",
+        "budget": 17,
+        "relationship": 0,
+        "questId": "rat_nest",
+        "equipment": {
+          "weapon": null,
+          "body": null,
+          "offhand": null,
+          "ring": null,
+          "charm": null,
+          "tool": null
+        },
+        "arrivedAt": 0,
+        "leaveAt": 57000,
+        "recoverUntil": 0,
+        "runId": null,
+        "failures": 0,
+        "memories": [],
+        "browseUntil": 57000,
+        "nextShopAt": 4000,
+        "lastPurchaseAt": null,
+        "departAt": null,
+        "shoppingReason": "Looking for useful equipment"
+      }
+    ],
+    "runs": [],
+    "commissions": [],
+    "upgrades": {},
+    "staff": {},
+    "decorations": [],
+    "unlocks": {
+      "recipes": [
+        "bronze_daggers",
+        "bronze_swords",
+        "bronze_axes",
+        "bronze_maces",
+        "bronze_polearms",
+        "bronze_bows",
+        "bronze_foci",
+        "bronze_armor",
+        "bronze_shields",
+        "bronze_rings",
+        "bronze_charms",
+        "bronze_tools"
+      ],
+      "quests": [
+        "rat_nest"
+      ],
+      "milestones": [],
+      "routes": {}
+    },
+    "questWins": {},
+    "discoveryMisses": 0,
+    "mailbox": [],
+    "automation": {
+      "enabled": false,
+      "recipeId": null,
+      "targetStock": 3,
+      "autoBuy": false,
+      "autoSell": false,
+      "autoDispatch": false,
+      "goldReserve": 12,
+      "spendCap": 60,
+      "allowRare": false
+    },
+    "nextArrivalAt": 30000,
+    "nextAutomationAt": 5000,
+    "nextNpcAt": 2000,
+    "shopEvents": [
+      {
+        "id": "scene-3",
+        "type": "arrive",
+        "time": 0,
+        "heroId": "bren",
+        "questId": "rat_nest"
+      },
+      {
+        "id": "scene-1",
+        "type": "arrive",
+        "time": 0,
+        "heroId": "mara",
+        "questId": "rat_nest"
+      }
+    ],
+    "quarry": {
+      "workers": {},
+      "upgrades": {},
+      "activeDeposit": "bronze",
+      "progress": 0,
+      "lastYieldAt": 0,
+      "nextYieldAt": 45000,
+      "nextManualAt": 0,
+      "pausedReason": ""
+    },
+    "logs": [
+      {
+        "id": "log-5",
+        "time": 0,
+        "text": "The doors of QA Fresh Workshop - balanced start are open.",
+        "type": "milestone"
+      },
+      {
+        "id": "log-4",
+        "time": 0,
+        "text": "Bren is browsing for Rat Nest.",
+        "type": "customer"
+      },
+      {
+        "id": "log-2",
+        "time": 0,
+        "text": "Mara is browsing for Rat Nest.",
+        "type": "customer"
+      }
+    ],
+    "stats": {
+      "crafted": 0,
+      "sold": 0,
+      "questsWon": 0,
+      "questsLost": 0,
+      "goldEarned": 0,
+      "masterworks": []
+    },
+    "tutorial": {
+      "stage": 1
+    },
+    "offlineReport": null,
+    "offlineSession": {
+      "active": false,
+      "credited": 0,
+      "spent": 0
+    }
+  }
+}

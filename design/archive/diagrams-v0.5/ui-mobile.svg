@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="1260" viewBox="0 0 430 1260" role="img" aria-labelledby="title desc">
+<title id="title">Ember and Iron — focused mobile workspace</title><desc id="desc">A small header, one Next goal, three tabs, a large readable scene and one clear craft action. Manage is a drawer and the adventure theatre begins as one collapsed row.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b6109"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#292823}.muted{fill:#66645c}.amber{fill:#9b6109}.heading{font-weight:700}.label{font-size:17px}.small{font-size:16px}</style>
+<rect width="430" height="1260" fill="#f7f4ec"/>
+<text x="20" y="42" font-size="18" font-weight="700" fill="#236fa5" style="fill:#236fa5" text-anchor="start">
+<tspan x="20" dy="0">MOBILE CONCEPT · v0.5</tspan>
+</text>
+<rect x="15" y="65" width="400" height="56" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="30" y="100" font-size="21" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="30" dy="0">E&amp;I</tspan>
+</text>
+<text x="396" y="100" font-size="16" font-weight="400" fill="#292823" style="fill:#292823" text-anchor="end">
+<tspan x="396" dy="0">18g   Lv.1   Settings</tspan>
+</text>
+<rect x="15" y="139" width="400" height="119" rx="14" fill="#e5f0d5" stroke="#7f9a60" stroke-width="1.5"/>
+<text x="33" y="168" font-size="14" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="33" dy="0">NEXT GOAL</tspan>
+</text>
+<text x="33" y="198" font-size="22" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="33" dy="0">Forge your first sword</tspan>
+</text>
+<text x="33" y="228" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="33" dy="0">Your materials are ready. Make one.</tspan>
+</text>
+<rect x="342" y="158" width="54" height="45" rx="14" fill="#167c74" stroke="#167c74" stroke-width="1.5"/>
+<text x="369" y="189" font-size="25" font-weight="700" fill="#ffffff" style="fill:#ffffff" text-anchor="middle">
+<tspan x="369" dy="0">→</tspan>
+</text>
+<rect x="15" y="276" width="400" height="58" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="32" y="312" font-size="18" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="32" dy="0">MINE    FORGE    SHOP</tspan>
+</text>
+<text x="396" y="312" font-size="15" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="end">
+<tspan x="396" dy="0">Manage</tspan>
+</text>
+<g transform="translate(15 352) scale(0.625)">
+<rect x="0" y="0" width="640" height="240" fill="#55bbed"/>
+<rect x="30" y="25" width="75" height="18" fill="#fff6da"/>
+<rect x="45" y="15" width="42" height="12" fill="#fff6da"/>
+<rect x="215" y="16" width="75" height="18" fill="#fff6da"/>
+<rect x="230" y="6" width="42" height="12" fill="#fff6da"/>
+<rect x="486" y="24" width="75" height="18" fill="#fff6da"/>
+<rect x="501" y="14" width="42" height="12" fill="#fff6da"/>
+<path d="M0 151 L90 45 L169 147 L278 61 L386 151 L479 39 L583 142 L640 89 V220 H0Z" fill="#6d94d0"/>
+<path d="M0 170 Q80 63 181 173 Q297 68 429 173 Q548 94 640 170 V220 H0Z" fill="#57ad72"/>
+<rect x="0" y="190" width="640" height="50" fill="#b98552"/>
+<rect x="0" y="187" width="640" height="12" fill="#4a9b48"/>
+<rect x="0" y="200" width="640" height="8" fill="#ebbc6d"/>
+<rect x="12" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="46" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="80" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="114" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="148" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="182" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="216" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="250" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="284" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="318" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="352" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="386" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="420" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="454" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="488" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="522" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="556" y="217" width="12" height="5" fill="#93604b"/>
+<rect x="590" y="220" width="12" height="5" fill="#93604b"/>
+<rect x="624" y="214" width="12" height="5" fill="#93604b"/>
+<rect x="48" y="46" width="544" height="152" fill="#dc9c64" stroke="#293453" stroke-width="3"/>
+<rect x="35" y="33" width="570" height="22" fill="#c95658" stroke="#293453" stroke-width="3"/>
+<rect x="48" y="36" width="544" height="7" fill="#f48d69"/>
+<rect x="48" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="207" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="395" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="578" y="52" width="14" height="147" fill="#8f5e4e" stroke="#293453" stroke-width="3"/>
+<rect x="67" y="64" width="510" height="119" fill="#f1c080"/>
+<rect x="77" y="78" width="94" height="107" fill="#87959c" stroke="#293453" stroke-width="3"/>
+<rect x="78" y="92" width="92" height="4" fill="#596d82"/>
+<rect x="78" y="111" width="92" height="4" fill="#596d82"/>
+<rect x="78" y="130" width="92" height="4" fill="#596d82"/>
+<rect x="88" y="125" width="70" height="56" fill="#454661" stroke="#293453" stroke-width="3"/>
+<path d="M95 176 L104 144 L116 157 L130 133 L147 176Z" fill="#ff8c3d"/><path d="M108 178 L119 159 L132 151 L138 178Z" fill="#ffe076"/>
+<rect x="111" y="52" width="30" height="31" fill="#738796" stroke="#293453" stroke-width="3"/>
+<rect x="221" y="92" width="66" height="49" fill="#58c3dd" stroke="#293453" stroke-width="3"/>
+<rect x="252" y="92" width="4" height="49" fill="#775451"/>
+<rect x="214" y="153" width="87" height="15" fill="#b5d4da" stroke="#293453" stroke-width="3"/>
+<rect x="228" y="168" width="46" height="24" fill="#718ea8" stroke="#293453" stroke-width="3"/>
+<rect x="437" y="135" width="111" height="13" fill="#9d704b" stroke="#293453" stroke-width="3"/>
+<rect x="444" y="148" width="9" height="46" fill="#79534b"/>
+<rect x="531" y="148" width="9" height="46" fill="#79534b"/>
+<rect x="459" y="128" width="44" height="5" fill="#c4dce3"/>
+<rect x="495" y="122" width="4" height="15" fill="#ffe099"/>
+<g transform="translate(332 129) scale(1.35)">
+<rect x="5" y="0" width="20" height="18" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="6" y="0" width="20" height="5" fill="#584767"/>
+<rect x="3" y="4" width="6" height="9" fill="#584767"/>
+<rect x="16" y="6" width="5" height="6" fill="#fff8de"/>
+<rect x="19" y="8" width="2" height="4" fill="#293453"/>
+<rect x="11" y="10" width="5" height="4" fill="#e68c70"/>
+<rect x="20" y="15" width="5" height="2" fill="#9b4f62"/>
+<rect x="3" y="18" width="24" height="18" fill="#9961be" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="20" width="7" height="12" fill="#d29bde"/>
+<rect x="9" y="24" width="14" height="15" fill="#d2a344" stroke="#293453" stroke-width="3"/>
+<rect x="5" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="20" y="37" width="8" height="8" fill="#384f83" stroke="#293453" stroke-width="3"/>
+<rect x="2" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="20" y="44" width="12" height="4" fill="#563d54"/>
+<rect x="26" y="20" width="9" height="7" fill="#f5bb7e" stroke="#293453" stroke-width="3"/>
+<rect x="33" y="8" width="4" height="21" fill="#b58150" stroke="#293453" stroke-width="3"/>
+<rect x="28" y="4" width="18" height="8" fill="#b6c9d5" stroke="#293453" stroke-width="3"/>
+</g>
+</g>
+<rect x="15" y="522" width="400" height="271" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="34" y="555" font-size="14" font-weight="700" fill="#167c74" style="fill:#167c74" text-anchor="start">
+<tspan x="34" dy="0">AT THE FORGE</tspan>
+</text>
+<text x="34" y="590" font-size="25" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="34" dy="0">Bronze Shortsword</tspan>
+</text>
+<text x="34" y="620" font-size="16" font-weight="700" fill="#236fa5" style="fill:#236fa5" text-anchor="start">
+<tspan x="34" dy="0">Change recipe  ▾</tspan>
+</text>
+<text x="34" y="654" font-size="17" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="34" dy="0">Q34    35s    8g shelf price</tspan>
+</text>
+<text x="34" y="688" font-size="17" font-weight="400" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="34" dy="0">2 bronze · 1 leather · 1 fuel</tspan>
+</text>
+<rect x="34" y="715" width="362" height="57" rx="14" fill="#167c74" stroke="#167c74" stroke-width="1.5"/>
+<text x="215" y="751" font-size="19" font-weight="700" fill="#ffffff" style="fill:#ffffff" text-anchor="middle">
+<tspan x="215" dy="0">CRAFT ONE</tspan>
+</text>
+<rect x="15" y="815" width="400" height="111" rx="14" fill="#f3e4c3" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="34" y="852" font-size="19" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="34" dy="0">Active job · 21s remaining</tspan>
+</text>
+<rect x="34" y="870" width="360" height="12" rx="4" fill="#dfd4b7" stroke="#dfd4b7" stroke-width="1.5"/>
+<rect x="34" y="870" width="160" height="12" rx="4" fill="#b27c31" stroke="#b27c31" stroke-width="1.5"/>
+<text x="34" y="909" font-size="15" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="34" dy="0">Optional tempering   ·   Queue details</tspan>
+</text>
+<rect x="15" y="948" width="400" height="63" rx="14" fill="#e2eef5" stroke="#9dbace" stroke-width="1.5"/>
+<text x="34" y="987" font-size="18" font-weight="700" fill="#236fa5" style="fill:#236fa5" text-anchor="start">
+<tspan x="34" dy="0">Adventure theatre     Open  ▾</tspan>
+</text>
+<rect x="15" y="1033" width="400" height="110" rx="14" fill="#fffdf8" stroke="#d7d1c4" stroke-width="1.5"/>
+<text x="34" y="1067" font-size="19" font-weight="700" fill="#292823" style="fill:#292823" text-anchor="start">
+<tspan x="34" dy="0">Manage opens a drawer</tspan>
+</text>
+<text x="34" y="1098" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="34" dy="0">Upgrades · Smith · Journal · Legacy</tspan>
+<tspan x="34" dy="25">Return to the same recipe and place.</tspan>
+</text>
+<text x="20" y="1184" font-size="16" font-weight="400" fill="#66645c" style="fill:#66645c" text-anchor="start">
+<tspan x="20" dy="0">Large controls, one useful action at a time.</tspan>
+<tspan x="20" dy="25">The goal remains above the work.</tspan>
+<tspan x="20" dy="25">No permanent material strip or news cards.</tspan>
+</text>
+</svg>
