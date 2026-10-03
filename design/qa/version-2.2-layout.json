@@ -1,0 +1,39 @@
+[
+  {
+    "height": 800,
+    "overflow": false,
+    "room": "smith",
+    "width": 360
+  },
+  {
+    "height": 800,
+    "overflow": false,
+    "room": "mine",
+    "width": 360
+  },
+  {
+    "height": 800,
+    "overflow": false,
+    "room": "smelter",
+    "width": 360
+  },
+  {
+    "craftBottom": 800,
+    "height": 800,
+    "overflow": false,
+    "room": "forge",
+    "width": 360
+  },
+  {
+    "height": 800,
+    "overflow": false,
+    "room": "shop",
+    "width": 360
+  },
+  {
+    "height": 800,
+    "overflow": false,
+    "room": "adventurers",
+    "width": 360
+  }
+]

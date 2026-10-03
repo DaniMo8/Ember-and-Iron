@@ -37,6 +37,36 @@ function apply(d,P,smelter){
   for(const n of Object.values(P.nodes).filter(n=>n.section==='adventurers'&&n.branch==='Quantity'&&n.id.includes('recruitment'))){
    n.name={3:'Another duelist',4:'Another ranger',5:'Vanguard & breaker regulars',6:'Another mage',7:'Another guardian'}[Number(n.id.split('_').at(-1))];
   }
+  // Support investments follow their purpose. Remember both older layouts for save migration.
+  for(const n of Object.values(P.nodes))n.acceptedParents=[n.priorParents||[],[...n.parents]];
+  const paths=[
+   ['mine_extraction_0','mine_extraction_2','mine_extraction_3','mine_extraction_4','mine_extraction_6','mine_extraction_7'],
+   ['mine_extraction_1','mine_extraction_5'],['mine_logistics_1','mine_logistics_4','mine_logistics_7'],
+   ['mine_logistics_2'],
+   ['forge_mastery_0','forge_machinery_5','forge_machinery_6'],
+   ['forge_mastery_2','forge_mastery_6'],['forge_mastery_3','forge_mastery_7'],['forge_mastery_4'],
+   ['forge_workflow_0','forge_workflow_4'],['forge_workflow_1','forge_workflow_3','forge_workflow_6','forge_machinery_7'],
+   ['forge_workflow_2','forge_workflow_5','forge_workflow_7'],
+   ['shop_warehouse_0','shop_warehouse_1','shop_warehouse_4','shop_warehouse_6'],
+   ['shop_relations_0','shop_relations_1','shop_commerce_2','shop_relations_6'],
+   ['shop_relations_4','shop_commerce_5'],['shop_relations_2','shop_commerce_6'],
+   ['adventurers_training_0','adventurers_training_4','adventurers_training_7'],
+   ['adventurers_training_1','adventurers_training_5'],['adventurers_training_2'],
+   ['adventurers_training_3','adventurers_training_6'],
+   ['adventurers_expeditions_0','adventurers_expeditions_3','adventurers_expeditions_7'],
+   ['adventurers_expeditions_1','adventurers_expeditions_6'],
+   ['adventurers_expeditions_2','adventurers_expeditions_4','adventurers_expeditions_5']
+  ];
+  for(const path of paths)path.forEach((id,i)=>P.nodes[id].parents=i?[path[i-1]]:[]);
+  const links={mine_logistics_2:['mine_logistics_1'],forge_mastery_4:['forge_machinery_3'],
+   shop_warehouse_2:['shop_warehouse_1'],shop_warehouse_3:['shop_warehouse_1'],shop_warehouse_5:['shop_warehouse_0'],shop_warehouse_7:['shop_warehouse_5','shop_warehouse_6'],
+   adventurers_recruitment_3:['adventurers_expeditions_2'],adventurers_recruitment_4:['adventurers_recruitment_3'],
+   adventurers_recruitment_5:['adventurers_recruitment_4','adventurers_recruitment_0'],adventurers_recruitment_6:['adventurers_recruitment_5','adventurers_recruitment_2'],adventurers_recruitment_7:['adventurers_recruitment_6','adventurers_recruitment_1']};
+  for(const[id,parents]of Object.entries(links))P.nodes[id].parents=parents;
+  P.nodes.adventurers_recruitment_0.milestone={sales:10,wins:5};
+  P.nodes.adventurers_recruitment_1.milestone={boss:'smuggler_cache'};
+  P.nodes.adventurers_recruitment_2.milestone={boss:d.tierBosses[1]};
+  P.nodes.forge_workflow_shifts={id:'forge_workflow_shifts',section:'forge',branch:'Speed',depth:8,name:'Workshop shift roster',cost:600,level:5,maxRank:1,scale:1.9,parents:['forge_workflow_2'],effects:{staffShifts:1},description:'Unlock optional automatic employee breaks. Rest at 35 stamina; return at 90. Employees still lose productivity while resting.'};
  }
  // Smelter's saved IDs remain valid; only their visible sections change.
  for(const [id,n]of Object.entries(smelter))n.branch=['iron','steel','mithril','starforged'].includes(id)?'Alloys':'Speed';
@@ -47,6 +77,7 @@ function apply(d,P,smelter){
   purity:{name:'Perfect lattice',branch:'Quality',cost:4800,maxRank:3,parent:'assay',quality:5,description:'Refined crystal structure: +5 equipment quality per rank. Forge breakthroughs still set the ceiling.'},
   vents:{name:'Heat-recovery flues',branch:'Speed',cost:1600,maxRank:4,parent:'lining',speed:.3,description:'Recover furnace heat: +30% smelting speed per rank.'},
   pours:{name:'Continuous casting',branch:'Speed',cost:6200,maxRank:3,parent:'vents',speed:.5,description:'Continuous casting adds +50% smelting speed per rank.'}
+  ,stockkeeper:{name:'Furnace stockkeeper',branch:'Speed',cost:35,level:2,maxRank:1,description:'Unlock automatic ingot targets. Refills unlocked alloys while preserving your input reserve and bin space.'}
  });
  // Retain every existing talent and its effect. Focused Legacy sections combine old and new investments.
  for(const t of Object.values(d.talents))t.branch=({force:'Workforce',forge:'Workforce',commerce:'Efficiency',artifice:'Metallurgy',lore:'Archives'})[t.branch]||t.branch;
@@ -57,6 +88,8 @@ function apply(d,P,smelter){
   Archives:[['rare_archive','Rare armoury archive',24,{rareArchive:1},'Permanently discover 17 rare relic patterns, one per equipment class. Requires tier-4 materials and mastery.'],['legend_archive','Legendary armoury archive',52,{legendArchive:1},'Permanently discover 17 legendary sovereign patterns. Requires tier-5 materials and exceptional mastery.'],['ancestral_lore','Ancestral lore',100,{proficiencyGateReduction:5,qualityCap:10},'Legacy recipes become easier to master: proficiency gates −5 and quality ceiling +10.']]
  };
  for(const [branch,rows]of Object.entries(paths))rows.forEach(([id,name,cost,effects,description],i)=>{const previousId=i?rows[i-1][0]:null;d.talents[id]={id,name,cost,effects,description,branch,depth:i+1,maxLevel:1,previousId,prerequisite:previousId,requires:previousId?[previousId]:[],legacySignature:true};});
+ d.talents.founders_strength.effects={startStrength:2,smeltSpeed:.2};
+ d.talents.founders_strength.description='+2 starting Strength and +20% smelting speed. A lasting benefit throughout each generation.';
  const names={swords:['Knightly Estoc','Sovereign Zweihander'],daggers:['Templar Baselard','Royal Cinquedea'],axes:['Champion Pollaxe','Sovereign Bardiche'],maces:['Flanged Morningstar','Royal Lucerne Hammer'],polearms:['Guard Partisan','Sovereign Guisarme'],bows:['Yew Warbow','Royal Composite Bow'],foci:['Abbot Crozier','Sovereign Runestaff'],armor:['Riveted Lorica','Royal Mail Harness'],shields:['Heraldic Heater','Sovereign Pavise'],cloth_armor:['Embroidered Aketon','Royal Runesilk Mantle'],leather_armor:['Brigandine Jack','Sovereign Lamellar'],offhands:['Illuminated Psalter','Sovereign Codex'],rings:['Bishop Signet','Royal Seal Ring'],charms:['Saints Reliquary','Sovereign Reliquary'],talismans:['Silver Ward Torc','Royal Runic Torc'],tools:['Master Surveyors Kit','Royal Siege Chest'],instruments:['Heralds Clarion','Sovereign War Trumpet']};
  for(const c of Object.keys(d.classes))for(let i=0;i<2;i++){
   const tier=4+i,base=Object.values(d.recipes).find(r=>r.classId===c&&r.tier===tier&&r.variant===(i?2:1));

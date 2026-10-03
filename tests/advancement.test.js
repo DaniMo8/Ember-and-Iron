@@ -57,7 +57,7 @@ test('rare and legendary archives unlock distinct recipes, retain all crafting g
  e.state.questWins.void_sovereign=1;e.command('retire',{confirmed:true});assert(e.state.player.talents.includes('rare_archive'));e.command('create',{smithName:'Alden II',stats:{strength:5,precision:5,charisma:5,knowledge:5}});assert(e._recipeKnown(rare));assert(!e.craftPreview(rare.id).eligible);assert(Workshop.validateSave(e.exportSave(),e.data).ok);
 });
 test('quantity expands existing customer classes; new buyer classes require their unlock',()=>{
- const e=make();e.state.stats.questsLost=10000;unlock(e,'adventurers_recruitment_3');assert(e.state.adventurers.some(h=>h.id==='lyra'));assert(!e.availableClasses().includes('foci'));
+ const e=make();e.state.stats.questsWon=10000;e.state.stats.sold=e.state.workshop.usefulSales=10;for(const id of e.data.tierBosses)e.state.questWins[id]=1;unlock(e,'adventurers_recruitment_3');assert(e.state.adventurers.some(h=>h.id==='lyra'));assert(!e.availableClasses().includes('foci'));
  unlock(e,'adventurers_recruitment_6');assert(e.state.adventurers.some(h=>h.id==='vesper'));assert(e.availableClasses().includes('foci'));assert(e.state.world.trees.adventurers_recruitment_2);assert(Workshop.validateSave(e.exportSave(),e.data).ok);
 });
 test('one normal campaign reward cannot buy all powerful Legacy upgrades',()=>{

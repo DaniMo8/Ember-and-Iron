@@ -1,0 +1,3693 @@
+{
+  "method": "Fresh deterministic engines, 5 points per attribute, default Bladesmith. No state/resource grants. Opening helper reproduces existing v2.1 active policy. These are probes, not an optimal progression or campaign estimate.",
+  "cases": [
+    {
+      "scenario": "idle_no_actions",
+      "unlocks": [],
+      "events": [],
+      "final": {
+        "minute": 90,
+        "level": 1,
+        "gold": 12,
+        "crafts": 0,
+        "sales": 0,
+        "wins": 0,
+        "defeats": 69,
+        "merits": 69,
+        "classes": [
+          "vanguard",
+          "duelist",
+          "ranger"
+        ],
+        "miners": 1,
+        "prospecting": 2,
+        "smelted": 0,
+        "jobs": 0,
+        "smelts": 0,
+        "inventory": 0,
+        "stock": {
+          "copper": 30,
+          "tin": 30,
+          "coal": 30,
+          "bronzeIngots": 0
+        },
+        "valid": true
+      },
+      "samples": [
+        {
+          "minute": 5,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 3,
+          "merits": 3,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 0,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 12,
+            "tin": 3,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 10,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 6,
+          "merits": 6,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 0,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 19,
+            "tin": 3,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 15,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 12,
+          "merits": 12,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 0,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 26,
+            "tin": 3,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 20,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 15,
+          "merits": 15,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 6,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 25,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 18,
+          "merits": 18,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 13,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 30,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 24,
+          "merits": 24,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 21,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 35,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 27,
+          "merits": 27,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 28,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 40,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 30,
+          "merits": 30,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 12,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 45,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 33,
+          "merits": 33,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 19,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 50,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 39,
+          "merits": 39,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 27,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 55,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 42,
+          "merits": 42,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 60,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 45,
+          "merits": 45,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 65,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 51,
+          "merits": 51,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 70,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 54,
+          "merits": 54,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 75,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 57,
+          "merits": 57,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 80,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 60,
+          "merits": 60,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 85,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 66,
+          "merits": 66,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 90,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 69,
+          "merits": 69,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        }
+      ],
+      "automation": {
+        "enabled": false,
+        "recipeId": null,
+        "targetStock": 3,
+        "autoBuy": false,
+        "autoSell": false,
+        "autoDispatch": false,
+        "goldReserve": 12,
+        "spendCap": 60,
+        "allowRare": false
+      }
+    },
+    {
+      "scenario": "idle_buy_classes",
+      "unlocks": [
+        {
+          "minute": 6.3,
+          "id": "adventurers_recruitment_0"
+        },
+        {
+          "minute": 14.1,
+          "id": "adventurers_recruitment_1"
+        },
+        {
+          "minute": 25.9,
+          "id": "adventurers_recruitment_2"
+        }
+      ],
+      "events": [
+        {
+          "minute": 6.3,
+          "command": "tree",
+          "id": "adventurers_recruitment_0"
+        },
+        {
+          "minute": 14.1,
+          "command": "tree",
+          "id": "adventurers_recruitment_1"
+        },
+        {
+          "minute": 25.9,
+          "command": "tree",
+          "id": "adventurers_recruitment_2"
+        }
+      ],
+      "final": {
+        "minute": 90,
+        "level": 1,
+        "gold": 12,
+        "crafts": 0,
+        "sales": 0,
+        "wins": 0,
+        "defeats": 125,
+        "merits": 97,
+        "classes": [
+          "vanguard",
+          "duelist",
+          "ranger",
+          "breaker",
+          "guardian",
+          "mage"
+        ],
+        "miners": 1,
+        "prospecting": 2,
+        "smelted": 0,
+        "jobs": 0,
+        "smelts": 0,
+        "inventory": 0,
+        "stock": {
+          "copper": 30,
+          "tin": 30,
+          "coal": 30,
+          "bronzeIngots": 0
+        },
+        "valid": true
+      },
+      "samples": [
+        {
+          "minute": 5,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 3,
+          "merits": 3,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 0,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 12,
+            "tin": 3,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 10,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 7,
+          "merits": 3,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker"
+          ],
+          "miners": 1,
+          "prospecting": 0,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 19,
+            "tin": 3,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 15,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 14,
+          "merits": 2,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian"
+          ],
+          "miners": 1,
+          "prospecting": 0,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 26,
+            "tin": 3,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 20,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 19,
+          "merits": 7,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 6,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 25,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 26,
+          "merits": 14,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 13,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 30,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 35,
+          "merits": 7,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 21,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 35,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 41,
+          "merits": 13,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 28,
+            "coal": 6,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 40,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 50,
+          "merits": 22,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 12,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 45,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 56,
+          "merits": 28,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 19,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 50,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 65,
+          "merits": 37,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 27,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 55,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 71,
+          "merits": 43,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 60,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 80,
+          "merits": 52,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 65,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 89,
+          "merits": 61,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 70,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 95,
+          "merits": 67,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 75,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 103,
+          "merits": 75,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 80,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 110,
+          "merits": 82,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 85,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 119,
+          "merits": 91,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 90,
+          "level": 1,
+          "gold": 12,
+          "crafts": 0,
+          "sales": 0,
+          "wins": 0,
+          "defeats": 125,
+          "merits": 97,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger",
+            "breaker",
+            "guardian",
+            "mage"
+          ],
+          "miners": 1,
+          "prospecting": 2,
+          "smelted": 0,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        }
+      ],
+      "automation": {
+        "enabled": false,
+        "recipeId": null,
+        "targetStock": 3,
+        "autoBuy": false,
+        "autoSell": false,
+        "autoDispatch": false,
+        "goldReserve": 12,
+        "spendCap": 60,
+        "allowRare": false
+      }
+    },
+    {
+      "scenario": "45min_active_then_60min_idle",
+      "unlocks": [],
+      "events": [],
+      "final": {
+        "minute": 105,
+        "level": 3,
+        "gold": 62,
+        "crafts": 47,
+        "sales": 31,
+        "wins": 8,
+        "defeats": 74,
+        "merits": 82,
+        "classes": [
+          "vanguard",
+          "duelist",
+          "ranger"
+        ],
+        "miners": 2,
+        "prospecting": 3,
+        "smelted": 54,
+        "jobs": 0,
+        "smelts": 0,
+        "inventory": 16,
+        "stock": {
+          "copper": 30,
+          "tin": 30,
+          "coal": 30,
+          "bronzeIngots": 7
+        },
+        "valid": true
+      },
+      "samples": [
+        {
+          "minute": 5,
+          "level": 1,
+          "gold": 16,
+          "crafts": 2,
+          "sales": 2,
+          "wins": 0,
+          "defeats": 3,
+          "merits": 3,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 12,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 15,
+            "tin": 15,
+            "coal": 15,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 10,
+          "level": 1,
+          "gold": 20,
+          "crafts": 6,
+          "sales": 4,
+          "wins": 0,
+          "defeats": 6,
+          "merits": 6,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 15,
+          "jobs": 1,
+          "smelts": 1,
+          "inventory": 2,
+          "stock": {
+            "copper": 30,
+            "tin": 29,
+            "coal": 29,
+            "bronzeIngots": 8
+          },
+          "valid": true
+        },
+        {
+          "minute": 15,
+          "level": 2,
+          "gold": 18,
+          "crafts": 10,
+          "sales": 5,
+          "wins": 0,
+          "defeats": 12,
+          "merits": 12,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 18,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 20,
+          "level": 2,
+          "gold": 45,
+          "crafts": 16,
+          "sales": 11,
+          "wins": 1,
+          "defeats": 14,
+          "merits": 15,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 24,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 25,
+          "level": 2,
+          "gold": 8,
+          "crafts": 22,
+          "sales": 18,
+          "wins": 1,
+          "defeats": 18,
+          "merits": 19,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 30,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 4,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 30,
+          "level": 3,
+          "gold": 38,
+          "crafts": 29,
+          "sales": 24,
+          "wins": 2,
+          "defeats": 22,
+          "merits": 24,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 36,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 6
+          },
+          "valid": true
+        },
+        {
+          "minute": 35,
+          "level": 3,
+          "gold": 41,
+          "crafts": 34,
+          "sales": 25,
+          "wins": 3,
+          "defeats": 25,
+          "merits": 28,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 42,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 9,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 40,
+          "level": 3,
+          "gold": 46,
+          "crafts": 40,
+          "sales": 28,
+          "wins": 3,
+          "defeats": 28,
+          "merits": 31,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 48,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 12,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 45,
+          "level": 3,
+          "gold": 54,
+          "crafts": 46,
+          "sales": 31,
+          "wins": 3,
+          "defeats": 32,
+          "merits": 35,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 15,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 50,
+          "level": 3,
+          "gold": 54,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 3,
+          "defeats": 36,
+          "merits": 39,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 55,
+          "level": 3,
+          "gold": 55,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 39,
+          "merits": 43,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 60,
+          "level": 3,
+          "gold": 60,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 7,
+          "defeats": 41,
+          "merits": 48,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 65,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 44,
+          "merits": 52,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 70,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 48,
+          "merits": 56,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 75,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 52,
+          "merits": 60,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 80,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 56,
+          "merits": 64,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 85,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 59,
+          "merits": 67,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 90,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 64,
+          "merits": 72,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 95,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 67,
+          "merits": 75,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 100,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 71,
+          "merits": 79,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 105,
+          "level": 3,
+          "gold": 62,
+          "crafts": 47,
+          "sales": 31,
+          "wins": 8,
+          "defeats": 74,
+          "merits": 82,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 16,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        }
+      ],
+      "automation": {
+        "enabled": false,
+        "recipeId": null,
+        "targetStock": 3,
+        "autoBuy": false,
+        "autoSell": false,
+        "autoDispatch": false,
+        "goldReserve": 12,
+        "spendCap": 60,
+        "allowRare": false
+      }
+    },
+    {
+      "scenario": "45min_active_then_60min_auto_forge",
+      "unlocks": [],
+      "events": [
+        {
+          "minute": 45,
+          "command": "hireStaff",
+          "staffId": "quartermaster"
+        }
+      ],
+      "auto": {
+        "hire": true,
+        "settings": [
+          {
+            "ok": true,
+            "message": "Automation policy saved."
+          },
+          {
+            "ok": true,
+            "message": "Automation policy saved."
+          },
+          {
+            "ok": true,
+            "message": "Automation policy saved."
+          },
+          {
+            "ok": true,
+            "message": "Automation policy saved."
+          },
+          {
+            "ok": true,
+            "message": "Automation policy saved."
+          }
+        ]
+      },
+      "final": {
+        "minute": 105,
+        "level": 4,
+        "gold": 5,
+        "crafts": 54,
+        "sales": 31,
+        "wins": 6,
+        "defeats": 76,
+        "merits": 82,
+        "classes": [
+          "vanguard",
+          "duelist",
+          "ranger"
+        ],
+        "miners": 2,
+        "prospecting": 3,
+        "smelted": 54,
+        "jobs": 0,
+        "smelts": 0,
+        "inventory": 23,
+        "stock": {
+          "copper": 33,
+          "tin": 33,
+          "coal": 33,
+          "bronzeIngots": 0
+        },
+        "valid": true
+      },
+      "samples": [
+        {
+          "minute": 5,
+          "level": 1,
+          "gold": 16,
+          "crafts": 2,
+          "sales": 2,
+          "wins": 0,
+          "defeats": 3,
+          "merits": 3,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 12,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 15,
+            "tin": 15,
+            "coal": 15,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 10,
+          "level": 1,
+          "gold": 20,
+          "crafts": 6,
+          "sales": 4,
+          "wins": 0,
+          "defeats": 6,
+          "merits": 6,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 15,
+          "jobs": 1,
+          "smelts": 1,
+          "inventory": 2,
+          "stock": {
+            "copper": 30,
+            "tin": 29,
+            "coal": 29,
+            "bronzeIngots": 8
+          },
+          "valid": true
+        },
+        {
+          "minute": 15,
+          "level": 2,
+          "gold": 18,
+          "crafts": 10,
+          "sales": 5,
+          "wins": 0,
+          "defeats": 12,
+          "merits": 12,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 18,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 20,
+          "level": 2,
+          "gold": 45,
+          "crafts": 16,
+          "sales": 11,
+          "wins": 1,
+          "defeats": 14,
+          "merits": 15,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 24,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 25,
+          "level": 2,
+          "gold": 8,
+          "crafts": 22,
+          "sales": 18,
+          "wins": 1,
+          "defeats": 18,
+          "merits": 19,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 30,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 4,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 30,
+          "level": 3,
+          "gold": 38,
+          "crafts": 29,
+          "sales": 24,
+          "wins": 2,
+          "defeats": 22,
+          "merits": 24,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 36,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 6
+          },
+          "valid": true
+        },
+        {
+          "minute": 35,
+          "level": 3,
+          "gold": 41,
+          "crafts": 34,
+          "sales": 25,
+          "wins": 3,
+          "defeats": 25,
+          "merits": 28,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 42,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 9,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 40,
+          "level": 3,
+          "gold": 46,
+          "crafts": 40,
+          "sales": 28,
+          "wins": 3,
+          "defeats": 28,
+          "merits": 31,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 48,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 12,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 45,
+          "level": 3,
+          "gold": 54,
+          "crafts": 46,
+          "sales": 31,
+          "wins": 3,
+          "defeats": 32,
+          "merits": 35,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 15,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 50,
+          "level": 4,
+          "gold": 1,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 3,
+          "defeats": 36,
+          "merits": 39,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 32,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 55,
+          "level": 4,
+          "gold": 1,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 3,
+          "defeats": 40,
+          "merits": 43,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 60,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 44,
+          "merits": 48,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 65,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 47,
+          "merits": 51,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 70,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 50,
+          "merits": 54,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 75,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 54,
+          "merits": 58,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 80,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 59,
+          "merits": 63,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 85,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 62,
+          "merits": 66,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 90,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 66,
+          "merits": 70,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 95,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 69,
+          "merits": 73,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 100,
+          "level": 4,
+          "gold": 2,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 4,
+          "defeats": 74,
+          "merits": 78,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        },
+        {
+          "minute": 105,
+          "level": 4,
+          "gold": 5,
+          "crafts": 54,
+          "sales": 31,
+          "wins": 6,
+          "defeats": 76,
+          "merits": 82,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 23,
+          "stock": {
+            "copper": 33,
+            "tin": 33,
+            "coal": 33,
+            "bronzeIngots": 0
+          },
+          "valid": true
+        }
+      ],
+      "automation": {
+        "enabled": true,
+        "recipeId": "bronze_daggers",
+        "targetStock": 20,
+        "autoBuy": true,
+        "autoSell": false,
+        "autoDispatch": false,
+        "goldReserve": 0,
+        "spendCap": 60,
+        "allowRare": false
+      }
+    },
+    {
+      "scenario": "45min_active_with_readiness",
+      "unlocks": [],
+      "events": [
+        {
+          "minute": 10.2,
+          "command": "tree",
+          "id": "adventurers_expeditions_2"
+        },
+        {
+          "minute": 14.1,
+          "command": "tree",
+          "id": "adventurers_expeditions_0"
+        },
+        {
+          "minute": 16.53,
+          "command": "tree",
+          "id": "adventurers_training_0"
+        },
+        {
+          "minute": 21.83,
+          "command": "tree",
+          "id": "adventurers_expeditions_1"
+        },
+        {
+          "minute": 29.12,
+          "command": "tree",
+          "id": "adventurers_training_1"
+        },
+        {
+          "minute": 41.08,
+          "command": "tree",
+          "id": "adventurers_training_2"
+        }
+      ],
+      "final": {
+        "minute": 105,
+        "level": 3,
+        "gold": 212,
+        "crafts": 45,
+        "sales": 35,
+        "wins": 35,
+        "defeats": 33,
+        "merits": 40,
+        "classes": [
+          "vanguard",
+          "duelist",
+          "ranger"
+        ],
+        "miners": 2,
+        "prospecting": 3,
+        "smelted": 54,
+        "jobs": 0,
+        "smelts": 0,
+        "inventory": 10,
+        "stock": {
+          "copper": 30,
+          "tin": 30,
+          "coal": 30,
+          "bronzeIngots": 9
+        },
+        "valid": true
+      },
+      "samples": [
+        {
+          "minute": 5,
+          "level": 1,
+          "gold": 16,
+          "crafts": 2,
+          "sales": 2,
+          "wins": 0,
+          "defeats": 3,
+          "merits": 3,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 1,
+          "prospecting": 1,
+          "smelted": 12,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 0,
+          "stock": {
+            "copper": 15,
+            "tin": 15,
+            "coal": 15,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 10,
+          "level": 1,
+          "gold": 20,
+          "crafts": 6,
+          "sales": 4,
+          "wins": 0,
+          "defeats": 6,
+          "merits": 6,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 15,
+          "jobs": 1,
+          "smelts": 1,
+          "inventory": 2,
+          "stock": {
+            "copper": 30,
+            "tin": 29,
+            "coal": 29,
+            "bronzeIngots": 8
+          },
+          "valid": true
+        },
+        {
+          "minute": 15,
+          "level": 2,
+          "gold": 42,
+          "crafts": 10,
+          "sales": 8,
+          "wins": 1,
+          "defeats": 10,
+          "merits": 1,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 18,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 2,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 20,
+          "level": 2,
+          "gold": 21,
+          "crafts": 16,
+          "sales": 11,
+          "wins": 3,
+          "defeats": 11,
+          "merits": 2,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 1,
+          "smelted": 24,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 25,
+          "level": 2,
+          "gold": 7,
+          "crafts": 23,
+          "sales": 18,
+          "wins": 5,
+          "defeats": 12,
+          "merits": 1,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 30,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 6
+          },
+          "valid": true
+        },
+        {
+          "minute": 30,
+          "level": 3,
+          "gold": 47,
+          "crafts": 29,
+          "sales": 24,
+          "wins": 7,
+          "defeats": 14,
+          "merits": 1,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 36,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 6
+          },
+          "valid": true
+        },
+        {
+          "minute": 35,
+          "level": 3,
+          "gold": 78,
+          "crafts": 34,
+          "sales": 28,
+          "wins": 9,
+          "defeats": 15,
+          "merits": 4,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 2,
+          "smelted": 42,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 6,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 7
+          },
+          "valid": true
+        },
+        {
+          "minute": 40,
+          "level": 3,
+          "gold": 135,
+          "crafts": 39,
+          "sales": 34,
+          "wins": 11,
+          "defeats": 16,
+          "merits": 7,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 48,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 5,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 8
+          },
+          "valid": true
+        },
+        {
+          "minute": 45,
+          "level": 3,
+          "gold": 143,
+          "crafts": 44,
+          "sales": 35,
+          "wins": 12,
+          "defeats": 18,
+          "merits": 2,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 1,
+          "smelts": 0,
+          "inventory": 9,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 50,
+          "level": 3,
+          "gold": 149,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 14,
+          "defeats": 19,
+          "merits": 5,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 55,
+          "level": 3,
+          "gold": 155,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 16,
+          "defeats": 20,
+          "merits": 8,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 60,
+          "level": 3,
+          "gold": 161,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 18,
+          "defeats": 21,
+          "merits": 11,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 65,
+          "level": 3,
+          "gold": 167,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 20,
+          "defeats": 23,
+          "merits": 15,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 70,
+          "level": 3,
+          "gold": 173,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 22,
+          "defeats": 24,
+          "merits": 18,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 75,
+          "level": 3,
+          "gold": 179,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 24,
+          "defeats": 25,
+          "merits": 21,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 80,
+          "level": 3,
+          "gold": 185,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 26,
+          "defeats": 26,
+          "merits": 24,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 85,
+          "level": 3,
+          "gold": 191,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 28,
+          "defeats": 28,
+          "merits": 28,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 90,
+          "level": 3,
+          "gold": 197,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 30,
+          "defeats": 29,
+          "merits": 31,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 95,
+          "level": 3,
+          "gold": 200,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 31,
+          "defeats": 30,
+          "merits": 33,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 100,
+          "level": 3,
+          "gold": 209,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 34,
+          "defeats": 31,
+          "merits": 37,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        },
+        {
+          "minute": 105,
+          "level": 3,
+          "gold": 212,
+          "crafts": 45,
+          "sales": 35,
+          "wins": 35,
+          "defeats": 33,
+          "merits": 40,
+          "classes": [
+            "vanguard",
+            "duelist",
+            "ranger"
+          ],
+          "miners": 2,
+          "prospecting": 3,
+          "smelted": 54,
+          "jobs": 0,
+          "smelts": 0,
+          "inventory": 10,
+          "stock": {
+            "copper": 30,
+            "tin": 30,
+            "coal": 30,
+            "bronzeIngots": 9
+          },
+          "valid": true
+        }
+      ],
+      "automation": {
+        "enabled": false,
+        "recipeId": null,
+        "targetStock": 3,
+        "autoBuy": false,
+        "autoSell": false,
+        "autoDispatch": false,
+        "goldReserve": 12,
+        "spendCap": 60,
+        "allowRare": false
+      }
+    }
+  ],
+  "upgradeSpines": {
+    "shop": {
+      "Price": [
+        {
+          "id": "shop_commerce_0",
+          "name": "Honest signage",
+          "cost": 2,
+          "parents": [],
+          "effects": {
+            "sale": 0.035
+          }
+        },
+        {
+          "id": "shop_commerce_3",
+          "name": "Premium showcases",
+          "cost": 16,
+          "parents": [
+            "shop_commerce_0"
+          ],
+          "effects": {
+            "sale": 0.05
+          }
+        },
+        {
+          "id": "shop_commerce_7",
+          "name": "Royal warrant",
+          "cost": 256,
+          "parents": [
+            "shop_relations_5"
+          ],
+          "effects": {
+            "sale": 0.08,
+            "budget": 0.08
+          }
+        },
+        {
+          "id": "shop_relations_5",
+          "name": "Guild festival",
+          "cost": 64,
+          "parents": [
+            "shop_commerce_3"
+          ],
+          "effects": {
+            "sale": 0.06
+          }
+        }
+      ],
+      "Customer budgets": [
+        {
+          "id": "shop_commerce_1",
+          "name": "Trusted supplier",
+          "cost": 4,
+          "parents": [],
+          "effects": {
+            "budget": 0.08
+          }
+        },
+        {
+          "id": "shop_commerce_4",
+          "name": "Patron accounts",
+          "cost": 32,
+          "parents": [
+            "shop_relations_3"
+          ],
+          "effects": {
+            "budget": 0.12
+          }
+        },
+        {
+          "id": "shop_relations_3",
+          "name": "Returning patrons",
+          "cost": 16,
+          "parents": [
+            "shop_commerce_1"
+          ],
+          "effects": {
+            "budget": 0.1
+          }
+        },
+        {
+          "id": "shop_relations_7",
+          "name": "House of legends",
+          "cost": 256,
+          "parents": [
+            "shop_commerce_4"
+          ],
+          "effects": {
+            "reputationBonus": 2,
+            "budget": 0.1
+          }
+        }
+      ],
+      "Customer relations": [
+        {
+          "id": "shop_commerce_2",
+          "name": "Guild introductions",
+          "cost": 8,
+          "parents": [
+            "shop_warehouse_1"
+          ],
+          "effects": {
+            "relationship": 1
+          }
+        },
+        {
+          "id": "shop_commerce_5",
+          "name": "Renowned commissions",
+          "cost": 64,
+          "parents": [
+            "shop_warehouse_4"
+          ],
+          "effects": {
+            "commissionPay": 0.12
+          }
+        },
+        {
+          "id": "shop_commerce_6",
+          "name": "Trade ambassador",
+          "cost": 128,
+          "parents": [
+            "shop_warehouse_5"
+          ],
+          "effects": {
+            "reputationBonus": 1
+          }
+        },
+        {
+          "id": "shop_warehouse_0",
+          "name": "Display plinths",
+          "cost": 2,
+          "parents": [
+            "shop_relations_0"
+          ],
+          "effects": {
+            "display": 2
+          }
+        },
+        {
+          "id": "shop_warehouse_1",
+          "name": "Stockroom shelves",
+          "cost": 4,
+          "parents": [
+            "shop_relations_1"
+          ],
+          "effects": {
+            "capacity": 12
+          }
+        },
+        {
+          "id": "shop_warehouse_2",
+          "name": "Porter service",
+          "cost": 8,
+          "parents": [
+            "shop_relations_2"
+          ],
+          "effects": {
+            "capacity": 8,
+            "display": 2
+          }
+        },
+        {
+          "id": "shop_warehouse_3",
+          "name": "Salvage bench",
+          "cost": 16,
+          "parents": [
+            "shop_warehouse_2"
+          ],
+          "effects": {
+            "autoScrap": 1
+          }
+        },
+        {
+          "id": "shop_warehouse_4",
+          "name": "Secure vault",
+          "cost": 32,
+          "parents": [
+            "shop_relations_4"
+          ],
+          "effects": {
+            "capacity": 24
+          }
+        },
+        {
+          "id": "shop_warehouse_5",
+          "name": "Gallery wing",
+          "cost": 64,
+          "parents": [
+            "shop_commerce_5"
+          ],
+          "effects": {
+            "display": 4
+          }
+        },
+        {
+          "id": "shop_warehouse_6",
+          "name": "Distribution depot",
+          "cost": 128,
+          "parents": [
+            "shop_relations_6"
+          ],
+          "effects": {
+            "capacity": 40
+          }
+        },
+        {
+          "id": "shop_warehouse_7",
+          "name": "Grand exhibition",
+          "cost": 256,
+          "parents": [
+            "shop_warehouse_6"
+          ],
+          "effects": {
+            "display": 6,
+            "capacity": 20
+          }
+        },
+        {
+          "id": "shop_relations_0",
+          "name": "Welcoming hearth",
+          "cost": 2,
+          "parents": [],
+          "effects": {
+            "patience": 5
+          }
+        },
+        {
+          "id": "shop_relations_1",
+          "name": "Personal service",
+          "cost": 4,
+          "parents": [
+            "shop_warehouse_0"
+          ],
+          "effects": {
+            "relationship": 1
+          }
+        },
+        {
+          "id": "shop_relations_2",
+          "name": "Quest sponsorship",
+          "cost": 8,
+          "parents": [
+            "shop_commerce_2"
+          ],
+          "effects": {
+            "reputationBonus": 1
+          }
+        },
+        {
+          "id": "shop_relations_4",
+          "name": "Commission desk",
+          "cost": 32,
+          "parents": [
+            "shop_warehouse_3"
+          ],
+          "effects": {
+            "commissionPay": 0.15
+          }
+        },
+        {
+          "id": "shop_relations_6",
+          "name": "Honoured allies",
+          "cost": 128,
+          "parents": [
+            "shop_commerce_6"
+          ],
+          "effects": {
+            "patience": 8,
+            "relationship": 1
+          }
+        }
+      ]
+    },
+    "adventurers": {
+      "Classes": [
+        {
+          "id": "adventurers_recruitment_0",
+          "name": "Breaker customers",
+          "cost": 4,
+          "parents": [],
+          "effects": {
+            "heroBren": 1
+          }
+        },
+        {
+          "id": "adventurers_recruitment_1",
+          "name": "Guardian customers",
+          "cost": 8,
+          "parents": [
+            "adventurers_recruitment_0"
+          ],
+          "effects": {
+            "heroThane": 1
+          }
+        },
+        {
+          "id": "adventurers_recruitment_2",
+          "name": "Mage customers",
+          "cost": 16,
+          "parents": [
+            "adventurers_recruitment_1"
+          ],
+          "effects": {
+            "heroSable": 1
+          }
+        }
+      ],
+      "Quantity": [
+        {
+          "id": "adventurers_expeditions_2",
+          "name": "Companion charter",
+          "cost": 8,
+          "parents": [],
+          "effects": {
+            "partySize": 1,
+            "partyPolicy": 1
+          }
+        },
+        {
+          "id": "adventurers_expeditions_4",
+          "name": "Warband charter",
+          "cost": 32,
+          "parents": [
+            "adventurers_expeditions_2"
+          ],
+          "effects": {
+            "partySize": 1
+          }
+        },
+        {
+          "id": "adventurers_expeditions_5",
+          "name": "Expedition berths",
+          "cost": 64,
+          "parents": [
+            "adventurers_recruitment_3"
+          ],
+          "effects": {
+            "expeditions": 1
+          }
+        },
+        {
+          "id": "adventurers_recruitment_3",
+          "name": "Another duelist",
+          "cost": 32,
+          "parents": [
+            "adventurers_expeditions_4"
+          ],
+          "effects": {
+            "heroLyra": 1
+          }
+        },
+        {
+          "id": "adventurers_recruitment_4",
+          "name": "Another ranger",
+          "cost": 64,
+          "parents": [
+            "adventurers_expeditions_5"
+          ],
+          "effects": {
+            "heroOrrin": 1
+          }
+        },
+        {
+          "id": "adventurers_recruitment_5",
+          "name": "Vanguard & breaker regulars",
+          "cost": 128,
+          "parents": [
+            "adventurers_recruitment_4",
+            "adventurers_recruitment_0"
+          ],
+          "effects": {
+            "heroIda": 1,
+            "heroHark": 1
+          }
+        },
+        {
+          "id": "adventurers_recruitment_6",
+          "name": "Another mage",
+          "cost": 256,
+          "parents": [
+            "adventurers_recruitment_5",
+            "adventurers_recruitment_2"
+          ],
+          "effects": {
+            "heroVesper": 1
+          }
+        },
+        {
+          "id": "adventurers_recruitment_7",
+          "name": "Another guardian",
+          "cost": 512,
+          "parents": [
+            "adventurers_recruitment_6",
+            "adventurers_recruitment_1"
+          ],
+          "effects": {
+            "heroAela": 1
+          }
+        }
+      ],
+      "Readiness": [
+        {
+          "id": "adventurers_training_0",
+          "name": "Training yard",
+          "cost": 2,
+          "parents": [
+            "adventurers_expeditions_0"
+          ],
+          "effects": {
+            "heroHp": 0.06
+          }
+        },
+        {
+          "id": "adventurers_training_1",
+          "name": "Sparring partners",
+          "cost": 4,
+          "parents": [
+            "adventurers_expeditions_1"
+          ],
+          "effects": {
+            "heroAttack": 0.04
+          }
+        },
+        {
+          "id": "adventurers_training_2",
+          "name": "Shield drills",
+          "cost": 8,
+          "parents": [
+            "adventurers_training_1"
+          ],
+          "effects": {
+            "heroArmor": 0.5
+          }
+        },
+        {
+          "id": "adventurers_training_3",
+          "name": "Combat reflexes",
+          "cost": 16,
+          "parents": [
+            "adventurers_expeditions_3"
+          ],
+          "effects": {
+            "heroSpeed": 0.04
+          }
+        },
+        {
+          "id": "adventurers_training_4",
+          "name": "Veteran conditioning",
+          "cost": 32,
+          "parents": [
+            "adventurers_training_3"
+          ],
+          "effects": {
+            "heroHp": 0.1
+          }
+        },
+        {
+          "id": "adventurers_training_5",
+          "name": "Master instructors",
+          "cost": 64,
+          "parents": [
+            "adventurers_training_4"
+          ],
+          "effects": {
+            "heroAttack": 0.07
+          }
+        },
+        {
+          "id": "adventurers_training_6",
+          "name": "Tactical movement",
+          "cost": 128,
+          "parents": [
+            "adventurers_expeditions_6"
+          ],
+          "effects": {
+            "heroSpeed": 0.07
+          }
+        },
+        {
+          "id": "adventurers_training_7",
+          "name": "Champions of the forge",
+          "cost": 256,
+          "parents": [
+            "adventurers_expeditions_7"
+          ],
+          "effects": {
+            "heroHp": 0.12,
+            "heroAttack": 0.08
+          }
+        },
+        {
+          "id": "adventurers_expeditions_0",
+          "name": "Recovery beds",
+          "cost": 2,
+          "parents": [],
+          "effects": {
+            "recovery": 0.1
+          }
+        },
+        {
+          "id": "adventurers_expeditions_1",
+          "name": "Trail maps",
+          "cost": 4,
+          "parents": [
+            "adventurers_training_0"
+          ],
+          "effects": {
+            "travel": 0.1
+          }
+        },
+        {
+          "id": "adventurers_expeditions_3",
+          "name": "Field infirmary",
+          "cost": 16,
+          "parents": [
+            "adventurers_training_2"
+          ],
+          "effects": {
+            "recovery": 0.15
+          }
+        },
+        {
+          "id": "adventurers_expeditions_6",
+          "name": "Waystone network",
+          "cost": 128,
+          "parents": [
+            "adventurers_training_5"
+          ],
+          "effects": {
+            "travel": 0.15
+          }
+        },
+        {
+          "id": "adventurers_expeditions_7",
+          "name": "Sanctuary",
+          "cost": 256,
+          "parents": [
+            "adventurers_training_6"
+          ],
+          "effects": {
+            "recovery": 0.25,
+            "heroHp": 0.05
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Ember & Iron — The Foundry
 
-Version 2.1.0 · playable design specification · 4 October 2026
+Version 2.2.0 · playable design specification · 4 October 2026
 
 ## The game we are building
 
@@ -253,7 +253,7 @@ The combined quest journal places company-wide victory counts and unlock bars be
 
 The twenty authored quests span town, quarry, ember, wildwood, frost and starfall regions. Bosses can change attack patterns during battle. Equipment quality, health, armour, attack speed, resistance, archetype passives, criticals, evasion and party composition affect the result. Rare crafting discoveries remain tied to story progress, alternate routes or rewards.
 
-Every resolved expedition grants one Merit, including a retreat. Heroes finish returning even when material bins and the old delivery mailbox are full. Gold and recipes arrive immediately; excess materials are discarded and recorded in the run state. There is no overflow chest or deferred material reward. Old cargo and pending deliveries migrate once up to current bin space; their excess is discarded. Refunds instead require enough room for full reimbursement. Rewards do not generate mining points. Existing pending saves are repaired on load, stale travel states are reconciled, and rewards are applied exactly once. Readiness spends Merits on health, attack, armour, attack speed, travel and recovery. Quantity adds named repeat customers, additional berths and party capacity. Classes unlocks Breaker, Guardian and Mage equipment types. Higher quantity nodes require the relevant class node, so quantity cannot bypass class discovery.
+Every victorious expedition grants 2 Merits. Each of the first 8 retreats in a generation grants 1 consolation Merit; later retreats grant none. Existing save balances are carried forward once without reducing past purchasing power. Heroes finish returning even when material bins and the old delivery mailbox are full. Gold and recipes arrive immediately; excess materials are discarded and recorded in the run state. There is no overflow chest or deferred material reward. Old cargo and pending deliveries migrate once up to current bin space; their excess is discarded. Refunds instead require enough room for full reimbursement. Rewards do not generate mining points. Existing pending saves are repaired on load, stale travel states are reconciled, and rewards are applied exactly once. Readiness spends Merits on health, attack, armour, attack speed, travel and recovery. Quantity adds named repeat customers, additional berths and party capacity. Classes unlocks Breaker after 10 useful customer sales and 5 quest victories, Guardian after the tier 1 boss, and Mage after the tier 2 boss. Town clearance does not count toward useful customer sales. Higher quantity nodes require the relevant class node, so quantity cannot bypass class discovery.
 
 Balanced heroes seek a reachable quest with fewer than five victory counts, then reliable familiar work, then the easiest attempt. Independent policy limits parties to one. Companion charter allows pairs and unlocks Cautious and Bold policies. Cautious prefers at least an 80% estimated chance; Bold will pursue candidates from a 25% estimated chance. Warband charter permits three heroes on ordinary quests. Manual boss parties have a separate limit of three from the beginning, with minimum sizes 1, 2, 2, 3 and 3 by tier. An estimate is a forecast, not a guaranteed result.
 
@@ -287,7 +287,7 @@ Each ordinary quest needs 5 hero-victory counts before opening the following enc
 
 ![Room progression currencies and branches](diagrams/room-trees.svg)
 
-The five production/customer rooms contain 111 upgrades across fifteen selectable sections. Branch sizes vary with their role. A node requires the named prerequisite nodes at rank 1; side paths and cross-section class gates are stated explicitly. A repeated rank costs `ceil(base cost × growth^current rank)`, where growth begins at 1.9 and Legacy can lower it to 1.6. First-rank prices never receive this discount. Deeper base costs also grow approximately exponentially. The player can push forward after one rank or deepen a previous investment. Old paid ranks validate against their original prerequisites and remain owned; future purchases use the new paths.
+The five production/customer rooms contain 113 upgrades across fifteen selectable sections. Branch sizes vary with their role. A node requires the named prerequisite nodes at rank 1; side paths and cross-section class gates are stated explicitly. A repeated rank costs `ceil(base cost × growth^current rank)`, where growth begins at 1.9 and Legacy can lower it to 1.6. First-rank prices never receive this discount. Deeper base costs also grow approximately exponentially. The player can push forward after one rank or deepen a previous investment. Old paid ranks validate against their original prerequisites and remain owned; future purchases use the new paths.
 
 | Room | Currency | Paths |
 |---|---|---|
@@ -298,6 +298,19 @@ The five production/customer rooms contain 111 upgrades across fifteen selectabl
 | Customers | Merits, earned from completed expeditions | Classes (main), Quantity, Readiness |
 
 The complete node catalogue below is generated from the same registry as the playable game. Effects are per purchased rank unless the node is a one-time unlock.
+
+
+### Version 2.2 progression and idle rules
+
+Furnace stockkeeper is an early Smelter Speed investment: 35 gold and smith level 2. Its optional maintenance policy has a target per unlocked alloy and an input reserve. Queued output counts toward the target. Higher alloys request intermediate ingots for their next batch; the controller respects unlocked materials, hearth capacity and input reserves. Automatic batches wait if the whole output will not fit. Manual batches retain the no-overflow rule and warn about potential loss before ordering. Output above a target by less than a batch is allowed, within bin capacity.
+
+Forge production rules now enforce rare-input protection (tier 4–5 materials and rare catalysts), gold reserves and offline purchase limits. Optional demand-only production stops when the selected pattern is outclassed. Automatic town clearance sells excess copies above the chosen target, or outclassed stock at least three minutes old. It skips held, protected, reserved, rare-protected and commission-matching pieces. It never awards useful-sale credit. Production and smelting panels report their current stopping reason.
+
+Salvage bench additionally offers optional display rotation: outclassed stock at least three minutes old returns to the warehouse when useful stock waits. Eligible stock still fills displays lowest quality first. Rotated stock can return if demand changes or rotation is disabled. The player retains separate manual hold controls.
+
+Support upgrades follow deliberate short paths instead of price-sorted prerequisite chains. Existing investments from both older layouts remain valid. Upgrade cards preview their next benefit, warn about capped quality, show outstanding prerequisite cost, and can pin one rank as a goal. Attribute allocation previews the next point's real effects and rounded breakpoints using an example bronze sword.
+
+Workshop shift roster costs 600 gold, requires smith level 5 and Apprentice bench, and unlocks optional managed rest. Managed staff take a break at 35 stamina and return at 90; manually granted leave remains manual. Rest continues to reduce workshop output. Legacy spark costs and rewards remain unchanged; Founders Strength also grants +20% smelting speed.
 
 <!-- UPGRADE_CATALOGUE_START -->
 
@@ -359,6 +372,7 @@ The complete node catalogue below is generated from the same registry as the pla
 | Speed | Clockwork hammers | 4900 Gold | 5 | Crafting speed +25% per rank. |
 | Speed | Grand atelier | 11500 Gold | 3 | One active bench and four queue slots per rank; unlock production rules. |
 | Recipes | Master armoury patterns | 320 Gold | 1 | Unlock prestige patterns in every developed material tier. Their high attribute and proficiency requirements still apply. |
+| Speed | Workshop shift roster | 600 Gold | 1 | Unlock optional automatic employee breaks. Rest at 35 stamina; return at 90. Employees still lose productivity while resting. |
 
 ### Shop upgrade catalogue
 
@@ -436,6 +450,7 @@ The complete node catalogue below is generated from the same registry as the pla
 | Quality | Perfect lattice | 4800 Gold | 3 | Refined crystal structure: +5 equipment quality per rank. Forge breakthroughs still set the ceiling. |
 | Speed | Heat-recovery flues | 1600 Gold | 4 | Recover furnace heat: +30% smelting speed per rank. |
 | Speed | Continuous casting | 6200 Gold | 3 | Continuous casting adds +50% smelting speed per rank. |
+| Speed | Furnace stockkeeper | 35 Gold | 1 | Unlock automatic ingot targets. Refills unlocked alloys while preserving your input reserve and bin space. |
 
 ### Permanent Legacy catalogue
 
@@ -476,7 +491,7 @@ The complete node catalogue below is generated from the same registry as the pla
 | Workforce | Heavy Forms | 7 | +6 quality for heavy equipment. |
 | Workforce | Tireless Furnace | 11 | +2 waiting craft slots. |
 | Workforce | Twin Anvils | 19 | +1 parallel crafting lane. |
-| Workforce | Founders Strength | 33 | +2 starting Strength after allocation. |
+| Workforce | Founders Strength | 33 | +2 starting Strength and +20% smelting speed. A lasting benefit throughout each generation. |
 
 <!-- UPGRADE_CATALOGUE_END -->
 
@@ -527,6 +542,10 @@ The gallery is `assets/gallery.html`; exact new prompts are in `assets/backgroun
 
 ## Pricing audit and accelerated AI playtest
 
+Version 2.2 was re-reviewed across three seeds and four attention schedules: an earned active hour followed by two hours of active play, five-minute visits, fifteen-minute visits or no actions. Stockkeeper was earned at 22.9–25.3 minutes; the first boss fell at 55.1–57.2 minutes. At three hours, active runs made 179–182 items, five-minute visits 148–149 and fifteen-minute visits 105–110. Prepared unattended runs continued crafting before correctly pausing on finite demand with ingots available. Three separate ninety-minute zero-crafting probes stayed at eight Merits and the initial three classes. These are informed-policy outcomes, not novice targets. All sampled saves validated and no sampled return was overdue. No run cleared boss three or retired; late-game balance remains open. Full evidence and limitations are in `design/qa/idle-enthusiast-v2.2-review.md` and `version-2.2-verification.md`.
+
+The following measurements are historical; their unlimited defeat-Merit behaviour was replaced in version 2.2.
+
 The earlier version 1.3 was tested with normal commands every 30 simulated seconds: six active hours managing staff, four active hours ignoring staff rest, and eight untouched hours. No resources or progression were granted in these speed profiles. The active policy spreads work across all available classes, clears old stock, purchases first-rank developments and launches bosses at a forecast of at least 65%. It does not optimize specialized mastery, furnishing choices or enchantments.
 
 The six-hour run made 564 items, won 167 expeditions and retreated 34 times, reaching smith level 13 and tier 3 crafts. First sale was at 4 minutes, first victory at 18; bosses fell at 43.5, 68 and 325.5 minutes. The 257.5-minute gap between bosses 2 and 3 is the main stall. Gold grows during that interval; class mastery, useful equipment and conservative boss launches need closer human testing. Legacy remained locked. The no-rest run exhausted all employees; by four hours it crafted 387 items and reached only tier 2. The unattended empty shop won nothing and earned no gold or hero levels, but generated 369 catch-up Merits from retreats. None of the profiles produced overdue returns or invalid sampled saves.
@@ -543,7 +562,7 @@ The existing deterministic engine remains the foundation. The Company extension 
 
 The automated suite covers the original queue, combat, offline, reward, commission, retirement and save guarantees, plus new creation rules, uncapped attributes, worker fallback, currency accounting, tier machinery, recruitment, breakthrough quality, automation safety, migration and online/offline equivalence. Browser checks cover first-time creation, crafting, customer sales, mining assignment, room navigation, branching overlays and actual quest replays. Current narrow-screen checks use a 360-pixel browser viewport.
 
-Future tuning should use human sessions to measure first-sale time, ingredient starvation, upgrade choice rates, return-customer demand, mid-game class specialization and time to first retirement. There are no claims here that all 111 upgrades have been human-playtested to completion.
+Future tuning should use human sessions to measure first-sale time, ingredient starvation, upgrade choice rates, return-customer demand, mid-game class specialization and time to first retirement. There are no claims here that all 113 upgrades have been human-playtested to completion.
 
 ## Blender inventory art
 

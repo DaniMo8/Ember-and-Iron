@@ -15,7 +15,7 @@ The catalogue hides locked classes and tiers. A recipe remains visible if it is 
 ## Progression
 
 - Five professions with distinct working bonuses; four uncapped attributes.
-- 111 room upgrades across fifteen selectable sections, including fourteen Smelter upgrades.
+- 113 room upgrades across fifteen selectable sections, including fifteen Smelter upgrades.
 - Individually assigned miners, automatic overflow assignments, seven workings and per-material storage.
 - Seventeen item classes, 289 recipes (255 ordinary and 34 Legacy patterns), five material tiers, affixes, enchantments and quality breakthroughs up to 200.
 - Three fixed starting customers; class unlocks attract further named customers automatically, up to twelve across six archetypes.
@@ -24,7 +24,19 @@ The catalogue hides locked classes and tiers. A recipe remains visible if it is 
 - Staff, furnishings, collection records and late automatic production rules.
 - Defeat the tier 5 Void Sovereign to retire and open 36 permanent Legacy talents.
 
-Mining earns **Prospecting**. Forge development spends **gold**. Shop development spends **Influence** earned through reputation. Adventurer development spends **Merits** earned by completed expeditions, including retreats. Repeated upgrade ranks cost 90% more; permanent Legacy talents can reduce that growth to 60%. First-rank costs and unlock requirements remain intact.
+Mining earns **Prospecting**. Forge development spends **gold**. Shop development spends **Influence** earned through reputation. Adventurer development spends **Merits**: 2 per victory, plus 1 for each of the first 8 retreats in a generation. Repeated upgrade ranks cost 90% more; permanent Legacy talents can reduce that growth to 60%. First-rank costs and unlock requirements remain intact.
+
+## Version 2.2.0 — Rewarding progression and dependable idle production
+
+- Furnace stockkeeper (35g, smith level 2) maintains chosen ingot stocks, including intermediate alloys, input reserves and pending output. Automatic batches wait for space; manual batch buttons warn about potential overflow.
+- Automatic production honours rare-input protection, supply reserves and offline budgets. Optional clearance sells surplus and outclassed stock while keeping protected, reserved, held and commission pieces. Demand-only production is optional.
+- Breaker customers require 10 useful customer sales and 5 quest victories; Guardian and Mage require the tier 1 and tier 2 bosses respectively. Failed quests provide limited early assistance. Existing saves retain earned Merits and classes.
+- Support upgrades follow shorter, purposeful paths. Cards show actual benefits, cumulative prerequisite costs and pinnable goals. Stats preview the next point, including rounded price and storage breakpoints.
+- Shop stock explains current demand. Salvage bench can unlock optional stale-display rotation. Workshop shift roster (600g, smith level 5) can manage employee breaks, with rest still reducing output.
+- Tighter desktop controls and a persistent phone crafting bar keep production accessible. Phone upgrade headings use less vertical space.
+- Legacy costs and retirement rewards are unchanged; Founders Strength also grants 20% smelting speed.
+
+See the [original idle review](design/qa/idle-enthusiast-v2.1-review.md), [follow-up review](design/qa/idle-enthusiast-v2.2-review.md) and [verification](design/qa/version-2.2-verification.md). All 180 automated checks passed. Twelve three-hour scenarios found no blocking regression in the covered opening; five- and fifteen-minute check-ins remained productive. Later tiers and Legacy still need longer natural playtests.
 
 ## Version 2.1.0 — Focused upgrades and Blender inventory art
 
