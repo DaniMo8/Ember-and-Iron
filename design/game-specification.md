@@ -1,6 +1,6 @@
 # Ember & Iron — The Foundry
 
-Version 1.4.2 · playable design specification · 29 September 2026
+Version 2.0.0 · playable design specification · 4 October 2026
 
 ## The game we are building
 
@@ -14,13 +14,13 @@ This document describes the implemented game. Long-term balance remains a tuning
 
 ![The maker and the autonomous adventurer loop](diagrams/game-flow.svg)
 
-The opening state is intentionally modest: 12 gold; 6 bronze, 4 wood, 4 leather and 6 coal; one miner; a basic anvil; one active crafting bench; five waiting queue slots; six display slots; and three heroes. The balanced Bladesmith creates a training sword in about 49 seconds. Training gear has a deliberately small customer margin; standard patterns improve value and combat strength. Mining and practice matter because buying every ingredient leaves a small margin.
+The opening state is intentionally modest: 12 gold; 6 copper ore, 3 tin ore, 4 wood, 4 leather and 6 coal; one miner; a basic anvil; one active crafting bench; five waiting queue slots; six display slots; and three heroes. A balanced 5/5/5/5 Bladesmith smelts the first three bronze ingots in 24 seconds, then creates a training sword in about 49 seconds. Smelting and forging run concurrently. Training gear has a deliberately small customer margin; standard patterns improve value and combat strength. Mining and practice matter because buying every ingredient leaves a small margin.
 
-The first next-objective prompt directs the smith to make a training weapon that the chosen starting company can use. While it is working, the objective suggests a careful finish. Afterward the player can broaden a hero’s loadout with armour and shields, or repeat a weapon class to improve proficiency. Heroes initially wear poor equipment and often retreat. They retain their identity, equipment and memories, recover, browse for improvements, and choose a retry or an easier reachable quest.
+The first next-objective prompt directs the smith to make a training weapon that the starting customers can use. While it is working, the objective suggests a careful finish. Afterward the player can broaden a hero’s loadout with armour and shields, or repeat a weapon class to improve proficiency. Heroes initially wear poor equipment and often retreat. They retain their identity, equipment and memories, recover, browse for improvements, and choose a retry or an easier reachable quest.
 
 A finished item fills an available display slot automatically. If all display slots are full, it enters the warehouse. Empty displays always refill automatically from the lowest-quality eligible warehouse stock; porter service adds capacity. Displayed, unprotected, unreserved items may be purchased. A hero checks compatibility, affordability and actual improvement before buying.
 
-## Six rooms and information hierarchy
+## Seven rooms and information hierarchy
 
 ![Full-screen room and overlay layout](diagrams/ui-layout.svg)
 
@@ -28,27 +28,28 @@ A finished item fills an available display slot automatically. If all display sl
 |---|---|---|---|
 | Smith | Rented attic study to comfortable study to master’s estate | Attributes, employees with stamina/XP, furnishings with permanent levels directly below employees, then prominent class mastery levels | Character bonuses and collection |
 | Mine | Shallow timber shaft to established iron mine to deep galleries | Seam cards with stock, manual mining and trading; adjacent worker assignments; mining-point progress | Mining development and room growth requirements |
-| Forge | Lean-to anvil to working village smithy to grand foundry | Weapons / Armour / Other, then class and tier; craft 1, 5 or maximum | Active queue, careful finishes, machinery development, late production rules |
+| Smelter | Clay hearth to alloy workshop to celestial smeltery; forge-stage artwork with an animated furnace | Smelt 1, 5 or max batches; ore/alloy recipes; ingot bins and an independent queue | Heat, Metallurgy and Handling upgrades |
+| Forge | Lean-to anvil to working village smithy to grand foundry | Weapons / Armour / Other, then class, recipe, material and enchantment; craft 1, 5 or maximum | Active queue, careful finishes, machinery development, late production rules |
 | Shop | Bare shelves to village outfitter to guild emporium | Display shelves followed by a compact warehouse list; craftable requests and browsing customers beside them | Item inspection, protection, enchantments and shop development, including unlocked salvage settings |
-| Adventurers | Roadside inn to company lodge to guild hall | Selectable roster, live hero viewer, phase timer, compact final stats, equipped items and recent quests | Actual battle replay, hero loadouts, quest records, party policies, recruitment and training |
+| Customers | Roadside inn to company lodge to guild hall | Selectable roster, live hero viewer, phase timer, compact final stats, equipped items and recent quests | Actual battle replay, hero loadouts, quest records, party policies, recruitment and training |
 | Legacy | One ceremonial hall, unchanged across generations | Sparks, retirement preview, inherited records and four talent paths | Unlocks after the first tier 5 boss victory |
 
-The global header contains six room tabs, gold and settings. The room toolbar pairs its name and stage with the primary progression control: a large spendable currency balance and a prominent gold upgrades button. A live ready-to-buy count uses the same affordability and prerequisite checks as the upgrade tree. When no purchase is available, the control explains how to earn its currency; completed trees show that all upgrades are fully developed. Smith instead displays an unspent attribute-point balance without an Improve smith button; allocation remains directly beside each attribute. Room growth remains a secondary control. The Legacy tab is greyed out with an accessible lock explanation until the first tier 5 boss victory. On phones the progression control fills the available width. A horizontal objective strip explains the next useful action. Key figures precede a two-column workspace: primary controls at left, work queues, stock or context at right. The Adventurers workspace pairs a compact roster with a selected hero viewer. Upgrades open three branching paths with ranks, costs, prerequisites and effects.
+The global header contains seven room tabs, gold and settings. The room toolbar pairs its name and stage with the primary progression control: a large spendable currency balance and a prominent gold upgrades button. A live ready-to-buy count uses the same affordability and prerequisite checks as the upgrade tree. When no purchase is available, the control explains how to earn its currency; completed trees show that all upgrades are fully developed. Smith instead displays an unspent attribute-point balance without an Improve smith button; allocation remains directly beside each attribute. Room growth remains a secondary control. The Legacy tab is greyed out with an accessible lock explanation until the first tier 5 boss victory. On phones the progression control fills the available width. A horizontal objective strip explains the next useful action. Key figures precede a two-column workspace: primary controls at left, work queues, stock or context at right. The Customers workspace pairs a compact roster with a selected hero viewer. Upgrades open three branching paths with ranks, costs, prerequisites and effects.
 
 Wide screens use the available workspace up to a comfortable 1,840px content width. Mine pairs a responsive two/three-column seam grid with worker assignment cards; large crews scroll within the worker panel on desktop. Stock and trade controls stay on each seam, without a duplicate mined-material sidebar. Leather, wood and Alchemical Oil share one compact Crafting supplies panel in the right-hand section of both Mine and Forge, above worker assignments or work in progress. Their amounts and Buy 1 / Buy 5 controls remain together without stock bars. On narrow screens, this panel stacks above the main work area. Narrow screens use compact navigation, stacked information panels, full-width recipe cards, a horizontally scrollable compact hero roster and vertically stacked upgrade branches. Active Forge work precedes the catalogue on narrow screens; material stock is an expandable panel. Empty Shop displays use compact paired tiles. The compact warehouse list follows the shelves, with customer requests and browsing heroes in the adjacent sidebar (stacked below stock on phones). There is no recent-sales panel or Warehouse / Craft stock shortcut. Changing rooms resets page scroll to the top. The full page scrolls; no controls depend on clicking an illustration. The page and overlays preserve keyboard focus; Escape closes overlays and Tab stays inside an open dialog. Reduced motion disables decorative motion. Browser zoom remains available.
 
 ## Character creation and attributes
 
-New players see character creation first, over the maker’s study illustration. They name the workshop and each of their three starting heroes, choose each hero class freely from six archetypes, select one of five professions and distribute 20 discretionary points above a base of 2 in each attribute. A balanced allocation of 7 each is supplied and can be changed before beginning. An extreme starting build may put all 20 points into one attribute. There is no per-attribute gameplay cap.
+New players see character creation over the maker’s study. They name their smith and workshop, select one of five professions and distribute exactly 20 points. Strength, Precision, Charisma and Knowledge each begin at 0; no points are pre-assigned. Attributes have no gameplay cap. A balanced allocation is 5 each, but extreme allocations are valid and basic training patterns remain usable at zero. The three starting customers have fixed identities; creation has no hero naming or class selectors. Smith displays the player's name. Existing runs retain their earned attributes; new generations start from zero again.
 
 Smith level is also uncapped. Crafting and commissions award XP. Each level grants five points. Level XP is `ceil(60 × level^1.15)`. Retraining returns invested attribute points without discarding proficiency or discoveries; it is free before the first craft, can use a retraining token, and otherwise costs 200 gold. Old saves receive the additional starting and level-up points once during migration.
 
 | Attribute | Implemented effects |
 |---|---|
-| Strength | Craft speed contribution `0.07 × sqrt(Strength − 2)`; heavy-item quality `2 × sqrt(Strength − 2)`; warehouse carrying capacity; one extra manual material per four square-root strength units |
-| Precision | Quality contribution `6 × sqrt(Precision − 1)`; special-affix chance increases by 0.8 percentage points per point above 2, subject to the 55% total affix cap |
-| Charisma | Base sale-price factor `1 + 0.045 × sqrt(Charisma − 2)`; customer-budget factor `1 + 0.06 × sqrt(Charisma − 2)`; browsing time increases by `3 × sqrt(Charisma − 2)` seconds |
-| Knowledge | Quality contribution `4 × sqrt(Knowledge − 1)`; proficiency XP increases 6% per point above 2; enchantment strength adds `0.06 × sqrt(Knowledge − 2)` |
+| Strength | Craft speed contribution `0.07 × sqrt(Strength)`; heavy-item quality `2 × sqrt(Strength)`; warehouse carrying capacity; one extra manual material per four square-root strength units |
+| Precision | Quality contribution `6 × sqrt(Precision)`; special-affix chance increases by 0.8 percentage points per attribute point, subject to the 55% total affix cap |
+| Charisma | Base sale-price factor `1 + 0.045 × sqrt(Charisma)`; customer-budget factor `1 + 0.06 × sqrt(Charisma)`; browsing time increases by `3 × sqrt(Charisma)` seconds |
+| Knowledge | Quality contribution `4 × sqrt(Knowledge)`; proficiency XP increases 6% per attribute point; enchantment strength adds `0.06 × sqrt(Knowledge)` |
 
 Uncapped attributes do not mean uncapped quality or chance. Square-root scaling preserves useful growth without allowing starting allocations to trivialize progression. Quality begins with a ceiling of 100, and forge breakthroughs raise that ceiling to a maximum of 200. Class proficiency caps at 100; adventurer levels retain their existing cap of 30.
 
@@ -89,14 +90,29 @@ Alchemical Oil is purchased for 8 gold per unit before supply discounts and has 
 | Seam | Discovery requirement |
 |---|---|
 | Coal face | Open at start |
-| Bronze workings | Open at start |
+| Copper workings | Open at start |
+| Tin vein | Open at start |
 | Iron seam | Smith level 2 and the 2-point Iron seam upgrade |
 | Gem pocket | Iron seam, then the 4-point Gem pocket upgrade |
-| Alloy workings | Gem pocket, the 8-point upgrade and a forge smelter; the working processes steel alloy rather than mining literal steel ore |
-| Mithril gallery | Alloy workings, smith level 8 and 18 Prospecting |
+| Iron-rich galleries | Gem pocket, then 8 Prospecting for +20% mining speed; steel is made in the Smelter |
+| Mithril gallery | Iron-rich galleries, smith level 8 and 18 Prospecting |
 | Starfall fissure | Mithril gallery, smith level 12 and 40 Prospecting |
 
 Owning a material seam does not bypass item recipe discoveries, stat requirements, proficiency or forge machinery.
+
+## Smelter and alloys
+
+Ore and forge-ready ingots have separate bins. Ingots cannot be bought or mined. Basic bronze alloying is available immediately; metallurgy upgrades unlock later batches and require smith levels 2, 4, 8 and 12. Each smelting batch reserves its exact ingredients, takes a fixed duration when it starts, and runs independently of forge benches. Cancellation refunds ingredients once; if the bins cannot hold the full refund the batch remains intact. Completion credits only available output-bin space and discards the rest. The same clock handles online and offline work. Smelting does not grant mining points or forge proficiency.
+
+| Batch | Ingredients | Output | Base time |
+|---|---|---|---|
+| Bronze alloy | 2 copper ore + 1 tin ore + 1 coal | 3 bronze ingots | 24 seconds |
+| Iron | 2 iron ore + 1 coal | 2 iron ingots | 36 seconds |
+| Steel alloy | 2 iron ingots + 2 coal | 2 steel ingots | 52 seconds |
+| Mithril alloy | 2 mithril ore + 1 steel ingot + 2 coal | 2 mithril ingots | 72 seconds |
+| Starforged alloy | 2 star ore + 1 mithril ingot + 3 coal | 2 starforged ingots | 100 seconds |
+
+One hearth and five waiting batches are available initially. Heat upgrades improve speed; Metallurgy opens the four later metals; Handling increases waiting capacity and simultaneous furnaces. Additional ranks cost 1.9× the preceding rank. Bins share Mine storage capacity, preserving a reason to invest across rooms. Smelter art follows the existing late-stage gates; its live furnace illustration lights while batches are active.
 
 ## Crafting and item depth
 
@@ -106,15 +122,15 @@ There are seventeen item classes, 255 recipes and five material tiers, with thre
 
 The crafting catalogue shows only discovered recipes whose non-material requirements are met and which a recruited hero class can use. Missing ingredients leave a known otherwise-available item visible, with the shortage explained. Locked class and tier items are hidden; recruiting a new class can reveal its compatible starter recipes.
 
-Craft 1, 5 and Max reserve all required ingredients immediately. Max is the minimum of ingredient availability, queue space, output-storage room and the batch safety limit of 100. An active bench holds an output reservation. Queued work waits for a bench and output capacity. Cancellation returns the exact reserved ingredients once, for active and queued orders. If any bin cannot hold its full refund, cancellation is blocked with the exact space required; the order and escrow remain intact until space is freed.
+Choose a recipe pattern, one of its unlocked materials, and a compatible unlocked enchantment (or None). Material selects the appropriate tier and combat values; enchanting reserves its catalysts and gold fee together with the craft. The suffix and its captured strength are applied at completion. Craft 1, 5 and Max reserve all required ingredients immediately. Max is the minimum of ingredient availability, queue space, output-storage room and the batch safety limit of 100. An active bench holds an output reservation. Queued work waits for a bench and output capacity. Cancellation returns the exact reserved ingredients and enchanting gold once, for active and queued orders. If any bin cannot hold its full refund, cancellation is blocked with the exact space required; the order and escrow remain intact until space is freed.
 
-Quality is captured when work starts. Its core formula is `18 + 6√(Precision−1) + 4√(Knowledge−1) + 0.48×class proficiency + equipment/profession quality + pattern quality offset − recipe difficulty`, with heavy-item Strength and profession bonuses where applicable. It is rounded and clamped to the current forge quality ceiling. One optional Quality finish adds 20 quality without exceeding that ceiling, plus 10 percentage points to crafted-prefix probability (after the normal 55% chance cap, so finished work can reach 65%). The existing affix seed is retained.
+Quality is captured when work starts. Its core formula is `18 + 6√(Precision) + 4√(Knowledge) + 0.48×class proficiency + equipment/profession quality + pattern quality offset − recipe difficulty`, with heavy-item Strength and profession bonuses where applicable. It is rounded and clamped to the current forge quality ceiling. Finishing can improve the same active or queued item up to five times. Its quality gains diminish: +20, +10, +5, +2, +1, capped by the current quality ceiling. Each pass adds one original craft duration, not the already-extended duration. A 60-second craft with three passes takes 240 seconds. Prefix chance gains also diminish: +10, +5, +2.5, +1.25, +0.625 percentage points, up to 100%. The affix seed is retained. A pass is unavailable if it cannot raise quality.
 
-Finishing adds 100% of the original work duration: a 60-second craft becomes 120 seconds in total, even if finishing is selected at second 55. It costs no additional materials. Active and queued work both expose the action, once per order. Queued finishing is captured when a bench opens, using the then-current duration, quality and prefix chance; the selection survives saving and reloading. The interface shows added work and capped quality gain before selection. Cancellation retains the same exact material refund. Previously saved active orders with the former finish already applied retain their saved quality and completion time.
+Finishing costs no additional materials. Queued passes capture current base quality and duration when work begins, apply exactly once, and survive reload. The interface shows the next quality gain, extra work and passes used. Older finished orders preserve the time and quality they already paid for and may receive subsequent diminishing passes.
 
-Craft duration is the authored base time multiplied by 2.2 and the pattern factor (0.7 / 1 / 1.8), divided by `1 + 0.07√(Strength−2) + 0.005×proficiency + speed bonuses`. The work panel shows each job, finishing action and remaining time. Installed machinery is listed beside the catalogue. The background depicts the wider workshop; decorative machinery artwork is not evidence that an upgrade has been purchased.
+Craft duration is the authored base time multiplied by 2.2 and the pattern factor (0.7 / 1 / 1.8), divided by `1 + 0.07√(Strength) + 0.005×proficiency + speed bonuses`. The work panel shows each job, finishing action and remaining time. Installed machinery is listed beside the catalogue. The background depicts the wider workshop; decorative machinery artwork is not evidence that an upgrade has been purchased.
 
-Crafting awards smith XP and class proficiency. Knowledge and Artificer bonuses improve class learning. Bronze practice earns only a quarter of normal proficiency XP once a class reaches level 25. The choice between familiar profitable work and a new category is therefore meaningful. Normal tier proficiency gates are 0, 15, 30, 50 and 75; attribute gates are 2, 5, 9, 14 and 20. Certain forge and Legacy investments reduce proficiency gates.
+Crafting awards smith XP and class proficiency. Knowledge and Artificer bonuses improve class learning. Bronze practice earns only a quarter of normal proficiency XP once a class reaches level 25. The choice between familiar profitable work and a new category is therefore meaningful. Normal tier proficiency gates are 0, 15, 30, 50 and 75; training attribute gates are 0, 5, 9, 14 and 20. Certain forge and Legacy investments reduce proficiency gates.
 
 ### Item identity
 
@@ -138,20 +154,25 @@ Filters group seven weapon classes under Weapons; mail, leather and cloth under 
 
 Every row repeats across bronze, iron, steel, mithril and Starforged tiers. Material names describe the fantasy crafting tier, including fittings on composite weapons.
 
-| Item class | Standard pattern | Second pattern | Third pattern |
+| Item class | Training pattern | Standard pattern | Prestige pattern |
 |---|---|---|---|
-| Daggers | Rondel Dagger | Baselard | Quillon Dagger |
-| Swords | Arming Sword | Falchion | Longsword |
-| Axes | Hatchet | Hand Axe | Bearded Axe |
-| Maces | Pernach | Flanged Mace | War Hammer |
-| Polearms | Billhook | Spear | Glaive |
-| Bows | Longbow | Shortbow | War Bow |
-| Arcane Foci | Sceptre | Channeling Wand | Runic Staff |
-| Armor | Lamellar Cuirass | Jack of Plates | Brigandine |
-| Shields | Buckler | Round Shield | Kite Shield |
-| Rings | Signet Ring | Duelist Ring | Ward Ring |
-| Charms | Reliquary | Scout Talisman | Guardian Talisman |
-| Tools | Delver Kit | Scout Kit | Siege Kit |
+| Daggers | Bollock Knife | Rondel Dagger | Misericorde |
+| Swords | Short Sword | Arming Sword | Greatsword |
+| Axes | Hand Axe | Bearded Axe | Dane Axe |
+| Maces | Cudgel | Flanged Mace | War Hammer |
+| Polearms | Spear | Billhook | Halberd |
+| Bows | Hunting Bow | Longbow | War Bow |
+| Arcane Foci | Wand | Sceptre | Runic Staff |
+| Mail armour | Mail Coif & Vest | Mail Haubergeon | Mail Hauberk |
+| Shields | Buckler | Kite Shield | Pavise |
+| Rings | Copper Band | Signet Ring | Sovereign Ring |
+| Charms | Pilgrim Token | Reliquary | Saints Reliquary |
+| Tools | Trail Pouch | Delver Kit | Siege Kit |
+| Cloth armour | Linen Tunic | Padded Gambeson | Runesilk Robe |
+| Leather armour | Leather Jerkin | Hardened Leather Jack | Lamellar Harness |
+| Books & relics | Prayer Book | Grimoire | Illuminated Codex |
+| Instruments | Reed Pipe | Herald Horn | Silver War Horn |
+| Talismans | Knotted Cord | Ward Talisman | Runic Torc |
 
 Crafted prefixes roll only on compatible slots and material tiers.
 
@@ -180,14 +201,14 @@ Enchanting applies one chosen compatible suffix. Knowledge and upgrades strength
 | of Vigor | Vitality Seal | Adds 8 health. | 8 | 1 Gem |
 | of the Firmament | Starlight Rune | Adds 4 attack and 10% void resistance. | 28 | 2 Gem, 1 Star Fragment |
 | of the Hawk | Hawkeye Inscription | +5 percentage points critical chance, scaled by enchanting strength. | 18 | 2 Gem |
-| of the Bastion | Bastion Inscription | +12% item armour and +3 percentage points block, scaled by enchanting strength. | 22 | 2 Gem, 3 Iron |
+| of the Bastion | Bastion Inscription | +12% item armour and +3 percentage points block, scaled by enchanting strength. | 22 | 2 Gem, 3 Iron ore |
 | of Alacrity | Zephyr Inscription | +8% attack speed, scaled by enchanting strength. | 26 | 2 Gem, 2 Steel |
 
 <!-- ITEM_CATALOGUE_END -->
 
 ### Machinery sequence
 
-Grinding stone → smelting furnace → tempering station → runic workbench → Starforge crucible. These enable quality bonuses and the four higher metallurgy ranks used by item stations. Other forge branches improve measured quality, proficiency learning, affixes, breakthrough ceilings, active benches, queue size and work speed. Grand atelier or hiring a quartermaster unlocks optional production rules; the player can choose a target recipe, stock target, gold reserve and capped offline procurement.
+Grinding stone → power hammer → tempering station → runic workbench → Starforge crucible. These enable quality bonuses and the four higher metallurgy ranks used by item stations. Other forge branches improve measured quality, proficiency learning, affixes, breakthrough ceilings, active benches, queue size and work speed. Grand atelier or hiring a quartermaster unlocks optional production rules; the player can choose a target recipe, stock target, gold reserve and capped offline procurement.
 
 ## The shop economy
 
@@ -195,7 +216,7 @@ The shop is an autonomous storefront. Customers enter, browse, buy upgrades, con
 
 Display and warehouse are distinct concepts within the same inventory. All items count toward warehouse capacity; displayed items additionally use display slots. Finished work goes on display if a slot is available. Protect keepsakes to prevent sales and scrapping. The warehouse is an inline, scrollable list directly below the shelves, sorted by ascending quality and then creation order. Each compact row shows the full item name, class icon, material, quality and storage status, with Display, Sell and Scrap controls. Protected or reserved pieces cannot be sold or scrapped; Display is disabled while all slots are occupied. Clicking the item opens inspection, enchantments and protection controls. Storage used includes displayed pieces; the warehouse list count only includes stored pieces. Display cards also have direct Sell and Scrap controls. Player sales close the item drawer cleanly; only a customer purchasing the currently inspected piece shows a purchase notice. Town liquidation is a modest fallback and ignores Charisma or premium customer pricing.
 
-Relationships rise from useful sales. At relationship milestones 5, 15 and 30, customers can send gifts and named commissions requiring a class, minimum tier and minimum quality. Commissions are accepted and fulfilled automatically from matching unprotected displayed stock when the hero is home. Better relationships and over-geared quest successes can supply materials and recipe discoveries. Show up to five craftable open requests inline, with no request-list button. Filter for capability before sorting by lowest tier and then minimum quality: a known recipe must meet class access, machinery, attribute and proficiency gates, minimum tier and achievable quality. Quality finish counts toward achievable quality (+20 up to the current ceiling). Temporary material shortages, full queues and warehouse limits do not hide otherwise achievable requests. In the shop now sits immediately below Customer requests. Every display slot remains visible even when empty; there is no storage-policy panel.
+Relationships rise from useful sales. At relationship milestones 5, 15 and 30, customers can send gifts and named commissions requiring a class, minimum tier and minimum quality. Commissions are accepted and fulfilled automatically from matching unprotected displayed stock when the hero is home. Better relationships and over-geared quest successes can supply materials and recipe discoveries. Show up to five craftable open requests inline, with no request-list button. Filter for capability before sorting by lowest tier and then minimum quality: a known recipe must meet class access, machinery, attribute and proficiency gates, minimum tier and achievable quality. Quality finish counts toward achievable quality (up to +38 across five passes, limited by the current ceiling). Temporary material shortages, full queues and warehouse limits do not hide otherwise achievable requests. In the shop now sits immediately below Customer requests. Every display slot remains visible even when empty; there is no storage-policy panel.
 
 Open display slots automatically fill from the warehouse, lowest quality first, without an upgrade. Protection, reservations and manual Hold exclude pieces; Release returns held items to the stocking pool. Porter service increases warehouse and display capacity. The optional salvage policy only scraps unprotected, unreserved warehouse pieces below the chosen threshold; it does not scrap displayed items. Its controls appear inside Shop upgrades once the Salvage bench is unlocked. Quality thresholds range from 0 to 200 and are committed with Apply threshold; editing a draft does not change the active limit. Storage-pressure recovery is explicit: sell material, move or sell stock, salvage safe pieces, or expand storage.
 
@@ -203,7 +224,7 @@ Shop development spends Influence equal to lifetime reputation minus previously 
 
 ## Autonomous adventurers and quests
 
-Exactly three heroes are chosen during character creation. Suggested defaults are Mara / Vanguard, Renn / Duelist and Wren / Ranger, but names and classes are editable. Names must be distinct, 1–28 characters, using letters, numbers, spaces, apostrophes, periods or hyphens. Buying an exponentially priced recruitment charter opens an empty slot in Adventurers. The player names the recruit and chooses a class before that hero enters the world. Charters expand the company to twelve. Actual recruited classes determine crafting access and compatible purchases.
+The starting customers are always Mara / Vanguard, Renn / Duelist and Wren / Ranger. Players do not name customers or select their identities. Customer-class upgrades automatically attract fixed visitors: Bren / Breaker, Thane / Guardian, then Sable / Mage open new equipment categories. Later upgrades bring additional visitors up to twelve. The Customers section lists each class, compatible item types, current visitors, unlock cost and missing prerequisites above the live customer profiles. Existing named customers are retained when loading older saves.
 
 | Class | Battle line | Compatible equipment |
 |---|---|---|
@@ -214,7 +235,7 @@ Exactly three heroes are chosen during character creation. Suggested defaults ar
 | Guardian | Front | Polearms, swords, mail, shields, talismans, tools |
 | Mage | Back | Foci, cloth, books/relics, rings, charms, instruments |
 
-Heroes keep equipment across failures. The selected hero view reads top to bottom: character name and class, live scene, compact combat stats and XP, compatible equipment types, detailed equipped items, then quest progress and recent adventures together. Company totals, recruitment and boss shortcuts sit beside the hero in the roster; on narrow screens, the roster scrolls horizontally above the profile. Battle details expand below the scene to show actual party/enemy health and combat events. Follow hero automatically switches to Shop while they browse and back to Adventurers for travel, combat, return and recovery. Stop following or manually choose a room to cancel automatic routing. Following is a viewing preference only and never changes simulation speed or quest choices. Crafting continues while the player watches in Adventurers. Every health value and outcome comes from the actual seeded encounter.
+Heroes keep equipment across failures. The selected hero view reads top to bottom: character name and class, live scene, compact combat stats and XP, compatible equipment types, detailed equipped items, then quest progress and recent adventures together. Company totals, recruitment and boss shortcuts sit beside the hero in the roster; on narrow screens, the roster scrolls horizontally above the profile. Battle details expand below the scene to show actual party/enemy health and combat events. Follow hero automatically switches to Shop while they browse and back to Customers for travel, combat, return and recovery. Stop following or manually choose a room to cancel automatic routing. Following is a viewing preference only and never changes simulation speed or quest choices. Crafting continues while the player watches in Customers. Every health value and outcome comes from the actual seeded encounter.
 
 ### Hero profiles and equipped items
 
@@ -262,14 +283,14 @@ Each ordinary quest needs 5 hero-victory counts before opening the following enc
 
 ![Room progression currencies and branches](diagrams/room-trees.svg)
 
-Each room has three paths of eight nodes: 96 upgrades total. A node requires at least one rank of the prior node in its path. Additional level and cross-room conditions are shown where relevant. A repeated rank costs `ceil(base cost × 1.9^current rank)`. Deeper base costs also grow approximately exponentially. The player can push forward after one rank or continue improving a previous investment.
+Each room has three paths of eight nodes: 104 upgrades total. A node requires at least one rank of the prior node in its path. Additional level and cross-room conditions are shown where relevant. A repeated rank costs `ceil(base cost × 1.9^current rank)`. Deeper base costs also grow approximately exponentially. The player can push forward after one rank or continue improving a previous investment.
 
 | Room | Currency | Paths |
 |---|---|---|
 | Mine | Prospecting, earned from lifetime extraction | Extraction, Depths, Logistics |
 | Forge | Gold | Machinery, Mastery, Workflow |
 | Shop | Influence, backed by earned reputation | Commerce, Warehouse, Relations |
-| Adventurers | Merits, earned from completed expeditions | Training, Expeditions, Recruitment |
+| Customers | Merits, earned from completed expeditions | Training, Expeditions, Recruitment |
 
 The complete node catalogue below is generated from the same registry as the playable game. Effects are per purchased rank unless the node is a one-time unlock.
 
@@ -289,7 +310,7 @@ The complete node catalogue below is generated from the same registry as the pla
 | Extraction | Living mountain | 128 Prospecting | 5 | Worker speed +50% per rank. |
 | Depths | Iron seam | 2 Prospecting | 1 | Expose iron. Requires smith level 2. |
 | Depths | Gem pocket | 4 Prospecting | 1 | Expose gems for enchantments. |
-| Depths | Alloy workings | 8 Prospecting | 1 | Process steel in the mine; requires a forge smelter. |
+| Depths | Iron-rich galleries | 8 Prospecting | 1 | Mining speed +20%. Steel is alloyed in the Smelter. |
 | Depths | Mithril gallery | 18 Prospecting | 1 | Expose mithril. Requires smith level 8. |
 | Depths | Starfall fissure | 40 Prospecting | 1 | Expose star ore. Requires smith level 12. |
 | Depths | Vein mapping | 80 Prospecting | 4 | All seam extraction +30% speed per rank. |
@@ -309,7 +330,7 @@ The complete node catalogue below is generated from the same registry as the pla
 | Path | Upgrade | First cost | Ranks | Effect |
 |---|---|---|---|---|
 | Machinery | Grinding stone | 35 Gold | 1 | Install a grinding stone. All crafts +4 quality. |
-| Machinery | Smelting furnace | 75 Gold | 1 | Install the smelter; enables iron-tier machinery. |
+| Machinery | Power hammer | 75 Gold | 1 | Install a power hammer; enables iron-tier shaping. |
 | Machinery | Tempering station | 170 Gold | 1 | Unlock steel-tier machinery and +5 quality. |
 | Machinery | Runic workbench | 400 Gold | 1 | Unlock mithril-tier machinery and enchanting. |
 | Machinery | Starforge crucible | 950 Gold | 1 | Unlock starforged-tier machinery; +6 quality. |
@@ -362,7 +383,7 @@ The complete node catalogue below is generated from the same registry as the pla
 | Relations | Honoured allies | 128 Influence | 4 | Browse time +8 seconds and relationship +1 per rank. |
 | Relations | House of legends | 256 Influence | 4 | Victory reputation +2 and customer budgets +10% per rank. |
 
-### Adventurers upgrade catalogue
+### Customers upgrade catalogue
 
 | Path | Upgrade | First cost | Ranks | Effect |
 |---|---|---|---|---|
@@ -382,14 +403,27 @@ The complete node catalogue below is generated from the same registry as the pla
 | Expeditions | Expedition berths | 64 Merits | 3 | One additional simultaneous expedition per rank. |
 | Expeditions | Waystone network | 128 Merits | 4 | Quest journey speed +15% per rank. |
 | Expeditions | Sanctuary | 256 Merits | 4 | Recovery speed +25% and health +5% per rank. |
-| Recruitment | Company charter 1 | 4 Merits | 1 | Open 1 recruitment slot. Choose each hero name and class in Adventurers. |
-| Recruitment | Company charter 2 | 8 Merits | 1 | Open 1 recruitment slot. Choose each hero name and class in Adventurers. |
-| Recruitment | Company charter 3 | 16 Merits | 1 | Open 1 recruitment slot. Choose each hero name and class in Adventurers. |
-| Recruitment | Company charter 4 | 32 Merits | 1 | Open 1 recruitment slot. Choose each hero name and class in Adventurers. |
-| Recruitment | Company charter 5 | 64 Merits | 1 | Open 1 recruitment slot. Choose each hero name and class in Adventurers. |
-| Recruitment | Company charter 6 | 128 Merits | 1 | Open 2 recruitment slots. Choose each hero name and class in Adventurers. |
-| Recruitment | Company charter 7 | 256 Merits | 1 | Open 1 recruitment slot. Choose each hero name and class in Adventurers. |
-| Recruitment | Company charter 8 | 512 Merits | 1 | Open 1 recruitment slot. Choose each hero name and class in Adventurers. |
+| Recruitment | Breaker customers | 4 Merits | 1 | Bren visits automatically; buys Axes, Maces, Mail armour, Shields, Talismans, Tools. |
+| Recruitment | Guardian customers | 8 Merits | 1 | Thane visits automatically; buys Polearms, Swords, Mail armour, Shields, Talismans, Tools. |
+| Recruitment | Mage customers | 16 Merits | 1 | Sable visits automatically; buys Arcane Foci, Cloth armour, Books & relics, Rings, Charms, Instruments. |
+| Recruitment | Duelist customers | 32 Merits | 1 | Lyra visits automatically; buys Daggers, Swords, Leather armour, Rings, Talismans, Instruments. |
+| Recruitment | Ranger customers | 64 Merits | 1 | Orrin visits automatically; buys Bows, Daggers, Leather armour, Rings, Charms, Tools. |
+| Recruitment | Vanguard & Breaker customers | 128 Merits | 1 | Ida visits automatically; buys Swords, Mail armour, Shields, Rings, Charms, Tools. Hark visits automatically; buys Axes, Maces, Mail armour, Shields, Talismans, Tools. |
+| Recruitment | Mage customers | 256 Merits | 1 | Vesper visits automatically; buys Arcane Foci, Cloth armour, Books & relics, Rings, Charms, Instruments. |
+| Recruitment | Guardian customers | 512 Merits | 1 | Aela visits automatically; buys Polearms, Swords, Mail armour, Shields, Talismans, Tools. |
+
+### Smelter upgrade catalogue
+
+| Path | Upgrade | First cost | Ranks | Effect |
+|---|---|---|---|---|
+| Heat | Leather bellows | 30 Gold | 5 | Smelting speed +15% per rank. |
+| Heat | Refractory lining | 280 Gold | 5 | Smelting speed +25% per rank. |
+| Metallurgy | Iron crucible | 65 Gold | 1 | Refine iron ore into usable ingots. |
+| Metallurgy | Carbon control | 180 Gold | 1 | Alloy iron and coal into steel. |
+| Metallurgy | Silverfire crucible | 650 Gold | 1 | Blend mithril ore with steel. |
+| Metallurgy | Celestial crucible | 2200 Gold | 1 | Bind star ore with mithril. |
+| Handling | Casting racks | 45 Gold | 5 | Two additional queued batches per rank. |
+| Handling | Parallel hearths | 450 Gold | 3 | One additional active furnace per rank. |
 
 <!-- UPGRADE_CATALOGUE_END -->
 
@@ -413,6 +447,8 @@ Furnishings appear directly below People on Smith, before class mastery. All six
 
 Settings includes **Reset run**. Opening it shows a warning that all progress, including Legacy, will be lost, plus Export and Cancel actions. Only **Yes, reset all progress** starts a fresh game. Reset replaces both the main local save and automatic backup, returns to character creation, resets viewing/filter preferences, and grants no retirement rewards. View-only tabs cannot reset the active workshop.
 
+Version 2.0 converts old forge-ready metal stock into matching ingots one-for-one and translates unfinished material escrow without duplicating it. Existing equipment and customer identity are preserved. Old furnace investments unlock corresponding Smelter metallurgy.
+
 The game saves locally and keeps a validated backup. Export and import use JSON, with validation before replacing the live game. The existing save identity is retained for migration. Old heroes, equipment, station investments, quarry benefits and collection records remain; old smiths receive the new discretionary-point difference once. Existing quarry worker ranks become individual workers. A fresh generation always begins with the new three-hero roster. Version 1.4.1 preserves old completed boss milestones and already reserved/in-flight boss parties by marking their newly added approach levels cleared once. This grants no gold, loot, XP or Merits. Existing victory counts are never lowered; unfinished tiers must complete their new intermediate levels. Furnishing levels are saved separately from the owned list; old purchases default to level 1.
 
 Only one tab owns a workshop at a time. Another tab presents a read-only view; close the controlling tab and reload the other to continue there. Export before changing browser, device, file location or clearing browser data. There is no cloud save service.
@@ -429,9 +465,10 @@ Sixteen backgrounds are included: three stages for each of the five working room
 |---|---|---|
 | Smith | Smith level 8 | Smith level 25 |
 | Mine | Iron seam unlocked | Starfall fissure unlocked |
-| Forge | Smelting furnace installed | Starforge crucible installed and quality ceiling at least 150 |
+| Smelter | Iron crucible installed | Celestial crucible installed and 2,000 ingots produced |
+| Forge | Power hammer installed | Starforge crucible installed and quality ceiling at least 150 |
 | Shop | 50 reputation and 10 display slots | 500 reputation and 18 display slots |
-| Adventurers | 25 victories and 4 recruited heroes | 200 victories and 8 recruited heroes |
+| Customers | 25 victories and 4 recruited heroes | 200 victories and 8 recruited heroes |
 
 The gallery is `assets/gallery.html`; exact new prompts are in `assets/background-prompts.json` with provenance in `assets/ARTWORK.md`.
 
@@ -449,8 +486,8 @@ These timing measurements precede the version 1.3.1 purchased-oil requirement an
 
 ## Implementation and verification
 
-The existing deterministic engine remains the foundation. The Company extension adds chosen hero identities, employee stamina, distinct patterns and protected combat formations. The Foundry extension adds professions, room currencies, tree effects, individual workers, recipe access, modern quality calculations and save migration. The renderer draws a compact live hero scene for shopping, travel, combat and recovery; the room paintings remain passive backgrounds. Live interface updates reconcile existing controls so focus and click targets survive timer updates.
+The existing deterministic engine remains the foundation. The Company extension supplies equipment classes, employee stamina, distinct patterns and protected combat formations. The Workshop extension makes customer identities automatic, adds ore refining and alloy queues, zero-base attributes, chosen craft enchantments and repeatable finishing. The Foundry extension adds professions, room currencies, tree effects, individual workers, recipe access, modern quality calculations and save migration. The renderer draws a compact live hero scene for shopping, travel, combat and recovery; the room paintings remain passive backgrounds. Live interface updates reconcile existing controls so focus and click targets survive timer updates.
 
-The automated suite covers the original queue, combat, offline, reward, commission, retirement and save guarantees, plus new creation rules, uncapped attributes, worker fallback, currency accounting, tier machinery, recruitment, breakthrough quality, automation safety, migration and online/offline equivalence. Browser checks cover first-time creation, crafting, customer sales, mining assignment, room navigation, branching overlays and actual quest replays. Narrow-screen checks use a real 390-pixel iframe viewport.
+The automated suite covers the original queue, combat, offline, reward, commission, retirement and save guarantees, plus new creation rules, uncapped attributes, worker fallback, currency accounting, tier machinery, recruitment, breakthrough quality, automation safety, migration and online/offline equivalence. Browser checks cover first-time creation, crafting, customer sales, mining assignment, room navigation, branching overlays and actual quest replays. Current narrow-screen checks use a 360-pixel browser viewport.
 
-Future tuning should use human sessions to measure first-sale time, ingredient starvation, upgrade choice rates, return-customer demand, mid-game class specialization and time to first retirement. There are no claims here that all 96 upgrades have been human-playtested to completion.
+Future tuning should use human sessions to measure first-sale time, ingredient starvation, upgrade choice rates, return-customer demand, mid-game class specialization and time to first retirement. There are no claims here that all 104 upgrades have been human-playtested to completion.

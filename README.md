@@ -1,30 +1,42 @@
 # Ember & Iron — The Foundry
 
-A playable, local HTML blacksmith RPG with six information-dense rooms, autonomous adventurers and a deliberately modest beginning.
+A playable, local HTML blacksmith RPG with seven information-dense rooms, autonomous adventurers and a deliberately modest beginning.
 
 ## Play
 
 Open **Ember-and-Iron.html** in a modern browser. This portable build embeds the code, styles and all sixteen location illustrations. It works without an account, installation or internet connection. **index.html** runs the same game from the source files and the `assets` folder.
 
-New players choose one of five professions and distribute 20 points. Attributes are uncapped; each smith level grants five more points. The six rooms are **Smith**, **Mine**, **Forge**, **Shop**, **Adventurers** and **Legacy**. Legacy is greyed out until the first tier 5 boss victory, then remains accessible across generations. Follow the single next-objective prompt, use the room’s information panels, or open its upgrades overlay.
+New players choose one of five professions and distribute 20 points. Attributes are uncapped; each smith level grants five more points. The seven rooms are **Smith (your name)**, **Mine**, **Smelter**, **Forge**, **Shop**, **Customers** and **Legacy**. Legacy is greyed out until the first tier 5 boss victory, then remains accessible across generations. Follow the single next-objective prompt, use the room’s information panels, or open its upgrades overlay.
 
-You begin with 12 gold, basic supplies, one miner and three heroes. Mine bronze and coal, buy wood and leather in Mine or Forge, then forge useful equipment. Finished items occupy available displays. Customers browse, buy actual improvements, choose quests, retreat, recover and retry automatically.
+You begin with 12 gold, basic supplies, one miner and three heroes. Mine copper, tin and coal, smelt bronze ingots, buy wood and leather in Mine or Forge, then forge useful equipment. Finished items occupy available displays. Customers browse, buy actual improvements, choose quests, retreat, recover and retry automatically.
 
 The catalogue hides locked classes and tiers. A recipe remains visible if it is otherwise available but needs ingredients. Choose craft 1, 5 or the maximum affordable batch. Familiar classes gain proficiency; improving the same weapon competes with broadening a hero’s armour and accessories.
 
 ## Progression
 
 - Five professions with distinct working bonuses; four uncapped attributes.
-- 96 upgrades across twelve connected paths and four room currencies.
+- 104 upgrades across fifteen connected paths, including eight Smelter upgrades.
 - Individually assigned miners, automatic overflow assignments, seven workings and per-material storage.
 - Seventeen item classes, 255 recipes, five material tiers, affixes, enchantments and quality breakthroughs up to 200.
-- Name and choose classes for three starting heroes; named recruitment expands to twelve across six archetypes.
+- Three fixed starting customers; class unlocks attract further named customers automatically, up to twelve across six archetypes.
 - Twenty quests, protected front/back lines, multi-round combat, 5-victory progression, recovery and commissions.
 - Warehouse management, protected keepsakes, automatic restocking and optional salvage rules.
 - Staff, furnishings, collection records and late automatic production rules.
 - Defeat the tier 5 Void Sovereign to retire and open 24 permanent Legacy talents.
 
 Mining earns **Prospecting**. Forge development spends **gold**. Shop development spends **Influence** earned through reputation. Adventurer development spends **Merits** earned by completed expeditions, including retreats. Repeated upgrade ranks cost 90% more, and deeper investments have exponentially growing base costs.
+
+## Version 2.0.0 — Ore, alloys and customers
+
+Name your smith and workshop, choose a profession, and distribute **20 points from a zero base**. All four attributes initially show 0. Your name appears in Smith. Customers keep fixed identities: Mara the Vanguard, Renn the Duelist and Wren the Ranger arrive first. Customer-class upgrades automatically attract further visitors and reveal equipment they can buy; there is no naming or class-selection form.
+
+The new **Smelter** turns copper and tin into bronze, refines iron, and produces steel, mithril and starforged alloys. It has its own batch queue, animated hearth, ingredient refunds and three upgrade paths. Smelting continues alongside crafting and during offline progress. Full output bins discard excess metal.
+
+**Forge** now follows recipe → material → enchantment. Queuing reserves both the ingredients and any enchantment fee. Finishing the same active or queued piece gives **+20, +10, +5, +2, then +1 quality**, limited by the forge ceiling. Each pass adds one normal craft duration; later passes offer diminishing prefix-chance gains too.
+
+Existing runs retain their attributes, equipment, customers and unfinished work. Previously forge-ready metal stock becomes ingots one-for-one. The old forge furnace becomes a Power hammer; existing furnace investments unlock equivalent Smelter metallurgy. New generations use the zero-stat creation rules.
+
+Validation: [151 checks, browser review and a 45-minute opening simulation](design/qa/version-2.0-verification.md).
 
 ## Version 1.4.2 — Shop stock at a glance
 
@@ -136,9 +148,10 @@ Plain HTML, CSS and JavaScript; no package installation is required.
 - `progression.js`: professions, seams, recruitment access and all 96 room upgrades.
 - `engine.js`: deterministic core simulation and save handling.
 - `world-engine.js`: Foundry systems and migration.
+- `workshop.js` / `workshop-engine.js`: ore refining, alloys, crafting choices, finishing passes and fixed customer arrivals.
 - `room-model.js`: room stage milestones and hero-follow routing.
 - `world-scenes.js`: compact live hero scenes for shopping, travel, battle and recovery.
-- `app.js` / `styles.css`: six-room interface, contextual overlays and accessible controls.
+- `app.js` / `styles.css`: seven-room interface, contextual overlays and accessible controls.
 - `assets/*.png`: original generated full-screen illustrations.
 
 Run checks:

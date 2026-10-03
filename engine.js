@@ -141,8 +141,8 @@
       const requirement = r.requires || {}, classInfo = this.data.classes[r.classId] || {};
       const stat = requirement.stat || classInfo.stat || 'precision';
       const gates = this._gates(requirement);
-      gates.push({ label: stat, current: p.stats[stat], required: requirement.statValue || 2,
-        met: p.stats[stat] >= (requirement.statValue || 2), source: 'Allocate attribute points' });
+      gates.push({ label: stat, current: p.stats[stat], required: requirement.statValue ?? 2,
+        met: p.stats[stat] >= (requirement.statValue ?? 2), source: 'Allocate attribute points' });
       const profGate = Math.max(0, (requirement.proficiency || 0) - (e.proficiencyGateReduction || 0));
       gates.push({ label: (classInfo.name || r.classId) + ' proficiency', current: prof, required: profGate, met: prof >= profGate, source: 'Craft this item class' });
       gates.push({ label: 'Recipe discovery', current: this._recipeKnown(r) ? 1 : 0, required: 1, met: this._recipeKnown(r), source: r.unlockText || 'Complete its discovery quest' });
@@ -814,7 +814,7 @@
       const proficiency = p.proficiency[r.classId];
       if (proficiency) {
         const trivial = proficiency.level >= 25 && r.tier === 1 ? .25 : 1;
-        proficiency.xp += (r.classXp || 8 * r.tier) * (1 + .06 * (p.stats.knowledge - 2) + (e.proficiencyXp || 0)) * trivial;
+        proficiency.xp += (r.classXp || 8 * r.tier) * (1 + .06 * (p.stats.knowledge - (this.data.workshopVersion ? 0 : 2)) + (e.proficiencyXp || 0)) * trivial;
         while (proficiency.level < 100 && proficiency.xp >= 6 + 2 * proficiency.level) { proficiency.xp -= 6 + 2 * proficiency.level; proficiency.level++; }
       }
       this._staffXp('craft', r.tier * 3); this._refreshUnlocks();
@@ -1080,7 +1080,7 @@
       const start = this.state.simTime, end = start + delta; let iterations = 0;
       this._startJobs();
       while (this.state.simTime < end && iterations++ < 200000) {
-        const times = [end, this.state.quarry.nextYieldAt, this.state.nextAutomationAt, this.state.nextNpcAt, this.state.nextArrivalAt];
+        const times = [end, ...(this._extraEventTimes?.() || []), this.state.quarry.nextYieldAt, this.state.nextAutomationAt, this.state.nextNpcAt, this.state.nextArrivalAt];
         this.state.jobs.filter(j => j.status === 'active').forEach(j => times.push(j.completeAt));
         this.state.runs.filter(r => !['complete', 'pending'].includes(r.status)).forEach(r => times.push(r.returnAt));
         this.state.adventurers.filter(h => h.status === 'recovering').forEach(h => times.push(h.recoverUntil));
@@ -1089,6 +1089,7 @@
         if(this.data.companyVersion)this._staffClock();
         // Stable order: returns, completions, quarry, customer activity, automation, job starts.
         for (const run of [...this.state.runs]) if (run.status !== 'complete' && run.returnAt <= this.state.simTime) this._return(run);
+        this._processExtraEvents?.();
         for (const job of [...this.state.jobs]) if (job.status === 'active' && job.completeAt <= this.state.simTime) this._completeJob(job);
         if (this.state.quarry.nextYieldAt <= this.state.simTime) this._quarryYield();
         for (const hero of this.state.adventurers) {
@@ -1156,7 +1157,7 @@
         assert(typeof s.offlineSession.active === 'boolean' && integer(s.offlineSession.credited) && s.offlineSession.credited <= 8 * 3600000 && integer(s.offlineSession.spent), 'Invalid offline allowance.');
         assert(s.player && integer(s.player.gold) && s.player.gold <= 1e12 && integer(s.player.level) && s.player.level >= 1 && s.player.level <= (data.overhaul ? Number.MAX_SAFE_INTEGER : 50), 'Invalid player progression.');
         assert(integer(s.player.points) && s.player.points <= (data.overhaul ? Number.MAX_SAFE_INTEGER : 200) && Number.isFinite(s.player.xp) && s.player.xp >= 0, 'Invalid attribute or XP balance.');
-        assert(stats.every(k => integer(s.player.stats?.[k]) && s.player.stats[k] >= 2 && s.player.stats[k] <= (data.overhaul ? Number.MAX_SAFE_INTEGER : 50)), 'Invalid attributes.');
+        assert(stats.every(k => integer(s.player.stats?.[k]) && s.player.stats[k] >= (data.workshopVersion ? 0 : 2) && s.player.stats[k] <= (data.overhaul ? Number.MAX_SAFE_INTEGER : 50)), 'Invalid attributes.');
         assert(s.materials && Object.entries(s.materials).every(([id, n]) => data.materials[id] && integer(n) && n <= 1e8), 'Invalid materials.');
         if(data.companyVersion&&s.world?.companyVersion!==3&&s.player.proficiency)for(const id of Object.keys(data.classes))if(!s.player.proficiency[id])s.player.proficiency[id]={level:0,xp:0};
         assert(Object.keys(data.classes).every(id => integer(s.player.proficiency?.[id]?.level) && s.player.proficiency[id].level <= 100 && Number.isFinite(s.player.proficiency[id].xp) && s.player.proficiency[id].xp >= 0), 'Invalid proficiency.');
@@ -1190,7 +1191,7 @@
         const jobs = new Set();
         s.jobs.forEach(j => {
           assert(data.recipes[j.recipeId] && !jobs.has(j.id) && ['queued', 'active'].includes(j.status), 'Invalid craft job.'); jobs.add(j.id);
-          assert([data.recipes[j.recipeId].inputs,data.legacyRecipeInputs?.[j.recipeId],data.preSupplyRecipeInputs?.[j.recipeId]].filter(Boolean).some(inputs=>JSON.stringify(Object.entries(j.inputs||{}).sort())===JSON.stringify(Object.entries(inputs).sort())), 'Craft escrow does not match its recipe.');
+          assert([data.recipes[j.recipeId].inputs,data.legacyRecipeInputs?.[j.recipeId],data.preSupplyRecipeInputs?.[j.recipeId],data.preWorkshopRecipeInputs?.[j.recipeId],data.legacyRefinedInputs?.[j.recipeId],data.preSupplyRefinedInputs?.[j.recipeId],data.craftEscrow?.(j)].filter(Boolean).some(inputs=>JSON.stringify(Object.entries(j.inputs||{}).sort())===JSON.stringify(Object.entries(inputs).sort())), 'Craft escrow does not match its recipe.');
           if (j.status === 'active') assert(integer(j.startedAt) && integer(j.completeAt) && j.completeAt > j.startedAt && integer(j.quality) && j.quality <= (data.overhaul ? 200 : 100), 'Invalid active craft.');
         });
         const heroIds = new Set(s.adventurers.map(h => h.id)); assert(heroIds.size === s.adventurers.length && heroIds.size <= 12, 'Duplicate or excessive adventurers.');

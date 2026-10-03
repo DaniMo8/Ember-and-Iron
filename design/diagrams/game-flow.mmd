@@ -1,6 +1,7 @@
 flowchart TD
-  C[Create smith and name/class three heroes] --> M[Mine seams and trade in Open workings]
-  M --> F[Craft training or standard gear; gain mastery]
+  C[Name smith; assign 20 points from zero; fixed customers] --> M[Mine seams and trade in Open workings]
+  M --> A[Smelt ore into ingots and alloys]
+  A --> F[Choose recipe, material and enchantment; gain mastery]
   F --> S[Automatically stock displays lowest quality first]
   S --> B[Heroes browse compatible upgrades]
   B --> Q[Short travel; two rounds; front protects back]
@@ -8,10 +9,10 @@ flowchart TD
   W -->|Yes| P[One progress count per party member; rewards once]
   W -->|No| R[Return, rest, shop and retry]
   R --> B
-  P --> G{20 counts?}
+  P --> G{5 wins at each of three levels?}
   G -->|No| B
   G -->|Yes| N[Next ordinary quest or boss approach]
-  N --> H[Gather selected party; launch three-round boss]
+  N --> H[Gather and launch selected party; three-round boss]
   H --> T[Boss victory opens next tier]
   T --> M
   T --> L{Tier 5 boss defeated?}
@@ -20,3 +21,5 @@ flowchart TD
   F --> E[Employees gain XP and lose stamina]
   E --> O[Give time off; recover; manually resume]
   O --> F
+  B --> U[Unlock new customer classes and their equipment]
+  U --> F

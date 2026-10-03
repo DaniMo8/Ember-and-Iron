@@ -31,7 +31,7 @@ def build() -> Path:
         f"<style>\n{css}\n</style>",
         "local stylesheet reference",
     )
-    for filename in ("data.js", "engine.js", "campaign.js", "company.js", "formation-combat.js", "progression.js", "world-engine.js", "world-scenes.js", "room-model.js", "app.js"):
+    for filename in ("data.js", "engine.js", "campaign.js", "company.js", "formation-combat.js", "progression.js", "world-engine.js", "workshop.js", "workshop-engine.js", "world-scenes.js", "room-model.js", "app.js"):
         script = read(filename)
         # Prevent a string/comment in a source file from ending its HTML script element.
         script = re.sub(r"</script", r"<\\/script", script, flags=re.IGNORECASE)
