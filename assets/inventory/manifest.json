@@ -1,0 +1,1100 @@
+{
+  "generator": "Blender 5.2 / Cycles",
+  "tile": 192,
+  "columns": 16,
+  "rows": 18,
+  "icons": {
+    "item-daggers-1-0": {
+      "x": 0,
+      "y": 0
+    },
+    "item-daggers-1-1": {
+      "x": 1,
+      "y": 0
+    },
+    "item-daggers-1-2": {
+      "x": 2,
+      "y": 0
+    },
+    "item-swords-1-0": {
+      "x": 3,
+      "y": 0
+    },
+    "item-swords-1-1": {
+      "x": 4,
+      "y": 0
+    },
+    "item-swords-1-2": {
+      "x": 5,
+      "y": 0
+    },
+    "item-axes-1-0": {
+      "x": 6,
+      "y": 0
+    },
+    "item-axes-1-1": {
+      "x": 7,
+      "y": 0
+    },
+    "item-axes-1-2": {
+      "x": 8,
+      "y": 0
+    },
+    "item-maces-1-0": {
+      "x": 9,
+      "y": 0
+    },
+    "item-maces-1-1": {
+      "x": 10,
+      "y": 0
+    },
+    "item-maces-1-2": {
+      "x": 11,
+      "y": 0
+    },
+    "item-polearms-1-0": {
+      "x": 12,
+      "y": 0
+    },
+    "item-polearms-1-1": {
+      "x": 13,
+      "y": 0
+    },
+    "item-polearms-1-2": {
+      "x": 14,
+      "y": 0
+    },
+    "item-bows-1-0": {
+      "x": 15,
+      "y": 0
+    },
+    "item-bows-1-1": {
+      "x": 0,
+      "y": 1
+    },
+    "item-bows-1-2": {
+      "x": 1,
+      "y": 1
+    },
+    "item-foci-1-0": {
+      "x": 2,
+      "y": 1
+    },
+    "item-foci-1-1": {
+      "x": 3,
+      "y": 1
+    },
+    "item-foci-1-2": {
+      "x": 4,
+      "y": 1
+    },
+    "item-armor-1-0": {
+      "x": 5,
+      "y": 1
+    },
+    "item-armor-1-1": {
+      "x": 6,
+      "y": 1
+    },
+    "item-armor-1-2": {
+      "x": 7,
+      "y": 1
+    },
+    "item-shields-1-0": {
+      "x": 8,
+      "y": 1
+    },
+    "item-shields-1-1": {
+      "x": 9,
+      "y": 1
+    },
+    "item-shields-1-2": {
+      "x": 10,
+      "y": 1
+    },
+    "item-rings-1-0": {
+      "x": 11,
+      "y": 1
+    },
+    "item-rings-1-1": {
+      "x": 12,
+      "y": 1
+    },
+    "item-rings-1-2": {
+      "x": 13,
+      "y": 1
+    },
+    "item-charms-1-0": {
+      "x": 14,
+      "y": 1
+    },
+    "item-charms-1-1": {
+      "x": 15,
+      "y": 1
+    },
+    "item-charms-1-2": {
+      "x": 0,
+      "y": 2
+    },
+    "item-tools-1-0": {
+      "x": 1,
+      "y": 2
+    },
+    "item-tools-1-1": {
+      "x": 2,
+      "y": 2
+    },
+    "item-tools-1-2": {
+      "x": 3,
+      "y": 2
+    },
+    "item-cloth_armor-1-0": {
+      "x": 4,
+      "y": 2
+    },
+    "item-cloth_armor-1-1": {
+      "x": 5,
+      "y": 2
+    },
+    "item-cloth_armor-1-2": {
+      "x": 6,
+      "y": 2
+    },
+    "item-leather_armor-1-0": {
+      "x": 7,
+      "y": 2
+    },
+    "item-leather_armor-1-1": {
+      "x": 8,
+      "y": 2
+    },
+    "item-leather_armor-1-2": {
+      "x": 9,
+      "y": 2
+    },
+    "item-offhands-1-0": {
+      "x": 10,
+      "y": 2
+    },
+    "item-offhands-1-1": {
+      "x": 11,
+      "y": 2
+    },
+    "item-offhands-1-2": {
+      "x": 12,
+      "y": 2
+    },
+    "item-instruments-1-0": {
+      "x": 13,
+      "y": 2
+    },
+    "item-instruments-1-1": {
+      "x": 14,
+      "y": 2
+    },
+    "item-instruments-1-2": {
+      "x": 15,
+      "y": 2
+    },
+    "item-talismans-1-0": {
+      "x": 0,
+      "y": 3
+    },
+    "item-talismans-1-1": {
+      "x": 1,
+      "y": 3
+    },
+    "item-talismans-1-2": {
+      "x": 2,
+      "y": 3
+    },
+    "item-daggers-2-0": {
+      "x": 3,
+      "y": 3
+    },
+    "item-daggers-2-1": {
+      "x": 4,
+      "y": 3
+    },
+    "item-daggers-2-2": {
+      "x": 5,
+      "y": 3
+    },
+    "item-swords-2-0": {
+      "x": 6,
+      "y": 3
+    },
+    "item-swords-2-1": {
+      "x": 7,
+      "y": 3
+    },
+    "item-swords-2-2": {
+      "x": 8,
+      "y": 3
+    },
+    "item-axes-2-0": {
+      "x": 9,
+      "y": 3
+    },
+    "item-axes-2-1": {
+      "x": 10,
+      "y": 3
+    },
+    "item-axes-2-2": {
+      "x": 11,
+      "y": 3
+    },
+    "item-maces-2-0": {
+      "x": 12,
+      "y": 3
+    },
+    "item-maces-2-1": {
+      "x": 13,
+      "y": 3
+    },
+    "item-maces-2-2": {
+      "x": 14,
+      "y": 3
+    },
+    "item-polearms-2-0": {
+      "x": 15,
+      "y": 3
+    },
+    "item-polearms-2-1": {
+      "x": 0,
+      "y": 4
+    },
+    "item-polearms-2-2": {
+      "x": 1,
+      "y": 4
+    },
+    "item-bows-2-0": {
+      "x": 2,
+      "y": 4
+    },
+    "item-bows-2-1": {
+      "x": 3,
+      "y": 4
+    },
+    "item-bows-2-2": {
+      "x": 4,
+      "y": 4
+    },
+    "item-foci-2-0": {
+      "x": 5,
+      "y": 4
+    },
+    "item-foci-2-1": {
+      "x": 6,
+      "y": 4
+    },
+    "item-foci-2-2": {
+      "x": 7,
+      "y": 4
+    },
+    "item-armor-2-0": {
+      "x": 8,
+      "y": 4
+    },
+    "item-armor-2-1": {
+      "x": 9,
+      "y": 4
+    },
+    "item-armor-2-2": {
+      "x": 10,
+      "y": 4
+    },
+    "item-shields-2-0": {
+      "x": 11,
+      "y": 4
+    },
+    "item-shields-2-1": {
+      "x": 12,
+      "y": 4
+    },
+    "item-shields-2-2": {
+      "x": 13,
+      "y": 4
+    },
+    "item-rings-2-0": {
+      "x": 14,
+      "y": 4
+    },
+    "item-rings-2-1": {
+      "x": 15,
+      "y": 4
+    },
+    "item-rings-2-2": {
+      "x": 0,
+      "y": 5
+    },
+    "item-charms-2-0": {
+      "x": 1,
+      "y": 5
+    },
+    "item-charms-2-1": {
+      "x": 2,
+      "y": 5
+    },
+    "item-charms-2-2": {
+      "x": 3,
+      "y": 5
+    },
+    "item-tools-2-0": {
+      "x": 4,
+      "y": 5
+    },
+    "item-tools-2-1": {
+      "x": 5,
+      "y": 5
+    },
+    "item-tools-2-2": {
+      "x": 6,
+      "y": 5
+    },
+    "item-cloth_armor-2-0": {
+      "x": 7,
+      "y": 5
+    },
+    "item-cloth_armor-2-1": {
+      "x": 8,
+      "y": 5
+    },
+    "item-cloth_armor-2-2": {
+      "x": 9,
+      "y": 5
+    },
+    "item-leather_armor-2-0": {
+      "x": 10,
+      "y": 5
+    },
+    "item-leather_armor-2-1": {
+      "x": 11,
+      "y": 5
+    },
+    "item-leather_armor-2-2": {
+      "x": 12,
+      "y": 5
+    },
+    "item-offhands-2-0": {
+      "x": 13,
+      "y": 5
+    },
+    "item-offhands-2-1": {
+      "x": 14,
+      "y": 5
+    },
+    "item-offhands-2-2": {
+      "x": 15,
+      "y": 5
+    },
+    "item-instruments-2-0": {
+      "x": 0,
+      "y": 6
+    },
+    "item-instruments-2-1": {
+      "x": 1,
+      "y": 6
+    },
+    "item-instruments-2-2": {
+      "x": 2,
+      "y": 6
+    },
+    "item-talismans-2-0": {
+      "x": 3,
+      "y": 6
+    },
+    "item-talismans-2-1": {
+      "x": 4,
+      "y": 6
+    },
+    "item-talismans-2-2": {
+      "x": 5,
+      "y": 6
+    },
+    "item-daggers-3-0": {
+      "x": 6,
+      "y": 6
+    },
+    "item-daggers-3-1": {
+      "x": 7,
+      "y": 6
+    },
+    "item-daggers-3-2": {
+      "x": 8,
+      "y": 6
+    },
+    "item-swords-3-0": {
+      "x": 9,
+      "y": 6
+    },
+    "item-swords-3-1": {
+      "x": 10,
+      "y": 6
+    },
+    "item-swords-3-2": {
+      "x": 11,
+      "y": 6
+    },
+    "item-axes-3-0": {
+      "x": 12,
+      "y": 6
+    },
+    "item-axes-3-1": {
+      "x": 13,
+      "y": 6
+    },
+    "item-axes-3-2": {
+      "x": 14,
+      "y": 6
+    },
+    "item-maces-3-0": {
+      "x": 15,
+      "y": 6
+    },
+    "item-maces-3-1": {
+      "x": 0,
+      "y": 7
+    },
+    "item-maces-3-2": {
+      "x": 1,
+      "y": 7
+    },
+    "item-polearms-3-0": {
+      "x": 2,
+      "y": 7
+    },
+    "item-polearms-3-1": {
+      "x": 3,
+      "y": 7
+    },
+    "item-polearms-3-2": {
+      "x": 4,
+      "y": 7
+    },
+    "item-bows-3-0": {
+      "x": 5,
+      "y": 7
+    },
+    "item-bows-3-1": {
+      "x": 6,
+      "y": 7
+    },
+    "item-bows-3-2": {
+      "x": 7,
+      "y": 7
+    },
+    "item-foci-3-0": {
+      "x": 8,
+      "y": 7
+    },
+    "item-foci-3-1": {
+      "x": 9,
+      "y": 7
+    },
+    "item-foci-3-2": {
+      "x": 10,
+      "y": 7
+    },
+    "item-armor-3-0": {
+      "x": 11,
+      "y": 7
+    },
+    "item-armor-3-1": {
+      "x": 12,
+      "y": 7
+    },
+    "item-armor-3-2": {
+      "x": 13,
+      "y": 7
+    },
+    "item-shields-3-0": {
+      "x": 14,
+      "y": 7
+    },
+    "item-shields-3-1": {
+      "x": 15,
+      "y": 7
+    },
+    "item-shields-3-2": {
+      "x": 0,
+      "y": 8
+    },
+    "item-rings-3-0": {
+      "x": 1,
+      "y": 8
+    },
+    "item-rings-3-1": {
+      "x": 2,
+      "y": 8
+    },
+    "item-rings-3-2": {
+      "x": 3,
+      "y": 8
+    },
+    "item-charms-3-0": {
+      "x": 4,
+      "y": 8
+    },
+    "item-charms-3-1": {
+      "x": 5,
+      "y": 8
+    },
+    "item-charms-3-2": {
+      "x": 6,
+      "y": 8
+    },
+    "item-tools-3-0": {
+      "x": 7,
+      "y": 8
+    },
+    "item-tools-3-1": {
+      "x": 8,
+      "y": 8
+    },
+    "item-tools-3-2": {
+      "x": 9,
+      "y": 8
+    },
+    "item-cloth_armor-3-0": {
+      "x": 10,
+      "y": 8
+    },
+    "item-cloth_armor-3-1": {
+      "x": 11,
+      "y": 8
+    },
+    "item-cloth_armor-3-2": {
+      "x": 12,
+      "y": 8
+    },
+    "item-leather_armor-3-0": {
+      "x": 13,
+      "y": 8
+    },
+    "item-leather_armor-3-1": {
+      "x": 14,
+      "y": 8
+    },
+    "item-leather_armor-3-2": {
+      "x": 15,
+      "y": 8
+    },
+    "item-offhands-3-0": {
+      "x": 0,
+      "y": 9
+    },
+    "item-offhands-3-1": {
+      "x": 1,
+      "y": 9
+    },
+    "item-offhands-3-2": {
+      "x": 2,
+      "y": 9
+    },
+    "item-instruments-3-0": {
+      "x": 3,
+      "y": 9
+    },
+    "item-instruments-3-1": {
+      "x": 4,
+      "y": 9
+    },
+    "item-instruments-3-2": {
+      "x": 5,
+      "y": 9
+    },
+    "item-talismans-3-0": {
+      "x": 6,
+      "y": 9
+    },
+    "item-talismans-3-1": {
+      "x": 7,
+      "y": 9
+    },
+    "item-talismans-3-2": {
+      "x": 8,
+      "y": 9
+    },
+    "item-daggers-4-0": {
+      "x": 9,
+      "y": 9
+    },
+    "item-daggers-4-1": {
+      "x": 10,
+      "y": 9
+    },
+    "item-daggers-4-2": {
+      "x": 11,
+      "y": 9
+    },
+    "item-swords-4-0": {
+      "x": 12,
+      "y": 9
+    },
+    "item-swords-4-1": {
+      "x": 13,
+      "y": 9
+    },
+    "item-swords-4-2": {
+      "x": 14,
+      "y": 9
+    },
+    "item-axes-4-0": {
+      "x": 15,
+      "y": 9
+    },
+    "item-axes-4-1": {
+      "x": 0,
+      "y": 10
+    },
+    "item-axes-4-2": {
+      "x": 1,
+      "y": 10
+    },
+    "item-maces-4-0": {
+      "x": 2,
+      "y": 10
+    },
+    "item-maces-4-1": {
+      "x": 3,
+      "y": 10
+    },
+    "item-maces-4-2": {
+      "x": 4,
+      "y": 10
+    },
+    "item-polearms-4-0": {
+      "x": 5,
+      "y": 10
+    },
+    "item-polearms-4-1": {
+      "x": 6,
+      "y": 10
+    },
+    "item-polearms-4-2": {
+      "x": 7,
+      "y": 10
+    },
+    "item-bows-4-0": {
+      "x": 8,
+      "y": 10
+    },
+    "item-bows-4-1": {
+      "x": 9,
+      "y": 10
+    },
+    "item-bows-4-2": {
+      "x": 10,
+      "y": 10
+    },
+    "item-foci-4-0": {
+      "x": 11,
+      "y": 10
+    },
+    "item-foci-4-1": {
+      "x": 12,
+      "y": 10
+    },
+    "item-foci-4-2": {
+      "x": 13,
+      "y": 10
+    },
+    "item-armor-4-0": {
+      "x": 14,
+      "y": 10
+    },
+    "item-armor-4-1": {
+      "x": 15,
+      "y": 10
+    },
+    "item-armor-4-2": {
+      "x": 0,
+      "y": 11
+    },
+    "item-shields-4-0": {
+      "x": 1,
+      "y": 11
+    },
+    "item-shields-4-1": {
+      "x": 2,
+      "y": 11
+    },
+    "item-shields-4-2": {
+      "x": 3,
+      "y": 11
+    },
+    "item-rings-4-0": {
+      "x": 4,
+      "y": 11
+    },
+    "item-rings-4-1": {
+      "x": 5,
+      "y": 11
+    },
+    "item-rings-4-2": {
+      "x": 6,
+      "y": 11
+    },
+    "item-charms-4-0": {
+      "x": 7,
+      "y": 11
+    },
+    "item-charms-4-1": {
+      "x": 8,
+      "y": 11
+    },
+    "item-charms-4-2": {
+      "x": 9,
+      "y": 11
+    },
+    "item-tools-4-0": {
+      "x": 10,
+      "y": 11
+    },
+    "item-tools-4-1": {
+      "x": 11,
+      "y": 11
+    },
+    "item-tools-4-2": {
+      "x": 12,
+      "y": 11
+    },
+    "item-cloth_armor-4-0": {
+      "x": 13,
+      "y": 11
+    },
+    "item-cloth_armor-4-1": {
+      "x": 14,
+      "y": 11
+    },
+    "item-cloth_armor-4-2": {
+      "x": 15,
+      "y": 11
+    },
+    "item-leather_armor-4-0": {
+      "x": 0,
+      "y": 12
+    },
+    "item-leather_armor-4-1": {
+      "x": 1,
+      "y": 12
+    },
+    "item-leather_armor-4-2": {
+      "x": 2,
+      "y": 12
+    },
+    "item-offhands-4-0": {
+      "x": 3,
+      "y": 12
+    },
+    "item-offhands-4-1": {
+      "x": 4,
+      "y": 12
+    },
+    "item-offhands-4-2": {
+      "x": 5,
+      "y": 12
+    },
+    "item-instruments-4-0": {
+      "x": 6,
+      "y": 12
+    },
+    "item-instruments-4-1": {
+      "x": 7,
+      "y": 12
+    },
+    "item-instruments-4-2": {
+      "x": 8,
+      "y": 12
+    },
+    "item-talismans-4-0": {
+      "x": 9,
+      "y": 12
+    },
+    "item-talismans-4-1": {
+      "x": 10,
+      "y": 12
+    },
+    "item-talismans-4-2": {
+      "x": 11,
+      "y": 12
+    },
+    "item-daggers-5-0": {
+      "x": 12,
+      "y": 12
+    },
+    "item-daggers-5-1": {
+      "x": 13,
+      "y": 12
+    },
+    "item-daggers-5-2": {
+      "x": 14,
+      "y": 12
+    },
+    "item-swords-5-0": {
+      "x": 15,
+      "y": 12
+    },
+    "item-swords-5-1": {
+      "x": 0,
+      "y": 13
+    },
+    "item-swords-5-2": {
+      "x": 1,
+      "y": 13
+    },
+    "item-axes-5-0": {
+      "x": 2,
+      "y": 13
+    },
+    "item-axes-5-1": {
+      "x": 3,
+      "y": 13
+    },
+    "item-axes-5-2": {
+      "x": 4,
+      "y": 13
+    },
+    "item-maces-5-0": {
+      "x": 5,
+      "y": 13
+    },
+    "item-maces-5-1": {
+      "x": 6,
+      "y": 13
+    },
+    "item-maces-5-2": {
+      "x": 7,
+      "y": 13
+    },
+    "item-polearms-5-0": {
+      "x": 8,
+      "y": 13
+    },
+    "item-polearms-5-1": {
+      "x": 9,
+      "y": 13
+    },
+    "item-polearms-5-2": {
+      "x": 10,
+      "y": 13
+    },
+    "item-bows-5-0": {
+      "x": 11,
+      "y": 13
+    },
+    "item-bows-5-1": {
+      "x": 12,
+      "y": 13
+    },
+    "item-bows-5-2": {
+      "x": 13,
+      "y": 13
+    },
+    "item-foci-5-0": {
+      "x": 14,
+      "y": 13
+    },
+    "item-foci-5-1": {
+      "x": 15,
+      "y": 13
+    },
+    "item-foci-5-2": {
+      "x": 0,
+      "y": 14
+    },
+    "item-armor-5-0": {
+      "x": 1,
+      "y": 14
+    },
+    "item-armor-5-1": {
+      "x": 2,
+      "y": 14
+    },
+    "item-armor-5-2": {
+      "x": 3,
+      "y": 14
+    },
+    "item-shields-5-0": {
+      "x": 4,
+      "y": 14
+    },
+    "item-shields-5-1": {
+      "x": 5,
+      "y": 14
+    },
+    "item-shields-5-2": {
+      "x": 6,
+      "y": 14
+    },
+    "item-rings-5-0": {
+      "x": 7,
+      "y": 14
+    },
+    "item-rings-5-1": {
+      "x": 8,
+      "y": 14
+    },
+    "item-rings-5-2": {
+      "x": 9,
+      "y": 14
+    },
+    "item-charms-5-0": {
+      "x": 10,
+      "y": 14
+    },
+    "item-charms-5-1": {
+      "x": 11,
+      "y": 14
+    },
+    "item-charms-5-2": {
+      "x": 12,
+      "y": 14
+    },
+    "item-tools-5-0": {
+      "x": 13,
+      "y": 14
+    },
+    "item-tools-5-1": {
+      "x": 14,
+      "y": 14
+    },
+    "item-tools-5-2": {
+      "x": 15,
+      "y": 14
+    },
+    "item-cloth_armor-5-0": {
+      "x": 0,
+      "y": 15
+    },
+    "item-cloth_armor-5-1": {
+      "x": 1,
+      "y": 15
+    },
+    "item-cloth_armor-5-2": {
+      "x": 2,
+      "y": 15
+    },
+    "item-leather_armor-5-0": {
+      "x": 3,
+      "y": 15
+    },
+    "item-leather_armor-5-1": {
+      "x": 4,
+      "y": 15
+    },
+    "item-leather_armor-5-2": {
+      "x": 5,
+      "y": 15
+    },
+    "item-offhands-5-0": {
+      "x": 6,
+      "y": 15
+    },
+    "item-offhands-5-1": {
+      "x": 7,
+      "y": 15
+    },
+    "item-offhands-5-2": {
+      "x": 8,
+      "y": 15
+    },
+    "item-instruments-5-0": {
+      "x": 9,
+      "y": 15
+    },
+    "item-instruments-5-1": {
+      "x": 10,
+      "y": 15
+    },
+    "item-instruments-5-2": {
+      "x": 11,
+      "y": 15
+    },
+    "item-talismans-5-0": {
+      "x": 12,
+      "y": 15
+    },
+    "item-talismans-5-1": {
+      "x": 13,
+      "y": 15
+    },
+    "item-talismans-5-2": {
+      "x": 14,
+      "y": 15
+    },
+    "material-fuel": {
+      "x": 15,
+      "y": 15
+    },
+    "material-bronze": {
+      "x": 0,
+      "y": 16
+    },
+    "material-tin": {
+      "x": 1,
+      "y": 16
+    },
+    "material-iron": {
+      "x": 2,
+      "y": 16
+    },
+    "material-mithril": {
+      "x": 3,
+      "y": 16
+    },
+    "material-starforged": {
+      "x": 4,
+      "y": 16
+    },
+    "material-gem": {
+      "x": 5,
+      "y": 16
+    },
+    "material-ember_shard": {
+      "x": 6,
+      "y": 16
+    },
+    "material-frost_crystal": {
+      "x": 7,
+      "y": 16
+    },
+    "material-star_fragment": {
+      "x": 8,
+      "y": 16
+    },
+    "material-wood": {
+      "x": 9,
+      "y": 16
+    },
+    "material-leather": {
+      "x": 10,
+      "y": 16
+    },
+    "material-alchemical_oil": {
+      "x": 11,
+      "y": 16
+    },
+    "material-bronze_ingot": {
+      "x": 12,
+      "y": 16
+    },
+    "material-iron_ingot": {
+      "x": 13,
+      "y": 16
+    },
+    "material-steel_ingot": {
+      "x": 14,
+      "y": 16
+    },
+    "material-mithril_ingot": {
+      "x": 15,
+      "y": 16
+    },
+    "material-starforged_ingot": {
+      "x": 0,
+      "y": 17
+    }
+  }
+}

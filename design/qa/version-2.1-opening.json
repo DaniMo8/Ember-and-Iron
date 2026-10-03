@@ -1,0 +1,121 @@
+{
+  "method": "45-minute active opening smoke test, base seed, no grants. Manual mining, 3 assigned miners, smelting batches, mixed tier-1 crafts, early finishing, two Forge investments and clearance only near capacity. This is not an optimal or full-campaign balance estimate.",
+  "milestones": {
+    "firstCraft": 1.7,
+    "firstSale": 3.97,
+    "smithLevel2": 13.92,
+    "firstVictory": 18.03
+  },
+  "final": {
+    "minute": 45,
+    "level": 3,
+    "gold": 54,
+    "crafted": 46,
+    "sold": 31,
+    "wins": 3,
+    "retreats": 32,
+    "smelted": 54,
+    "workers": 2
+  },
+  "samples": [
+    {
+      "minute": 5,
+      "level": 1,
+      "gold": 16,
+      "crafted": 2,
+      "sold": 2,
+      "wins": 0,
+      "retreats": 3,
+      "smelted": 12,
+      "workers": 1
+    },
+    {
+      "minute": 10,
+      "level": 1,
+      "gold": 20,
+      "crafted": 6,
+      "sold": 4,
+      "wins": 0,
+      "retreats": 6,
+      "smelted": 15,
+      "workers": 2
+    },
+    {
+      "minute": 15,
+      "level": 2,
+      "gold": 18,
+      "crafted": 10,
+      "sold": 5,
+      "wins": 0,
+      "retreats": 12,
+      "smelted": 18,
+      "workers": 2
+    },
+    {
+      "minute": 20,
+      "level": 2,
+      "gold": 45,
+      "crafted": 16,
+      "sold": 11,
+      "wins": 1,
+      "retreats": 14,
+      "smelted": 24,
+      "workers": 2
+    },
+    {
+      "minute": 25,
+      "level": 2,
+      "gold": 8,
+      "crafted": 22,
+      "sold": 18,
+      "wins": 1,
+      "retreats": 18,
+      "smelted": 30,
+      "workers": 2
+    },
+    {
+      "minute": 30,
+      "level": 3,
+      "gold": 38,
+      "crafted": 29,
+      "sold": 24,
+      "wins": 2,
+      "retreats": 22,
+      "smelted": 36,
+      "workers": 2
+    },
+    {
+      "minute": 35,
+      "level": 3,
+      "gold": 41,
+      "crafted": 34,
+      "sold": 25,
+      "wins": 3,
+      "retreats": 25,
+      "smelted": 42,
+      "workers": 2
+    },
+    {
+      "minute": 40,
+      "level": 3,
+      "gold": 46,
+      "crafted": 40,
+      "sold": 28,
+      "wins": 3,
+      "retreats": 28,
+      "smelted": 48,
+      "workers": 2
+    },
+    {
+      "minute": 45,
+      "level": 3,
+      "gold": 54,
+      "crafted": 46,
+      "sold": 31,
+      "wins": 3,
+      "retreats": 32,
+      "smelted": 54,
+      "workers": 2
+    }
+  ]
+}

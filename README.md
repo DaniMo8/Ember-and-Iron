@@ -4,7 +4,7 @@ A playable, local HTML blacksmith RPG with seven information-dense rooms, autono
 
 ## Play
 
-Open **Ember-and-Iron.html** in a modern browser. This portable build embeds the code, styles and all sixteen location illustrations. It works without an account, installation or internet connection. **index.html** runs the same game from the source files and the `assets` folder.
+Open **Ember-and-Iron.html** in a modern browser. This portable build embeds the code, styles and all sixteen location illustrations and the Blender inventory atlas. It works without an account, installation or internet connection. **index.html** runs the same game from the source files and the `assets` folder.
 
 New players choose one of five professions and distribute 20 points. Attributes are uncapped; each smith level grants five more points. The seven rooms are **Smith (your name)**, **Mine**, **Smelter**, **Forge**, **Shop**, **Customers** and **Legacy**. Legacy is greyed out until the first tier 5 boss victory, then remains accessible across generations. Follow the single next-objective prompt, use the room’s information panels, or open its upgrades overlay.
 
@@ -15,16 +15,36 @@ The catalogue hides locked classes and tiers. A recipe remains visible if it is 
 ## Progression
 
 - Five professions with distinct working bonuses; four uncapped attributes.
-- 104 upgrades across fifteen connected paths, including eight Smelter upgrades.
+- 111 room upgrades across fifteen selectable sections, including fourteen Smelter upgrades.
 - Individually assigned miners, automatic overflow assignments, seven workings and per-material storage.
-- Seventeen item classes, 255 recipes, five material tiers, affixes, enchantments and quality breakthroughs up to 200.
+- Seventeen item classes, 289 recipes (255 ordinary and 34 Legacy patterns), five material tiers, affixes, enchantments and quality breakthroughs up to 200.
 - Three fixed starting customers; class unlocks attract further named customers automatically, up to twelve across six archetypes.
 - Twenty quests, protected front/back lines, multi-round combat, 5-victory progression, recovery and commissions.
 - Warehouse management, protected keepsakes, automatic restocking and optional salvage rules.
 - Staff, furnishings, collection records and late automatic production rules.
-- Defeat the tier 5 Void Sovereign to retire and open 24 permanent Legacy talents.
+- Defeat the tier 5 Void Sovereign to retire and open 36 permanent Legacy talents.
 
-Mining earns **Prospecting**. Forge development spends **gold**. Shop development spends **Influence** earned through reputation. Adventurer development spends **Merits** earned by completed expeditions, including retreats. Repeated upgrade ranks cost 90% more, and deeper investments have exponentially growing base costs.
+Mining earns **Prospecting**. Forge development spends **gold**. Shop development spends **Influence** earned through reputation. Adventurer development spends **Merits** earned by completed expeditions, including retreats. Repeated upgrade ranks cost 90% more; permanent Legacy talents can reduce that growth to 60%. First-rank costs and unlock requirements remain intact.
+
+## Version 2.1.0 — Focused upgrades and Blender inventory art
+
+Upgrade overlays have selectable sections across the top. Only the selected branch is shown, with rank progress, costs, benefits and prerequisites.
+
+| Room | Main path | Other sections |
+|---|---|---|
+| Mine | Depth | Workers · Storage |
+| Smelter | Alloys | Quality · Speed |
+| Forge | Recipes | Quality · Speed |
+| Shop | Price | Customer budgets · Customer relations |
+| Customers | Classes | Quantity · Readiness |
+
+Forge recipe investments unlock standard bronze and higher material patterns; the Master armoury unlocks prestige patterns. Attributes, mastery and material machinery still apply. Smelter Quality adds metal-preparation quality to newly started crafts. Readiness improves customer health, combat, recovery and travel. Quantity adds named buyers and party capacity; it requires the relevant class before adding a new customer of that class.
+
+Legacy has **Workforce, Efficiency, Metallurgy and Archives** sections. Twelve new powers provide up to six extra starting miners, reduce room upgrade cost growth from 90% to 60%, add up to four ingots per batch, and unlock 17 rare plus 17 legendary patterns. Existing 24 talents remain. The new powers cost 524 sparks together, so a normal 46–66-spark campaign cannot buy the whole tree. Existing ranks, known patterns and paid jobs are retained when loading an older run.
+
+**273 original Blender renders** replace symbolic inventory icons: 255 ordinary item variants and 18 ores, ingots, catalysts and supplies. The image atlas, manifest and editable `.blend` scene are in `assets/inventory`; reproduce them with `design/tools/render_blender_icons.py`. Legacy recipes share the appropriate class/material silhouette. Room background illustrations are unchanged.
+
+Validation details: [upgrade, save, art and browser checks](design/qa/version-2.1-verification.md).
 
 ## Version 2.0.0 — Ore, alloys and customers
 

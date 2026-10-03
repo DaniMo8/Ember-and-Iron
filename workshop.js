@@ -52,7 +52,8 @@ function apply(data,P){
   n.name=people.map(h=>data.archetypes[h.archetypeId].name).join(' & ')+' customers';
   n.description=people.map(h=>h.name+' visits automatically; buys '+data.archetypes[h.archetypeId].preferences.map(id=>data.classes[id].name).join(', ')).join('. ')+'.';
  }
- return data;
+ const A=typeof module==='object'&&module.exports?require('./advancement'):root.EIAdvancement;
+ return A.apply(data,P,upgrades);
 }
 const api={apply,metals,smelts,upgrades,escrow};if(typeof module==='object'&&module.exports)module.exports=api;else root.EIWorkshop=api;
 })(globalThis);

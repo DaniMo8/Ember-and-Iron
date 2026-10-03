@@ -1,5 +1,5 @@
 flowchart TD
-  C[Unlocked customer classes] --> R[255 recipes: 17 classes x 5 materials x 3 patterns] --> W[Weapons]
+  C[Unlocked customer classes] --> R[255 ordinary recipes: 17 classes x 5 materials x 3 patterns] --> W[Weapons]
   R --> A[Armour]
   R --> O[Other]
   W --> W1[Daggers / Swords / Axes / Maces]
@@ -17,3 +17,8 @@ flowchart TD
   S --> N[Next material training pattern]
   S -. high attributes and mastery .-> P[Optional powerful prestige pattern]
   R -. independent modifiers .-> I[Quality / Crafted prefix / Enchanted suffix]
+
+  Legacy[Legacy Archives] --> Rare[17 rare relic patterns]
+  Legacy --> Legendary[17 legendary sovereign patterns]
+  Rare --> R
+  Legendary --> R

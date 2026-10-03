@@ -1,31 +1,82 @@
 flowchart TB
-    ROOT["Shared Legacy point pool — one completed retirement required"]
-    ROOT --> FORCE_1["Practiced Hands · 2 Sparks<br/>+12% crafting speed"]
-    FORCE_1 --> FORCE_2["Deep Stores · 4 Sparks<br/>+8 storage capacity"]
-    FORCE_2 --> FORCE_3["Heavy Forms · 7 Sparks<br/>+6 quality for heavy equipment"]
-    FORCE_3 --> FORCE_4["Tireless Furnace · 11 Sparks<br/>+2 craft queue slots"]
-    FORCE_4 --> FORCE_5["Twin Anvils · 19 Sparks<br/>+1 parallel production lane"]
-    FORCE_5 --> FORCE_6["Founders Strength · 33 Sparks<br/>+2 starting Strength"]
-    ROOT --> ARTIFICE_1["Steady Eye · 2 Sparks<br/>+4 quality for all crafts"]
-    ARTIFICE_1 --> ARTIFICE_2["Keen Edges · 4 Sparks<br/>+8% equipment attack"]
-    ARTIFICE_2 --> ARTIFICE_3["Measured Lines · 7 Sparks<br/>+15 percentage points affix chance"]
-    ARTIFICE_3 --> ARTIFICE_4["Runic Resonance · 11 Sparks<br/>+25% enchantment effect"]
-    ARTIFICE_4 --> ARTIFICE_5["Masterwork Tradition · 19 Sparks<br/>+8 quality for all crafts"]
-    ARTIFICE_5 --> ARTIFICE_6["Heirloom Bond · 33 Sparks<br/>+20% heirloom combat effects"]
-    ROOT --> COMMERCE_1["Trusted Name · 2 Sparks<br/>+10% sale price"]
-    COMMERCE_1 --> COMMERCE_2["Busy Counter · 4 Sparks<br/>Customer arrivals 20% faster"]
-    COMMERCE_2 --> COMMERCE_3["Guild Purse · 7 Sparks<br/>+20% customer budgets"]
-    COMMERCE_3 --> COMMERCE_4["Fair Contracts · 11 Sparks<br/>Staff costs 25% less"]
-    COMMERCE_4 --> COMMERCE_5["Trade Network · 19 Sparks<br/>Materials cost 15% less"]
-    COMMERCE_5 --> COMMERCE_6["Family Fortune · 33 Sparks<br/>+250 starting gold"]
-    ROOT --> LORE_1["Patient Study · 2 Sparks<br/>+20% proficiency XP"]
-    LORE_1 --> LORE_2["Field Notes · 4 Sparks<br/>+20% adventurer XP"]
-    LORE_2 --> LORE_3["Hidden Veins · 7 Sparks<br/>+25% quest loot"]
-    LORE_3 --> LORE_4["Ancient Script · 11 Sparks<br/>Recipe proficiency gates −5; floor 0"]
-    LORE_4 --> LORE_5["Shared Purpose · 19 Sparks<br/>Party synergy: 20% instead of 10%"]
-    LORE_5 --> LORE_6["Living Archive · 33 Sparks<br/>Start every proficiency at 10"]
-    RULE["Each node has one rank. Own the previous node in its branch. Branches can be combined."] -.-> ROOT
-    RESET["Optional retirement: level 8 and 6 wins. Keep talents, collection records, decor, one physical heirloom and its recipe."] --> ROOT
-    PAYOUT["Points: 1 + floor(level / 5) + floor(wins / 5) + floor(masterworks / 3)"] --> RESET
-    classDef accent fill:#f3e4c3,stroke:#9b6109,color:#292823;
-    class ROOT,FORCE_6,ARTIFICE_6,COMMERCE_6,LORE_6 accent;
+  ROOT["Defeat tier 5 boss and retire: 46–66 sparks"]
+  subgraph Workforce["Workforce"]
+    practiced_hands["Practiced Hands · 2 sparks"]
+    deep_stores["Deep Stores · 4 sparks"]
+    heavy_forms["Heavy Forms · 7 sparks"]
+    tireless_furnace["Tireless Furnace · 11 sparks"]
+    twin_anvils["Twin Anvils · 19 sparks"]
+    founders_strength["Founders Strength · 33 sparks"]
+    inherited_crew["Inherited crew · 12 sparks"]
+    family_workforce["Family workforce · 28 sparks"]
+    founders_guild["Founders guild · 60 sparks"]
+  end
+  subgraph Metallurgy["Metallurgy"]
+    steady_eye["Steady Eye · 2 sparks"]
+    keen_edges["Keen Edges · 4 sparks"]
+    measured_lines["Measured Lines · 7 sparks"]
+    runic_resonance["Runic Resonance · 11 sparks"]
+    masterwork_tradition["Masterwork Tradition · 19 sparks"]
+    heirloom_bond["Heirloom Bond · 33 sparks"]
+    fuller_moulds["Fuller moulds · 16 sparks"]
+    abundant_castings["Abundant castings · 36 sparks"]
+    eternal_hearth["Eternal hearth · 72 sparks"]
+  end
+  subgraph Efficiency["Efficiency"]
+    trusted_name["Trusted Name · 2 sparks"]
+    busy_counter["Busy Counter · 4 sparks"]
+    guild_purse["Guild Purse · 7 sparks"]
+    fair_contracts["Fair Contracts · 11 sparks"]
+    trade_network["Trade Network · 19 sparks"]
+    family_fortune["Family Fortune · 33 sparks"]
+    enduring_tools["Enduring tools · 16 sparks"]
+    guild_endowment["Guild endowment · 36 sparks"]
+    timeless_methods["Timeless methods · 72 sparks"]
+  end
+  subgraph Archives["Archives"]
+    patient_study["Patient Study · 2 sparks"]
+    field_notes["Field Notes · 4 sparks"]
+    hidden_veins["Hidden Veins · 7 sparks"]
+    ancient_script["Ancient Script · 11 sparks"]
+    shared_purpose["Shared Purpose · 19 sparks"]
+    living_archive["Living Archive · 33 sparks"]
+    rare_archive["Rare armoury archive · 24 sparks"]
+    legend_archive["Legendary armoury archive · 52 sparks"]
+    ancestral_lore["Ancestral lore · 100 sparks"]
+  end
+  ROOT --> practiced_hands
+  practiced_hands --> deep_stores
+  deep_stores --> heavy_forms
+  heavy_forms --> tireless_furnace
+  tireless_furnace --> twin_anvils
+  twin_anvils --> founders_strength
+  ROOT --> steady_eye
+  steady_eye --> keen_edges
+  keen_edges --> measured_lines
+  measured_lines --> runic_resonance
+  runic_resonance --> masterwork_tradition
+  masterwork_tradition --> heirloom_bond
+  ROOT --> trusted_name
+  trusted_name --> busy_counter
+  busy_counter --> guild_purse
+  guild_purse --> fair_contracts
+  fair_contracts --> trade_network
+  trade_network --> family_fortune
+  ROOT --> patient_study
+  patient_study --> field_notes
+  field_notes --> hidden_veins
+  hidden_veins --> ancient_script
+  ancient_script --> shared_purpose
+  shared_purpose --> living_archive
+  ROOT --> inherited_crew
+  inherited_crew --> family_workforce
+  family_workforce --> founders_guild
+  ROOT --> enduring_tools
+  enduring_tools --> guild_endowment
+  guild_endowment --> timeless_methods
+  ROOT --> fuller_moulds
+  fuller_moulds --> abundant_castings
+  abundant_castings --> eternal_hearth
+  ROOT --> rare_archive
+  rare_archive --> legend_archive
+  legend_archive --> ancestral_lore

@@ -20,4 +20,4 @@ for(let second=0;second<2700;second++){
  if(second%300===299){const v=Workshop.validateSave(e.exportSave(),e.data);if(!v.ok)throw Error(v.message);if(s.runs.some(r=>!r.rewardApplied&&r.returnAt<s.simTime))throw Error('Overdue return');samples.push(snapshot());}
 }
 const result={method:'45-minute active opening smoke test, base seed, no grants. Manual mining, 3 assigned miners, smelting batches, mixed tier-1 crafts, early finishing, two Forge investments and clearance only near capacity. This is not an optimal or full-campaign balance estimate.',milestones,final:snapshot(),samples};
-fs.writeFileSync('design/qa/version-2.0-opening.json',JSON.stringify(result,null,2));console.log(JSON.stringify({milestones,final:result.final},null,2));
+fs.writeFileSync(process.argv[2]||'design/qa/version-2.1-opening.json',JSON.stringify(result,null,2));console.log(JSON.stringify({milestones,final:result.final},null,2));

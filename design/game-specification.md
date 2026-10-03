@@ -1,6 +1,6 @@
 # Ember & Iron — The Foundry
 
-Version 2.0.0 · playable design specification · 4 October 2026
+Version 2.1.0 · playable design specification · 4 October 2026
 
 ## The game we are building
 
@@ -28,15 +28,15 @@ A finished item fills an available display slot automatically. If all display sl
 |---|---|---|---|
 | Smith | Rented attic study to comfortable study to master’s estate | Attributes, employees with stamina/XP, furnishings with permanent levels directly below employees, then prominent class mastery levels | Character bonuses and collection |
 | Mine | Shallow timber shaft to established iron mine to deep galleries | Seam cards with stock, manual mining and trading; adjacent worker assignments; mining-point progress | Mining development and room growth requirements |
-| Smelter | Clay hearth to alloy workshop to celestial smeltery; forge-stage artwork with an animated furnace | Smelt 1, 5 or max batches; ore/alloy recipes; ingot bins and an independent queue | Heat, Metallurgy and Handling upgrades |
+| Smelter | Clay hearth to alloy workshop to celestial smeltery; forge-stage artwork with an animated furnace | Smelt 1, 5 or max batches; ore/alloy recipes; ingot bins and an independent queue | Alloys, Quality and Speed upgrades |
 | Forge | Lean-to anvil to working village smithy to grand foundry | Weapons / Armour / Other, then class, recipe, material and enchantment; craft 1, 5 or maximum | Active queue, careful finishes, machinery development, late production rules |
 | Shop | Bare shelves to village outfitter to guild emporium | Display shelves followed by a compact warehouse list; craftable requests and browsing customers beside them | Item inspection, protection, enchantments and shop development, including unlocked salvage settings |
 | Customers | Roadside inn to company lodge to guild hall | Selectable roster, live hero viewer, phase timer, compact final stats, equipped items and recent quests | Actual battle replay, hero loadouts, quest records, party policies, recruitment and training |
 | Legacy | One ceremonial hall, unchanged across generations | Sparks, retirement preview, inherited records and four talent paths | Unlocks after the first tier 5 boss victory |
 
-The global header contains seven room tabs, gold and settings. The room toolbar pairs its name and stage with the primary progression control: a large spendable currency balance and a prominent gold upgrades button. A live ready-to-buy count uses the same affordability and prerequisite checks as the upgrade tree. When no purchase is available, the control explains how to earn its currency; completed trees show that all upgrades are fully developed. Smith instead displays an unspent attribute-point balance without an Improve smith button; allocation remains directly beside each attribute. Room growth remains a secondary control. The Legacy tab is greyed out with an accessible lock explanation until the first tier 5 boss victory. On phones the progression control fills the available width. A horizontal objective strip explains the next useful action. Key figures precede a two-column workspace: primary controls at left, work queues, stock or context at right. The Customers workspace pairs a compact roster with a selected hero viewer. Upgrades open three branching paths with ranks, costs, prerequisites and effects.
+The global header contains seven room tabs, gold and settings. The room toolbar pairs its name and stage with the primary progression control: a large spendable currency balance and a prominent gold upgrades button. A live ready-to-buy count uses the same affordability and prerequisite checks as the upgrade tree. When no purchase is available, the control explains how to earn its currency; completed trees show that all upgrades are fully developed. Smith instead displays an unspent attribute-point balance without an Improve smith button; allocation remains directly beside each attribute. Room growth remains a secondary control. The Legacy tab is greyed out with an accessible lock explanation until the first tier 5 boss victory. On phones the progression control fills the available width. A horizontal objective strip explains the next useful action. Key figures precede a two-column workspace: primary controls at left, work queues, stock or context at right. The Customers workspace pairs a compact roster with a selected hero viewer. Upgrade overlays put three section selectors at the top and show only the chosen branch, with ranks, costs, prerequisites and effects.
 
-Wide screens use the available workspace up to a comfortable 1,840px content width. Mine pairs a responsive two/three-column seam grid with worker assignment cards; large crews scroll within the worker panel on desktop. Stock and trade controls stay on each seam, without a duplicate mined-material sidebar. Leather, wood and Alchemical Oil share one compact Crafting supplies panel in the right-hand section of both Mine and Forge, above worker assignments or work in progress. Their amounts and Buy 1 / Buy 5 controls remain together without stock bars. On narrow screens, this panel stacks above the main work area. Narrow screens use compact navigation, stacked information panels, full-width recipe cards, a horizontally scrollable compact hero roster and vertically stacked upgrade branches. Active Forge work precedes the catalogue on narrow screens; material stock is an expandable panel. Empty Shop displays use compact paired tiles. The compact warehouse list follows the shelves, with customer requests and browsing heroes in the adjacent sidebar (stacked below stock on phones). There is no recent-sales panel or Warehouse / Craft stock shortcut. Changing rooms resets page scroll to the top. The full page scrolls; no controls depend on clicking an illustration. The page and overlays preserve keyboard focus; Escape closes overlays and Tab stays inside an open dialog. Reduced motion disables decorative motion. Browser zoom remains available.
+Wide screens use the available workspace up to a comfortable 1,840px content width. Mine pairs a responsive two/three-column seam grid with worker assignment cards; large crews scroll within the worker panel on desktop. Stock and trade controls stay on each seam, without a duplicate mined-material sidebar. Leather, wood and Alchemical Oil share one compact Crafting supplies panel in the right-hand section of both Mine and Forge, above worker assignments or work in progress. Their amounts and Buy 1 / Buy 5 controls remain together without stock bars. On narrow screens, this panel stacks above the main work area. Narrow screens use compact navigation, stacked information panels, full-width recipe cards, a horizontally scrollable compact hero roster and a selected upgrade branch with vertically stacked cards. Active Forge work precedes the catalogue on narrow screens; material stock is an expandable panel. Empty Shop displays use compact paired tiles. The compact warehouse list follows the shelves, with customer requests and browsing heroes in the adjacent sidebar (stacked below stock on phones). There is no recent-sales panel or Warehouse / Craft stock shortcut. Changing rooms resets page scroll to the top. The full page scrolls; no controls depend on clicking an illustration. The page and overlays preserve keyboard focus; Escape closes overlays and Tab stays inside an open dialog. Reduced motion disables decorative motion. Browser zoom remains available.
 
 ## Character creation and attributes
 
@@ -112,19 +112,19 @@ Ore and forge-ready ingots have separate bins. Ingots cannot be bought or mined.
 | Mithril alloy | 2 mithril ore + 1 steel ingot + 2 coal | 2 mithril ingots | 72 seconds |
 | Starforged alloy | 2 star ore + 1 mithril ingot + 3 coal | 2 starforged ingots | 100 seconds |
 
-One hearth and five waiting batches are available initially. Heat upgrades improve speed; Metallurgy opens the four later metals; Handling increases waiting capacity and simultaneous furnaces. Additional ranks cost 1.9× the preceding rank. Bins share Mine storage capacity, preserving a reason to invest across rooms. Smelter art follows the existing late-stage gates; its live furnace illustration lights while batches are active.
+One hearth and five waiting batches are available initially. Alloys opens the four later metals. Quality adds metal-preparation quality to newly started forging jobs: Measured flux +2 per rank, Slag skimming +3, Assay bench +4, Perfect lattice +5. This is workshop expertise, not separate purity lots stored in bins; active crafts keep their captured quality. Speed improves batch time, waiting capacity and simultaneous furnaces. Additional ranks cost 1.9× the preceding rank, reduced by permanent Legacy efficiency talents to a minimum 1.6×. Bins share Mine storage capacity, preserving a reason to invest across rooms. Smelter art follows the existing late-stage gates; its live furnace illustration lights while batches are active.
 
 ## Crafting and item depth
 
 ![Item category and material tree](diagrams/item-tree.svg)
 
-There are seventeen item classes, 255 recipes and five material tiers, with three distinct patterns per class and tier. Bronze begins the journey. Iron, steel, mithril and starforged items raise combat potential and material investment. Items occupy weapon, body, offhand, ring, charm or tool slots. Two-handed weapons block an offhand.
+There are seventeen item classes and 289 recipes: 255 ordinary patterns across five material tiers, plus 34 permanent Legacy archive patterns. Bronze begins the journey. Iron, steel, mithril and starforged items raise combat potential and material investment. Items occupy weapon, body, offhand, ring, charm or tool slots. Two-handed weapons block an offhand.
 
 The crafting catalogue shows only discovered recipes whose non-material requirements are met and which a recruited hero class can use. Missing ingredients leave a known otherwise-available item visible, with the shortage explained. Locked class and tier items are hidden; recruiting a new class can reveal its compatible starter recipes.
 
 Choose a recipe pattern, one of its unlocked materials, and a compatible unlocked enchantment (or None). Material selects the appropriate tier and combat values; enchanting reserves its catalysts and gold fee together with the craft. The suffix and its captured strength are applied at completion. Craft 1, 5 and Max reserve all required ingredients immediately. Max is the minimum of ingredient availability, queue space, output-storage room and the batch safety limit of 100. An active bench holds an output reservation. Queued work waits for a bench and output capacity. Cancellation returns the exact reserved ingredients and enchanting gold once, for active and queued orders. If any bin cannot hold its full refund, cancellation is blocked with the exact space required; the order and escrow remain intact until space is freed.
 
-Quality is captured when work starts. Its core formula is `18 + 6√(Precision) + 4√(Knowledge) + 0.48×class proficiency + equipment/profession quality + pattern quality offset − recipe difficulty`, with heavy-item Strength and profession bonuses where applicable. It is rounded and clamped to the current forge quality ceiling. Finishing can improve the same active or queued item up to five times. Its quality gains diminish: +20, +10, +5, +2, +1, capped by the current quality ceiling. Each pass adds one original craft duration, not the already-extended duration. A 60-second craft with three passes takes 240 seconds. Prefix chance gains also diminish: +10, +5, +2.5, +1.25, +0.625 percentage points, up to 100%. The affix seed is retained. A pass is unavailable if it cannot raise quality.
+Quality is captured when work starts. Its core formula is `18 + 6√(Precision) + 4√(Knowledge) + 0.48×class proficiency + equipment/profession quality + Smelter preparation quality + pattern quality offset − recipe difficulty`, with heavy-item Strength and profession bonuses where applicable. It is rounded and clamped to the current forge quality ceiling. Finishing can improve the same active or queued item up to five times. Its quality gains diminish: +20, +10, +5, +2, +1, capped by the current quality ceiling. Each pass adds one original craft duration, not the already-extended duration. A 60-second craft with three passes takes 240 seconds. Prefix chance gains also diminish: +10, +5, +2.5, +1.25, +0.625 percentage points, up to 100%. The affix seed is retained. A pass is unavailable if it cannot raise quality.
 
 Finishing costs no additional materials. Queued passes capture current base quality and duration when work begins, apply exactly once, and survive reload. The interface shows the next quality gain, extra work and passes used. Older finished orders preserve the time and quality they already paid for and may receive subsequent diminishing passes.
 
@@ -144,9 +144,13 @@ Quality labels are fixed: Common 1-44, Fine 45-79, Superior 80-114, Masterwork 1
 
 Each class has training, standard and prestige patterns in each of five tiers. Training uses roughly 65% of the base metal input, 70% work time, 70% base price and 70% core combat stats, with a -12 quality offset. Standard uses the original inputs and combat stats, normal work time and 122% base price. Prestige uses two extra metal and one extra coal, 180% work time, 270% base price, 195% core combat stats and a +12 quality offset. Prestige weapons add penetration and attack 10% more slowly; protective prestige pieces add block.
 
-Training proficiency gates are 0 / 15 / 30 / 50 / 75 and relevant attributes 2 / 5 / 9 / 14 / 20. Standard adds 4 proficiency and 1 attribute. Prestige requires proficiency 22 / 37 / 55 / 80 / 97 and attributes 18 / 30 / 46 / 66 / 90. Thus the next tier's training pattern usually arrives before the current tier's prestige piece. Machinery and discoveries still apply. The next-pattern guide considers only training and standard patterns, skipping optional prestige gear. Newly eligible prestige recipes appear in the normal catalogue.
+Training proficiency gates are 0 / 15 / 30 / 50 / 75 and relevant attributes 0 / 5 / 9 / 14 / 20. Standard adds 4 proficiency and 1 attribute. Prestige requires proficiency 22 / 37 / 55 / 80 / 97 and attributes 18 / 30 / 46 / 66 / 90. Thus the next tier's training pattern usually arrives before the current tier's prestige piece. Forge → Recipes unlocks standard bronze for 35g, iron for 75g, steel for 170g, mithril for 400g and starforged for 950g, each after the preceding material pattern node. Master armoury patterns cost 320g, require the iron pattern node and smith level 4, and authorize prestige work across otherwise developed materials. Material machinery and attributes still apply. The next-pattern guide considers only training and standard patterns, skipping optional prestige gear. Newly eligible prestige recipes appear in the normal catalogue.
 
 Filters group seven weapon classes under Weapons; mail, leather and cloth under Armour; shields, books/relics, rings, charms, talismans, tools and instruments under Other. A class filter is always selected; there is no all-class list. Cloth/leather use metal-tier fittings in this fantasy economy. Wand and sceptre leave an offhand free; the prestige staff requires both hands.
+
+### Legacy archive patterns
+
+Each class has a distinct rare relic design and legendary sovereign design with a medieval name. The rare pattern derives from its tier-4 standard piece; the legendary pattern derives from its tier-5 prestige piece. Both add 22% core combat stats, +8 initial quality, 40% work time, 35% base price and two ingots over that source pattern. Rare patterns require smith level 12, at least 42 in the relevant attribute and proficiency 55. Legendary patterns require smith level 20, attribute 90 and proficiency 97. Forge machinery, class access, material stock and the relevant permanent archive talent remain mandatory. These are optional Legacy designs and do not appear in the next ordinary pattern guide.
 
 <!-- ITEM_CATALOGUE_START -->
 
@@ -201,8 +205,8 @@ Enchanting applies one chosen compatible suffix. Knowledge and upgrades strength
 | of Vigor | Vitality Seal | Adds 8 health. | 8 | 1 Gem |
 | of the Firmament | Starlight Rune | Adds 4 attack and 10% void resistance. | 28 | 2 Gem, 1 Star Fragment |
 | of the Hawk | Hawkeye Inscription | +5 percentage points critical chance, scaled by enchanting strength. | 18 | 2 Gem |
-| of the Bastion | Bastion Inscription | +12% item armour and +3 percentage points block, scaled by enchanting strength. | 22 | 2 Gem, 3 Iron ore |
-| of Alacrity | Zephyr Inscription | +8% attack speed, scaled by enchanting strength. | 26 | 2 Gem, 2 Steel |
+| of the Bastion | Bastion Inscription | +12% item armour and +3 percentage points block, scaled by enchanting strength. | 22 | 2 Gem, 3 Iron ingot |
+| of Alacrity | Zephyr Inscription | +8% attack speed, scaled by enchanting strength. | 26 | 2 Gem, 2 Steel ingot |
 
 <!-- ITEM_CATALOGUE_END -->
 
@@ -249,7 +253,7 @@ The combined quest journal places company-wide victory counts and unlock bars be
 
 The twenty authored quests span town, quarry, ember, wildwood, frost and starfall regions. Bosses can change attack patterns during battle. Equipment quality, health, armour, attack speed, resistance, archetype passives, criticals, evasion and party composition affect the result. Rare crafting discoveries remain tied to story progress, alternate routes or rewards.
 
-Every resolved expedition grants one Merit, including a retreat. Heroes finish returning even when material bins and the old delivery mailbox are full. Gold and recipes arrive immediately; excess materials are discarded and recorded in the run state. There is no overflow chest or deferred material reward. Old cargo and pending deliveries migrate once up to current bin space; their excess is discarded. Refunds instead require enough room for full reimbursement. Rewards do not generate mining points. Existing pending saves are repaired on load, stale travel states are reconciled, and rewards are applied exactly once. Training spends Merits to improve health, attack, armour and attack speed. Expedition upgrades improve travel and recovery, additional berths and party capacity. Recruitment costs grow exponentially through the branch.
+Every resolved expedition grants one Merit, including a retreat. Heroes finish returning even when material bins and the old delivery mailbox are full. Gold and recipes arrive immediately; excess materials are discarded and recorded in the run state. There is no overflow chest or deferred material reward. Old cargo and pending deliveries migrate once up to current bin space; their excess is discarded. Refunds instead require enough room for full reimbursement. Rewards do not generate mining points. Existing pending saves are repaired on load, stale travel states are reconciled, and rewards are applied exactly once. Readiness spends Merits on health, attack, armour, attack speed, travel and recovery. Quantity adds named repeat customers, additional berths and party capacity. Classes unlocks Breaker, Guardian and Mage equipment types. Higher quantity nodes require the relevant class node, so quantity cannot bypass class discovery.
 
 Balanced heroes seek a reachable quest with fewer than five victory counts, then reliable familiar work, then the easiest attempt. Independent policy limits parties to one. Companion charter allows pairs and unlocks Cautious and Bold policies. Cautious prefers at least an 80% estimated chance; Bold will pursue candidates from a 25% estimated chance. Warband charter permits three heroes on ordinary quests. Manual boss parties have a separate limit of three from the beginning, with minimum sizes 1, 2, 2, 3 and 3 by tier. An estimate is a forecast, not a guaranteed result.
 
@@ -283,14 +287,15 @@ Each ordinary quest needs 5 hero-victory counts before opening the following enc
 
 ![Room progression currencies and branches](diagrams/room-trees.svg)
 
-Each room has three paths of eight nodes: 104 upgrades total. A node requires at least one rank of the prior node in its path. Additional level and cross-room conditions are shown where relevant. A repeated rank costs `ceil(base cost × 1.9^current rank)`. Deeper base costs also grow approximately exponentially. The player can push forward after one rank or continue improving a previous investment.
+The five production/customer rooms contain 111 upgrades across fifteen selectable sections. Branch sizes vary with their role. A node requires the named prerequisite nodes at rank 1; side paths and cross-section class gates are stated explicitly. A repeated rank costs `ceil(base cost × growth^current rank)`, where growth begins at 1.9 and Legacy can lower it to 1.6. First-rank prices never receive this discount. Deeper base costs also grow approximately exponentially. The player can push forward after one rank or deepen a previous investment. Old paid ranks validate against their original prerequisites and remain owned; future purchases use the new paths.
 
 | Room | Currency | Paths |
 |---|---|---|
-| Mine | Prospecting, earned from lifetime extraction | Extraction, Depths, Logistics |
-| Forge | Gold | Machinery, Mastery, Workflow |
-| Shop | Influence, backed by earned reputation | Commerce, Warehouse, Relations |
-| Customers | Merits, earned from completed expeditions | Training, Expeditions, Recruitment |
+| Mine | Prospecting, earned from lifetime extraction | Depth (main), Workers, Storage |
+| Smelter | Gold | Alloys (main), Quality, Speed |
+| Forge | Gold | Recipes (main), Quality, Speed |
+| Shop | Influence, backed by earned reputation | Price (main), Customer budgets, Customer relations |
+| Customers | Merits, earned from completed expeditions | Classes (main), Quantity, Readiness |
 
 The complete node catalogue below is generated from the same registry as the playable game. Effects are per purchased rank unless the node is a one-time unlock.
 
@@ -300,130 +305,178 @@ The complete node catalogue below is generated from the same registry as the pla
 
 | Path | Upgrade | First cost | Ranks | Effect |
 |---|---|---|---|---|
-| Extraction | Hardened picks | 1 Prospecting | 5 | Workers extract 12% faster per rank. |
-| Extraction | Survey lamps | 2 Prospecting | 3 | Manual mining yields one more material per rank. |
-| Extraction | Drill heads | 4 Prospecting | 5 | Worker speed +18% per rank. |
-| Extraction | Ore sorting | 8 Prospecting | 3 | Each worker load contains one extra material. |
-| Extraction | Precision blasting | 16 Prospecting | 4 | Extract 25% faster per rank. |
-| Extraction | Resonant picks | 32 Prospecting | 3 | Manual yield +2 per rank. |
-| Extraction | Deep core rigs | 64 Prospecting | 4 | Worker loads +2 per rank. |
-| Extraction | Living mountain | 128 Prospecting | 5 | Worker speed +50% per rank. |
-| Depths | Iron seam | 2 Prospecting | 1 | Expose iron. Requires smith level 2. |
-| Depths | Gem pocket | 4 Prospecting | 1 | Expose gems for enchantments. |
-| Depths | Iron-rich galleries | 8 Prospecting | 1 | Mining speed +20%. Steel is alloyed in the Smelter. |
-| Depths | Mithril gallery | 18 Prospecting | 1 | Expose mithril. Requires smith level 8. |
-| Depths | Starfall fissure | 40 Prospecting | 1 | Expose star ore. Requires smith level 12. |
-| Depths | Vein mapping | 80 Prospecting | 4 | All seam extraction +30% speed per rank. |
-| Depths | Crystal lenses | 150 Prospecting | 3 | Worker loads +2 per rank. |
-| Depths | Heart of the mountain | 300 Prospecting | 5 | Worker loads +3 per rank. |
-| Logistics | Ore bins | 1 Prospecting | 5 | Each material bin gains 15 capacity. |
-| Logistics | Crew quarters | 2 Prospecting | 4 | Room for two additional workers per rank. |
-| Logistics | Mine foreman | 4 Prospecting | 3 | All workers are 15% faster per rank. |
-| Logistics | Freight elevators | 8 Prospecting | 5 | Each bin gains 30 capacity per rank. |
-| Logistics | Shift rosters | 16 Prospecting | 3 | Two additional worker slots per rank. |
-| Logistics | Supply contracts | 32 Prospecting | 4 | Purchased materials cost 4% less per rank. |
-| Logistics | Underground silos | 64 Prospecting | 5 | Each bin gains 75 capacity per rank. |
-| Logistics | Industrial workforce | 128 Prospecting | 4 | Three worker slots and 10% extraction speed. |
+| Workers | Hardened picks | 1 Prospecting | 5 | Workers extract 12% faster per rank. |
+| Workers | Survey lamps | 2 Prospecting | 3 | Manual mining yields one more material per rank. |
+| Workers | Drill heads | 4 Prospecting | 5 | Worker speed +18% per rank. |
+| Workers | Ore sorting | 8 Prospecting | 3 | Each worker load contains one extra material. |
+| Workers | Precision blasting | 16 Prospecting | 4 | Extract 25% faster per rank. |
+| Workers | Resonant picks | 32 Prospecting | 3 | Manual yield +2 per rank. |
+| Workers | Deep core rigs | 64 Prospecting | 4 | Worker loads +2 per rank. |
+| Workers | Living mountain | 128 Prospecting | 5 | Worker speed +50% per rank. |
+| Depth | Iron seam | 2 Prospecting | 1 | Expose iron. Requires smith level 2. |
+| Depth | Gem pocket | 4 Prospecting | 1 | Expose gems for enchantments. |
+| Depth | Iron-rich galleries | 8 Prospecting | 1 | Mining speed +20%. Steel is alloyed in the Smelter. |
+| Depth | Mithril gallery | 18 Prospecting | 1 | Expose mithril. Requires smith level 8. |
+| Depth | Starfall fissure | 40 Prospecting | 1 | Expose star ore. Requires smith level 12. |
+| Depth | Vein mapping | 80 Prospecting | 4 | All seam extraction +30% speed per rank. |
+| Depth | Crystal lenses | 150 Prospecting | 3 | Worker loads +2 per rank. |
+| Depth | Heart of the mountain | 300 Prospecting | 5 | Worker loads +3 per rank. |
+| Storage | Ore bins | 1 Prospecting | 5 | Each material bin gains 15 capacity. |
+| Workers | Crew quarters | 2 Prospecting | 4 | Room for two additional workers per rank. |
+| Workers | Mine foreman | 4 Prospecting | 3 | All workers are 15% faster per rank. |
+| Storage | Freight elevators | 8 Prospecting | 5 | Each bin gains 30 capacity per rank. |
+| Workers | Shift rosters | 16 Prospecting | 3 | Two additional worker slots per rank. |
+| Storage | Supply contracts | 32 Prospecting | 4 | Purchased materials cost 4% less per rank. |
+| Storage | Underground silos | 64 Prospecting | 5 | Each bin gains 75 capacity per rank. |
+| Workers | Industrial workforce | 128 Prospecting | 4 | Three worker slots and 10% extraction speed. |
 
 ### Forge upgrade catalogue
 
 | Path | Upgrade | First cost | Ranks | Effect |
 |---|---|---|---|---|
-| Machinery | Grinding stone | 35 Gold | 1 | Install a grinding stone. All crafts +4 quality. |
-| Machinery | Power hammer | 75 Gold | 1 | Install a power hammer; enables iron-tier shaping. |
-| Machinery | Tempering station | 170 Gold | 1 | Unlock steel-tier machinery and +5 quality. |
-| Machinery | Runic workbench | 400 Gold | 1 | Unlock mithril-tier machinery and enchanting. |
-| Machinery | Starforge crucible | 950 Gold | 1 | Unlock starforged-tier machinery; +6 quality. |
-| Machinery | Calibrated tools | 2200 Gold | 4 | All crafts +3 quality per rank. |
-| Machinery | Masterwork dies | 5000 Gold | 3 | Heavy crafts +5 quality per rank. |
-| Machinery | Everlasting flame | 12000 Gold | 5 | Craft speed +20% and quality +2 per rank. |
-| Mastery | Measured strikes | 40 Gold | 5 | All crafts +2 quality per rank. |
-| Mastery | Pattern library | 85 Gold | 4 | Class proficiency XP +12% per rank. |
-| Mastery | Balanced edges | 190 Gold | 4 | Special affix chance +3.5% per rank. |
-| Mastery | Breakthrough craft | 440 Gold | 4 | Raise the quality ceiling by 15 per rank beyond 100. |
-| Mastery | Elemental etching | 1000 Gold | 4 | Enchantments are 12% stronger per rank. |
-| Mastery | Master schematics | 2400 Gold | 3 | Recipe proficiency requirements fall by 2 per rank. |
-| Mastery | Perfect harmonics | 5600 Gold | 4 | Quality +4 and affix chance +2% per rank. |
-| Mastery | Legendary finish | 13000 Gold | 4 | Quality ceiling +10 and quality +5 per rank. |
-| Workflow | Tool racks | 30 Gold | 4 | Queue two additional crafts per rank. |
-| Workflow | Power bellows | 70 Gold | 5 | Crafting speed +12% per rank. |
-| Workflow | Apprentice bench | 160 Gold | 2 | Run one additional craft simultaneously. |
-| Workflow | Fitted handles | 380 Gold | 4 | Crafting speed +15% per rank. |
-| Workflow | Production ledgers | 900 Gold | 4 | Queue four additional crafts per rank. |
-| Workflow | Artisan benches | 2100 Gold | 2 | Run one additional craft simultaneously. |
-| Workflow | Clockwork hammers | 4900 Gold | 5 | Crafting speed +25% per rank. |
-| Workflow | Grand atelier | 11500 Gold | 3 | One active bench and four queue slots per rank; unlock production rules. |
+| Recipes | Guild patterns & grinding stone | 35 Gold | 1 | Unlock standard bronze patterns; install the grinding stone. All crafts +4 quality. |
+| Recipes | Power hammer | 75 Gold | 1 | Install a power hammer; enables iron-tier shaping. Unlock iron training and standard patterns. |
+| Recipes | Tempering station | 170 Gold | 1 | Unlock steel-tier machinery and +5 quality. Unlock steel training and standard patterns. |
+| Recipes | Runic workbench | 400 Gold | 1 | Unlock mithril-tier machinery and enchanting. Unlock mithril training and standard patterns. |
+| Recipes | Starforge crucible | 950 Gold | 1 | Unlock starforged-tier machinery; +6 quality. Unlock starforged training and standard patterns. |
+| Quality | Calibrated tools | 2200 Gold | 4 | All crafts +3 quality per rank. |
+| Quality | Masterwork dies | 5000 Gold | 3 | Heavy crafts +5 quality per rank. |
+| Speed | Everlasting flame | 12000 Gold | 5 | Craft speed +20% and quality +2 per rank. |
+| Quality | Measured strikes | 40 Gold | 5 | All crafts +2 quality per rank. |
+| Recipes | Pattern library | 85 Gold | 4 | Class proficiency XP +12% per rank. |
+| Quality | Balanced edges | 190 Gold | 4 | Special affix chance +3.5% per rank. |
+| Quality | Breakthrough craft | 440 Gold | 4 | Raise the quality ceiling by 15 per rank beyond 100. |
+| Quality | Elemental etching | 1000 Gold | 4 | Enchantments are 12% stronger per rank. |
+| Recipes | Master schematics | 2400 Gold | 3 | Recipe proficiency requirements fall by 2 per rank. |
+| Quality | Perfect harmonics | 5600 Gold | 4 | Quality +4 and affix chance +2% per rank. |
+| Quality | Legendary finish | 13000 Gold | 4 | Quality ceiling +10 and quality +5 per rank. |
+| Speed | Tool racks | 30 Gold | 4 | Queue two additional crafts per rank. |
+| Speed | Power bellows | 70 Gold | 5 | Crafting speed +12% per rank. |
+| Speed | Apprentice bench | 160 Gold | 2 | Run one additional craft simultaneously. |
+| Speed | Fitted handles | 380 Gold | 4 | Crafting speed +15% per rank. |
+| Speed | Production ledgers | 900 Gold | 4 | Queue four additional crafts per rank. |
+| Speed | Artisan benches | 2100 Gold | 2 | Run one additional craft simultaneously. |
+| Speed | Clockwork hammers | 4900 Gold | 5 | Crafting speed +25% per rank. |
+| Speed | Grand atelier | 11500 Gold | 3 | One active bench and four queue slots per rank; unlock production rules. |
+| Recipes | Master armoury patterns | 320 Gold | 1 | Unlock prestige patterns in every developed material tier. Their high attribute and proficiency requirements still apply. |
 
 ### Shop upgrade catalogue
 
 | Path | Upgrade | First cost | Ranks | Effect |
 |---|---|---|---|---|
-| Commerce | Honest signage | 2 Influence | 5 | Customer prices +3.5% per rank. |
-| Commerce | Trusted supplier | 4 Influence | 4 | Customer budgets +8% per rank. |
-| Commerce | Guild introductions | 8 Influence | 3 | Every sale earns one extra relationship per rank. |
-| Commerce | Premium showcases | 16 Influence | 4 | Customer prices +5% per rank. |
-| Commerce | Patron accounts | 32 Influence | 4 | Customer budgets +12% per rank. |
-| Commerce | Renowned commissions | 64 Influence | 4 | Commission payments +12% per rank. |
-| Commerce | Trade ambassador | 128 Influence | 3 | Successful quests earn one extra reputation per rank. |
-| Commerce | Royal warrant | 256 Influence | 4 | Prices and customer budgets +8% per rank. |
-| Warehouse | Display plinths | 2 Influence | 5 | Two more displayed items per rank. |
-| Warehouse | Stockroom shelves | 4 Influence | 5 | Warehouse capacity +12 per rank. |
-| Warehouse | Porter service | 8 Influence | 1 | Add 8 warehouse spaces and 2 display slots. Basic restocking is always automatic. |
-| Warehouse | Salvage bench | 16 Influence | 1 | Unlock optional scrapping below your chosen quality threshold. |
-| Warehouse | Secure vault | 32 Influence | 4 | Warehouse capacity +24 per rank. |
-| Warehouse | Gallery wing | 64 Influence | 4 | Four more displayed items per rank. |
-| Warehouse | Distribution depot | 128 Influence | 4 | Warehouse capacity +40 per rank. |
-| Warehouse | Grand exhibition | 256 Influence | 4 | Six display slots and 20 warehouse slots per rank. |
-| Relations | Welcoming hearth | 2 Influence | 4 | Customers browse five seconds longer per rank. |
-| Relations | Personal service | 4 Influence | 3 | Every sale earns one extra relationship per rank. |
-| Relations | Quest sponsorship | 8 Influence | 3 | Every victory grants one extra reputation per rank. |
-| Relations | Returning patrons | 16 Influence | 4 | Customer budgets +10% per rank. |
-| Relations | Commission desk | 32 Influence | 4 | Commission payments +15% per rank. |
-| Relations | Guild festival | 64 Influence | 4 | Customer prices +6% per rank. |
-| Relations | Honoured allies | 128 Influence | 4 | Browse time +8 seconds and relationship +1 per rank. |
-| Relations | House of legends | 256 Influence | 4 | Victory reputation +2 and customer budgets +10% per rank. |
+| Price | Honest signage | 2 Influence | 5 | Customer prices +3.5% per rank. |
+| Customer budgets | Trusted supplier | 4 Influence | 4 | Customer budgets +8% per rank. |
+| Customer relations | Guild introductions | 8 Influence | 3 | Every sale earns one extra relationship per rank. |
+| Price | Premium showcases | 16 Influence | 4 | Customer prices +5% per rank. |
+| Customer budgets | Patron accounts | 32 Influence | 4 | Customer budgets +12% per rank. |
+| Customer relations | Renowned commissions | 64 Influence | 4 | Commission payments +12% per rank. |
+| Customer relations | Trade ambassador | 128 Influence | 3 | Successful quests earn one extra reputation per rank. |
+| Price | Royal warrant | 256 Influence | 4 | Prices and customer budgets +8% per rank. |
+| Customer relations | Display plinths | 2 Influence | 5 | Two more displayed items per rank. |
+| Customer relations | Stockroom shelves | 4 Influence | 5 | Warehouse capacity +12 per rank. |
+| Customer relations | Porter service | 8 Influence | 1 | Add 8 warehouse spaces and 2 display slots. Basic restocking is always automatic. |
+| Customer relations | Salvage bench | 16 Influence | 1 | Unlock optional scrapping below your chosen quality threshold. |
+| Customer relations | Secure vault | 32 Influence | 4 | Warehouse capacity +24 per rank. |
+| Customer relations | Gallery wing | 64 Influence | 4 | Four more displayed items per rank. |
+| Customer relations | Distribution depot | 128 Influence | 4 | Warehouse capacity +40 per rank. |
+| Customer relations | Grand exhibition | 256 Influence | 4 | Six display slots and 20 warehouse slots per rank. |
+| Customer relations | Welcoming hearth | 2 Influence | 4 | Customers browse five seconds longer per rank. |
+| Customer relations | Personal service | 4 Influence | 3 | Every sale earns one extra relationship per rank. |
+| Customer relations | Quest sponsorship | 8 Influence | 3 | Every victory grants one extra reputation per rank. |
+| Customer budgets | Returning patrons | 16 Influence | 4 | Customer budgets +10% per rank. |
+| Customer relations | Commission desk | 32 Influence | 4 | Commission payments +15% per rank. |
+| Price | Guild festival | 64 Influence | 4 | Customer prices +6% per rank. |
+| Customer relations | Honoured allies | 128 Influence | 4 | Browse time +8 seconds and relationship +1 per rank. |
+| Customer budgets | House of legends | 256 Influence | 4 | Victory reputation +2 and customer budgets +10% per rank. |
 
 ### Customers upgrade catalogue
 
 | Path | Upgrade | First cost | Ranks | Effect |
 |---|---|---|---|---|
-| Training | Training yard | 2 Merits | 5 | Hero health +6% per rank. |
-| Training | Sparring partners | 4 Merits | 4 | Hero attack +4% per rank. |
-| Training | Shield drills | 8 Merits | 4 | Hero armour +0.5 per rank. |
-| Training | Combat reflexes | 16 Merits | 4 | Hero attack speed +4% per rank. |
-| Training | Veteran conditioning | 32 Merits | 4 | Hero health +10% per rank. |
-| Training | Master instructors | 64 Merits | 4 | Hero attack +7% per rank. |
-| Training | Tactical movement | 128 Merits | 4 | Hero attack speed +7% per rank. |
-| Training | Champions of the forge | 256 Merits | 4 | Hero health +12% and attack +8% per rank. |
-| Expeditions | Recovery beds | 2 Merits | 5 | Heroes recover 10% faster per rank. |
-| Expeditions | Trail maps | 4 Merits | 4 | Quest journeys are 10% faster per rank. |
-| Expeditions | Companion charter | 8 Merits | 1 | Heroes may form pairs; unlock cautious and bold policies. |
-| Expeditions | Field infirmary | 16 Merits | 4 | Recovery speed +15% per rank. |
-| Expeditions | Warband charter | 32 Merits | 1 | Heroes may form parties of three. |
-| Expeditions | Expedition berths | 64 Merits | 3 | One additional simultaneous expedition per rank. |
-| Expeditions | Waystone network | 128 Merits | 4 | Quest journey speed +15% per rank. |
-| Expeditions | Sanctuary | 256 Merits | 4 | Recovery speed +25% and health +5% per rank. |
-| Recruitment | Breaker customers | 4 Merits | 1 | Bren visits automatically; buys Axes, Maces, Mail armour, Shields, Talismans, Tools. |
-| Recruitment | Guardian customers | 8 Merits | 1 | Thane visits automatically; buys Polearms, Swords, Mail armour, Shields, Talismans, Tools. |
-| Recruitment | Mage customers | 16 Merits | 1 | Sable visits automatically; buys Arcane Foci, Cloth armour, Books & relics, Rings, Charms, Instruments. |
-| Recruitment | Duelist customers | 32 Merits | 1 | Lyra visits automatically; buys Daggers, Swords, Leather armour, Rings, Talismans, Instruments. |
-| Recruitment | Ranger customers | 64 Merits | 1 | Orrin visits automatically; buys Bows, Daggers, Leather armour, Rings, Charms, Tools. |
-| Recruitment | Vanguard & Breaker customers | 128 Merits | 1 | Ida visits automatically; buys Swords, Mail armour, Shields, Rings, Charms, Tools. Hark visits automatically; buys Axes, Maces, Mail armour, Shields, Talismans, Tools. |
-| Recruitment | Mage customers | 256 Merits | 1 | Vesper visits automatically; buys Arcane Foci, Cloth armour, Books & relics, Rings, Charms, Instruments. |
-| Recruitment | Guardian customers | 512 Merits | 1 | Aela visits automatically; buys Polearms, Swords, Mail armour, Shields, Talismans, Tools. |
+| Readiness | Training yard | 2 Merits | 5 | Hero health +6% per rank. |
+| Readiness | Sparring partners | 4 Merits | 4 | Hero attack +4% per rank. |
+| Readiness | Shield drills | 8 Merits | 4 | Hero armour +0.5 per rank. |
+| Readiness | Combat reflexes | 16 Merits | 4 | Hero attack speed +4% per rank. |
+| Readiness | Veteran conditioning | 32 Merits | 4 | Hero health +10% per rank. |
+| Readiness | Master instructors | 64 Merits | 4 | Hero attack +7% per rank. |
+| Readiness | Tactical movement | 128 Merits | 4 | Hero attack speed +7% per rank. |
+| Readiness | Champions of the forge | 256 Merits | 4 | Hero health +12% and attack +8% per rank. |
+| Readiness | Recovery beds | 2 Merits | 5 | Heroes recover 10% faster per rank. |
+| Readiness | Trail maps | 4 Merits | 4 | Quest journeys are 10% faster per rank. |
+| Quantity | Companion charter | 8 Merits | 1 | Heroes may form pairs; unlock cautious and bold policies. |
+| Readiness | Field infirmary | 16 Merits | 4 | Recovery speed +15% per rank. |
+| Quantity | Warband charter | 32 Merits | 1 | Heroes may form parties of three. |
+| Quantity | Expedition berths | 64 Merits | 3 | One additional simultaneous expedition per rank. |
+| Readiness | Waystone network | 128 Merits | 4 | Quest journey speed +15% per rank. |
+| Readiness | Sanctuary | 256 Merits | 4 | Recovery speed +25% and health +5% per rank. |
+| Classes | Breaker customers | 4 Merits | 1 | Bren visits automatically; buys Axes, Maces, Mail armour, Shields, Talismans, Tools. |
+| Classes | Guardian customers | 8 Merits | 1 | Thane visits automatically; buys Polearms, Swords, Mail armour, Shields, Talismans, Tools. |
+| Classes | Mage customers | 16 Merits | 1 | Sable visits automatically; buys Arcane Foci, Cloth armour, Books & relics, Rings, Charms, Instruments. |
+| Quantity | Another duelist | 32 Merits | 1 | Lyra visits automatically; buys Daggers, Swords, Leather armour, Rings, Talismans, Instruments. |
+| Quantity | Another ranger | 64 Merits | 1 | Orrin visits automatically; buys Bows, Daggers, Leather armour, Rings, Charms, Tools. |
+| Quantity | Vanguard & breaker regulars | 128 Merits | 1 | Ida visits automatically; buys Swords, Mail armour, Shields, Rings, Charms, Tools. Hark visits automatically; buys Axes, Maces, Mail armour, Shields, Talismans, Tools. |
+| Quantity | Another mage | 256 Merits | 1 | Vesper visits automatically; buys Arcane Foci, Cloth armour, Books & relics, Rings, Charms, Instruments. |
+| Quantity | Another guardian | 512 Merits | 1 | Aela visits automatically; buys Polearms, Swords, Mail armour, Shields, Talismans, Tools. |
 
 ### Smelter upgrade catalogue
 
 | Path | Upgrade | First cost | Ranks | Effect |
 |---|---|---|---|---|
-| Heat | Leather bellows | 30 Gold | 5 | Smelting speed +15% per rank. |
-| Heat | Refractory lining | 280 Gold | 5 | Smelting speed +25% per rank. |
-| Metallurgy | Iron crucible | 65 Gold | 1 | Refine iron ore into usable ingots. |
-| Metallurgy | Carbon control | 180 Gold | 1 | Alloy iron and coal into steel. |
-| Metallurgy | Silverfire crucible | 650 Gold | 1 | Blend mithril ore with steel. |
-| Metallurgy | Celestial crucible | 2200 Gold | 1 | Bind star ore with mithril. |
-| Handling | Casting racks | 45 Gold | 5 | Two additional queued batches per rank. |
-| Handling | Parallel hearths | 450 Gold | 3 | One additional active furnace per rank. |
+| Speed | Leather bellows | 30 Gold | 5 | Smelting speed +15% per rank. |
+| Speed | Refractory lining | 280 Gold | 5 | Smelting speed +25% per rank. |
+| Alloys | Iron crucible | 65 Gold | 1 | Refine iron ore into usable ingots. |
+| Alloys | Carbon control | 180 Gold | 1 | Alloy iron and coal into steel. |
+| Alloys | Silverfire crucible | 650 Gold | 1 | Blend mithril ore with steel. |
+| Alloys | Celestial crucible | 2200 Gold | 1 | Bind star ore with mithril. |
+| Speed | Casting racks | 45 Gold | 5 | Two additional queued batches per rank. |
+| Speed | Parallel hearths | 450 Gold | 3 | One additional active furnace per rank. |
+| Quality | Measured flux | 55 Gold | 5 | Prepared metal adds +2 quality per rank to newly started equipment. |
+| Quality | Slag skimming | 240 Gold | 5 | Cleaner metal adds +3 equipment quality per rank. |
+| Quality | Assay bench | 1100 Gold | 3 | Test each alloy: +4 equipment quality per rank. |
+| Quality | Perfect lattice | 4800 Gold | 3 | Refined crystal structure: +5 equipment quality per rank. Forge breakthroughs still set the ceiling. |
+| Speed | Heat-recovery flues | 1600 Gold | 4 | Recover furnace heat: +30% smelting speed per rank. |
+| Speed | Continuous casting | 6200 Gold | 3 | Continuous casting adds +50% smelting speed per rank. |
+
+### Permanent Legacy catalogue
+
+| Section | Talent | Sparks | Effect |
+|---|---|---|---|
+| Archives | Rare armoury archive | 24 | Permanently discover 17 rare relic patterns, one per equipment class. Requires tier-4 materials and mastery. |
+| Archives | Legendary armoury archive | 52 | Permanently discover 17 legendary sovereign patterns. Requires tier-5 materials and exceptional mastery. |
+| Archives | Ancestral lore | 100 | Legacy recipes become easier to master: proficiency gates −5 and quality ceiling +10. |
+| Archives | Patient Study | 2 | +20% proficiency XP. |
+| Archives | Field Notes | 4 | +20% adventurer XP. |
+| Archives | Hidden Veins | 7 | +25% quest material loot. |
+| Archives | Ancient Script | 11 | Recipe proficiency gates reduced by 5, floor zero. |
+| Archives | Shared Purpose | 19 | Distinct-role party synergy becomes 20% instead of 10%. |
+| Archives | Living Archive | 33 | Every proficiency starts at 10. |
+| Efficiency | Enduring tools | 16 | Room upgrade rank costs grow by 80%, instead of 90%. |
+| Efficiency | Guild endowment | 36 | Reduce room upgrade rank growth by another 10 percentage points. |
+| Efficiency | Timeless methods | 72 | Reduce rank growth to 60% total. First-rank costs and unlock gates remain. |
+| Efficiency | Trusted Name | 2 | +10% final sale price. |
+| Efficiency | Busy Counter | 4 | Customer arrivals are 20% faster. |
+| Efficiency | Guild Purse | 7 | +20% customer budgets. |
+| Efficiency | Fair Contracts | 11 | Staff hiring costs 25% less. |
+| Efficiency | Trade Network | 19 | Common materials cost 15% less. |
+| Efficiency | Family Fortune | 33 | +250 starting gold. |
+| Metallurgy | Fuller moulds | 16 | Every completed smelting batch produces one extra ingot. |
+| Metallurgy | Abundant castings | 36 | Every batch produces another extra ingot. |
+| Metallurgy | Eternal hearth | 72 | Two more ingots per batch and +25% smelting speed. Full bins still lose excess. |
+| Metallurgy | Steady Eye | 2 | +4 quality for every craft. |
+| Metallurgy | Keen Edges | 4 | +8% item attack contribution. |
+| Metallurgy | Measured Lines | 7 | +15 percentage points affix chance. |
+| Metallurgy | Runic Resonance | 11 | +25% enchantment strength. |
+| Metallurgy | Masterwork Tradition | 19 | +8 quality for every craft. |
+| Metallurgy | Heirloom Bond | 33 | +20% heirloom combat contributions. |
+| Workforce | Inherited crew | 12 | Begin each new smith with one extra miner and crew slot. |
+| Workforce | Family workforce | 28 | Begin with two more miners and crew slots. |
+| Workforce | Founders guild | 60 | Begin with three more miners, crew slots and 100 extra gold. |
+| Workforce | Practiced Hands | 2 | +12% crafting speed bonus. |
+| Workforce | Deep Stores | 4 | +8 finished-item capacity. |
+| Workforce | Heavy Forms | 7 | +6 quality for heavy equipment. |
+| Workforce | Tireless Furnace | 11 | +2 waiting craft slots. |
+| Workforce | Twin Anvils | 19 | +1 parallel crafting lane. |
+| Workforce | Founders Strength | 33 | +2 starting Strength after allocation. |
 
 <!-- UPGRADE_CATALOGUE_END -->
 
@@ -431,9 +484,9 @@ The complete node catalogue below is generated from the same registry as the pla
 
 Retirement is optional only after defeating the tier 5 Void Sovereign in the current generation. The preview shows the sparks earned and lets the player carry a protected inventory item as an heirloom. Retirement resets ordinary gold, materials, room trees, miners, hero progress, smith level, attributes and proficiency. It retains Legacy sparks, learned talents, collection records, furnishings and the chosen heirloom plus its recipe. Starting the next generation presents character creation again.
 
-Legacy has its own sixth screen and a single ornate gold-and-marble hall background. The navigation tab is visibly greyed out until the first Void Sovereign victory; direct links also respect the lock. After retirement the hall remains accessible, including from character creation, so inherited sparks can be spent before the next smith begins. The screen contains spark balance and affordable-talent count, generation and collection records, reward breakdown, what persists versus resets, and the permanent talent tree. Retirement still requires defeating the final boss in the current generation and uses a separate confirmation with heirloom selection. Before the first retirement, four path previews explain the tree that will open.
+Legacy has its own seventh screen and a single ornate gold-and-marble hall background. The navigation tab is visibly greyed out until the first Void Sovereign victory; direct links also respect the lock. After retirement the hall remains accessible, including from character creation, so inherited sparks can be spent before the next smith begins. The screen contains spark balance and affordable-talent count, generation and collection records, reward breakdown, what persists versus resets, and the permanent talent tree. Retirement still requires defeating the final boss in the current generation and uses a separate confirmation with heirloom selection. Before the first retirement, the same four section selectors preview the talents, with purchases disabled.
 
-The first retirement opens four paths of 24 permanent Legacy talents. Sparks remain zero until the final boss is beaten. A completed five-boss campaign earns 46 base sparks: a 20-spark final-boss award plus distinct boss weights 1, 2, 4, 7 and 12. Add one spark per six smith levels beyond level 12 (maximum 12) and one per twelve distinct quality-115 masterwork designs made this generation (maximum 8). A run therefore awards 46-66 sparks after all five bosses, never more for repeating easy quests or bosses. Talent costs by branch depth remain 2, 4, 7, 11, 19 and 33, totalling 304. The preview itemizes rewards. Existing earned sparks and learned talents are preserved.
+The first retirement opens four selectable sections containing 36 permanent Legacy talents. Workforce, Efficiency, Metallurgy and Archives each combine preserved talents with three powerful new investments. Sparks remain zero until the final boss is beaten. A completed five-boss campaign earns 46 base sparks: a 20-spark final-boss award plus distinct boss weights 1, 2, 4, 7 and 12. Add one spark per six smith levels beyond level 12 (maximum 12) and one per twelve distinct quality-115 masterwork designs made this generation (maximum 8). A run therefore awards 46-66 sparks after all five bosses, never more for repeating easy quests or bosses. The 24 preserved talents cost 304 sparks in total. The twelve new powers cost a further 524 sparks (828 for the full set). Workforce costs 12 / 28 / 60 and adds 1 / 2 / 3 starting workers and slots, with 100 starting gold at the final node. Efficiency costs 16 / 36 / 72 and reduces rank growth by 0.1 each, to 1.6. Metallurgy costs 16 / 36 / 72 and adds 1 / 1 / 2 ingots per completed batch, with +25% smelt speed at the final node. Archives costs 24 / 52 / 100: unlock 17 rare designs, then 17 legendary designs, then reduce proficiency gates by 5 and raise the quality ceiling by 10. All bonuses are permanent; starting bonuses apply once at character creation. Full material bins still discard excess ingots. The preview itemizes rewards. Existing earned sparks and learned talents are preserved.
 
 Employees appear below attributes on Smith, each with experience and stamina bars. Apprentice learns from crafting, Quartermaster from supplies, Envoy from sales, and Runekeeper from enchanting. Experience thresholds are 30 × employee level, up to level 5; experience gain scales with current effectiveness. Hiring has no recurring wages.
 
@@ -490,4 +543,8 @@ The existing deterministic engine remains the foundation. The Company extension 
 
 The automated suite covers the original queue, combat, offline, reward, commission, retirement and save guarantees, plus new creation rules, uncapped attributes, worker fallback, currency accounting, tier machinery, recruitment, breakthrough quality, automation safety, migration and online/offline equivalence. Browser checks cover first-time creation, crafting, customer sales, mining assignment, room navigation, branching overlays and actual quest replays. Current narrow-screen checks use a 360-pixel browser viewport.
 
-Future tuning should use human sessions to measure first-sale time, ingredient starvation, upgrade choice rates, return-customer demand, mid-game class specialization and time to first retirement. There are no claims here that all 104 upgrades have been human-playtested to completion.
+Future tuning should use human sessions to measure first-sale time, ingredient starvation, upgrade choice rates, return-customer demand, mid-game class specialization and time to first retirement. There are no claims here that all 111 upgrades have been human-playtested to completion.
+
+## Blender inventory art
+
+273 original models were rendered in Blender 5.2 with Cycles into a transparent 16 × 18 atlas (192px per cell). The atlas covers 255 class/material/pattern variants and 18 resource icons. Rare and legendary archive recipes reuse the class/material prestige silhouette. Ore clusters, ingots, weapons, armour, accessories and supplies use consistent bevels, lighting and materials. The editable scene and atlas manifest are stored under `assets/inventory`; the complete source is `design/tools/render_blender_icons.py`. The UI uses atlas sprites in workings, smelting formulae, resource stock, Forge previews, Shop inventory and equipped items. The standalone build embeds the atlas once and shares one browser image URL.

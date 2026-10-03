@@ -1,0 +1,92 @@
+[
+  {
+    "branch": "Depth",
+    "cards": 8,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Workers",
+    "cards": 12,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Storage",
+    "cards": 4,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Alloys",
+    "cards": 4,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Quality",
+    "cards": 4,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Speed",
+    "cards": 6,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Recipes",
+    "cards": 8,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Quality",
+    "cards": 8,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Speed",
+    "cards": 9,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Price",
+    "cards": 4,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Customer budgets",
+    "cards": 4,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Customer relations",
+    "cards": 16,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Classes",
+    "cards": 3,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Quantity",
+    "cards": 8,
+    "dialogOverflow": false,
+    "overflow": false
+  },
+  {
+    "branch": "Readiness",
+    "cards": 13,
+    "dialogOverflow": false,
+    "overflow": false
+  }
+]

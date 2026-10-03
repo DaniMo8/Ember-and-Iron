@@ -3,7 +3,7 @@
 const copy=x=>JSON.parse(JSON.stringify(x)),attrs=['strength','precision','charisma','knowledge'],ok=message=>({ok:true,message}),no=message=>({ok:false,message}),int=n=>Number.isSafeInteger(n)&&n>=0;
 class Workshop extends World{
  constructor(data,saved){W.apply(data,P);if(saved){const v=Workshop.validateSave(saved,data);if(!v.ok)throw Error(v.message);saved=v.state;}super(data,saved);this._migrateWorkshop();}
- _fresh(){const s=super._fresh();s.player.stats=Object.fromEntries(attrs.map(k=>[k,0]));s.player.points=20;s.player.name='The Smith';s.materials.tin=3;s.workshop={version:1,smelted:0,upgrades:{},jobs:[]};return s;}
+ _fresh(){const s=super._fresh();s.player.stats=Object.fromEntries(attrs.map(k=>[k,0]));s.player.points=20;s.player.name='The Smith';s.materials.tin=3;s.workshop={version:1,upgradeVersion:2,archivedPatterns:[],smelted:0,upgrades:{},jobs:[]};return s;}
  _migrateWorkshop(){
   const s=this.state;if(!s.workshop){
    s.workshop={version:1,smelted:0,upgrades:{},jobs:[]};
@@ -14,6 +14,8 @@ class Workshop extends World{
    const e=this._effects();if(e.smelter)s.workshop.upgrades.iron=1;if(e.tempering)s.workshop.upgrades.steel=1;if(e.runeBench)s.workshop.upgrades.mithril=1;if(e.starforge)s.workshop.upgrades.starforged=1;
    if(!s.started){s.player.stats=Object.fromEntries(attrs.map(k=>[k,0]));s.player.points=20;}
   }
+  if(s.workshop.upgradeVersion!==2){s.workshop.archivedPatterns=[...s.unlocks.recipes];s.workshop.upgradeVersion=2;}
+  s.workshop.archivedPatterns??=[];
   for(const id of Object.keys(this.data.materials))s.materials[id]??=0;
   s.player.name=s.player.name||'The Smith';
   for(const j of s.jobs){j.finishPasses??=j.technique?1:0;j.appliedFinishPasses??=j.status==='active'?j.finishPasses:0;if(j.status==='active')j.baseDuration??=Math.max(1,Math.round(j.duration/(j.technique?2:1)));}
@@ -24,6 +26,8 @@ class Workshop extends World{
   W.apply(data,P);const v=World.validateSave(input,data);if(!v.ok)return v;const s=v.state,w=s.workshop;if(!w)return v;
   try{const check=(condition,message)=>{if(!condition)throw Error(message);};
    check(w.version===1&&int(w.smelted)&&w.upgrades&&Array.isArray(w.jobs)&&w.jobs.length<=30,'Invalid smelter state.');
+   check(w.upgradeVersion==null||w.upgradeVersion===2,'Invalid upgrade version.');
+   check(w.archivedPatterns==null||(Array.isArray(w.archivedPatterns)&&w.archivedPatterns.every(id=>data.recipes[id]&&!data.recipes[id].legacyTalent)),'Invalid inherited patterns.');
    check(Object.entries(w.upgrades).every(([id,n])=>W.upgrades[id]&&int(n)&&n<=W.upgrades[id].maxRank&&(!n||!W.upgrades[id].parent||w.upgrades[W.upgrades[id].parent]>0)),'Invalid smelter upgrades.');
    check(typeof s.player.name==='string'&&s.player.name.trim().length>0&&s.player.name.length<=28,'Invalid smith name.');
    const ids=new Set();for(const j of w.jobs){const r=W.smelts[j.recipeId];check(r&&typeof j.id==='string'&&!ids.has(j.id)&&['active','queued'].includes(j.status),'Invalid smelting order.');ids.add(j.id);check(JSON.stringify(j.inputs)===JSON.stringify(r.inputs),'Invalid smelting escrow.');check(j.status!=='active'||(int(j.startedAt)&&int(j.completeAt)&&j.completeAt>j.startedAt&&int(j.duration)&&j.duration===j.completeAt-j.startedAt),'Invalid smelting clock.');}
@@ -38,11 +42,25 @@ class Workshop extends World{
   const clean=String(smithName||'The Smith').trim();if(!clean||clean.length>28)return no('Use a smith name of 1–28 characters.');
   const s=this.state;s.player.name=clean;s.shopName=String(name||'Ember & Iron').trim().slice(0,48)||'Ember & Iron';s.world.profession=profession;s.player.stats=Object.fromEntries(attrs.map(k=>[k,stats[k]]));s.player.points=0;
   const e=this._effects();s.player.stats.strength+=e.startStrength||0;s.player.gold+=e.startGold||0;Object.values(s.player.proficiency).forEach(p=>p.level=e.startProficiency||0);
+  const assignments=['bronze','fuel','tin'];for(let i=0;i<(e.startWorkers||0);i++){const n=s.world.miners.length;s.world.miners.push({id:'miner-'+(n+1),assigned:assignments[n%3],working:assignments[n%3],progress:0});}
   s.started=true;s.tutorial.stage=1;this._registerCustomers();for(let i=0;i<3;i++)this._arrive(true);this._refreshUnlocks();return ok('Mine ore, smelt your first bronze, and equip your customers.');
  }
  _registerCustomers(){for(const id of this.state.world.unlockedHeroIds){const h=this.data.heroes.find(h=>h.id===id);if(h&&!this.state.world.heroChoices[id])this.state.world.heroChoices[id]={name:h.name,archetypeId:h.archetypeId};}}
  _tree(payload){const r=super._tree(payload);if(r.ok){this._registerCustomers();for(let i=0;i<12;i++)this._arrive(true);}return r;}
  _recruitHero(){return no('Customers arrive automatically when their class is unlocked.');}
+ _effects(){const e=super._effects();e.workerSlots=(e.workerSlots||0)+(e.startWorkers||0);return e;}
+ upgradeScale(){return Math.max(1.6,1.9-(this._effects().upgradeGrowthReduction||0));}
+ treePreview(id){const n=P.nodes[id];if(!n)return{eligible:false,reason:'Unknown upgrade.'};const rank=this.state.world.trees[id]||0,cost=Math.ceil(n.cost*this.upgradeScale()**rank),missing=n.parents.filter(p=>!this.state.world.trees[p]);const reason=rank>=n.maxRank?'Fully developed.':missing.length?'Requires '+missing.map(id=>P.nodes[id].name).join(' and ')+'.':n.level&&this.state.player.level<n.level?'Requires smith level '+n.level+'.':n.requiresEffect&&!this._effects()[n.requiresEffect]?'Requires '+n.requiresEffect+'.':this.currencies()[n.section]<cost?'Need '+cost+' '+P.currencies[n.section]+'.':'Ready to develop.';return{rank,cost,eligible:reason==='Ready to develop.',reason};}
+ _recipeKnown(r){
+  if(!this.state.workshop||this.state.workshop.upgradeVersion!==2)return super._recipeKnown(r);
+  if(!this.availableClasses().includes(r.classId))return false;
+  if(r.legacyTalent)return this.state.player.talents.includes(r.legacyTalent);
+  if(this.state.workshop.archivedPatterns?.includes(r.id)||this.state.player.legacy.unlockedRecipes.includes(r.id))return true;
+  const node=r.tier===1&&r.variant===0?null:r.variant===2?'forge_recipes_prestige':'forge_machinery_'+(r.tier-1);
+  if(node&&!this.state.world.trees[node])return false;
+  // The recipe path provides discovery; each recipe still checks attributes, mastery and machinery.
+  return true;
+ }
  _respec(){const p=this.state.player,cost=this.state.stats.crafted&&!p.respecTokens?200:0;if(p.gold<cost)return no('Retraining costs 200 gold.');p.gold-=cost;if(this.state.stats.crafted&&p.respecTokens)p.respecTokens--;p.points+=attrs.reduce((n,k)=>n+p.stats[k],0)-(this._effects().startStrength||0);attrs.forEach(k=>p.stats[k]=0);p.stats.strength=this._effects().startStrength||0;return ok('Attribute points returned.');}
  derived(){const d=super.derived(),a=this.state.player.stats,e=d.effects;d.priceMultiplier=(1+.045*Math.sqrt(a.charisma))*(1+(e.sale||0));d.storageCapacity=18+Math.floor(Math.sqrt(a.strength)*2)+(e.capacity||0);d.enchantStrength=1+.06*Math.sqrt(a.knowledge)+(e.enchant||0);d.staffPriceMultiplier=Math.max(.2,1-Math.min(.4,.015*a.charisma)-(e.staffDiscount||0));return d;}
  craftableRequests(limit=5){if(!this.state.started||!this.state.commissions.some(c=>c.status!=='complete'))return [];const patterns=[];for(const r of Object.values(this.data.recipes)){if(!this._recipeKnown(r))continue;const v=this.craftPreview(r.id);if(v.gates.some(g=>!g.met&&g.source!=='Quarry or material shop'))continue;patterns.push({classId:r.classId,tier:r.tier,quality:Math.min(this.derived().qualityCap,v.quality+38)});}return this.state.commissions.filter(c=>c.status!=='complete'&&patterns.some(r=>r.classId===c.classId&&r.tier>=c.minTier&&r.quality>=c.minQuality)).sort((a,b)=>a.minTier-b.minTier||a.minQuality-b.minQuality||a.id.localeCompare(b.id)).slice(0,limit);}
@@ -52,7 +70,7 @@ class Workshop extends World{
  _craftAffixChance(){return Math.min(.55,.10+.008*this.state.player.stats.precision+(this._effects().affixChance||0));}
  craftPreview(id,options={}){
   const v=super.craftPreview(id,options),r=this.data.recipes[id];if(!r)return v;const a=this.state.player.stats,e=this._effects(),prof=this.state.player.proficiency[r.classId].level;
-  v.quality=Math.round(Math.max(1,Math.min(this.derived().qualityCap,18+6*Math.sqrt(a.precision)+4*Math.sqrt(a.knowledge)+.48*prof+(e.quality||0)+(r.slot==='weapon'?(e.weaponQuality||0):0)+(r.qualityOffset||0)+((r.heavy||this.data.classes[r.classId].heavy)?2*Math.sqrt(a.strength)+(e.heavyQuality||0):0)-(r.difficulty||0))));
+  v.quality=Math.round(Math.max(1,Math.min(this.derived().qualityCap,18+6*Math.sqrt(a.precision)+4*Math.sqrt(a.knowledge)+.48*prof+(e.quality||0)+this.smelterDerived().quality+(r.slot==='weapon'?(e.weaponQuality||0):0)+(r.qualityOffset||0)+((r.heavy||this.data.classes[r.classId].heavy)?2*Math.sqrt(a.strength)+(e.heavyQuality||0):0)-(r.difficulty||0))));
   v.seconds=r.baseSeconds/(1+.07*Math.sqrt(a.strength)+.005*prof+(e.speed||0));v.price=this._price(r,v.quality);v.gold=0;
   if(options.materialId&&options.materialId!==r.materialId){v.eligible=false;v.reason='This pattern and material do not match.';return v;}
   const enchant=options.enchantmentId?this.data.enchantments[options.enchantmentId]:null;
@@ -78,9 +96,9 @@ class Workshop extends World{
  _technique({jobId}){const v=this.techniquePreview(jobId);if(!v.eligible)return no(v.reason);const j=this.state.jobs.find(j=>j.id===jobId);j.technique=true;j.finishPasses=(j.finishPasses||0)+1;if(j.status==='active')this._applyFinishing(j);return ok('Finishing pass '+j.finishPasses+': +'+v.qualityGain+' quality; '+Math.ceil(v.addedSeconds)+'s extra work.');}
  seams(){return super.seams().filter(s=>s.id!=='steel');}
  _mine(p){const old=this.state.player.stats.strength;this.state.player.stats.strength=old+2;try{return super._mine(p);}finally{this.state.player.stats.strength=old;}}
- smelterDerived(){const u=this.state.workshop.upgrades;return{speed:1+(u.bellows||0)*.15+(u.lining||0)*.25,lanes:1+(u.chambers||0),queue:5+(u.racks||0)*2};}
- smeltUpgradePreview(id){const n=W.upgrades[id];if(!n)return{eligible:false,reason:'Unknown upgrade.'};const rank=this.state.workshop.upgrades[id]||0,cost=Math.ceil(n.cost*1.9**rank),reason=rank>=n.maxRank?'Fully developed.':n.parent&&!this.state.workshop.upgrades[n.parent]?'Requires '+W.upgrades[n.parent].name+'.':n.level&&this.state.player.level<n.level?'Requires smith level '+n.level+'.':this.state.player.gold<cost?'Need '+cost+' gold.':'Ready to develop.';return{rank,cost,reason,eligible:reason==='Ready to develop.'};}
- smeltPreview(id,quantity=1){const r=W.smelts[id];if(!r)return{eligible:false,reason:'Unknown alloy.'};const d=this.smelterDerived(),jobs=this.state.workshop.jobs,unlocked=!r.upgrade||this.state.workshop.upgrades[r.upgrade]>0,inputs=Object.fromEntries(Object.entries(r.inputs).map(([id,n])=>[id,n*quantity])),open=d.lanes+d.queue-jobs.length,max=Math.max(0,Math.min(open,...Object.entries(r.inputs).map(([id,n])=>Math.floor((this.state.materials[id]||0)/n)))),missing=Object.entries(inputs).filter(([id,n])=>(this.state.materials[id]||0)<n),reason=!unlocked?'Develop '+W.upgrades[r.upgrade].name+'.':!int(quantity)||quantity<1||quantity>30?'Choose 1–30 batches.':open<quantity?'Smelter queue is full.':missing.length?'Need '+missing.map(([id,n])=>(n-(this.state.materials[id]||0))+' '+this.data.materials[id].name).join(', ')+'.':this.state.materials[r.output]>=this.binCapacity()?'The output bin is full.':'Ready to smelt.';return{eligible:this.state.started&&reason==='Ready to smelt.',reason,unlocked,inputs,seconds:r.seconds/d.speed,maxQuantity:max,amount:r.amount*quantity};}
+ smelterDerived(){const u=this.state.workshop?.upgrades||{},e=this._effects();return{speed:1+Object.entries(u).reduce((n,[id,rank])=>n+(W.upgrades[id]?.speed||0)*rank,0)+(e.smeltSpeed||0),quality:Object.entries(u).reduce((n,[id,rank])=>n+(W.upgrades[id]?.quality||0)*rank,0),lanes:1+(u.chambers||0),queue:5+(u.racks||0)*2,extraIngots:e.ingotYield||0};}
+ smeltUpgradePreview(id){const n=W.upgrades[id];if(!n)return{eligible:false,reason:'Unknown upgrade.'};const rank=this.state.workshop.upgrades[id]||0,cost=Math.ceil(n.cost*this.upgradeScale()**rank),reason=rank>=n.maxRank?'Fully developed.':n.parent&&!this.state.workshop.upgrades[n.parent]?'Requires '+W.upgrades[n.parent].name+'.':n.level&&this.state.player.level<n.level?'Requires smith level '+n.level+'.':this.state.player.gold<cost?'Need '+cost+' gold.':'Ready to develop.';return{rank,cost,reason,eligible:reason==='Ready to develop.'};}
+ smeltPreview(id,quantity=1){const r=W.smelts[id];if(!r)return{eligible:false,reason:'Unknown alloy.'};const d=this.smelterDerived(),jobs=this.state.workshop.jobs,unlocked=!r.upgrade||this.state.workshop.upgrades[r.upgrade]>0,inputs=Object.fromEntries(Object.entries(r.inputs).map(([id,n])=>[id,n*quantity])),open=d.lanes+d.queue-jobs.length,max=Math.max(0,Math.min(open,...Object.entries(r.inputs).map(([id,n])=>Math.floor((this.state.materials[id]||0)/n)))),missing=Object.entries(inputs).filter(([id,n])=>(this.state.materials[id]||0)<n),reason=!unlocked?'Develop '+W.upgrades[r.upgrade].name+'.':!int(quantity)||quantity<1||quantity>30?'Choose 1–30 batches.':open<quantity?'Smelter queue is full.':missing.length?'Need '+missing.map(([id,n])=>(n-(this.state.materials[id]||0))+' '+this.data.materials[id].name).join(', ')+'.':this.state.materials[r.output]>=this.binCapacity()?'The output bin is full.':'Ready to smelt.';return{eligible:this.state.started&&reason==='Ready to smelt.',reason,unlocked,inputs,seconds:r.seconds/d.speed,maxQuantity:max,amount:(r.amount+d.extraIngots)*quantity};}
  act(name,payload={}){if(!['smelt','cancelSmelt','smeltUpgrade'].includes(name))return super.act(name,payload);if(!this.state.started)return no('Create your smith first.');let result;
   if(name==='smelt'){const{id,quantity=1}=payload,v=this.smeltPreview(id,quantity);if(!v.eligible)return no(v.reason);for(const[mat,n]of Object.entries(v.inputs))this.state.materials[mat]-=n;for(let i=0;i<quantity;i++)this.state.workshop.jobs.push({id:this._id('smelt'),recipeId:id,status:'queued',inputs:copy(W.smelts[id].inputs)});result=ok('Smelting batches queued.');}
   if(name==='cancelSmelt'){const j=this.state.workshop.jobs.find(j=>j.id===payload.id);if(!j)return no('That batch is already complete.');if(!this._fits(j.inputs))return no('Make room in the bins for the full refund.');for(const[id,n]of Object.entries(j.inputs))this.state.materials[id]+=n;this.state.workshop.jobs=this.state.workshop.jobs.filter(x=>x!==j);result=ok('Batch cancelled; all ingredients returned.');}
@@ -89,7 +107,7 @@ class Workshop extends World{
  }
  _startSmelts(){if(!this.state.workshop||!this.state.started)return;const d=this.smelterDerived();let active=this.state.workshop.jobs.filter(j=>j.status==='active').length;for(const j of this.state.workshop.jobs)if(j.status==='queued'&&active<d.lanes){j.status='active';j.startedAt=this.state.simTime;j.duration=Math.ceil(W.smelts[j.recipeId].seconds*1000/d.speed);j.completeAt=j.startedAt+j.duration;active++;}}
  _extraEventTimes(){this._startSmelts();return(this.state.workshop?.jobs||[]).filter(j=>j.status==='active').map(j=>j.completeAt);}
- _processExtraEvents(){if(!this.state.workshop)return;for(const j of [...this.state.workshop.jobs])if(j.status==='active'&&j.completeAt<=this.state.simTime){const r=W.smelts[j.recipeId];this._deliver({materials:{[r.output]:r.amount},source:r.name});this.state.workshop.smelted+=r.amount;this.state.workshop.jobs=this.state.workshop.jobs.filter(x=>x!==j);this._log('Smelted '+r.amount+' '+this.data.materials[r.output].name+'.','craft');}this._startSmelts();}
+ _processExtraEvents(){if(!this.state.workshop)return;for(const j of [...this.state.workshop.jobs])if(j.status==='active'&&j.completeAt<=this.state.simTime){const r=W.smelts[j.recipeId],amount=r.amount+this.smelterDerived().extraIngots;this._deliver({materials:{[r.output]:amount},source:r.name});this.state.workshop.smelted+=amount;this.state.workshop.jobs=this.state.workshop.jobs.filter(x=>x!==j);this._log('Smelted '+amount+' '+this.data.materials[r.output].name+'.','craft');}this._startSmelts();}
 }
 function thisEnchantment(data,job){return data.enchantments[job.enchantmentId];}
 return Workshop;

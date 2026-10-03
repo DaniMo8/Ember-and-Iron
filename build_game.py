@@ -31,7 +31,7 @@ def build() -> Path:
         f"<style>\n{css}\n</style>",
         "local stylesheet reference",
     )
-    for filename in ("data.js", "engine.js", "campaign.js", "company.js", "formation-combat.js", "progression.js", "world-engine.js", "workshop.js", "workshop-engine.js", "world-scenes.js", "room-model.js", "app.js"):
+    for filename in ("data.js", "engine.js", "campaign.js", "company.js", "formation-combat.js", "progression.js", "world-engine.js", "advancement.js", "workshop.js", "workshop-engine.js", "world-scenes.js", "room-model.js", "inventory-icons.js", "app.js"):
         script = read(filename)
         # Prevent a string/comment in a source file from ending its HTML script element.
         script = re.sub(r"</script", r"<\\/script", script, flags=re.IGNORECASE)
@@ -47,6 +47,8 @@ def build() -> Path:
         raise ValueError("An external stylesheet remains in the standalone output.")
     artwork = {p.stem: 'data:image/png;base64,' + base64.b64encode(p.read_bytes()).decode('ascii') for p in (ROOT / 'assets').glob('*.png')}
     page = page.replace('<script>\n/* Bundled source: app.js */', '<script>window.EIArt=' + json.dumps(artwork) + ';</script>\n<script>\n/* Bundled source: app.js */')
+    atlas = base64.b64encode((ROOT / 'assets/inventory/inventory-atlas.png').read_bytes()).decode('ascii')
+    page = page.replace('<script>window.EIArt=', '<script>window.EIInventoryArt="data:image/png;base64,' + atlas + '";</script><script>window.EIArt=')
     OUTPUT.write_text(page, encoding="utf-8", newline="\n")
     print(f"Built {OUTPUT.name}: {OUTPUT.stat().st_size:,} bytes; CSS and all game scripts included.")
     return OUTPUT
