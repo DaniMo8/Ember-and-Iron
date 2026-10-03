@@ -1,0 +1,24 @@
+flowchart TD
+    A[Choose team, catalogue or practice intent] --> B[Reserve ingredients and a bench]
+    B --> C[Forge with captured material and quality properties]
+    C --> D[Prefix result and optional chosen enchantment]
+    D --> E{Continue finishing?}
+    E -->|Yes: diminishing gain| E2[Spend another normal work duration]
+    E2 --> E
+    E -->|Done| F[Completed item]
+    F --> G{Assigned purpose}
+    G -->|Team commission| H[Protected equipment]
+    G -->|Catalogue| I[Contract or shop display]
+    G -->|Practice| J[Keep, clear or salvage]
+    H --> K[Arena history and named victories]
+    K --> L{Still useful?}
+    L -->|Yes| H
+    L -->|Improve it| M[Refit within its existing limits]
+    M --> H
+    L -->|Replace it| N[Bench fighter, trophy, sale or salvage]
+    K --> O[Unlock a house hallmark contract]
+    O --> A
+    I --> P[Gold and reputation]
+    J --> P
+    N --> P
+    K --> Q[Optional protected Legacy heirloom]

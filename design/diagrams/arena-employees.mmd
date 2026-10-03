@@ -1,0 +1,21 @@
+flowchart LR
+    A[Hire an employee] --> B[Assign a suitable room and responsibility]
+    B --> C{Ready to work?}
+    C -->|Inputs, space and stamina available| D[Complete useful work]
+    C -->|Supply or capacity blocked| E[Show cause; wait or follow an approved fallback]
+    D --> F[Output and relevant experience]
+    F --> G{Stamina threshold reached?}
+    G -->|No| C
+    G -->|Yes| H{Shift management enabled?}
+    H -->|No| I[Player chooses time off]
+    H -->|Yes| J[Scheduled break]
+    I --> K[Recover stamina]
+    J --> K
+    K -->|Scheduled return threshold| B
+    K -->|Manual leave| L[Wait for player to resume]
+    L --> B
+    F --> M[Experience milestone]
+    M --> N[Train a useful specialisation]
+    N --> B
+    E --> O[Owner invests in the actual bottleneck]
+    O --> C

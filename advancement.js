@@ -2,6 +2,7 @@
 (function(root){
 'use strict';
 const sections={
+ employees:[['Training','Develop practical skill and stronger specialist bonuses.','Expertise'],['Welfare','Recover faster and sustain effective shifts.','Care'],['Organization','Recruit affordably and coordinate employee breaks.','Management']],
  mine:[['Depth','Expose the next ore, then improve deep extraction.','Main path'],['Workers','Build a larger, faster mining crew.','Crew'],['Storage','Keep larger stocks and reduce supply costs.','Capacity']],
  smelter:[['Alloys','Unlock iron, steel, mithril and starforged metal.','Main path'],['Quality','Prepare cleaner metal for higher-quality equipment.','Purity'],['Speed','Shorten batches and expand furnace throughput.','Production']],
  forge:[['Recipes','Learn standard, higher-tier and prestige patterns.','Main path'],['Quality','Improve craftsmanship, prefixes and the quality ceiling.','Craftsmanship'],['Speed','Expand queues, benches and production speed.','Production']],
@@ -68,6 +69,28 @@ function apply(d,P,smelter){
   P.nodes.adventurers_recruitment_2.milestone={boss:d.tierBosses[1]};
   P.nodes.forge_workflow_shifts={id:'forge_workflow_shifts',section:'forge',branch:'Speed',depth:8,name:'Workshop shift roster',cost:600,level:5,maxRank:1,scale:1.9,parents:['forge_workflow_2'],effects:{staffShifts:1},description:'Unlock optional automatic employee breaks. Rest at 35 stamina; return at 90. Employees still lose productivity while resting.'};
  }
+ // Employees have their own gold-funded development. Stable IDs preserve existing hires and shift investment.
+ P.currencies.employees='Gold';
+ if(!P.employeeBranches){
+  P.employeeBranches=true;
+  const rows={
+   Training:[['Induction journals',45,4,2,{staffXp:.2},'Specialists earn 20% more work experience per rank.'],['Practice benches',140,4,3,{staffPower:.08},'Active specialist bonuses are 8% stronger per rank; permanent bin space is unchanged.'],['Master and pupil',480,3,5,{staffXp:.3},'Specialists earn another 30% work experience per rank.'],['Guild accreditation',1800,3,9,{staffPower:.12},'Active specialist bonuses are another 12% stronger per rank.']],
+   Welfare:[['Common room',70,4,2,{staffRecovery:.15},'Resting specialists regain stamina 15% faster per rank.'],['Fitted workwear',190,4,3,{staffEndurance:.08},'Divide stamina drain by an additional 8% per rank.'],['Hot meals',600,3,5,{staffRecovery:.25},'Resting specialists regain stamina another 25% faster per rank.'],['Safe working methods',1900,3,8,{staffEndurance:.12},'Divide stamina drain by another 12% per rank.']],
+   Organization:[['Hiring ledger',30,3,2,{staffDiscount:.04},'Specialist signing costs fall by 4 percentage points per rank; existing hires are retained.'],['Guild contacts',260,3,4,{staffDiscount:.04},'Specialist signing costs fall by another 4 percentage points per rank.'],['Coordinated handovers',1400,3,7,{staffEndurance:.12},'Smoother handovers add 12% to the stamina-drain divisor per rank.']]
+  };
+  for(const [branch,list]of Object.entries(rows))list.forEach(([name,cost,maxRank,level,effects,description],i)=>{const id='employees_'+branch.toLowerCase()+'_'+i;P.nodes[id]={id,section:'employees',branch,depth:i,name,cost,maxRank,level,effects,description,parents:i?['employees_'+branch.toLowerCase()+'_'+(i-1)]:[],scale:1.9};});
+  const shifts=P.nodes.forge_workflow_shifts;
+  shifts.acceptedParents=[[...shifts.parents]];shifts.section='employees';shifts.branch='Organization';shifts.parents=['employees_welfare_0'];shifts.name='Managed shift roster';
+ }
+ const roles={
+  apprentice:{department:'forge',person:'Tomas'},runekeeper:{department:'forge',person:'Sybill'},
+  quartermaster:{department:'mine',person:'Oswin'},envoy:{department:'shop',person:'Clara'},
+  pit_foreman:{id:'pit_foreman',name:'Pit foreman',person:'Ada',department:'mine',cost:75,maxLevel:5,requires:{level:2},work:'mine',effects:{miningSpeed:.06},description:'Each experience level adds 6% extraction speed to the mining crew while on duty.'},
+  furnace_tender:{id:'furnace_tender',name:'Furnace tender',person:'Ivo',department:'smelter',cost:80,maxLevel:5,requires:{level:2},work:'smelt',effects:{smeltSpeed:.06},description:'Each experience level adds 6% smelting speed while on duty. New batches capture the benefit.'},
+  assayer:{id:'assayer',name:'Assayer',person:'Elsbet',department:'smelter',cost:220,maxLevel:5,requires:{level:4},work:'smelt',effects:{smeltQuality:1},description:'Each experience level adds 1 metal-preparation quality to new crafts while on duty.'},
+  shopkeeper:{id:'shopkeeper',name:'Shopkeeper',person:'Perrin',department:'shop',cost:110,maxLevel:5,requires:{level:3},work:'sale',effects:{sale:.025},description:'Each experience level adds 2.5% to customer sale prices while on duty. Check customer budgets.'}
+ };
+ for(const [id,role]of Object.entries(roles))d.staff[id]={...d.staff[id],...role};
  // Smelter's saved IDs remain valid; only their visible sections change.
  for(const [id,n]of Object.entries(smelter))n.branch=['iron','steel','mithril','starforged'].includes(id)?'Alloys':'Speed';
  Object.assign(smelter,{

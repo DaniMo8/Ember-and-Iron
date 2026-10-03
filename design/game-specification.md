@@ -1,6 +1,6 @@
 # Ember & Iron — The Foundry
 
-Version 2.2.0 · playable design specification · 4 October 2026
+Version 2.3.0 · playable design specification · 4 October 2026
 
 ## The game we are building
 
@@ -20,13 +20,14 @@ The first next-objective prompt directs the smith to make a training weapon that
 
 A finished item fills an available display slot automatically. If all display slots are full, it enters the warehouse. Empty displays always refill automatically from the lowest-quality eligible warehouse stock; porter service adds capacity. Displayed, unprotected, unreserved items may be purchased. A hero checks compatibility, affordability and actual improvement before buying.
 
-## Seven rooms and information hierarchy
+## Eight rooms and information hierarchy
 
 ![Full-screen room and overlay layout](diagrams/ui-layout.svg)
 
 | Room | Background progression | Main work | Deeper overlays |
 |---|---|---|---|
-| Smith | Rented attic study to comfortable study to master’s estate | Attributes, employees with stamina/XP, furnishings with permanent levels directly below employees, then prominent class mastery levels | Character bonuses and collection |
+| Smith | Rented attic study to comfortable study to master’s estate | Attributes, furnishings with permanent levels, then prominent class mastery levels | Character bonuses and collection |
+| Employees | Staff quarters to guild common room to founders hall; shares the study artwork | Mine, Smelter, Forge and Shop department rosters, real contributions, XP, stamina, leave and mining-crew assignment | Training, Welfare and Organization |
 | Mine | Shallow timber shaft to established iron mine to deep galleries | Seam cards with stock, manual mining and trading; adjacent worker assignments; mining-point progress | Mining development and room growth requirements |
 | Smelter | Clay hearth to alloy workshop to celestial smeltery; forge-stage artwork with an animated furnace | Smelt 1, 5 or max batches; ore/alloy recipes; ingot bins and an independent queue | Alloys, Quality and Speed upgrades |
 | Forge | Lean-to anvil to working village smithy to grand foundry | Weapons / Armour / Other, then class, recipe, material and enchantment; craft 1, 5 or maximum | Active queue, careful finishes, machinery development, late production rules |
@@ -34,7 +35,7 @@ A finished item fills an available display slot automatically. If all display sl
 | Customers | Roadside inn to company lodge to guild hall | Selectable roster, live hero viewer, phase timer, compact final stats, equipped items and recent quests | Actual battle replay, hero loadouts, quest records, party policies, recruitment and training |
 | Legacy | One ceremonial hall, unchanged across generations | Sparks, retirement preview, inherited records and four talent paths | Unlocks after the first tier 5 boss victory |
 
-The global header contains seven room tabs, gold and settings. The room toolbar pairs its name and stage with the primary progression control: a large spendable currency balance and a prominent gold upgrades button. A live ready-to-buy count uses the same affordability and prerequisite checks as the upgrade tree. When no purchase is available, the control explains how to earn its currency; completed trees show that all upgrades are fully developed. Smith instead displays an unspent attribute-point balance without an Improve smith button; allocation remains directly beside each attribute. Room growth remains a secondary control. The Legacy tab is greyed out with an accessible lock explanation until the first tier 5 boss victory. On phones the progression control fills the available width. A horizontal objective strip explains the next useful action. Key figures precede a two-column workspace: primary controls at left, work queues, stock or context at right. The Customers workspace pairs a compact roster with a selected hero viewer. Upgrade overlays put three section selectors at the top and show only the chosen branch, with ranks, costs, prerequisites and effects.
+The global header contains eight room tabs, gold and settings. The room toolbar pairs its name and stage with the primary progression control: a large spendable currency balance and a prominent gold upgrades button. A live ready-to-buy count uses the same affordability and prerequisite checks as the upgrade tree. When no purchase is available, the control explains how to earn its currency; completed trees show that all upgrades are fully developed. Smith instead displays an unspent attribute-point balance without an Improve smith button; allocation remains directly beside each attribute. Room growth remains a secondary control. The Legacy tab is greyed out with an accessible lock explanation until the first tier 5 boss victory. On phones the progression control fills the available width and eight room tabs form two readable rows. A horizontal objective strip explains the next useful action. Key figures precede a two-column workspace: primary controls at left, work queues, stock or context at right. The Customers workspace pairs a compact roster with a selected hero viewer. Upgrade overlays put three section selectors at the top and show only the chosen branch, with ranks, costs, prerequisites and effects.
 
 Wide screens use the available workspace up to a comfortable 1,840px content width. Mine pairs a responsive two/three-column seam grid with worker assignment cards; large crews scroll within the worker panel on desktop. Stock and trade controls stay on each seam, without a duplicate mined-material sidebar. Leather, wood and Alchemical Oil share one compact Crafting supplies panel in the right-hand section of both Mine and Forge, above worker assignments or work in progress. Their amounts and Buy 1 / Buy 5 controls remain together without stock bars. On narrow screens, this panel stacks above the main work area. Narrow screens use compact navigation, stacked information panels, full-width recipe cards, a horizontally scrollable compact hero roster and a selected upgrade branch with vertically stacked cards. Active Forge work precedes the catalogue on narrow screens; material stock is an expandable panel. Empty Shop displays use compact paired tiles. The compact warehouse list follows the shelves, with customer requests and browsing heroes in the adjacent sidebar (stacked below stock on phones). There is no recent-sales panel or Warehouse / Craft stock shortcut. Changing rooms resets page scroll to the top. The full page scrolls; no controls depend on clicking an illustration. The page and overlays preserve keyboard focus; Escape closes overlays and Tab stays inside an open dialog. Reduced motion disables decorative motion. Browser zoom remains available.
 
@@ -287,7 +288,7 @@ Each ordinary quest needs 5 hero-victory counts before opening the following enc
 
 ![Room progression currencies and branches](diagrams/room-trees.svg)
 
-The five production/customer rooms contain 113 upgrades across fifteen selectable sections. Branch sizes vary with their role. A node requires the named prerequisite nodes at rank 1; side paths and cross-section class gates are stated explicitly. A repeated rank costs `ceil(base cost × growth^current rank)`, where growth begins at 1.9 and Legacy can lower it to 1.6. First-rank prices never receive this discount. Deeper base costs also grow approximately exponentially. The player can push forward after one rank or deepen a previous investment. Old paid ranks validate against their original prerequisites and remain owned; future purchases use the new paths.
+The six production, customer and employee rooms contain 124 upgrades across eighteen selectable sections. Branch sizes vary with their role. A node requires the named prerequisite nodes at rank 1; side paths and cross-section class gates are stated explicitly. A repeated rank costs `ceil(base cost × growth^current rank)`, where growth begins at 1.9 and Legacy can lower it to 1.6. First-rank prices never receive this discount. Deeper base costs also grow approximately exponentially. The player can push forward after one rank or deepen a previous investment. Old paid ranks validate against their original prerequisites and remain owned; future purchases use the new paths.
 
 | Room | Currency | Paths |
 |---|---|---|
@@ -296,6 +297,7 @@ The five production/customer rooms contain 113 upgrades across fifteen selectabl
 | Forge | Gold | Recipes (main), Quality, Speed |
 | Shop | Influence, backed by earned reputation | Price (main), Customer budgets, Customer relations |
 | Customers | Merits, earned from completed expeditions | Classes (main), Quantity, Readiness |
+| Employees | Gold | Training, Welfare, Organization |
 
 The complete node catalogue below is generated from the same registry as the playable game. Effects are per purchased rank unless the node is a one-time unlock.
 
@@ -310,7 +312,7 @@ Salvage bench additionally offers optional display rotation: outclassed stock at
 
 Support upgrades follow deliberate short paths instead of price-sorted prerequisite chains. Existing investments from both older layouts remain valid. Upgrade cards preview their next benefit, warn about capped quality, show outstanding prerequisite cost, and can pin one rank as a goal. Attribute allocation previews the next point's real effects and rounded breakpoints using an example bronze sword.
 
-Workshop shift roster costs 600 gold, requires smith level 5 and Apprentice bench, and unlocks optional managed rest. Managed staff take a break at 35 stamina and return at 90; manually granted leave remains manual. Rest continues to reduce workshop output. Legacy spark costs and rewards remain unchanged; Founders Strength also grants +20% smelting speed.
+Managed shift roster costs 600 gold, requires smith level 5 and Common room in Employees, and unlocks optional managed rest. Its old Forge purchase remains valid and owned after migration. Managed staff take a break at 35 stamina and return at 90; manually granted leave remains manual. Rest continues to reduce workshop output. Legacy spark costs and rewards remain unchanged; Founders Strength also grants +20% smelting speed.
 
 <!-- UPGRADE_CATALOGUE_START -->
 
@@ -372,7 +374,6 @@ Workshop shift roster costs 600 gold, requires smith level 5 and Apprentice benc
 | Speed | Clockwork hammers | 4900 Gold | 5 | Crafting speed +25% per rank. |
 | Speed | Grand atelier | 11500 Gold | 3 | One active bench and four queue slots per rank; unlock production rules. |
 | Recipes | Master armoury patterns | 320 Gold | 1 | Unlock prestige patterns in every developed material tier. Their high attribute and proficiency requirements still apply. |
-| Speed | Workshop shift roster | 600 Gold | 1 | Unlock optional automatic employee breaks. Rest at 35 stamina; return at 90. Employees still lose productivity while resting. |
 
 ### Shop upgrade catalogue
 
@@ -431,6 +432,23 @@ Workshop shift roster costs 600 gold, requires smith level 5 and Apprentice benc
 | Quantity | Vanguard & breaker regulars | 128 Merits | 1 | Ida visits automatically; buys Swords, Mail armour, Shields, Rings, Charms, Tools. Hark visits automatically; buys Axes, Maces, Mail armour, Shields, Talismans, Tools. |
 | Quantity | Another mage | 256 Merits | 1 | Vesper visits automatically; buys Arcane Foci, Cloth armour, Books & relics, Rings, Charms, Instruments. |
 | Quantity | Another guardian | 512 Merits | 1 | Aela visits automatically; buys Polearms, Swords, Mail armour, Shields, Talismans, Tools. |
+
+### Employees upgrade catalogue
+
+| Path | Upgrade | First cost | Ranks | Effect |
+|---|---|---|---|---|
+| Organization | Managed shift roster | 600 Gold | 1 | Unlock optional automatic employee breaks. Rest at 35 stamina; return at 90. Employees still lose productivity while resting. |
+| Training | Induction journals | 45 Gold | 4 | Specialists earn 20% more work experience per rank. |
+| Training | Practice benches | 140 Gold | 4 | Active specialist bonuses are 8% stronger per rank; permanent bin space is unchanged. |
+| Training | Master and pupil | 480 Gold | 3 | Specialists earn another 30% work experience per rank. |
+| Training | Guild accreditation | 1800 Gold | 3 | Active specialist bonuses are another 12% stronger per rank. |
+| Welfare | Common room | 70 Gold | 4 | Resting specialists regain stamina 15% faster per rank. |
+| Welfare | Fitted workwear | 190 Gold | 4 | Divide stamina drain by an additional 8% per rank. |
+| Welfare | Hot meals | 600 Gold | 3 | Resting specialists regain stamina another 25% faster per rank. |
+| Welfare | Safe working methods | 1900 Gold | 3 | Divide stamina drain by another 12% per rank. |
+| Organization | Hiring ledger | 30 Gold | 3 | Specialist signing costs fall by 4 percentage points per rank; existing hires are retained. |
+| Organization | Guild contacts | 260 Gold | 3 | Specialist signing costs fall by another 4 percentage points per rank. |
+| Organization | Coordinated handovers | 1400 Gold | 3 | Smoother handovers add 12% to the stamina-drain divisor per rank. |
 
 ### Smelter upgrade catalogue
 
@@ -499,15 +517,19 @@ Workshop shift roster costs 600 gold, requires smith level 5 and Apprentice benc
 
 Retirement is optional only after defeating the tier 5 Void Sovereign in the current generation. The preview shows the sparks earned and lets the player carry a protected inventory item as an heirloom. Retirement resets ordinary gold, materials, room trees, miners, hero progress, smith level, attributes and proficiency. It retains Legacy sparks, learned talents, collection records, furnishings and the chosen heirloom plus its recipe. Starting the next generation presents character creation again.
 
-Legacy has its own seventh screen and a single ornate gold-and-marble hall background. The navigation tab is visibly greyed out until the first Void Sovereign victory; direct links also respect the lock. After retirement the hall remains accessible, including from character creation, so inherited sparks can be spent before the next smith begins. The screen contains spark balance and affordable-talent count, generation and collection records, reward breakdown, what persists versus resets, and the permanent talent tree. Retirement still requires defeating the final boss in the current generation and uses a separate confirmation with heirloom selection. Before the first retirement, the same four section selectors preview the talents, with purchases disabled.
+Legacy has its own screen and a single ornate gold-and-marble hall background. The navigation tab is visibly greyed out until the first Void Sovereign victory; direct links also respect the lock. After retirement the hall remains accessible, including from character creation, so inherited sparks can be spent before the next smith begins. The screen contains spark balance and affordable-talent count, generation and collection records, reward breakdown, what persists versus resets, and the permanent talent tree. Retirement still requires defeating the final boss in the current generation and uses a separate confirmation with heirloom selection. Before the first retirement, the same four section selectors preview the talents, with purchases disabled.
 
 The first retirement opens four selectable sections containing 36 permanent Legacy talents. Workforce, Efficiency, Metallurgy and Archives each combine preserved talents with three powerful new investments. Sparks remain zero until the final boss is beaten. A completed five-boss campaign earns 46 base sparks: a 20-spark final-boss award plus distinct boss weights 1, 2, 4, 7 and 12. Add one spark per six smith levels beyond level 12 (maximum 12) and one per twelve distinct quality-115 masterwork designs made this generation (maximum 8). A run therefore awards 46-66 sparks after all five bosses, never more for repeating easy quests or bosses. The 24 preserved talents cost 304 sparks in total. The twelve new powers cost a further 524 sparks (828 for the full set). Workforce costs 12 / 28 / 60 and adds 1 / 2 / 3 starting workers and slots, with 100 starting gold at the final node. Efficiency costs 16 / 36 / 72 and reduces rank growth by 0.1 each, to 1.6. Metallurgy costs 16 / 36 / 72 and adds 1 / 1 / 2 ingots per completed batch, with +25% smelt speed at the final node. Archives costs 24 / 52 / 100: unlock 17 rare designs, then 17 legendary designs, then reduce proficiency gates by 5 and raise the quality ceiling by 10. All bonuses are permanent; starting bonuses apply once at character creation. Full material bins still discard excess ingots. The preview itemizes rewards. Existing earned sparks and learned talents are preserved.
 
-Employees appear below attributes on Smith, each with experience and stamina bars. Apprentice learns from crafting, Quartermaster from supplies, Envoy from sales, and Runekeeper from enchanting. Experience thresholds are 30 × employee level, up to level 5; experience gain scales with current effectiveness. Hiring has no recurring wages.
+Employees have their own room, with two fixed specialists per department. Cards show a named person, specialty, current contribution, experience and stamina. Mine: Oswin the Quartermaster (supplies experience, permanent bin capacity and active supply discount) and Ada the Pit foreman (crew extraction experience, +6% mining speed per level). Smelter: Ivo the Furnace tender (+6% smelt speed per level) and Elsbet the Assayer (+1 metal-preparation quality per level); both learn from completed smelting batches. Forge: Tomas the Apprentice (crafting experience, +4% craft speed per level) and Sybill the Runekeeper (enchanting experience, +1 quality and +5% enchantment strength per level). Shop: Clara the Envoy (sales experience, +4% cadence and +3% customer budgets per level) and Perrin the Shopkeeper (sales experience, +2.5% sale prices per level). Stamina scales active bonuses. Existing hire IDs retain all investments.
 
-On-duty staff lose 2 stamina per simulated minute, including offline time. Effectiveness is 100% at 70–100, 75% at 35–69, 40% above zero, and zero when exhausted. The player chooses Give time off to restore 10 stamina/minute, multiplied by recovery furnishings, then Resume duty. Time off disables working bonuses. Fully resting from zero takes ten minutes before furnishings. Quartermaster's purchased bin space remains even while resting or exhausted. Employees reset on Legacy; furnishings persist.
+New first signing costs before Charisma: Pit foreman 75g at smith level 2; Furnace tender 80g at level 2; Assayer 220g at level 4; Shopkeeper 110g at level 3. Original hire prices and gates are preserved. Experience thresholds remain 30 × employee level, up to level 5; experience scales with effectiveness and employee training. Pit foreman earns 0.25 XP per unit extracted by the crew; smelting specialists earn twice the recipe tier per completed batch. No employee gains experience from an unfinished order or while on leave. Hiring has no recurring wages.
 
-Furnishings appear directly below People on Smith, before class mastery. All six have five permanent levels. First-level costs and per-level bonuses: Hearth Banner 260g (+15% arrival, +8% budgets); Warming Brazier 420g (+12% craft speed, +20% staff recovery); Maker's Plaque 700g (+5 quality, +8% proficiency XP); Guild Trophy 1,100g (+18% budgets, +1 relationship); Staff Rest Chamber 1,700g (+50% staff recovery); Guild Library 2,600g (+20% proficiency XP, +12% enchantment strength). Buying level `n` costs `ceil(base cost × 2.4^(n−1))`. Effects add linearly per owned level, while existing quality ceilings still apply. For example, Hearth Banner levels 1–5 cost 260 / 624 / 1,498 / 3,595 / 8,627 gold and provide up to +75% cadence and +40% budgets. Cards show current level, level marks, total active bonuses, next-level additions and exact gold price. Five is the maximum; failed purchases charge nothing. Old installed furnishings retain their existing bonuses as level 1. All levels and collection records survive Legacy.
+The Employee tree has twelve nodes across Training, Welfare and Organization, including the moved Managed shift roster. Gold funds each purchase. Training multiplies specialist XP and active contributions; it does not increase Quartermaster's permanent bin space, so resting cannot erase capacity. Welfare improves recovery and divides fatigue by `1 + endurance bonus`. Organization lowers signing costs, adds endurance, and provides managed breaks. Bonuses remain bounded by ordinary rank limits; the signing multiplier cannot fall below 0.2. The mining crew remains a reliable baseline while specialists rest, and seam assignments are available in both Employees and Mine.
+
+On-duty staff lose `2 / (1 + employee endurance)` stamina per simulated minute, including offline time. Effectiveness is 100% at 70–100, 75% at 35–69, 40% above zero, and zero when exhausted. The player chooses Give time off to restore 10 stamina/minute, multiplied by recovery furnishings and welfare upgrades, then Resume duty. Time off disables working bonuses. Fully resting from zero takes ten minutes before furnishings. Quartermaster's purchased bin space remains even while resting or exhausted. Employees reset on Legacy; furnishings persist.
+
+Furnishings appear directly below attributes on Smith, before class mastery. All six have five permanent levels. First-level costs and per-level bonuses: Hearth Banner 260g (+15% arrival, +8% budgets); Warming Brazier 420g (+12% craft speed, +20% staff recovery); Maker's Plaque 700g (+5 quality, +8% proficiency XP); Guild Trophy 1,100g (+18% budgets, +1 relationship); Staff Rest Chamber 1,700g (+50% staff recovery); Guild Library 2,600g (+20% proficiency XP, +12% enchantment strength). Buying level `n` costs `ceil(base cost × 2.4^(n−1))`. Effects add linearly per owned level, while existing quality ceilings still apply. For example, Hearth Banner levels 1–5 cost 260 / 624 / 1,498 / 3,595 / 8,627 gold and provide up to +75% cadence and +40% budgets. Cards show current level, level marks, total active bonuses, next-level additions and exact gold price. Five is the maximum; failed purchases charge nothing. Old installed furnishings retain their existing bonuses as level 1. All levels and collection records survive Legacy.
 
 ![Permanent Legacy talent paths](diagrams/legacy-tree.svg)
 
@@ -532,6 +554,7 @@ Sixteen backgrounds are included: three stages for each of the five working room
 | Room | Middle-stage requirement | Grand-stage requirement |
 |---|---|---|
 | Smith | Smith level 8 | Smith level 25 |
+| Employees | 3 hired specialists | All 8 specialists and 12 employee upgrade ranks |
 | Mine | Iron seam unlocked | Starfall fissure unlocked |
 | Smelter | Iron crucible installed | Celestial crucible installed and 2,000 ingots produced |
 | Forge | Power hammer installed | Starforge crucible installed and quality ceiling at least 150 |
@@ -562,8 +585,12 @@ The existing deterministic engine remains the foundation. The Company extension 
 
 The automated suite covers the original queue, combat, offline, reward, commission, retirement and save guarantees, plus new creation rules, uncapped attributes, worker fallback, currency accounting, tier machinery, recruitment, breakthrough quality, automation safety, migration and online/offline equivalence. Browser checks cover first-time creation, crafting, customer sales, mining assignment, room navigation, branching overlays and actual quest replays. Current narrow-screen checks use a 360-pixel browser viewport.
 
-Future tuning should use human sessions to measure first-sale time, ingredient starvation, upgrade choice rates, return-customer demand, mid-game class specialization and time to first retirement. There are no claims here that all 113 upgrades have been human-playtested to completion.
+Future tuning should use human sessions to measure first-sale time, ingredient starvation, upgrade choice rates, return-customer demand, mid-game class specialization and time to first retirement. There are no claims here that all 124 upgrades have been human-playtested to completion.
 
 ## Blender inventory art
 
 273 original models were rendered in Blender 5.2 with Cycles into a transparent 16 × 18 atlas (192px per cell). The atlas covers 255 class/material/pattern variants and 18 resource icons. Rare and legendary archive recipes reuse the class/material prestige silhouette. Ore clusters, ingots, weapons, armour, accessories and supplies use consistent bevels, lighting and materials. The editable scene and atlas manifest are stored under `assets/inventory`; the complete source is `design/tools/render_blender_icons.py`. The UI uses atlas sprites in workings, smelting formulae, resource stock, Forge previews, Shop inventory and equipped items. The standalone build embeds the atlas once and shares one browser image URL.
+
+## Whole-game redesign proposal
+
+The separate `arena-design-atlas.html` and `arena-loop-proposal.md` present the idle reviewer’s proposed House of the Hammer redesign, including five progression maps and interactive interface concepts. Contracts, team-owned armoury equipment, rival-house arena leagues and saved replays are proposed future systems; they are not part of the current playable build. The existing shopping and quest campaign continues in version 2.3.

@@ -1,0 +1,35 @@
+flowchart LR
+    subgraph M[Mine]
+        M1[One crew: copper, tin, coal] --> M2[Iron workings and hauling]
+        M2 --> M3[Specialist crews and rare strata]
+    end
+    subgraph S[Smelter]
+        S1[Bronze batches] --> S2[Iron, steel and stock targets]
+        S2 --> S3[Controlled grades and rare alloys]
+    end
+    subgraph F[Forge]
+        F1[Training and standard patterns] --> F2[Parallel work and prefix control]
+        F2 --> F3[Prestige designs and signature commissions]
+    end
+    subgraph A[Shop and Armoury]
+        A1[Protect team kit; basic contracts] --> A2[Catalogue, reserves and patrons]
+        A2 --> A3[House hallmarks and guild commissions]
+    end
+    subgraph R[Arena]
+        R1[Yard exhibitions] --> R2[Regional rival houses]
+        R2 --> R3[Grand championship]
+    end
+    subgraph E[Employees]
+        E1[Owner and first worker] --> E2[Specialists and scheduled rest]
+        E2 --> E3[Foremen and coordinated production]
+    end
+    M1 --> S1 --> F1 --> A1 --> R1
+    R1 -->|Earned licence| M2
+    M2 --> S2 --> F2 --> A2 --> R2
+    R2 -->|Earned licence| M3
+    M3 --> S3 --> F3 --> A3 --> R3
+    E1 -.-> M1
+    E2 -.-> S2
+    E2 -.-> F2
+    E3 -.-> A3
+    R3 --> L[Legacy: a different and faster new opening]

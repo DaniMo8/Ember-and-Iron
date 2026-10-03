@@ -1,0 +1,23 @@
+flowchart TD
+    A[Inspect the next rival and your team's weakness] --> B[Choose a workshop goal]
+    B --> C[Mine the required ores]
+    C --> D[Smelt the right alloy and grade]
+    D --> E[Forge a pattern and choose its treatment]
+    E --> F{Where does this piece belong?}
+    F -->|Competitive improvement| G[Reserve and equip in the Armoury]
+    F -->|Repeatable standard work| H[Supply a shop contract]
+    F -->|Practice or obsolete stock| I[Clearance or salvage]
+    G --> J[Prepare formation and challenge a rival]
+    J --> K{Result}
+    K -->|Loss| L[Watch the decisive moment and revise the plan]
+    L --> B
+    K -->|Victory| M[Purse, reputation, records and qualification]
+    M --> N[Defeat the league champion]
+    N --> O[New material access and house capabilities]
+    O --> B
+    H --> P[Gold for people and workshop investment]
+    I --> P
+    M --> P
+    P --> B
+    N -->|Final championship| Q[Found a Legacy and choose the next house charter]
+    Q --> B

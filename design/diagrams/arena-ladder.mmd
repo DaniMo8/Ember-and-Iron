@@ -1,0 +1,22 @@
+flowchart TD
+    A{Choose an opponent source} -->|Authored NPC house| B[Local ladder challenge]
+    A -->|Friend's exported team| C[Unverified exhibition]
+    A -->|Optional connected season| D[Server-approved ranked challenge]
+    B --> E[Inspect opponent and prepare team]
+    C --> E
+    D --> E
+    E --> F[Freeze roster, gear, formation, fatigue, rules and seed]
+    F --> G[Deterministic battle simulation]
+    G --> H[Store result, match ID and event log]
+    H --> I{Official result type}
+    I -->|Local progression| J[Apply purse and qualification once]
+    I -->|Imported exhibition| K[Save comparison; no official rank]
+    I -->|Online ranked| L[Authoritative validation before rank changes]
+    H --> M[Replay at any speed or inspect decisive events]
+    M --> N[Pin a crafting or formation improvement]
+    N --> E
+    J --> O{Rung or champion cleared?}
+    O -->|Rung| P[Reveal the next rival styles]
+    O -->|Champion| Q[Next league and workshop licence]
+    P --> E
+    Q --> E

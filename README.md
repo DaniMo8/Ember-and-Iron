@@ -1,12 +1,12 @@
 # Ember & Iron — The Foundry
 
-A playable, local HTML blacksmith RPG with seven information-dense rooms, autonomous adventurers and a deliberately modest beginning.
+A playable, local HTML blacksmith RPG with eight information-dense rooms, autonomous adventurers and a deliberately modest beginning.
 
 ## Play
 
 Open **Ember-and-Iron.html** in a modern browser. This portable build embeds the code, styles and all sixteen location illustrations and the Blender inventory atlas. It works without an account, installation or internet connection. **index.html** runs the same game from the source files and the `assets` folder.
 
-New players choose one of five professions and distribute 20 points. Attributes are uncapped; each smith level grants five more points. The seven rooms are **Smith (your name)**, **Mine**, **Smelter**, **Forge**, **Shop**, **Customers** and **Legacy**. Legacy is greyed out until the first tier 5 boss victory, then remains accessible across generations. Follow the single next-objective prompt, use the room’s information panels, or open its upgrades overlay.
+New players choose one of five professions and distribute 20 points. Attributes are uncapped; each smith level grants five more points. The eight rooms are **Smith (your name)**, **Employees**, **Mine**, **Smelter**, **Forge**, **Shop**, **Customers** and **Legacy**. Legacy is greyed out until the first tier 5 boss victory, then remains accessible across generations. Follow the single next-objective prompt, use the room’s information panels, or open its upgrades overlay.
 
 You begin with 12 gold, basic supplies, one miner and three heroes. Mine copper, tin and coal, smelt bronze ingots, buy wood and leather in Mine or Forge, then forge useful equipment. Finished items occupy available displays. Customers browse, buy actual improvements, choose quests, retreat, recover and retry automatically.
 
@@ -15,7 +15,7 @@ The catalogue hides locked classes and tiers. A recipe remains visible if it is 
 ## Progression
 
 - Five professions with distinct working bonuses; four uncapped attributes.
-- 113 room upgrades across fifteen selectable sections, including fifteen Smelter upgrades.
+- 124 room upgrades across eighteen selectable sections, including fifteen Smelter upgrades.
 - Individually assigned miners, automatic overflow assignments, seven workings and per-material storage.
 - Seventeen item classes, 289 recipes (255 ordinary and 34 Legacy patterns), five material tiers, affixes, enchantments and quality breakthroughs up to 200.
 - Three fixed starting customers; class unlocks attract further named customers automatically, up to twelve across six archetypes.
@@ -25,6 +25,16 @@ The catalogue hides locked classes and tiers. A recipe remains visible if it is 
 - Defeat the tier 5 Void Sovereign to retire and open 36 permanent Legacy talents.
 
 Mining earns **Prospecting**. Forge development spends **gold**. Shop development spends **Influence** earned through reputation. Adventurer development spends **Merits**: 2 per victory, plus 1 for each of the first 8 retreats in a generation. Repeated upgrade ranks cost 90% more; permanent Legacy talents can reduce that growth to 60%. First-rank costs and unlock requirements remain intact.
+
+## Version 2.3.0 — The Employees room
+
+Employees now have a dedicated room with **Mine, Smelter, Forge and Shop** departments. Eight named specialists learn from actual work, show their current bonuses and experience/stamina, and can take time off. The mining crew can also be hired and assigned here. Existing employees retain their levels, experience and stamina.
+
+Twelve employee upgrades in **Training, Welfare and Organization** improve learning, specialist bonuses, rest, endurance and recruitment. Managed shift roster moves here with its original saved purchase preserved. Gold funds the new tree; prices grow exponentially. Smith retains attributes, furnishings and mastery.
+
+**Whole-game redesign proposal:** the idle enthusiast proposes a smithing house with an owned gladiator team, dependable contracts, rival-house leagues, deliberate equipment counters and saved replays. Explore the [interactive design atlas](design/arena-design-atlas.html), its five progression flowcharts and UI concepts, or read the [full proposal](design/arena-loop-proposal.md). The arena and redesigned economy are proposals, not implemented gameplay.
+
+Validation: [191 tests and browser checks](design/qa/version-2.3-verification.md).
 
 ## Version 2.2.0 — Rewarding progression and dependable idle production
 
@@ -183,7 +193,7 @@ Plain HTML, CSS and JavaScript; no package installation is required.
 - `workshop.js` / `workshop-engine.js`: ore refining, alloys, crafting choices, finishing passes and fixed customer arrivals.
 - `room-model.js`: room stage milestones and hero-follow routing.
 - `world-scenes.js`: compact live hero scenes for shopping, travel, battle and recovery.
-- `app.js` / `styles.css`: seven-room interface, contextual overlays and accessible controls.
+- `app.js` / `styles.css`: eight-room interface, contextual overlays and accessible controls.
 - `assets/*.png`: original generated full-screen illustrations.
 
 Run checks:
