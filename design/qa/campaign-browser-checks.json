@@ -1,0 +1,282 @@
+{
+  "fixture": "Controlled generation-five fixture, not earned progression evidence",
+  "rooms": [
+    {
+      "viewport": 320,
+      "room": "✦ Aveline",
+      "scene": "--scene:url('assets/house/smith-3.webp')",
+      "scroll": 305,
+      "title": "The maker",
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "room": "◆ Mine",
+      "scene": "--scene:url('assets/house/mine-4.webp')",
+      "scroll": 305,
+      "title": "The workings",
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "room": "◉ Smelter",
+      "scene": "--scene:url('assets/house/smelter-4.webp')",
+      "scroll": 305,
+      "title": "The foundry",
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "room": "⚒ Forge",
+      "scene": "--scene:url('assets/house/forge-4.webp')",
+      "scroll": 305,
+      "title": "The forge",
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "room": "◇ Shop & armoury",
+      "scene": "--scene:url('assets/house/shop-4.webp')",
+      "scroll": 305,
+      "title": "Shop & armoury",
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "room": "⚑ Arena",
+      "scene": "--scene:url('assets/house/arena-4.webp')",
+      "scroll": 305,
+      "title": "The proving ground",
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "room": "♟ Employees",
+      "scene": "--scene:url('assets/house/employees-4.webp')",
+      "scroll": 305,
+      "title": "The common room",
+      "width": 305
+    },
+    {
+      "viewport": 320,
+      "room": "✧ Legacy",
+      "scene": "--scene:url('assets/house/legacy-4.webp')",
+      "scroll": 305,
+      "title": "The hall of names",
+      "width": 305
+    },
+    {
+      "viewport": 390,
+      "room": "✦ Aveline",
+      "scene": "--scene:url('assets/house/smith-3.webp')",
+      "scroll": 375,
+      "title": "The maker",
+      "width": 375
+    },
+    {
+      "viewport": 390,
+      "room": "◆ Mine",
+      "scene": "--scene:url('assets/house/mine-4.webp')",
+      "scroll": 375,
+      "title": "The workings",
+      "width": 375
+    },
+    {
+      "viewport": 390,
+      "room": "◉ Smelter",
+      "scene": "--scene:url('assets/house/smelter-4.webp')",
+      "scroll": 375,
+      "title": "The foundry",
+      "width": 375
+    },
+    {
+      "viewport": 390,
+      "room": "⚒ Forge",
+      "scene": "--scene:url('assets/house/forge-4.webp')",
+      "scroll": 375,
+      "title": "The forge",
+      "width": 375
+    },
+    {
+      "viewport": 390,
+      "room": "◇ Shop & armoury",
+      "scene": "--scene:url('assets/house/shop-4.webp')",
+      "scroll": 375,
+      "title": "Shop & armoury",
+      "width": 375
+    },
+    {
+      "viewport": 390,
+      "room": "⚑ Arena",
+      "scene": "--scene:url('assets/house/arena-4.webp')",
+      "scroll": 375,
+      "title": "The proving ground",
+      "width": 375
+    },
+    {
+      "viewport": 390,
+      "room": "♟ Employees",
+      "scene": "--scene:url('assets/house/employees-4.webp')",
+      "scroll": 375,
+      "title": "The common room",
+      "width": 375
+    },
+    {
+      "viewport": 390,
+      "room": "✧ Legacy",
+      "scene": "--scene:url('assets/house/legacy-4.webp')",
+      "scroll": 375,
+      "title": "The hall of names",
+      "width": 375
+    },
+    {
+      "viewport": 768,
+      "room": "✦ Aveline",
+      "scene": "--scene:url('assets/house/smith-3.webp')",
+      "scroll": 753,
+      "title": "The maker",
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "room": "◆ Mine",
+      "scene": "--scene:url('assets/house/mine-4.webp')",
+      "scroll": 753,
+      "title": "The workings",
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "room": "◉ Smelter",
+      "scene": "--scene:url('assets/house/smelter-4.webp')",
+      "scroll": 753,
+      "title": "The foundry",
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "room": "⚒ Forge",
+      "scene": "--scene:url('assets/house/forge-4.webp')",
+      "scroll": 753,
+      "title": "The forge",
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "room": "◇ Shop & armoury",
+      "scene": "--scene:url('assets/house/shop-4.webp')",
+      "scroll": 753,
+      "title": "Shop & armoury",
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "room": "⚑ Arena",
+      "scene": "--scene:url('assets/house/arena-4.webp')",
+      "scroll": 753,
+      "title": "The proving ground",
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "room": "♟ Employees",
+      "scene": "--scene:url('assets/house/employees-4.webp')",
+      "scroll": 753,
+      "title": "The common room",
+      "width": 753
+    },
+    {
+      "viewport": 768,
+      "room": "✧ Legacy",
+      "scene": "--scene:url('assets/house/legacy-4.webp')",
+      "scroll": 753,
+      "title": "The hall of names",
+      "width": 753
+    },
+    {
+      "viewport": 1440,
+      "room": "✦ Aveline",
+      "scene": "--scene:url('assets/house/smith-3.webp')",
+      "scroll": 1425,
+      "title": "The maker",
+      "width": 1425
+    },
+    {
+      "viewport": 1440,
+      "room": "◆ Mine",
+      "scene": "--scene:url('assets/house/mine-4.webp')",
+      "scroll": 1425,
+      "title": "The workings",
+      "width": 1425
+    },
+    {
+      "viewport": 1440,
+      "room": "◉ Smelter",
+      "scene": "--scene:url('assets/house/smelter-4.webp')",
+      "scroll": 1425,
+      "title": "The foundry",
+      "width": 1425
+    },
+    {
+      "viewport": 1440,
+      "room": "⚒ Forge",
+      "scene": "--scene:url('assets/house/forge-4.webp')",
+      "scroll": 1425,
+      "title": "The forge",
+      "width": 1425
+    },
+    {
+      "viewport": 1440,
+      "room": "◇ Shop & armoury",
+      "scene": "--scene:url('assets/house/shop-4.webp')",
+      "scroll": 1425,
+      "title": "Shop & armoury",
+      "width": 1425
+    },
+    {
+      "viewport": 1440,
+      "room": "⚑ Arena",
+      "scene": "--scene:url('assets/house/arena-4.webp')",
+      "scroll": 1425,
+      "title": "The proving ground",
+      "width": 1425
+    },
+    {
+      "viewport": 1440,
+      "room": "♟ Employees",
+      "scene": "--scene:url('assets/house/employees-4.webp')",
+      "scroll": 1425,
+      "title": "The common room",
+      "width": 1425
+    },
+    {
+      "viewport": 1440,
+      "room": "✧ Legacy",
+      "scene": "--scene:url('assets/house/legacy-4.webp')",
+      "scroll": 1425,
+      "title": "The hall of names",
+      "width": 1425
+    }
+  ],
+  "overflowFailures": [],
+  "browserErrors": [],
+  "returnFixture": {
+    "awayHours": 2,
+    "crafted": 12,
+    "contracts": 5,
+    "netGold": 1675,
+    "notes": "Observed catch-up progress screen and itemised ledger at desktop and phone widths."
+  },
+  "portable": {
+    "bytes": 12544092,
+    "externalScripts": 0,
+    "brokenImages": 0,
+    "background": "Embedded blob URL",
+    "consoleErrors": 0
+  },
+  "freshCreation": {
+    "statsStartAtZero": true,
+    "assignablePoints": 20,
+    "legacyNavAbsent": true
+  }
+}

@@ -47,8 +47,8 @@ def build() -> Path:
         raise ValueError("An external script remains in the standalone output.")
     if re.search(r'<link\b[^>]*\brel=[\"\']stylesheet[\"\']', page, flags=re.IGNORECASE):
         raise ValueError("An external stylesheet remains in the standalone output.")
-    required_art = {"splash", "legacy", "button", "frame"}
-    required_art.update(f"{room}-{stage}" for room in ("smith", "mine", "smelter", "forge", "shop", "arena", "employees") for stage in range(3))
+    required_art = {"splash", "button", "frame"}
+    required_art.update(f"{room}-{stage}" for room in ("smith", "mine", "smelter", "forge", "shop", "arena", "employees", "legacy") for stage in range(5))
     required_art.update(f"fighter-{role}" for role in ("vanguard", "duelist", "ranger", "breaker", "guardian", "mage"))
     artwork = {p.stem: 'data:image/webp;base64,' + base64.b64encode(p.read_bytes()).decode('ascii') for p in sorted((ROOT / 'assets/house').glob('*.webp'))}
     if required_art - artwork.keys():

@@ -6,7 +6,7 @@ A playable local HTML blacksmith RPG. Build a workshop, equip an owned gladiator
 
 Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or serve **[index.html](index.html)** with the source files. The portable edition embeds every script, style, background, miniature and inventory icon; it needs no installation, account or internet connection.
 
-The new **House edition 3.0** has its own save, backup and active-tab ownership keys. Existing Classic saves are kept. The title/menu offers an explicit carry-over, with a preview of what is retained. **[classic.html](classic.html)** runs the preserved 2.3 game from the source folder. Export before changing browser or device.
+The new **House edition 3.1** has its own save, backup and active-tab ownership keys. Existing Classic saves are kept. The title/menu offers an explicit carry-over, with a preview of what is retained. **[classic.html](classic.html)** runs the preserved 2.3 game from the source folder. Export before changing browser or device.
 
 ## The playable loop
 
@@ -15,30 +15,32 @@ The new **House edition 3.0** has its own save, backup and active-tab ownership 
 - Seven callings, three origins and four working vows. Start with zero attributes and allocate 20 points; gain five per smith level, without an attribute cap.
 - Eight rooms: **Smith, Mine, Smelter, Forge, Shop & armoury, Arena, Employees and Legacy**. First-visit introductions explain each room's purpose and its next step.
 - Individually assigned miners; five material tiers; standard, toughened and spring-tempered ingots; protected team commissions, catalogue work and mastery practice.
-- 17 item classes, 255 ordinary medieval patterns and 34 Legacy patterns. Natural prefixes or deliberate treatments, enchanting suffixes, five diminishing finishing passes and quality ceilings up to 200.
+- 17 item classes, 255 ordinary medieval patterns, 34 original Legacy patterns and 51 researched Oathbound, Astral and Eternal designs. Natural prefixes or deliberate treatments, enchanting suffixes, five diminishing finishing passes and quality ceilings up to 200.
 - A fixed starting trio; free equipment comparisons/swaps; strict front/back lines; three rival styles; doctrines; five leagues. Each of three rungs needs five scoring match wins and all three styles, followed by a manually launched champion.
 - Disclosed contracts finance the workshop. Town visitors buy spare displayed work while protected team gear and qualifying contract stock stay safe.
 - Replays preserve the actual launch equipment, deterministic outcome and event log. Play, pause, step or scrub; rewatching never pays twice. The last twelve bouts are stored.
 - Eight specialists in four employee departments, experience, stamina, manual leave and earned managed shifts. 59 room upgrade nodes plus 36 permanent Legacy talents.
 - Gold buys ordinary development; mined materials, contracts and victories are access records. Repeated ranks cost 1.9×, reducible to 1.6× through Legacy. Furnishings cost 2.4× per rank and survive retirement.
-- Ingot targets, contract catalogue production, a delivery clerk and cleared-rival exhibitions support prepared idle play. Offline supply spending has an explicit budget; exhibitions stop on defeat and never launch a champion.
-- Defeat the fifth champion to retire. Choose a workforce, patron or archive charter; keep permanent talents, furnishings, chronicle and one chosen stored heirloom. A run reset has a typed warning and does not award sparks.
+- Ingot targets, contract catalogue production, a delivery clerk and cleared-rival exhibitions support prepared idle play. Offline work has a cumulative 24-hour allowance per absence and an explicit supply budget. A return ledger shows production, earnings, purchases, overflow and discoveries. Rotating contracts keep available work moving; exhibitions stop on defeat and never launch a champion. Only the first twelve suitable exhibition wins each day grant fighter XP.
+- Legacy stays hidden until at least 72 credited hours and the fifth champion. Each promotion also needs current-material crafting and contracts; early-tier farming cannot replace that proof. Later careers shorten accreditation, while production and combat still matter. Defeat the fifth champion to retire. Choose a workforce, patron or archive charter; keep permanent talents, furnishings, chronicle and one chosen stored heirloom. A run reset has a typed warning and does not award sparks.
+
+- Eleven discoveries reveal new methods, three enchantments and nine permanent research projects. Sixty increasingly difficult Crucible trials award persistent seals; optional oaths, inherited sigils and matched equipment sets give later careers different goals.
+- Forty original Blender backgrounds: five evolving scenes for each of eight rooms. Room investments and later generations change the architecture quietly; the game does not reveal the thresholds.
 
 ## Design and verification
 
-- **[House edition guide, room map and implementation notes](design/house-guide.html)**
-- [Independent idle-player review](design/qa/arena-implementation-review.md)
-- [Reproducible accelerated opening and controlled probes](design/qa/arena-review-probes.json)
-- [Automated test results](design/qa/version-3.0-tests.txt)
-- [Original whole-game proposal and future extensions](design/arena-loop-proposal.md)
-- [Interactive proposal atlas and five flowcharts](design/arena-design-atlas.html)
+- **[Long campaign guide, flowcharts and background gallery](design/campaign-guide.html)**
+- [House edition guide and room map](design/house-guide.html)
+- [Independent long-campaign review](design/qa/house-campaign-review.md)
+- [Automated test results](design/qa/version-3.1-tests.txt)
+- [Original whole-game proposal](design/arena-loop-proposal.md)
 - [Historical Classic specification](design/game-specification.html)
 
-**224 automated checks pass**, including Classic regression coverage and independent House review tests.
+The scheduled player follows **one initial hour, then 15 minutes at hours 2, 4 and 6; later days use 15-minute visits at hours 0, 2, 4 and 6**. Overnight is simulated as offline work. No resources, equipment or levels are granted to earned runs. An informed first career reached the Crown at **100.08 elapsed hours**, about 4.2 days and 5.5 active hours; a conservative policy needed about 126 hours. The 72-hour floor prevents early retirement, but it does not guarantee victory at that time.
 
-The earned opening playtest reached its first champion defeat at **46.5 minutes**, won after targeted investment at **55.9 minutes**, opened iron production at **56.7 minutes**, and equipped its first iron sword at **91.3 minutes**. This is one informed policy, not a promise of typical completion time. The mastery interval is intentionally exposed in the next-pattern panel. Controlled checks cover all 255 ordinary recipes, the final champion and all three second-generation charters. Full earned campaign affordability and longer unattended/second-generation pacing still need playtesting.
+**249 automated checks pass**, including Classic regressions and the new long-campaign invariants. All seven callings were checked through their opening hour. The rescued second career earned another Crown and four permanent studies; its timing includes the repaired automation stall and is not a clean pacing benchmark. Separate controlled tests cover save integrity, overnight limits, discoveries, research, equipment sets, oaths, seals, replay payouts and later-generation scene gates. The independent report separates these fixtures from earned second-generation results; generation-five recipes and the deepest trials are not claimed as naturally completed campaigns.
 
-The artwork is original Blender geometry: 21 room-stage renders, a splash, a Legacy hall, rendered button/frame surfaces and six fighter miniatures. Early rooms remain until two championships; the grand estate requires generation two and four championships. The portable build is approximately **11.7 MB**, down from **66.8 MB** in 2.3, chiefly through WebP assets and removal of unused Classic scene assets from the bundle.
+The portable build is approximately **12.5 MB**, including original Blender room scenes, splash, button/frame surfaces, fighter miniatures and the retained inventory atlas. UI checks cover every room at 320, 390, 768 and 1440 pixel viewport widths. Visual test saves use a separate local origin.
 
 ## Code and development
 
@@ -49,24 +51,25 @@ No framework or package installation is required to play or test. Existing produ
 | `house-data.js` | Callings, traits, room guidance, rivals, leagues, treatments and upgrade content |
 | `house-combat.js` | Pure seeded combat and bounded event records |
 | `house-engine.js` | House economy, team ownership, contracts, progression, automation and explicit Classic conversion |
+| `house-campaign.js` | Accreditation, discoveries, research, inherited equipment families, Crucible trials, oaths, offline reporting and room evolution |
 | `house-app.js` / `house.css` | Event-delegated interface, responsive rooms, input preservation, introductions and overlays |
 | `workshop-engine.js` and earlier engine modules | Tested shared production, staff, materials, items, Legacy and Classic compatibility |
 | `build_game.py` | Portable build from the source page's script order and local WebP assets |
-| `design/tools/render_house_art.py` | Reproducible architectural scenes and UI metalwork |
+| `design/tools/render_house_art.py` / `render_house_evolution.py` | Reproducible architectural scenes, five room stages and UI metalwork |
 | `design/tools/render_house_fighters.py` | Reproducible fighter miniatures |
 
 The new code uses shared previews for commands and UI, atomic equipment moves, material/grade escrow, integer event deadlines, once-only payouts and bounded replay history. Simulation advances separately from rendering. Embedded artwork becomes one cached Blob URL per asset; there are no network or third-party font dependencies. See the guide for the audit's trade-offs and follow-up work.
 
 ```sh
 node --test tests/*.test.js
-node design/qa/arena-review-probes.js
+node design/qa/house-campaign-probe.js --label=review --days=7 --respond --stop-at-crown
 python build_game.py
 python -m http.server 8777
 ```
 
-To regenerate original art, use Blender 5.x in background mode with the two render scripts. PNGs are working outputs; the checked-in WebP files are the game assets. Editable source scenes are in `assets/house`.
+To regenerate original art, use Blender 5.x in background mode with the scene and fighter render scripts. PNGs are working outputs; the checked-in WebP files are the game assets. Editable source scenes are in `assets/house`.
 
-For isolated UI fixtures, run `node design/tools/make_house_review.js`, serve this folder on port **8792**, and open `design/qa/house-review.html`. The fixture page refuses other ports and never edits the normal 8777 save. These injected visual fixtures are not pacing evidence.
+For isolated UI fixtures, run `node design/tools/make_campaign_review.js`, serve this folder on port **8792**, and open `design/qa/campaign-review.html`. The fixture page refuses other ports and never edits the normal 8777 save. These injected visual fixtures are not pacing evidence.
 
 ## Historical Classic release notes
 

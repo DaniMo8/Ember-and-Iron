@@ -1,12 +1,12 @@
-# House edition 3.0 — original Blender artwork
+# House edition 3.1 — original Blender artwork
 
-The active game uses `assets/house/*.webp`: 21 staged room backgrounds, one splash, one Legacy hall, two rendered UI surfaces and six fighter miniatures. Models, materials and lighting were created locally in Blender 5.2; no downloaded models, textures or reference images were used. The inventory atlas from 2.1 is retained.
+The active game has **40 room backgrounds: eight rooms × five architectural stages**, plus the existing splash, rendered button/frame surfaces, six fighter miniatures and inventory atlas. Every room includes its own starting workshop and later inherited estate. Models, materials and lights are original local Blender geometry, with no downloaded models or textures.
 
-Source generators: `design/tools/render_house_art.py` and `design/tools/render_house_fighters.py`. Editable scenes: `house-workshop.blend` and `house-fighters.blend`. Backgrounds use Cycles, 24 samples and denoising at 1440×960; fighters use transparent 320×400 renders. WebP assets were encoded from the original renders with Pillow (quality 86 for backgrounds, 90 for miniatures). This is format compression, not AI image editing.
+`design/tools/render_house_evolution.py` imports the modelling helpers in `render_house_art.py`. It generates the Mine, Smelter, Forge, Shop, Arena, Smith, Employees and Legacy scenes. Editable sources are the eight `assets/house/*-evolution.blend` files. The new scenes use Blender 5.2, Cycles with 12 samples and denoising, 1280×854 output, and WebP quality83 encoding. This is format compression, not AI image editing.
 
-Stage 0 is used before two championship wins; stage 1 begins after two. Stage 2 requires generation two or later plus four championship wins. Legacy has one distinct ceremonial scene. Blender button and frame textures decorate semantic HTML controls; text is never baked into an image.
+Five stages progress from rough timber to stone workshops, an established estate, a guild hall and celestial architecture. New equipment includes a mine lift, power hammer, display vitrines, employee classrooms, arena terraces and an armillary. Rooms evolve independently from their own upgrades; later stages also require subsequent generations and permanent research. Exact thresholds are intentionally absent from the player interface.
 
-The older artwork below remains available to Classic and is excluded from the new portable build.
+`render_house_art.py` also reproduces the original splash and semantic-control metalwork; `render_house_fighters.py` reproduces transparent miniatures. Text is never baked into a button image. Runtime dimming and responsive cropping keep information legible. Unused historical artwork below remains available to Classic but is excluded from the active portable build.
 
 # Original artwork — The Foundry
 

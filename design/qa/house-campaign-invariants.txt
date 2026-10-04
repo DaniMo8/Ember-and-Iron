@@ -1,0 +1,15 @@
+✔ earned opening: spending all starting gold on wood still leaves a public-command route to contract income (189.9527ms)
+✔ campaign fixture: an absence is credited up to24h cumulatively, not once per tick call (13462.8884ms)
+✔ campaign fixture: completing all other Crown requirements does not allow early first retirement (50.6177ms)
+✔ campaign fixture: research consumes premium input credits with the actual ingots (48.2046ms)
+✔ campaign fixture: contract refresh offers capable higher-tier work after old orders are delivered (383.369ms)
+✔ campaign fixture: equivalent whole-absence and small-step simulation discover methods at the same useful time (8158.8917ms)
+✔ earned-stall regression: rotating work skips starforged orders when their ore path is locked (42.0524ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 22445.1976

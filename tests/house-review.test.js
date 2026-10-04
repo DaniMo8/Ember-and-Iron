@@ -154,6 +154,9 @@ test("review: highest-tier controlled team can win the final champion and retire
   const e = fresh();
   e.state.house.champions = 4;
   e.state.house.rung = 3;
+  e.state.simTime = 72 * 3600000;
+  e.state.house.campaign.tierCrafts[4] = 36;
+  e.state.house.campaign.tierContracts[4] = 12;
   e.state.player.stats = {
     strength: 100,
     precision: 100,

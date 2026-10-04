@@ -805,7 +805,7 @@
       this.state.stats.crafted++; this.state.tutorial.stage = Math.max(2, this.state.tutorial.stage);
       p.legacy.collection[r.id] = Math.max(p.legacy.collection[r.id] || 0, item.quality);
       if (item.quality >= (this.data.qualityThresholds?.masterwork||85)) { this.state.stats.masterworks = this.state.stats.masterworks || []; if (!this.state.stats.masterworks.includes(r.id)) this.state.stats.masterworks.push(r.id); }
-      p.xp += r.smithXp || 12 * r.tier;
+      p.xp += (r.smithXp || 12 * r.tier) * (this.craftExperience?.(r).smith ?? 1);
       while ((this.data.overhaul || p.level < 50) && p.xp >= Math.ceil(60 * Math.pow(p.level, 1.15))) {
         p.xp -= Math.ceil(60 * Math.pow(p.level, 1.15)); p.level++; p.points += this.data.overhaul ? 5 : 3;
         if (p.level === 5) p.respecTokens++;
@@ -1070,7 +1070,7 @@
       if (this._offline) {
         if (!session.active) Object.assign(session, { active: true, credited: 0, spent: 0 });
         this._offlineSpend = session.spent;
-        delta = Math.min(delta, Math.max(0, 8 * 3600000 - session.credited));
+        delta = Math.min(delta, Math.max(0, (this.offlineLimit?.() || 8 * 3600000) - session.credited));
       } else {
         Object.assign(session, { active: false, credited: 0, spent: 0 });
         this._offlineSpend = 0;
@@ -1154,7 +1154,7 @@
         assert(typeof s.started === 'boolean' && typeof s.shopName === 'string', 'Missing smith identity.');
         assert(integer(s.simTime) && integer(s.lastWallTime) && integer(s.nextId) && integer(s.rngState), 'Invalid save clocks or identifiers.');
         if (!s.offlineSession) s.offlineSession = { active: false, credited: 0, spent: 0 };
-        assert(typeof s.offlineSession.active === 'boolean' && integer(s.offlineSession.credited) && s.offlineSession.credited <= 8 * 3600000 && integer(s.offlineSession.spent), 'Invalid offline allowance.');
+        assert(typeof s.offlineSession.active === 'boolean' && integer(s.offlineSession.credited) && s.offlineSession.credited <= (s.house ? 24 : 8) * 3600000 && integer(s.offlineSession.spent), 'Invalid offline allowance.');
         assert(s.player && integer(s.player.gold) && s.player.gold <= 1e12 && integer(s.player.level) && s.player.level >= 1 && s.player.level <= (data.overhaul ? Number.MAX_SAFE_INTEGER : 50), 'Invalid player progression.');
         assert(integer(s.player.points) && s.player.points <= (data.overhaul ? Number.MAX_SAFE_INTEGER : 200) && Number.isFinite(s.player.xp) && s.player.xp >= 0, 'Invalid attribute or XP balance.');
         assert(stats.every(k => integer(s.player.stats?.[k]) && s.player.stats[k] >= (data.workshopVersion ? 0 : 2) && s.player.stats[k] <= (data.overhaul ? Number.MAX_SAFE_INTEGER : 50)), 'Invalid attributes.');

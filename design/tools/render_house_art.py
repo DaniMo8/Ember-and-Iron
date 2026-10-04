@@ -187,18 +187,22 @@ def render(name):
     bpy.context.scene.render.filepath=str(OUT/(name+'.png'));bpy.ops.render.render(write_still=True)
     print('HOUSE_ART_READY',name,flush=True)
 
-for kind in ['splash','smith','mine','smelter','forge','shop','arena','employees','legacy']:
-    stages=[0] if kind in ['splash','legacy'] else [0,1,2]
-    for stage in stages:
-        room(kind,stage);render(kind if kind in ['splash','legacy'] else kind+'-'+str(stage))
-        if kind=='splash':bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'house-workshop.blend'))
+def main():
+    for kind in ['splash','smith','mine','smelter','forge','shop','arena','employees','legacy']:
+        stages=[0] if kind in ['splash','legacy'] else [0,1,2]
+        for stage in stages:
+            room(kind,stage);render(kind if kind in ['splash','legacy'] else kind+'-'+str(stage))
+            if kind=='splash':bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'house-workshop.blend'))
 
-# Sculpted interface surfaces; CSS keeps text and hit targets crisp and accessible.
-for name,width,height in [('button',4,1),('frame',4,3)]:
-    reset();cube('Brass surround',(0,0,0),(width,height,.18),gold,.09)
-    cube('Inset enamel',(0,0,.12),(width-.12,height-.12,.10),stone,.065)
-    for x in [-width/2+.18,width/2-.18]:
-        for y in [-height/2+.18,height/2-.18]:cyl('Corner rivet',(x,y,.2),.045,.025,gold,20)
-    setup((0,0,8),(0,0,0),width+.05)
-    bpy.context.scene.render.resolution_x=800;bpy.context.scene.render.resolution_y=int(800*height/width)
-    bpy.context.scene.render.film_transparent=True;render(name)
+    # Sculpted interface surfaces; CSS keeps text and hit targets crisp and accessible.
+    for name,width,height in [('button',4,1),('frame',4,3)]:
+        reset();cube('Brass surround',(0,0,0),(width,height,.18),gold,.09)
+        cube('Inset enamel',(0,0,.12),(width-.12,height-.12,.10),stone,.065)
+        for x in [-width/2+.18,width/2-.18]:
+            for y in [-height/2+.18,height/2-.18]:cyl('Corner rivet',(x,y,.2),.045,.025,gold,20)
+        setup((0,0,8),(0,0,0),width+.05)
+        bpy.context.scene.render.resolution_x=800;bpy.context.scene.render.resolution_y=int(800*height/width)
+        bpy.context.scene.render.film_transparent=True;render(name)
+
+if __name__ == "__main__":
+    main()

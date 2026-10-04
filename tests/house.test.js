@@ -225,6 +225,10 @@ test("champion launch is gated and a win opens exactly the next material licence
   assert(!e.command("challenge", { kind: "champion" }).ok);
   assert(!e.smeltUpgradePreview("iron").eligible);
   e.state.house.rung = 3;
+  // Controlled accreditation fixture; earned pacing is tested separately.
+  e.state.simTime = 2 * 3600000;
+  e.state.house.campaign.tierCrafts[0] = 12;
+  e.state.house.campaign.tierContracts[0] = 3;
   assert(e.command("challenge", { kind: "champion" }).ok);
   settle(e);
   assert.equal(e.state.house.champions, 1);

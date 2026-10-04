@@ -7,6 +7,7 @@
       require("./workshop"),
       require("./house-data"),
       require("./house-combat"),
+      require("./house-campaign"),
     );
   else
     root.EIHouseEngine = factory(
@@ -15,8 +16,9 @@
       root.EIWorkshop,
       root.EIHouseData,
       root.EIHouseCombat,
+      root.EIHouseCampaign,
     );
-})(globalThis, function (Workshop, P, W, H, Combat) {
+})(globalThis, function (Workshop, P, W, H, Combat, Campaign) {
   "use strict";
   const copy = (x) => JSON.parse(JSON.stringify(x)),
     yes = (message, data) => ({ ok: true, message, data }),
@@ -203,7 +205,7 @@
               integer(m.endsAt) &&
               m.endsAt > m.startedAt &&
               typeof m.paid === "boolean" &&
-              ["rival", "champion", "exhibition"].includes(m.kind) &&
+              ["rival", "champion", "exhibition", "trial"].includes(m.kind) &&
               integer(m.league) &&
               m.league < 5 &&
               integer(m.rung) &&
@@ -1751,6 +1753,7 @@
           (r) =>
             this._recipeKnown(r) &&
             r.variant === 0 &&
+            (!this.contractMaterialAccess || this.contractMaterialAccess(r)) &&
             this.craftPreview(r.id).gates.every(
               (g) => g.met || g.source === "Quarry or material shop",
             ),
@@ -1856,7 +1859,9 @@
       else {
         const other = [...h.orders];
         this._newContracts();
-        const candidate = h.orders[0];
+        const candidate = other.some(x => x.tier === 1)
+          ? h.orders[1 + h.contractCycle % Math.max(1, h.orders.length - 1)]
+          : h.orders[0];
         h.orders = [
           ...other,
           { ...candidate, id: "contract-" + h.contractCycle + "-renewed" },
@@ -1936,5 +1941,5 @@
       return yes("House policy saved.");
     }
   }
-  return House;
+  return Campaign.extend(House, { H, P, W, Combat });
 });

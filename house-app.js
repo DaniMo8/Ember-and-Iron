@@ -12,6 +12,7 @@
   });
   const D = EIWorkshop.apply(EIData, EIProgression),
     H = EIHouseData,
+    Campaign = EIHouseCampaign,
     P = EIProgression,
     W = EIWorkshop;
   const KEY = "ember-iron-arena-v1",
@@ -33,7 +34,11 @@
       );
   const num = (n) => Math.floor(n || 0).toLocaleString(),
     time = (n) =>
-      n >= 120 ? Math.ceil(n / 60) + "m" : Math.ceil(Math.max(0, n)) + "s",
+      n >= 3600
+        ? (n / 3600).toFixed(1).replace(/\.0$/, "") + "h"
+        : n >= 120
+          ? Math.ceil(n / 60) + "m"
+          : Math.ceil(Math.max(0, n)) + "s",
     pretty = (s) => s[0].toUpperCase() + s.slice(1);
   const owner = crypto.randomUUID(),
     roomNames = {
@@ -144,7 +149,7 @@
         const v = EIHouseEngine.validateSave(get(KEY), D);
         if (v.ok) {
           game = new EIHouseEngine(D, v.state);
-          game.advanceOffline(Date.now());
+          setTimeout(() => reconcileOffline(Date.now()), 0);
           last = Date.now();
         }
       }
@@ -152,13 +157,90 @@
     }
   }
   lease();
-  if (saved && !ui.readonly) {
-    const r = game.advanceOffline(Date.now());
-    if (r.report?.elapsed >= 60000) ui.returnReport = r.report;
+  async function reconcileOffline(now) {
+    if (ui.catchingUp || ui.readonly || !game.state.started) return;
+    const began = game.state.lastWallTime,
+      elapsed = Math.max(0, now - began);
+    if (elapsed < 60000) {
+      game.advanceOffline(now);
+      last = Date.now();
+      return;
+    }
+    ui.catchingUp = true;
+    ui.catchupProgress = 0;
+    let report = null;
+    const sums = [
+      "credited",
+      "crafted",
+      "sold",
+      "victories",
+      "defeats",
+      "netGold",
+      "netMaterials",
+      "automationSpent",
+      "contracts",
+      "mined",
+      "smelted",
+      "lost",
+      "contractGold",
+      "exhibitionGold",
+      "marketGold",
+    ];
+    try {
+      while (game.state.lastWallTime < now) {
+        lease();
+        if (ui.readonly) break;
+        const cursor =
+          game.state.offlineSession.credited >= game.offlineLimit()
+            ? now
+            : Math.min(now, game.state.lastWallTime + 15 * 60000);
+        const part = game.advanceOffline(cursor).report;
+        if (!part) break;
+        if (!report)
+          report = {
+            ...part,
+            discoveries: [...(part.discoveries || [])],
+            studies: [...(part.studies || [])],
+          };
+        else {
+          for (const k of sums) report[k] = (report[k] || 0) + (part[k] || 0);
+          report.capped ||= part.capped;
+          report.stopReason = part.stopReason;
+          report.discoveries.push(...(part.discoveries || []));
+          report.studies.push(...(part.studies || []));
+          const deltas = new Map(
+            (report.materials || []).map((x) => [x.id, x.change]),
+          );
+          for (const x of part.materials || [])
+            deltas.set(x.id, (deltas.get(x.id) || 0) + x.change);
+          report.materials = [...deltas]
+            .filter(([, change]) => change)
+            .map(([id, change]) => ({ id, change }));
+        }
+        ui.catchupProgress = Math.min(
+          1,
+          (game.state.lastWallTime - began) / elapsed,
+        );
+        // Preserve the credited cursor without advancing it to the live wall clock.
+        put(KEY, game.exportSave());
+        render(true);
+        await new Promise((resolve) => setTimeout(resolve, 0));
+      }
+      if (report) {
+        report.elapsed = elapsed;
+        game.state.offlineReport = report;
+        ui.returnReport = report;
+      }
+    } finally {
+      ui.catchingUp = false;
+      last = Date.now();
+      render(true);
+    }
   }
   function save(force = false) {
     if (
       ui.readonly ||
+      ui.catchingUp ||
       (!game.state.started && game.state.player.legacy.generation === 1) ||
       (!force && Date.now() - lastSave < 5000)
     )
@@ -210,12 +292,7 @@
     ));
   }
   function stage(room) {
-    if (room === "legacy") return "legacy";
-    const h = game.state.house,
-      g = game.state.player.legacy.generation;
-    return (
-      room + "-" + (g >= 2 && h.champions >= 4 ? 2 : h.champions >= 2 ? 1 : 0)
-    );
+    return room + "-" + game.roomStage(room);
   }
   let atlasUrl = null;
   function sprite(key) {
@@ -280,7 +357,10 @@
       ["Fire ward", Math.round((st.resistances?.fire || 0) * 100) + "%"],
     ]
       .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`)
-      .join("")}</dl>`;
+      .join("")}</dl>${(st.traits || [])
+      .filter((t) => t.includes("pair ·") || t.includes("concord ·"))
+      .map((t) => `<p class="counter-hint">${esc(t)}</p>`)
+      .join("")}`;
   }
   function supplies() {
     return `<div class="supplies">${D.purchasedSupplies
@@ -306,12 +386,13 @@
     );
   }
   function recordTitle(m) {
+    if (m.kind === "trial") return "Crucible " + m.depth + " · " + esc(m.title);
     return m.kind === "champion"
       ? H.leagues[m.league].champion
       : H.rivals.find((r) => r.id === m.rival).name;
   }
   function splash() {
-    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.0</span></footer></main>`;
+    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.1</span></footer></main>`;
   }
   function creation() {
     const p = H.professions[ui.calling],
@@ -397,6 +478,11 @@
       heading = s.player.points + " attribute points to spend";
       body = "Develop the maker behind every piece.";
       room = "smith";
+    } else if (s.player.legacy.generation > 1 && !h.catalogue.enabled) {
+      heading = "Reopen the inherited workshop";
+      body =
+        "Your permanent knowledge survived. Rebuild the production ledger, set ingot targets and enable rotating contracts before leaving the house unattended.";
+      room = !s.workshop.smeltPolicy.enabled ? "smelter" : "forge";
     } else if (!s.stats.crafted) {
       heading = "Forge your first team piece";
       body =
@@ -407,6 +493,10 @@
       body =
         "Use Catalogue purpose to make unprotected work for a disclosed contract.";
       room = "shop";
+    } else if (h.rung === 3 && !game.campaignStatus().eligible) {
+      heading = "Build the house behind the champion";
+      body = game.campaignStatus().reason;
+      room = "smith";
     } else if (h.rung === 3) {
       heading = "The league champion awaits";
       body =
@@ -431,6 +521,7 @@
     return `<aside class="house-nav"><button class="nav-brand" data-action="title"><span class="wordmark">E<span>&</span>I</span><small>HOUSE OF THE HAMMER</small></button><nav aria-label="House rooms">${Object.entries(
       roomNames,
     )
+      .filter(([r]) => r !== "legacy" || game.campaignStatus().legacyVisible)
       .map(([r, n]) =>
         button(
           `<span>${marks[r]}</span><b>${r === "smith" ? esc(s.player.name) : n}</b>${r === "legacy" && h.champions < 5 && s.player.legacy.generation === 1 ? "<i>◇</i>" : ""}`,
@@ -447,7 +538,7 @@
   function toolbar() {
     const d = H.rooms[ui.room],
       r = ui.room === "smith" ? null : ui.room === "legacy" ? null : ui.room;
-    return `<div class="room-heading"><div><p class="eyebrow">${ui.room === "legacy" ? "AN ENDURING HOUSE" : stage(ui.room).endsWith("-2") ? "THE FOUNDER’S ESTATE" : stage(ui.room).endsWith("-1") ? "AN ESTABLISHED HOUSE" : "HUMBLE BEGINNINGS"}</p><h1>${d[0]}</h1><p>${d[1]}</p></div><div class="heading-actions">${button("?", "overview", { room: ui.room }, false, "help-button")}${r ? button(`<span>DEVELOP THIS ROOM</span>Upgrades <b>↗</b>`, "upgrades", { room: r }, false, "upgrade-button") : ""}</div></div>`;
+    return `<div class="room-heading"><div><p class="eyebrow">${ui.room === "legacy" ? "AN ENDURING HOUSE" : ["HUMBLE BEGINNINGS", "AN ESTABLISHED HOUSE", "THE INHERITED ESTATE", "THE CHARTERED GUILDHOUSE", "THE CELESTIAL HOUSE"][game.roomStage(ui.room)]}</p><h1>${d[0]}</h1><p>${d[1]}</p></div><div class="heading-actions">${button("?", "overview", { room: ui.room }, false, "help-button")}${r ? button(`<span>DEVELOP THIS ROOM</span>Upgrades <b>↗</b>`, "upgrades", { room: r }, false, "upgrade-button") : ""}</div></div>`;
   }
   function metrics(rows) {
     return `<div class="metrics">${rows.map(([k, v]) => `<div><span>${k}</span><strong>${v}</strong></div>`).join("")}</div>`;
@@ -472,10 +563,10 @@
         .availableClasses()
         .map((id) => {
           const v = p.proficiency[id];
-          return `<button data-action="forge-class" data-id="${id}">${sprite("item-" + id + "-1-1")}<span>${D.classes[id].name}<b>${v.level}</b><small>${Math.floor(v.xp)} / ${6 + 2 * v.level} XP</small>${progress(v.xp, 6 + 2 * v.level, D.classes[id].name + " mastery")}</span></button>`;
+          return `<button data-action="forge-class" data-id="${id}">${sprite("item-" + id + "-1-1")}<span>${D.classes[id].name}<b>${v.level}</b><small>${v.level >= 100 ? "Discipline mastered" : Math.floor(v.xp) + " / " + (6 + 2 * v.level) + " XP"}</small>${progress(v.level >= 100 ? 1 : v.xp, v.level >= 100 ? 1 : 6 + 2 * v.level, D.classes[id].name + " mastery")}</span></button>`;
         })
         .join("")}</div>`,
-    )}</div><aside>${panel(
+    )}</div><aside>${inheritedReadiness()}${panel(
       "Your house",
       metrics([
         ["Champions", s.house.champions + " / 5"],
@@ -502,6 +593,44 @@
         .map((x) => `<p class="chronicle">${esc(x.text)}</p>`)
         .join("") || empty("The house has yet to win its first crown."),
     )}</aside></div>`;
+  }
+  function inheritedReadiness() {
+    const s = game.state,
+      h = s.house,
+      w = s.workshop;
+    if (s.player.legacy.generation < 2) return "";
+    const checks = [
+      [
+        "Mine",
+        "Keep at least three mining crews working",
+        s.world.miners.length >= 3,
+        "mine",
+      ],
+      [
+        "Smelter",
+        "Enable ingot maintenance and set a target",
+        w.smeltPolicy.enabled &&
+          Object.values(w.smeltPolicy.targets).some((n) => n > 0),
+        "smelter",
+      ],
+      [
+        "Forge",
+        "Rebuild the ledger and run rotating contracts",
+        h.upgrades.catalogue && h.catalogue.enabled && h.catalogue.rotate,
+        "forge",
+      ],
+      [
+        "Shop",
+        "Hire the delivery clerk and enable deliveries",
+        h.upgrades.clerk && h.autoDeliver,
+        "shop",
+      ],
+    ];
+    if (checks.every(([, , ready]) => ready)) return "";
+    return panel(
+      "Before the house works alone",
+      `<p>Permanent talents and discoveries survive. Each successor still sets up their own production rules.</p><div class="readiness-list">${checks.map(([name, detail, ready, room]) => `<div><strong>${ready ? "✓" : "○"} ${name}</strong><p>${detail}</p>${ready ? tag("Ready") : button("Open " + name, "room", { room }, false, "quiet")}</div>`).join("")}</div><small>Supply buying is optional. Set an offline budget in Forge if you want it, and review employee shifts before a long absence.</small>`,
+    );
   }
   function mine() {
     const s = game.state,
@@ -664,7 +793,7 @@
         )}</div><div class="tabs">${["weapons", "armour", "other"].map((id) => button(pretty(id), "group", { id }, false, ui.group === id ? "selected" : "")).join("")}</div><div class="form-two"><label>Item class<select data-ui="type">${groupClasses.map((id) => `<option value="${id}" ${ui.type === id ? "selected" : ""}>${D.classes[id].name}</option>`).join("")}</select></label><label>Material tier<select data-ui="material">${tiers.map((id) => `<option value="${id}" ${ui.material === id ? "selected" : ""}>${D.materials[id].name}</option>`).join("")}</select></label></div><div class="pattern-list">${selected
         .map((x) => {
           const p = game.craftPreview(x.id);
-          return `<button data-action="pattern" data-id="${x.id}" class="${x.id === ui.recipe ? "selected" : ""}" aria-pressed="${x.id === ui.recipe}">${itemIcon(x)}<span><strong>${x.name}</strong><small>${["Training · economical", "Standard · reliable", "Prestige · demanding"][Math.min(2, x.variant || 0)]}</small></span><b>Q${p.quality}</b></button>`;
+          return `<button data-action="pattern" data-id="${x.id}" class="${x.id === ui.recipe ? "selected" : ""}" aria-pressed="${x.id === ui.recipe}">${itemIcon(x)}<span><strong>${x.name}</strong><small>${["Training · economical", "Standard · reliable", "Prestige · demanding", "Relic · inherited", "Sovereign · legendary", "Oathbound · matching pair", "Astral · matching pair", "Eternal · three-piece concord"][x.variant || 0]}</small></span><b>Q${p.quality}</b></button>`;
         })
         .join("")}</div>${
         r
@@ -719,7 +848,7 @@
                 ["Preparation", v.gold + "g"],
                 ["Mastery", master.level],
               ],
-            )}<div class="craft-bar">${button("Craft 1", "craft", { quantity: 1 }, !v.eligible, "primary")}${button("Craft 5", "craft", { quantity: 5 }, !game.craftPreview(r.id, { ...options, quantity: 5 }).eligible)}${button("Craft max · " + v.maxQuantity, "craft", { quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}<span>${esc(v.reason)}</span></div><small>${ui.intent === "team" ? "Finished team commissions are protected and never auto-sold." : ui.intent === "practice" ? `Earn class mastery. Town clearance returns ${game._townPrice({ recipeId: r.id, quality: v.quality })}g; materials and time are still consumed.` : "Only unprotected pieces can satisfy contracts."}</small></div>`
+            )}<div class="craft-bar">${button("Craft 1", "craft", { quantity: 1 }, !v.eligible, "primary")}${button("Craft 5", "craft", { quantity: 5 }, !game.craftPreview(r.id, { ...options, quantity: 5 }).eligible)}${button("Craft max · " + v.maxQuantity, "craft", { quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}<span>${esc(v.reason)}</span></div><small>${game.craftExperience(r).smith < 1 ? "Familiar work grants " + Math.round(game.craftExperience(r).smith * 100) + "% smith XP. Newer materials teach more. " : ""}${ui.intent === "team" ? "Finished team commissions are protected and never auto-sold." : ui.intent === "practice" ? `Earn class mastery. Town clearance returns ${game._townPrice({ recipeId: r.id, quality: v.quality })}g; materials and time are still consumed.` : "Only unprotected pieces can satisfy contracts."}</small></div>`
           : empty("No pattern available in this class.")
       }`,
     )}${
@@ -779,7 +908,7 @@
   }
   function catalogueForm() {
     const c = game.state.house.catalogue;
-    return `<p>Maintain one contract design. Production stops when orders are satisfied or inputs reach your reserve.</p><label>Recipe<select name="catalogue-recipe">${Object.values(
+    return `<p>Maintain your chosen design, or rotate through eligible orders as the clerk delivers them. Production respects quality, storage and reserves.</p><label>Recipe<select name="catalogue-recipe">${Object.values(
       D.recipes,
     )
       .filter((r) => game._recipeKnown(r) && r.variant < 2)
@@ -789,7 +918,7 @@
       )
       .join(
         "",
-      )}</select></label><label>Input reserve<input name="catalogue-reserve" type="number" value="${c.reserve}" min="0" max="1000"></label><label class="check"><input name="catalogue-buy" type="checkbox" ${c.autoBuy ? "checked" : ""}> Buy wood, leather and oil, keeping 20g</label><label>Offline supply budget (gold)<input name="catalogue-budget" type="number" min="0" max="1000000" value="${game.state.automation.spendCap}"></label><small>0 disables purchases while away. This limit covers the entire offline session.</small><div class="actions">${button("Save & run", "catalogue-save", {}, false, "primary")}${button("Pause", "catalogue-pause", {}, !c.enabled)}</div><p class="status-line">${esc(game.catalogueStatus())}</p>`;
+      )}</select></label><label class="check"><input name="catalogue-rotate" type="checkbox" ${c.rotate ? "checked" : ""}> Follow rotating contracts automatically</label><label>Input reserve<input name="catalogue-reserve" type="number" value="${c.reserve}" min="0" max="1000"></label><label class="check"><input name="catalogue-buy" type="checkbox" ${c.autoBuy ? "checked" : ""}> Buy wood, leather and oil, keeping 20g</label><label>Offline supply budget (gold)<input name="catalogue-budget" type="number" min="0" max="1000000" value="${game.state.automation.spendCap}"></label><small>0 disables purchases while away. This limit covers the entire offline session.</small><div class="actions">${button("Save & run", "catalogue-save", {}, false, "primary")}${button("Pause", "catalogue-pause", {}, !c.enabled)}</div><p class="status-line">${esc(game.catalogueStatus())}</p>`;
   }
   function heroSelect() {
     return `<div class="hero-selector">${game.state.adventurers.map((h) => button(`<span class="portrait">${fighterArt(h.archetypeId)}</span><span><strong>${esc(h.name)}</strong><small>${D.archetypes[h.archetypeId].name}</small></span>`, "hero", { id: h.id }, false, currentHero()?.id === h.id ? "selected" : "")).join("")}</div>`;
@@ -933,7 +1062,7 @@
     if (!choice)
       return "<p>Beat a rival to open an exhibition. Exhibitions earn a smaller purse and experience, without qualification credit.</p>";
     const v = game.matchPreview({ ...choice, kind: "exhibition" });
-    return `<p>Repeat a beaten rival. Exhibitions never add qualification. Automatic repetition stops on defeat.</p><label>Cleared opponent<select data-ui="exhibitionChoice">${choices.map((c) => `<option value="${c.key}" ${c === choice ? "selected" : ""}>${c.label}</option>`).join("")}</select></label><p>${v.purse}g victory purse · ${v.reason}</p><div class="actions">${button("Launch exhibition", "exhibit", choice, !v.eligible)}${h.exhibition ? button("Stop exhibitions", "stop-exhibitions") : h.upgrades.exhibitions ? button("Authorize repeat", "repeat", choice, !v.eligible) : ""}</div>${h.exhibition ? `<small>Repeating ${H.rivals.find((r) => r.id === h.exhibition.rival).name} in league ${h.exhibition.league + 1}, rung ${h.exhibition.rung + 1}.</small>` : !h.upgrades.exhibitions ? "<small>Develop Exhibition steward after five wins for automatic repetition.</small>" : ""}`;
+    return `<p>Repeat a beaten rival every five minutes. The first 12 daily wins against the current or previous league train fighters. All wins earn their purse; exhibitions never qualify the team. Repetition stops on defeat.</p><label>Cleared opponent<select data-ui="exhibitionChoice">${choices.map((c) => `<option value="${c.key}" ${c === choice ? "selected" : ""}>${c.label}</option>`).join("")}</select></label><p>${v.purse}g victory purse · ${v.reason}</p><div class="actions">${button("Launch exhibition", "exhibit", choice, !v.eligible)}${h.exhibition ? button("Stop exhibitions", "stop-exhibitions") : h.upgrades.exhibitions ? button("Authorize repeat", "repeat", choice, !v.eligible) : ""}</div>${h.exhibition ? `<small>Repeating ${H.rivals.find((r) => r.id === h.exhibition.rival).name} in league ${h.exhibition.league + 1}, rung ${h.exhibition.rung + 1}.</small>` : !h.upgrades.exhibitions ? "<small>Develop Exhibition steward after five wins for automatic repetition.</small>" : ""}`;
   }
   function returnSummary() {
     const r = ui.returnReport;
@@ -946,7 +1075,87 @@
         ["Contracts", r.contracts || 0],
         ["Gold", (r.netGold >= 0 ? "+" : "") + num(r.netGold)],
       ]) +
-        `<p>${r.victories} arena wins · ${r.defeats} defeats · ${r.netMaterials >= 0 ? "+" : ""}${num(r.netMaterials)} materials. ${r.capped ? "Offline allowance reached." : ""}</p><p>${esc(r.stopReason || "Your authorised workshop policies kept working.")}</p>${button("Back to the house", "dismiss-return", {}, false, "quiet")}`,
+        `<p>Away ${time(r.elapsed / 1000)} · ${r.mined || 0} mined · ${r.smelted || 0} ingots cast · ${r.victories} arena wins · ${r.defeats} defeats.</p><dl class="compact-ledger"><div><dt>Contracts / town sales / arena</dt><dd>${num(r.contractGold)}g / ${num(r.marketGold)}g / ${num(r.exhibitionGold)}g</dd></div><div><dt>Authorised supply purchases</dt><dd>−${num(r.automationSpent)}g</dd></div><div><dt>Material balance / overflow lost</dt><dd>${r.netMaterials >= 0 ? "+" : ""}${num(r.netMaterials)} / ${num(r.lost)}</dd></div></dl>${r.capped ? `<p class="warning">24-hour allowance reached. ${time((r.elapsed - r.credited) / 1000)} was not simulated. Return visits reset the allowance.</p>` : ""}${[...(r.discoveries || []), ...(r.studies || [])].map((x) => `<p class="discovery-note">✦ ${esc(x)}</p>`).join("")}<p>${esc(r.stopReason || "Your authorised workshop policies kept working.")}</p>${button("Back to the house", "dismiss-return", {}, false, "quiet")}`,
+    );
+  }
+  function campaignPanel() {
+    const s = game.state,
+      c = s.house.campaign,
+      status = game.campaignStatus();
+    const room = ui.room,
+      discovered = game.discoverySummary(room);
+    let html = "";
+    if ((room === "smith" || room === "arena") && s.house.champions < 5)
+      html += panel(
+        "The next guild accreditation",
+        `<p>Qualification proves the team. Sustained workshop work earns the next licence. Both are required for a champion challenge.</p><div class="accreditation-list">${status.checks.map((x) => `<div><span>${x.label}</span><strong>${x.unit === "time" ? time(Math.min(x.current, x.required) / 1000) + " / " + time(x.required / 1000) : num(x.current) + " / " + num(x.required)} ${x.met ? "✓" : ""}</strong>${progress(x.current, x.required, x.label)}</div>`).join("")}</div><small>${esc(status.reason)} Age advances at full speed online and offline, with a 24-hour allowance per absence.</small>`,
+      );
+    if (c.unread.length)
+      html += `<div class="discovery-note"><strong>✦ ${esc(c.unread[0])}</strong><span>${c.unread.length > 1 ? c.unread.length + " new discoveries in your house. " : ""}Visit the relevant room to read the findings.</span>${button("Read findings", "discoveries", {}, false, "quiet")}</div>`;
+    if (discovered.length)
+      html += `<details class="discovery-journal"><summary>House discoveries · ${discovered.length}</summary>${discovered.map((d) => `<article><h3>${d.name}</h3><p>${d.text}</p></article>`).join("")}</details>`;
+    const studies = Campaign.projects
+      .map((p) => game.projectPreview(p.id))
+      .filter((p) => p.visible && (p.room === room || room === "legacy"));
+    if (studies.length || (c.research && room === "smith"))
+      html += panel(
+        "The living archive",
+        `${c.research ? `<div class="research-current"><strong>${Campaign.projects.find((p) => p.id === c.research.id).name}</strong><p>${time((c.research.endsAt - s.simTime) / 1000)} remaining · knowledge survives retirement</p>${progress(s.simTime - c.research.startedAt, c.research.endsAt - c.research.startedAt, "Study progress")}</div>` : ""}<div class="study-grid">${studies
+          .map(
+            (p) =>
+              `<article class="compact-card"><div class="section-line"><h3>${p.name}</h3>${tag(p.owned ? "Learned" : time(p.hours * 3600))}</div><p>${p.text}</p>${
+                !p.owned
+                  ? `<small>${num(p.gold)}g${p.seals ? " · " + p.seals + " seals" : ""} · ${Object.entries(
+                      p.inputs || {},
+                    )
+                      .map(([id, n]) => n + " " + D.materials[id].name)
+                      .join(
+                        ", ",
+                      )}</small><div class="actions">${button("Begin study", "research", { id: p.id }, !p.eligible, "primary")}</div><small>${esc(p.reason)}</small>`
+                  : ""
+              }</article>`,
+          )
+          .join(
+            "",
+          )}</div><small>One study at a time. Costs are committed at the start; it runs while you are away.</small>`,
+      );
+    if (room === "arena" && s.house.champions === 5) {
+      const v = game.trialPreview();
+      html += panel(
+        "Beyond the Crown · The Crucible",
+        `<p class="eyebrow">CIRCLE ${v.cycle} · TRIAL ${v.depth}</p><h2>${v.name}</h2><p>${v.description}</p><p>${v.seals} seals · ${num(v.purse)}g · first-time victories only. ${c.seals} seals held.</p><div class="enemy-stats">${v.enemies.map((e) => `<div><span>${e.line.toUpperCase()}</span><b>${num(e.health)} HP</b><small>${e.attack.toFixed(1)} damage · ${e.armor.toFixed(1)} armour</small></div>`).join("")}</div>${button("Gather & enter the Crucible", "ascend", {}, !v.eligible, "primary")}<p>${esc(v.reason)}</p><small>Three rival modifiers rotate. Every trial grows stronger. Later generations open deeper circles, up to 60 trials. Seals fund permanent research; a new career resets current trial depth.</small>`,
+      );
+    }
+    return html;
+  }
+  function oathsPanel() {
+    const c = game.state.house.campaign;
+    return (
+      panel(
+        "An oath for the next generation",
+        `<p>Current oath: <strong>${Campaign.burdens[c.burden].name}</strong>. Choose a different challenge for your next maker. This choice does not change the current career.</p><div class="choice-list">${Object.entries(
+          Campaign.burdens,
+        )
+          .map(
+            ([id, b]) =>
+              `<button data-action="burden" data-id="${id}" class="${c.nextBurden === id ? "selected" : ""}"><strong>${b.name} ${c.oaths.includes(id) ? "✓" : ""}</strong><span>${b.text}</span></button>`,
+          )
+          .join(
+            "",
+          )}</div><p>${c.seals} Crucible seals held · deepest trial ${c.bestTrial}. Research, discoveries and first-completion oath records survive retirement.</p>`,
+      ) +
+      panel(
+        "Inherited sigils",
+        `<p>Crucible seals offer a choice: decode a new equipment family or strengthen every future team. Sigil ranks persist; costs rise with each inscription.</p><div class="study-grid">${[
+          "edge",
+          "ward",
+        ]
+          .map((id) => {
+            const v = game.lineagePreview(id);
+            return `<article class="compact-card"><h3>${id === "edge" ? "The enduring edge" : "The enduring ward"} · ${v.rank} / 80</h3><p>${id === "edge" ? "Each rank multiplies team damage by 1.12." : "Each rank multiplies team health by 1.12 and armour by 1.06."}</p><small>${v.seals} seals · ${num(v.gold)}g</small><div class="actions">${button("Inscribe", "lineage", { id }, !v.eligible, "primary")}</div><small>${v.reason}</small></article>`;
+          })
+          .join("")}</div>`,
+      )
     );
   }
   function arena() {
@@ -991,8 +1200,23 @@
           )}</aside></div>`
         : ui.arenaTab === "replays"
           ? replays()
-          : `<div class="room-grid arena-grid"><div>${m ? panel("Live bout · " + recordTitle(m), battle(m)) : panel(champion ? "The promotion challenge" : H.leagues[league].name, `<div class="qualification"><div><p class="eyebrow">${champion ? "THREE RUNGS CLEARED" : "QUALIFICATION RUNG " + (rung + 1) + " / 3"}</p><h2>${champion ? H.leagues[league].champion : Math.min(5, q.wins) + " / 5 scoring victories"}</h2></div><div class="rung-dots">${[0, 1, 2].map((i) => `<b class="${i < h.rung || h.champions > league ? "complete" : ""}">${i + 1}</b>`).join("")}</div></div>${!champion ? `${progress(q.wins, 5, "Rung victories")}<p>Win five matches and beat all three styles. Each match counts once, regardless of party size.</p><div class="rival-cards">${H.rivals.map((r) => `<button data-action="rival" data-id="${r.id}" class="${ui.rival === r.id ? "selected" : ""}"><span style="color:${r.color}">${q.styles.includes(r.id) ? "✓" : "◇"}</span><strong>${r.name}</strong><small>${r.title}</small></button>`).join("")}</div>` : `<p>Defeat the champion to unlock ${H.leagues[league].licence}. Champion fights are always launched by you.</p>`}<div class="rival-intel"><p class="eyebrow">AUTHORED NPC HOUSE · ${champion ? "CHAMPIONSHIP" : rival.title.toUpperCase()}</p><h3>${champion ? H.leagues[league].champion : rival.name}</h3><p>${rival.tactic}</p><div class="enemy-stats">${preview.enemies.map((e) => `<div><span>${e.line === "front" ? "FRONT" : "BACK"}</span><b>${Math.round(e.health)} HP</b><small>${e.attack.toFixed(1)} ${e.damageType} damage · ${e.armor.toFixed(1)} armour</small></div>`).join("")}</div><p class="counter-hint">${rival.hint}</p>${button("Pin a crafting response", "pin", { id: rival.id }, false, "quiet")}</div><div class="launch-row">${button(champion ? "Gather & launch champion" : "Enter the arena", "challenge", { kind, rival: ui.rival, league, rung }, !preview.eligible, "primary large")}<span>${preview.purse}g victory purse<br><small>${preview.reason}</small></span></div>`)}${!m && h.matches[0]?.paid ? panel("Last bout", `<div class="section-line"><h3>${recordTitle(h.matches[0])}</h3>${tag(h.matches[0].result.victory ? "VICTORY" : "DEFEAT")}</div><p>${esc(h.matches[0].result.insight)}</p>${button("Watch replay", "replay", { id: h.matches[0].id })}`) : ""}</div><aside>${panel("Your selected team", teamFormation())}${panel("Exhibitions", exhibitions())}</aside></div>`
+          : `<div class="room-grid arena-grid"><div>${m ? panel("Live bout · " + recordTitle(m), battle(m)) : h.champions === 5 ? panel("The Crown has been earned", `<p>The five-league ladder is complete. Enter the Crucible above for new challenges and permanent research seals, or prepare the next generation in Legacy.</p>${button("Review the inheritance", "room", { room: "legacy" }, false, "quiet")}`) : panel(champion ? "The promotion challenge" : H.leagues[league].name, `<div class="qualification"><div><p class="eyebrow">${champion ? "THREE RUNGS CLEARED" : "QUALIFICATION RUNG " + (rung + 1) + " / 3"}</p><h2>${champion ? H.leagues[league].champion : Math.min(5, q.wins) + " / 5 scoring victories"}</h2></div><div class="rung-dots">${[0, 1, 2].map((i) => `<b class="${i < h.rung || h.champions > league ? "complete" : ""}">${i + 1}</b>`).join("")}</div></div>${!champion ? `${progress(q.wins, 5, "Rung victories")}<p>Win five matches and beat all three styles. Each match counts once, regardless of party size.</p><div class="rival-cards">${H.rivals.map((r) => `<button data-action="rival" data-id="${r.id}" class="${ui.rival === r.id ? "selected" : ""}"><span style="color:${r.color}">${q.styles.includes(r.id) ? "✓" : "◇"}</span><strong>${r.name}</strong><small>${r.title}</small></button>`).join("")}</div>` : `<p>Defeat the champion to unlock ${H.leagues[league].licence}. Champion fights are always launched by you.</p>`}<div class="rival-intel"><p class="eyebrow">AUTHORED NPC HOUSE · ${champion ? "CHAMPIONSHIP" : rival.title.toUpperCase()}</p><h3>${champion ? H.leagues[league].champion : rival.name}</h3><p>${rival.tactic}</p><div class="enemy-stats">${preview.enemies.map((e) => `<div><span>${e.line === "front" ? "FRONT" : "BACK"}</span><b>${Math.round(e.health)} HP</b><small>${e.attack.toFixed(1)} ${e.damageType} damage · ${e.armor.toFixed(1)} armour</small></div>`).join("")}</div><p class="counter-hint">${rival.hint}</p>${button("Pin a crafting response", "pin", { id: rival.id }, false, "quiet")}</div><div class="launch-row">${button(champion ? "Gather & launch champion" : "Enter the arena", "challenge", { kind, rival: ui.rival, league, rung }, !preview.eligible, "primary large")}<span>${preview.purse}g victory purse<br><small>${preview.reason}</small></span></div>`)}${!m && h.matches[0]?.paid ? panel("Last bout", `<div class="section-line"><h3>${recordTitle(h.matches[0])}</h3>${tag(h.matches[0].result.victory ? "VICTORY" : "DEFEAT")}</div><p>${esc(h.matches[0].result.insight)}</p>${replayAdvice()}${button("Watch replay", "replay", { id: h.matches[0].id })}`) : ""}</div><aside>${panel("Your selected team", teamFormation())}${panel("Exhibitions", exhibitions())}</aside></div>`
     }`;
+  }
+  function replayAdvice() {
+    const h = game.state.house,
+      m = h.matches.find((m) => m.paid && !m.result.victory);
+    if (!m?.result.firstFall?.home) return "";
+    const u = game.state.adventurers.find(
+      (u) => u.name === m.result.firstFall.name,
+    );
+    if (!u || ["vanguard", "guardian"].includes(u.archetypeId)) return "";
+    const fronts = h.team.filter((id) => {
+      const hero = game.state.adventurers.find((u) => u.id === id);
+      return (h.lines[id] || D.archetypes[hero.archetypeId].line) === "front";
+    });
+    if (!fronts.includes(u.id) || fronts.length < 2) return "";
+    return `<p class="counter-hint">${esc(u.name)} fell first while a sturdier fighter was also in front. Try protecting ${esc(u.name)} behind that fighter, then review the next replay.</p>${button("Move " + esc(u.name) + " to the back", "replay-response", { id: u.id }, !!game.activeMatch(), "quiet")}`;
   }
   function teamFormation() {
     const s = game.state,
@@ -1130,7 +1354,7 @@
       h = s.house,
       d = game.derived();
     ui.legacyBranch ||= "Workforce";
-    return `<div class="legacy-intro"><p class="eyebrow">WHAT THE FIRE LEAVES BEHIND</p><h2>A house outlives<br><em>its first maker.</em></h2><p>Your furnishings, knowledge of the world and house chronicle endure. A new charter changes the next beginning.</p></div><div class="room-grid"><div>${panel(
+    return `<div class="legacy-intro"><p class="eyebrow">WHAT THE FIRE LEAVES BEHIND</p><h2>A house outlives<br><em>its first maker.</em></h2><p>Your furnishings, research, discoveries, seals and chronicle endure. Choose an inheritance and an optional oath for a different career.</p></div><div class="room-grid"><div>${oathsPanel()}${panel(
       "Choose the next house charter",
       `<div class="choice-list">${[
         [
@@ -1177,7 +1401,7 @@
         ["Champions", h.champions + " / 5"],
         ["Reward", d.legacyReward + " sparks"],
       ]) +
-        `<p>Retirement resets current gold, materials, attributes, mastery, employees, upgrades and league progress. Furnishings, permanent talents and the chronicle survive.</p>${button("Review retirement", "retire-preview", {}, !d.legacyEligible, "primary")}`,
+        `<p>Retirement resets current gold, materials, attributes, mastery, employees, room upgrades and the ladder. Furnishings, talents, discoveries, completed research, seals and oath records survive. Later careers shorten guild accreditation to a minimum of 12 hours.</p>${button("Review retirement", "retire-preview", {}, !d.legacyEligible, "primary")}`,
     )}${panel("The hall of names", h.history.map((x) => `<p>Generation ${x.generation} · ${esc(x.text)}</p>`).join("") || empty("Your house’s history will be recorded here."))}</aside></div>`;
   }
   const renderers = {
@@ -1191,7 +1415,7 @@
     legacy,
   };
   function shell() {
-    return `<div class="house-shell" style="--scene:url('${asset(stage(ui.room))}')">${header()}<main id="main-content" class="room room-${ui.room}">${toolbar()}${storageMessage ? `<p role="alert" class="warning">${storageMessage}</p>` : ""}${ui.readonly ? '<p role="alert" class="warning">This house is active in another tab. This window is read-only until that tab closes.</p>' : ""}${overview()}${returnSummary()}${goal()}${renderers[ui.room]()}<footer class="room-footer"><span>${esc(game.state.shopName)} · generation ${game.state.player.legacy.generation}</span><span>Craftsmanship made visible.</span></footer></main>${game.activeMatch() && ui.room !== "arena" ? `<button class="live-bout" data-action="room" data-room="arena"><span class="pulse"></span>ARENA LIVE · ${recordTitle(game.activeMatch())}<b>Watch ↗</b></button>` : ""}</div>`;
+    return `<div class="house-shell" style="--scene:url('${asset(stage(ui.room))}')">${header()}<main id="main-content" class="room room-${ui.room}">${toolbar()}${storageMessage ? `<p role="alert" class="warning">${storageMessage}</p>` : ""}${ui.readonly ? '<p role="alert" class="warning">This house is active in another tab. This window is read-only until that tab closes.</p>' : ""}${overview()}${returnSummary()}${goal()}${ui.room === "legacy" ? "" : campaignPanel()}${renderers[ui.room]()}${ui.room === "legacy" ? campaignPanel() : ""}<footer class="room-footer"><span>${esc(game.state.shopName)} · generation ${game.state.player.legacy.generation}</span><span>Craftsmanship made visible.</span></footer></main>${game.activeMatch() && ui.room !== "arena" ? `<button class="live-bout" data-action="room" data-room="arena"><span class="pulse"></span>ARENA LIVE · ${recordTitle(game.activeMatch())}<b>Watch ↗</b></button>` : ""}</div>`;
   }
   function upgradeRows(room) {
     if (room === "employees")
@@ -1248,7 +1472,7 @@
       .join("")}</div>`;
   }
   function menu() {
-    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Export arena house", "export", {}, !game.state.started, "primary")}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 3.0 · Eight-hour offline limit · Original Blender artwork · No networked ranking</p>`;
+    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Export arena house", "export", {}, !game.state.started, "primary")}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 3.1 · 24-hour offline limit · Original Blender artwork · No networked ranking</p>`;
   }
   function dialog() {
     let body = "";
@@ -1263,14 +1487,30 @@
       body = `<p class="eyebrow">CLASSIC → ARENA HOUSE</p><h2>Carry your workshop forward.</h2>${summary}<p>The original Classic save remains untouched. Equipment, materials, mastery, staff, furnishings, talents and paid room capabilities carry over. Paid patterns stay unlocked. Pending expeditions settle once using their Classic outcome and are archived; arena qualification starts at league one.</p><p>${game.state.started ? "This replaces the current Arena house slot. Export it first if you want to keep it." : "The new Arena house uses a separate save slot."}</p><div class="actions">${button("Export current house", "export", {}, !game.state.started)}${button("Carry over workshop", "confirm-convert", {}, !v?.ok, "primary")}</div>`;
     } else if (ui.modal === "reset") {
       body = `<p class="eyebrow">RESET CURRENT GENERATION</p><h2>Run progress will be lost.</h2><p>This removes current gold, materials, equipment, attributes, employees, room upgrades and league progress. Earned Legacy talents, sparks, furnishings and the chronicle remain. No new sparks are awarded. Your Classic save is unaffected.</p><label>Type RESET to confirm<input name="reset-confirm" autocomplete="off"></label>${button("Reset this run", "confirm-reset", {}, false, "danger")}`;
+    } else if (ui.modal === "discoveries") {
+      body = `<p class="eyebrow">NOTES FROM THE WORKSHOP</p><h2>Things the house has learned.</h2>${game
+        .discoverySummary()
+        .map(
+          (d) =>
+            `<article class="compact-card"><p class="eyebrow">${roomNames[d.room]}</p><h3>${d.name}</h3><p>${d.text}</p>${button("Visit " + roomNames[d.room], "room", { room: d.room }, d.room === "legacy" && !game.campaignStatus().legacyVisible, "quiet")}</article>`,
+        )
+        .join(
+          "",
+        )}${button("Mark findings read", "read-findings", {}, false, "primary")}`;
     } else if (ui.modal === "retire") {
-      body = `<p class="eyebrow">END A CHAMPIONSHIP CAREER</p><h2>Pass on the hammer.</h2><p>Receive ${game.derived().legacyReward} sparks. The current run resets; permanent talents, furnishings and the chronicle persist.</p><label>One heirloom from storage<select name="heirloom"><option value="">No heirloom</option>${game.state.inventory.map((i) => `<option value="${i.id}">${esc(itemName(i))}</option>`).join("")}</select></label><p>Unequip a team item before retiring if you want to choose it here.</p>${button("Retire & begin a new generation", "confirm-retire", {}, false, "primary")}`;
+      body = `<p class="eyebrow">END A CHAMPIONSHIP CAREER</p><h2>Pass on the hammer.</h2><p>Receive ${game.derived().legacyReward} sparks. The current run resets; permanent talents, furnishings and the chronicle persist.</p><p class="discovery-note">${game.state.house.campaign.seals} Crucible seals will carry over. One first-time Crucible victory earns the seal needed for the Oathbound folio in generation two. Its 6-hour study also needs 6,500g and mithril. ${game.state.house.campaign.seals ? "You have a seal reserve for inherited studies." : "Retiring now is valid; you can earn seals after the next Crown instead."}</p><div class="actions">${button("Visit the Crucible first", "room", { room: "arena" }, false, "quiet")}</div><label>One heirloom from storage<select name="heirloom"><option value="">No heirloom</option>${game.state.inventory.map((i) => `<option value="${i.id}">${esc(itemName(i))}</option>`).join("")}</select></label><p>Unequip a team item before retiring if you want to choose it here.</p>${button("Retire & begin a new generation", "confirm-retire", {}, false, "primary")}`;
     }
     return ui.modal
       ? `<div class="modal-backdrop"><section class="dialog" role="dialog" aria-modal="true" aria-label="${ui.modal === "upgrades" ? "Room upgrades" : "House menu"}"><button class="modal-close" data-action="close" aria-label="Close dialog">×</button>${body}</section></div>`
       : "";
   }
   function render(force = false) {
+    if (ui.catchingUp) {
+      $("#app").innerHTML =
+        `<main class="catchup-screen" role="status" aria-live="polite"><p class="eyebrow">THE HOUSE KEPT WORKING</p><h1>Opening the workshop ledger.</h1><p>Reconciling production, trade and your authorised matches.</p>${progress(ui.catchupProgress, 1, "Offline progress")}<strong>${Math.round(ui.catchupProgress * 100)}%</strong><small>Credited progress is saved as it is calculated.</small></main>`;
+      $("#modal-root").innerHTML = "";
+      return;
+    }
     const focused = document.activeElement,
       editing =
         focused && ["INPUT", "SELECT", "TEXTAREA"].includes(focused.tagName);
@@ -1315,12 +1555,7 @@
   }
   function navigate(room) {
     if (!H.rooms[room]) return;
-    if (
-      room === "legacy" &&
-      game.state.house.champions < 5 &&
-      game.state.player.legacy.generation === 1
-    )
-      return;
+    if (room === "legacy" && !game.campaignStatus().legacyVisible) return;
     ui.room = room;
     ui.screen = "game";
     ui.modal = null;
@@ -1348,6 +1583,18 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   const handlers = {
+    research: (d) => act("research", { id: d.id }),
+    ascend: () => act("ascend"),
+    "replay-response": (d) => act("formation", { heroId: d.id, line: "back" }),
+    lineage: (d) => act("lineage", { id: d.id }),
+    burden: (d) => act("burden", { id: d.id }),
+    discoveries: () => {
+      ui.modal = "discoveries";
+    },
+    "read-findings": () => {
+      act("readDiscoveries");
+      ui.modal = null;
+    },
     "dismiss-return": () => {
       ui.returnReport = null;
     },
@@ -1507,6 +1754,7 @@
           recipeId: $('[name="catalogue-recipe"]').value,
           reserve: Number($('[name="catalogue-reserve"]').value),
           autoBuy: $('[name="catalogue-buy"]').checked,
+          rotate: $('[name="catalogue-rotate"]').checked,
         },
       }),
     "catalogue-pause": () =>
@@ -1679,6 +1927,20 @@
       next.state.house.history = [...old.house.history];
       next.state.house.seen = [...old.house.seen];
       next.state.house.charter = old.house.charter;
+      for (const key of [
+        "discoveries",
+        "projects",
+        "seals",
+        "totalSeals",
+        "bestTrial",
+        "oaths",
+        "lineage",
+        "burden",
+        "nextBurden",
+      ])
+        next.state.house.campaign[key] = JSON.parse(
+          JSON.stringify(old.house.campaign[key]),
+        );
       game = next;
       game.markSaved(Date.now());
       put(KEY, game.exportSave());
@@ -1763,22 +2025,30 @@
     e.target.value = "";
   });
   window.addEventListener("pagehide", () => {
-    save(true);
+    if (!document.hidden) save(true);
     try {
       const l = JSON.parse(get(LEASE) || "null");
       if (l?.owner === owner) localStorage.removeItem(LEASE);
     } catch (e) {}
   });
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) save(true);
-    else {
-      const now = Date.now();
+    if (document.hidden) {
       if (!ui.readonly && game.state.started)
-        game.tick(Math.max(0, now - last), { offline: true });
+        game.tick(Math.max(0, Date.now() - last));
+      last = Date.now();
+      save(true);
+    } else {
+      const now = Date.now();
+      lease();
+      if (!ui.readonly && game.state.started) {
+        reconcileOffline(now);
+      }
       last = now;
+      render(true);
     }
   });
   setInterval(() => {
+    if (document.hidden || ui.catchingUp) return;
     const now = Date.now(),
       delta = now - last;
     last = now;
@@ -1808,4 +2078,5 @@
     `url('${asset("frame")}')`,
   );
   render(true);
+  if (saved && !ui.readonly) setTimeout(() => reconcileOffline(Date.now()), 0);
 })();

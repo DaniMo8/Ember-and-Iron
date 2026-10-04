@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The long-lived house · Ember & Iron 3.1</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font:
+          16px/1.65 system-ui,
+          sans-serif;
+        background: #101b20;
+        color: #e6e4d7;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      a {
+        color: #edc286;
+      }
+      header {
+        padding: 8vw;
+        background:
+          linear-gradient(90deg, #101b20eb, #101b2050),
+          url("../assets/house/smith-2.webp") center/cover;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        line-height: 1.15;
+      }
+      h1 {
+        font-size: clamp(42px, 6vw, 80px);
+        max-width: 830px;
+        margin: 20px 0;
+      }
+      h2 {
+        font-size: clamp(28px, 4vw, 42px);
+        color: #edc286;
+      }
+      h3 {
+        font-size: 23px;
+      }
+      header p {
+        max-width: 660px;
+      }
+      nav {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+        margin: 26px 0;
+      }
+      main {
+        max-width: 1240px;
+        padding: 25px;
+        margin: auto;
+      }
+      section {
+        margin: 60px 0;
+      }
+      .eyebrow {
+        font-size: 12px;
+        color: #9dbfb4;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .card,
+      details {
+        background: #192a30;
+        border: 1px solid #405a55;
+        border-radius: 9px;
+        padding: 24px;
+      }
+      .card h3 {
+        margin-top: 0;
+      }
+      .flow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin: 25px 0;
+      }
+      .flow span {
+        padding: 13px 18px;
+        background: #273a37;
+        border: 1px solid #92794f;
+        border-radius: 6px;
+      }
+      .flow b {
+        color: #edc286;
+      }
+      .note {
+        border-left: 3px solid #edc286;
+        padding: 18px 23px;
+        background: #23342f;
+      }
+      small,
+      figcaption {
+        color: #afc3b8;
+      }
+      .table {
+        overflow-x: auto;
+      }
+      table {
+        border-collapse: collapse;
+        min-width: 560px;
+        width: 100%;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 14px;
+        border-bottom: 1px solid #405a55;
+        vertical-align: top;
+      }
+      th {
+        color: #edc286;
+      }
+      summary {
+        cursor: pointer;
+        font-size: 20px;
+        color: #edc286;
+      }
+      details[open] summary {
+        margin-bottom: 20px;
+      }
+      select,
+      button {
+        font: inherit;
+        padding: 10px;
+        background: #273a37;
+        color: #e6e4d7;
+        border: 1px solid #92794f;
+        border-radius: 6px;
+      }
+      label {
+        display: inline-grid;
+        gap: 7px;
+        margin: 10px 20px 15px 0;
+      }
+      figure {
+        margin: 20px 0;
+      }
+      figure img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      figcaption {
+        font-size: 13px;
+      }
+      footer {
+        padding: 40px 0;
+        border-top: 1px solid #405a55;
+      }
+      @media (max-width: 650px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        main {
+          padding: 18px;
+        }
+        .card,
+        details {
+          padding: 18px;
+        }
+        header {
+          padding: 40px 24px;
+        }
+        .flow span {
+          padding: 10px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">Ember & Iron · House edition 3.1</p>
+      <h1>A workshop for days.<br />A house for generations.</h1>
+      <p>
+        Short visits make decisions. The working house carries them through the
+        night. New methods emerge from what you make, and a championship becomes
+        the beginning of an inheritance.
+      </p>
+      <nav>
+        <a href="../index.html">Play →</a
+        ><a href="house-guide.html">Room guide</a
+        ><a href="qa/house-campaign-review.md">Independent gameplay review</a
+        ><a href="#scenes">Background gallery</a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <p class="eyebrow">The intended rhythm</p>
+        <h2>Slow progress, useful returns.</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>The first hour</h3>
+            <p>
+              Learn the material chain, make the first contracts and prepare a
+              three-person team. Earn the production ledger and delivery clerk.
+              Set ingot targets, then authorise rotating contract work. These
+              are achievable opening investments; retirement is a distant
+              objective.
+            </p>
+          </article>
+          <article class="card">
+            <h3>A fifteen-minute visit</h3>
+            <p>
+              Read the return ledger, resolve an input or storage shortage,
+              choose one improvement and review a rival. Make or equip a
+              counter, launch a deliberate fight and set production before
+              leaving. Overnight uses the same rules as active production.
+            </p>
+          </article>
+        </div>
+        <div class="flow" aria-label="Check-in cycle">
+          <span>Read the return ledger</span><b>→</b
+          ><span>Resolve the bottleneck</span><b>→</b><span>Forge & equip</span
+          ><b>→</b><span>Fight & learn</span><b>→</b
+          ><span>Prepare the next absence</span>
+        </div>
+        <p>
+          The measured schedule uses one initial hour, followed by 15-minute
+          visits at hours 2, 4 and 6. Later days have four visits at hours 0, 2,
+          4 and 6. The remaining time, including overnight, is offline.
+        </p>
+      </section>
+      <section>
+        <p class="eyebrow">Campaign progression</p>
+        <h2>The workshop earns its next licence.</h2>
+        <div class="flow">
+          <span>Current-material equipment</span><b>+</b
+          ><span>Current-tier contracts</span><b>+</b
+          ><span>House accreditation</span><b>+</b
+          ><span>Three qualified rungs</span><b>→</b
+          ><span>Manual champion challenge</span><b>→</b
+          ><span>Next material</span>
+        </div>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Promotion</th>
+                <th>Minimum first-career age</th>
+                <th>Current-tier pieces</th>
+                <th>Current-tier contracts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>First champion</td>
+                <td>2 hours</td>
+                <td>12</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Second</td>
+                <td>10 hours</td>
+                <td>20</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>Third</td>
+                <td>26 hours</td>
+                <td>25</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>Fourth</td>
+                <td>48 hours</td>
+                <td>30</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>Crown of Embers</td>
+                <td>72 hours</td>
+                <td>36</td>
+                <td>12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Each rung requires five wins and all three rival styles. Bronze work
+          cannot satisfy an iron or later accreditation. Repeat upgrade ranks
+          open with material licences. Easy exhibition wins provide limited
+          daily training; they cannot replace qualification.
+        </p>
+        <p class="note">
+          <strong>Measured first career:</strong> an informed earned run reached
+          the Crown at 100.08 elapsed hours, about 4.2 days and 5.5 active
+          hours. A conservative approach took about 126 hours. These are tested
+          policies, not guaranteed completion times. Legacy is absent before 72
+          credited hours and the fifth championship.
+        </p>
+      </section>
+      <section>
+        <p class="eyebrow">A dependable absence</p>
+        <h2>What the house actually earned.</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Twenty-four hours of work</h3>
+            <p>
+              The allowance covers a whole absence, including reloads and
+              calculation chunks. Miners, ingot policies, catalogue production,
+              deliveries, authorised exhibitions and research continue. No free
+              income is added just for being away.
+            </p>
+            <p>
+              Rotating work skips materials whose production chain is still
+              locked and favours supplied orders. One basic contract remains
+              available to recover the business.
+            </p>
+          </article>
+          <article class="card">
+            <h3>A visible ledger</h3>
+            <p>
+              On return, see credited time, pieces forged, contracts, mining,
+              ingots, wins and losses. Revenue is split into contracts, town
+              sales and arena purses. Purchases, material changes, overflow
+              losses, discoveries and completed studies are also reported.
+            </p>
+            <p>
+              Supply buying uses your explicit budget and retains an operating
+              reserve. Full bins still lose overflow. Champions, upgrades and
+              research starts need your decision.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section>
+        <p class="eyebrow">Layers that emerge</p>
+        <h2>Knowledge has a history.</h2>
+        <div class="flow">
+          <span>Work a discipline</span><b>→</b
+          ><span>Find an unusual method</span><b>→</b
+          ><span>Read the discovery</span><b>→</b><span>Fund a study</span
+          ><b>→</b><span>Keep the knowledge forever</span>
+        </div>
+        <p>
+          Eleven authored discoveries depend on time and demonstrated work:
+          mining, smelting, crafting, contracts, employees, championships and
+          later generations. Three new enchanting suffixes change combat
+          options. Nine studies require actual resources and take two to twenty
+          hours; only one runs at once.
+        </p>
+        <p>
+          Discoveries, completed studies and their passive benefits survive
+          retirement. Early low-tier smith experience tapers as the smith
+          advances, encouraging material progression rather than endless
+          basic-item farming.
+        </p>
+        <details>
+          <summary>Later-generation equipment and goals · spoilers</summary>
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Family</th>
+                  <th>Earliest generation</th>
+                  <th>Requirements</th>
+                  <th>Equipment interaction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Oathbound · 17 patterns</td>
+                  <td>2</td>
+                  <td>
+                    Folio study; primary attribute 85; mastery 90; smith 25.
+                    Twelve starforged ingots, six oil and four fuel per piece;
+                    30-minute base work.
+                  </td>
+                  <td>Two matching pieces add 15% wearer health and armour.</td>
+                </tr>
+                <tr>
+                  <td>Astral · 17 patterns</td>
+                  <td>3</td>
+                  <td>
+                    Prior folio and Astral study; attribute 140; mastery 100;
+                    smith 40. Twenty-four ingots, twelve oil and eight fuel;
+                    60-minute base work.
+                  </td>
+                  <td>Two pieces add 20% attack; weapons swing 10% slower.</td>
+                </tr>
+                <tr>
+                  <td>Eternal · 17 patterns</td>
+                  <td>5</td>
+                  <td>
+                    Prior folios and Eternal study; attribute 220; mastery 100;
+                    smith 65. Forty ingots, twenty oil and twelve fuel;
+                    120-minute base work.
+                  </td>
+                  <td>
+                    Three pieces add 20% attack, health and armour plus 10% fire
+                    and arcane resistance.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            These are substantial projects, not immediate retirement gifts.
+            Speed bonuses alter actual work time; material, generation,
+            attribute and mastery gates still apply.
+          </p>
+        </details>
+      </section>
+      <section>
+        <p class="eyebrow">Beyond the first Crown</p>
+        <h2>Choose what the next maker inherits.</h2>
+        <div class="flow">
+          <span>Win the Crown</span><b>→</b><span>Enter the Crucible</span
+          ><b>→</b><span>Earn permanent seals</span><b>→</b
+          ><span>Choose talents, charter & oath</span><b>→</b
+          ><span>Reopen the workshop</span><b>→</b
+          ><span>Research inherited designs</span>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Crucible trials</h3>
+            <p>
+              Sixty increasingly difficult trials cycle through heavy defences,
+              fast blades and fire pressure. Later generations open further
+              depth. Victories award seals once per career depth; replaying an
+              old fight never pays again. Seals fund studies or permanent attack
+              and defence sigils with escalating prices.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Optional oaths</h3>
+            <p>
+              The Iron Oath strengthens enemy health and armour. The Ember Oath
+              increases enemy damage and forge time. The Silent Oath removes
+              exhibition purses and strengthens champions. Each adds retirement
+              sparks; first completion also awards seals.
+            </p>
+          </article>
+        </div>
+        <p>
+          Retirement retains research, discoveries, seals, sigils, talents,
+          furnishings, chronicle and a chosen stored heirloom. Current
+          production, attributes, mastery, staff, gold and league progress
+          reset. The successor checklist makes re-enabling ingot targets,
+          rotating contracts and deliveries explicit.
+        </p>
+        <p>
+          Later careers have shorter accreditation, eventually reaching a
+          twelve-hour floor. Their actual length still depends on setup,
+          equipment, decisions and the chosen oath.
+        </p>
+      </section>
+      <section id="scenes">
+        <p class="eyebrow">Original Blender environments</p>
+        <h2>The rooms remember your investment.</h2>
+        <p>
+          Eight rooms each have five backgrounds, from rough timber to inherited
+          halls and celestial machinery. Individual room upgrades determine
+          local development; later generations and research enable the grandest
+          architecture. The game keeps this evolution unannounced.
+        </p>
+        <details>
+          <summary>Explore all forty backgrounds · visual spoilers</summary>
+          <label
+            >Room<select id="room">
+              <option value="smith">Smith</option>
+              <option value="mine">Mine</option>
+              <option value="smelter">Smelter</option>
+              <option value="forge">Forge</option>
+              <option value="shop">Shop & armoury</option>
+              <option value="arena">Arena</option>
+              <option value="employees">Employees</option>
+              <option value="legacy">Legacy</option>
+            </select></label
+          ><label
+            >Architecture<select id="stage">
+              <option value="0">Opening workshop</option>
+              <option value="1">Stone workshop</option>
+              <option value="2">Established estate</option>
+              <option value="3">Guild hall</option>
+              <option value="4">Celestial house</option>
+            </select></label
+          >
+          <figure>
+            <img
+              id="scene"
+              src="../assets/house/smith-0.webp"
+              alt="Smith opening workshop"
+            />
+            <figcaption id="caption">Smith · Opening workshop</figcaption>
+          </figure>
+        </details>
+      </section>
+      <section>
+        <p class="eyebrow">Evidence and limits</p>
+        <h2>Tested without granting the victories.</h2>
+        <p>
+          The scheduled player uses ordinary commands and the same simulation as
+          the game. Earned runs do not grant gold, items, levels or championship
+          flags. Separate fixtures test late content and visual layouts; those
+          prove rules and presentation, not natural affordability or long-term
+          enjoyment.
+        </p>
+        <p>
+          All seven callings have opening probes. The longer review records
+          actual bottlenecks, a repaired second-generation contract deadlock and
+          the earned resumption. Read the report for the final timings and
+          remaining uncertainties. The deepest Crucible and fifth-generation
+          folios still need human campaigns.
+        </p>
+        <nav>
+          <a href="qa/house-campaign-review.md">Independent review</a
+          ><a href="qa/version-3.1-tests.txt">Automated checks</a
+          ><a href="qa/campaign-browser-checks.json">Responsive layout checks</a
+          ><a href="../assets/ARTWORK.md">Art provenance</a>
+        </nav>
+      </section>
+      <footer><a href="../index.html">Return to Ember & Iron →</a></footer>
+    </main>
+    <script>
+      const room = document.querySelector("#room"),
+        stage = document.querySelector("#stage");
+      function showScene() {
+        const label =
+          room.selectedOptions[0].text + " · " + stage.selectedOptions[0].text;
+        document.querySelector("#scene").src =
+          "../assets/house/" + room.value + "-" + stage.value + ".webp";
+        document.querySelector("#scene").alt = label;
+        document.querySelector("#caption").textContent = label;
+      }
+      room.addEventListener("change", showScene);
+      stage.addEventListener("change", showScene);
+    </script>
+  </body>
+</html>

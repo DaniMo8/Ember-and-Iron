@@ -1,0 +1,4974 @@
+{
+  "generated": "2026-10-04T02:23:17.047Z",
+  "note": "Earned public-command runs unless a test is explicitly labelled fixture. Intermediate timings came from different recorded code revisions; do not pool them as identical-build trials.",
+  "runs": [
+    {
+      "name": "baseline-saving",
+      "complete": true,
+      "files": {
+        "house-engine.js": "7bed77017548ea819a67b6933fd56cf8ecf13224e17aa12d436fd1073a09cb04",
+        "house-data.js": "570ebe63361b3acac1e6f17e3f229b26cd9b441859b4c4620272510ce70d85b9",
+        "house-combat.js": "17d90e9696adeeb991552ff7fe1c1f8ff276708cff70ac9d2c7754aad9b719fd",
+        "workshop-engine.js": "872d1d6af5ef040d3aef5042e316e037eafd46f7e63b8c92f2992d12b689ee4e"
+      },
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 3
+      },
+      "final": {
+        "wallHours": 72,
+        "simHours": 42.75,
+        "activeMinutes": 225,
+        "gold": 2674,
+        "smith": 9,
+        "stats": {
+          "strength": 16,
+          "precision": 18,
+          "charisma": 6,
+          "knowledge": 20
+        },
+        "champions": 2,
+        "rung": 2,
+        "wins": 1161,
+        "losses": 42,
+        "contracts": 182,
+        "crafts": 434,
+        "mined": 1315,
+        "levels": [
+          [
+            "mara",
+            25
+          ],
+          [
+            "renn",
+            25
+          ],
+          [
+            "wren",
+            25
+          ],
+          [
+            "bren",
+            1
+          ],
+          [
+            "thane",
+            1
+          ]
+        ],
+        "mastery": {
+          "daggers": 17,
+          "swords": 21,
+          "axes": 11,
+          "maces": 11,
+          "polearms": 8,
+          "bows": 21,
+          "foci": 0,
+          "armor": 17,
+          "shields": 16,
+          "rings": 18,
+          "charms": 17,
+          "tools": 18,
+          "cloth_armor": 0,
+          "leather_armor": 22,
+          "offhands": 0,
+          "instruments": 16,
+          "talismans": 15
+        },
+        "campaign": null,
+        "legacyEligible": false
+      },
+      "milestones": [
+        {
+          "event": "champion",
+          "wallHours": 0.8666666666666667,
+          "simHours": 0.8666666666666667,
+          "tier": 1,
+          "gold": 257,
+          "crafts": 27,
+          "contracts": 3,
+          "team": [
+            {
+              "id": "mara",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_swords",
+                  "quality": 63,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor",
+                  "quality": 62,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields",
+                  "quality": 62,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 77,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_instruments",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_bows_v1",
+                  "quality": 77,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 48.044444444444444,
+          "simHours": 28.544444444444444,
+          "tier": 2,
+          "gold": 678,
+          "crafts": 196,
+          "contracts": 82,
+          "team": [
+            {
+              "id": "mara",
+              "level": 22,
+              "equipment": [
+                {
+                  "recipe": "bronze_swords_v1",
+                  "quality": 84,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v1",
+                  "quality": 85,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields_v1",
+                  "quality": 90,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v1",
+                  "quality": 86,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 47,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 54,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 22,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 98,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor_v1",
+                  "quality": 79,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_instruments",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 22,
+              "equipment": [
+                {
+                  "recipe": "bronze_bows_v1",
+                  "quality": 100,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor_v1",
+                  "quality": 79,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "periods": [
+        {
+          "label": "day 1 check 1",
+          "fromHours": 1,
+          "toHours": 2,
+          "requestedHours": 1,
+          "creditedHours": 1,
+          "crafts": 2,
+          "contracts": 0,
+          "gold": -1,
+          "stop": "Order complete. Deliver it at the shop."
+        },
+        {
+          "label": "day 1 check 2",
+          "fromHours": 2.25,
+          "toHours": 4,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 5,
+          "contracts": 3,
+          "gold": 79,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "day 1 check 3",
+          "fromHours": 4.25,
+          "toHours": 6,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 3,
+          "contracts": 1,
+          "gold": 28,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "overnight 1",
+          "fromHours": 6.25,
+          "toHours": 24,
+          "requestedHours": 17.75,
+          "creditedHours": 8,
+          "crafts": 2,
+          "contracts": 1,
+          "gold": 26,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "day 2 check 1",
+          "fromHours": 24.25,
+          "toHours": 26,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 3,
+          "contracts": 2,
+          "gold": 55,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "day 2 check 2",
+          "fromHours": 26.25,
+          "toHours": 28,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 5,
+          "contracts": 3,
+          "gold": 79,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "day 2 check 3",
+          "fromHours": 28.25,
+          "toHours": 30,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 2,
+          "contracts": 2,
+          "gold": 1886,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "overnight 2",
+          "fromHours": 30.25,
+          "toHours": 48,
+          "requestedHours": 17.75,
+          "creditedHours": 8,
+          "crafts": 4,
+          "contracts": 2,
+          "gold": 11066,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "day 3 check 1",
+          "fromHours": 48.25,
+          "toHours": 50,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 5,
+          "contracts": 3,
+          "gold": 4174,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "day 3 check 2",
+          "fromHours": 50.25,
+          "toHours": 52,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 4,
+          "contracts": 2,
+          "gold": 81,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "day 3 check 3",
+          "fromHours": 52.25,
+          "toHours": 54,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 5,
+          "contracts": 2,
+          "gold": 80,
+          "stop": "No matching contract. Choose a requested item class."
+        },
+        {
+          "label": "overnight 3",
+          "fromHours": 54.25,
+          "toHours": 72,
+          "requestedHours": 17.75,
+          "creditedHours": 8,
+          "crafts": 4,
+          "contracts": 2,
+          "gold": 86,
+          "stop": "No matching contract. Choose a requested item class."
+        }
+      ],
+      "rejections": {}
+    },
+    {
+      "name": "balanced",
+      "complete": false,
+      "files": {
+        "house-engine.js": "807bf1a059408192e0aa191c7fc1be4decb1cfe75f414203172c2e0d5bcc2679",
+        "house-data.js": "570ebe63361b3acac1e6f17e3f229b26cd9b441859b4c4620272510ce70d85b9",
+        "house-combat.js": "17d90e9696adeeb991552ff7fe1c1f8ff276708cff70ac9d2c7754aad9b719fd",
+        "house-campaign.js": "2491e8744b06eaf05ea142bc18ad66f72d7f4f78d88190601c4efc46667bb6e8",
+        "workshop-engine.js": "872d1d6af5ef040d3aef5042e316e037eafd46f7e63b8c92f2992d12b689ee4e"
+      },
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 5
+      },
+      "final": {
+        "wallHours": 76,
+        "simHours": 76,
+        "activeMinutes": 255,
+        "gold": 1427263,
+        "smith": 51,
+        "stats": {
+          "strength": 56,
+          "precision": 85,
+          "charisma": 26,
+          "knowledge": 98
+        },
+        "champions": 5,
+        "rung": 0,
+        "wins": 929,
+        "losses": 8,
+        "contracts": 2873,
+        "crafts": 7373,
+        "mined": 26785,
+        "levels": [
+          [
+            "mara",
+            10
+          ],
+          [
+            "renn",
+            10
+          ],
+          [
+            "wren",
+            10
+          ],
+          [
+            "bren",
+            1
+          ],
+          [
+            "thane",
+            1
+          ],
+          [
+            "sable",
+            1
+          ]
+        ],
+        "mastery": {
+          "daggers": 100,
+          "swords": 100,
+          "axes": 100,
+          "maces": 100,
+          "polearms": 100,
+          "bows": 100,
+          "foci": 100,
+          "armor": 100,
+          "shields": 100,
+          "rings": 100,
+          "charms": 100,
+          "tools": 100,
+          "cloth_armor": 100,
+          "leather_armor": 100,
+          "offhands": 100,
+          "instruments": 100,
+          "talismans": 100
+        },
+        "campaign": {
+          "checks": [
+            {
+              "label": "House established",
+              "current": 273600000,
+              "required": 259200000,
+              "unit": "time",
+              "met": true
+            },
+            {
+              "label": "starforged pieces forged",
+              "current": 1744,
+              "required": 36,
+              "met": true
+            },
+            {
+              "label": "Tier 5 contracts",
+              "current": 435,
+              "required": 12,
+              "met": true
+            }
+          ],
+          "eligible": true,
+          "hours": 76,
+          "reason": "Guild accreditation complete.",
+          "legacyVisible": true,
+          "nextLeague": 4
+        },
+        "discoveries": [
+          "slag",
+          "song",
+          "memory",
+          "routes",
+          "night",
+          "palimpsest",
+          "echo",
+          "constellation"
+        ],
+        "legacyEligible": true
+      },
+      "milestones": [
+        {
+          "event": "champion",
+          "wallHours": 2.0055555555555555,
+          "simHours": 2.0055555555555555,
+          "tier": 1,
+          "gold": 203,
+          "crafts": 104,
+          "contracts": 25,
+          "team": [
+            {
+              "id": "mara",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_swords_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v1",
+                  "quality": 82,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields",
+                  "quality": 62,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 44,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v1",
+                  "quality": 75,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_instruments",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 59,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 24.005555555555556,
+          "simHours": 24.005555555555556,
+          "tier": 2,
+          "gold": 34842,
+          "crafts": 2686,
+          "contracts": 1025,
+          "team": [
+            {
+              "id": "mara",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "bronze_swords_v1",
+                  "quality": 93,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_shields_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_charms_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 90,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 94,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_talismans_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_instruments_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "iron_bows_v1",
+                  "quality": 100,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_charms_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 26.005555555555556,
+          "simHours": 26.005555555555556,
+          "tier": 3,
+          "gold": 12958,
+          "crafts": 2910,
+          "contracts": 1107,
+          "team": [
+            {
+              "id": "mara",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "steel_swords_v1",
+                  "quality": 145,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v2",
+                  "quality": 145,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_shields_v1",
+                  "quality": 145,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_charms_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 145,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 145,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_talismans_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_instruments_v1",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 145,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_charms_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 48.00555555555555,
+          "simHours": 48.00555555555555,
+          "tier": 4,
+          "gold": 317347,
+          "crafts": 5148,
+          "contracts": 1991,
+          "team": [
+            {
+              "id": "mara",
+              "level": 7,
+              "equipment": [
+                {
+                  "recipe": "mithril_swords_v1",
+                  "quality": 165,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_armor_v1",
+                  "quality": 165,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_shields_v1",
+                  "quality": 165,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_charms_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_tools_v2",
+                  "quality": 185,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 7,
+              "equipment": [
+                {
+                  "recipe": "steel_daggers_v2",
+                  "quality": 185,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_leather_armor_v2",
+                  "quality": 185,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_talismans_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_instruments",
+                  "quality": 184,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 7,
+              "equipment": [
+                {
+                  "recipe": "steel_daggers_v2",
+                  "quality": 185,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_leather_armor_v2",
+                  "quality": 185,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 185,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_charms_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_tools_v2",
+                  "quality": 185,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 72.00555555555556,
+          "simHours": 72.00555555555556,
+          "tier": 5,
+          "gold": 1259207,
+          "crafts": 7043,
+          "contracts": 2743,
+          "team": [
+            {
+              "id": "mara",
+              "level": 10,
+              "equipment": [
+                {
+                  "recipe": "starforged_swords_v1",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_armor_v1",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_shields_v1",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_rings_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_charms_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_tools_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 10,
+              "equipment": [
+                {
+                  "recipe": "mithril_daggers_v2",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_leather_armor_v2",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_rings_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_talismans_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_instruments_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 10,
+              "equipment": [
+                {
+                  "recipe": "mithril_daggers_v2",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_leather_armor_v2",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_rings_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_charms_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_tools_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "periods": [
+        {
+          "label": "day 1 check 1",
+          "fromHours": 1,
+          "toHours": 2,
+          "requestedHours": 1,
+          "creditedHours": 1,
+          "crafts": 62,
+          "contracts": 21,
+          "gold": 802,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 1 check 2",
+          "fromHours": 2.25,
+          "toHours": 4,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 121,
+          "contracts": 39,
+          "gold": 1774,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 1 check 3",
+          "fromHours": 4.25,
+          "toHours": 6,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 190,
+          "contracts": 68,
+          "gold": 3416,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "overnight 1",
+          "fromHours": 6.25,
+          "toHours": 24,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 2230,
+          "contracts": 891,
+          "gold": 53639,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 2 check 1",
+          "fromHours": 24.25,
+          "toHours": 26,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 198,
+          "contracts": 80,
+          "gold": 15819,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 2 check 2",
+          "fromHours": 26.25,
+          "toHours": 28,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 177,
+          "contracts": 69,
+          "gold": 27759,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 2 check 3",
+          "fromHours": 28.25,
+          "toHours": 30,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 185,
+          "contracts": 74,
+          "gold": 29950,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "overnight 2",
+          "fromHours": 30.25,
+          "toHours": 48,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 1789,
+          "contracts": 717,
+          "gold": 336764,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 3 check 1",
+          "fromHours": 48.25,
+          "toHours": 50,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 137,
+          "contracts": 53,
+          "gold": 68089,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 3 check 2",
+          "fromHours": 50.25,
+          "toHours": 52,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 143,
+          "contracts": 57,
+          "gold": 75872,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 3 check 3",
+          "fromHours": 52.25,
+          "toHours": 54,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 140,
+          "contracts": 56,
+          "gold": 74407,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "overnight 3",
+          "fromHours": 54.25,
+          "toHours": 72,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 1381,
+          "contracts": 552,
+          "gold": 736477,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 4 check 1",
+          "fromHours": 72.25,
+          "toHours": 74,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 142,
+          "contracts": 57,
+          "gold": 76628,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 4 check 2",
+          "fromHours": 74.25,
+          "toHours": 76,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 143,
+          "contracts": 57,
+          "gold": 79471,
+          "stop": "Wood requirement not met."
+        }
+      ],
+      "rejections": {
+        "sell: Release the protected or reserved item first.": 20
+      }
+    },
+    {
+      "name": "final",
+      "complete": false,
+      "files": {
+        "house-engine.js": "807bf1a059408192e0aa191c7fc1be4decb1cfe75f414203172c2e0d5bcc2679",
+        "house-data.js": "570ebe63361b3acac1e6f17e3f229b26cd9b441859b4c4620272510ce70d85b9",
+        "house-combat.js": "17d90e9696adeeb991552ff7fe1c1f8ff276708cff70ac9d2c7754aad9b719fd",
+        "house-campaign.js": "2ff583b30d4e7e45e272e90e875e894a2bbb13cf707ad66f3740408870ed938b",
+        "workshop-engine.js": "872d1d6af5ef040d3aef5042e316e037eafd46f7e63b8c92f2992d12b689ee4e"
+      },
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 7
+      },
+      "final": {
+        "wallHours": 124,
+        "simHours": 124,
+        "activeMinutes": 375,
+        "gold": 127441,
+        "smith": 28,
+        "stats": {
+          "strength": 34,
+          "precision": 49,
+          "charisma": 15,
+          "knowledge": 57
+        },
+        "champions": 4,
+        "rung": 3,
+        "wins": 1480,
+        "losses": 20,
+        "contracts": 1025,
+        "crafts": 2823,
+        "mined": 9136,
+        "levels": [
+          [
+            "mara",
+            11
+          ],
+          [
+            "renn",
+            11
+          ],
+          [
+            "wren",
+            11
+          ],
+          [
+            "bren",
+            1
+          ],
+          [
+            "thane",
+            1
+          ],
+          [
+            "sable",
+            1
+          ]
+        ],
+        "mastery": {
+          "daggers": 93,
+          "swords": 83,
+          "axes": 79,
+          "maces": 93,
+          "polearms": 47,
+          "bows": 91,
+          "foci": 41,
+          "armor": 89,
+          "shields": 99,
+          "rings": 91,
+          "charms": 87,
+          "tools": 86,
+          "cloth_armor": 49,
+          "leather_armor": 92,
+          "offhands": 42,
+          "instruments": 78,
+          "talismans": 100
+        },
+        "campaign": {
+          "checks": [
+            {
+              "label": "House established",
+              "current": 446400000,
+              "required": 259200000,
+              "unit": "time",
+              "met": true
+            },
+            {
+              "label": "starforged pieces forged",
+              "current": 170,
+              "required": 36,
+              "met": true
+            },
+            {
+              "label": "Tier 5 contracts",
+              "current": 38,
+              "required": 12,
+              "met": true
+            }
+          ],
+          "eligible": true,
+          "hours": 124,
+          "reason": "Guild accreditation complete.",
+          "legacyVisible": false,
+          "nextLeague": 4
+        },
+        "discoveries": [
+          "slag",
+          "song",
+          "memory",
+          "routes",
+          "night",
+          "palimpsest",
+          "echo",
+          "constellation"
+        ],
+        "legacyEligible": false
+      },
+      "milestones": [
+        {
+          "event": "champion",
+          "wallHours": 2.0055555555555555,
+          "simHours": 2.0055555555555555,
+          "tier": 1,
+          "gold": 203,
+          "crafts": 104,
+          "contracts": 25,
+          "team": [
+            {
+              "id": "mara",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_swords_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v1",
+                  "quality": 82,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields",
+                  "quality": 62,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 44,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v1",
+                  "quality": 75,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_instruments",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 59,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 24.011111111111113,
+          "simHours": 24.011111111111113,
+          "tier": 2,
+          "gold": 13970,
+          "crafts": 1710,
+          "contracts": 637,
+          "team": [
+            {
+              "id": "mara",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "bronze_swords_v1",
+                  "quality": 93,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_shields_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 90,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 90,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 94,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_instruments_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 94,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 90,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 28.005555555555556,
+          "simHours": 28.005555555555556,
+          "tier": 3,
+          "gold": 4401,
+          "crafts": 1830,
+          "contracts": 671,
+          "team": [
+            {
+              "id": "mara",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "steel_swords_v1",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v2",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_shields_v1",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_charms_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_talismans_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_instruments_v1",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_charms_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 54.01111111111111,
+          "simHours": 54.01111111111111,
+          "tier": 4,
+          "gold": 8069,
+          "crafts": 2158,
+          "contracts": 790,
+          "team": [
+            {
+              "id": "mara",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "mithril_swords_v1",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_armor_v1",
+                  "quality": 165,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_shields_v1",
+                  "quality": 165,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_charms_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_tools_v1",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "mithril_daggers_v1",
+                  "quality": 165,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_leather_armor_v1",
+                  "quality": 145,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_talismans_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_instruments_v1",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "mithril_daggers_v1",
+                  "quality": 165,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_leather_armor_v1",
+                  "quality": 145,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_charms_v2",
+                  "quality": 145,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "periods": [
+        {
+          "label": "day 1 check 1",
+          "fromHours": 1,
+          "toHours": 2,
+          "requestedHours": 1,
+          "creditedHours": 1,
+          "crafts": 62,
+          "contracts": 21,
+          "gold": 802,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 1 check 2",
+          "fromHours": 2.25,
+          "toHours": 4,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 121,
+          "contracts": 39,
+          "gold": 1774,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 1 check 3",
+          "fromHours": 4.25,
+          "toHours": 6,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 147,
+          "contracts": 52,
+          "gold": 2675,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "overnight 1",
+          "fromHours": 6.25,
+          "toHours": 24,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 1304,
+          "contracts": 519,
+          "gold": 32263,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 2 check 1",
+          "fromHours": 24.25,
+          "toHours": 26,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 42,
+          "contracts": 15,
+          "gold": 2969,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 2 check 2",
+          "fromHours": 26.25,
+          "toHours": 28,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 46,
+          "contracts": 18,
+          "gold": 3946,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 2 check 3",
+          "fromHours": 28.25,
+          "toHours": 30,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 20,
+          "contracts": 6,
+          "gold": 3490,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "overnight 2",
+          "fromHours": 30.25,
+          "toHours": 48,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 214,
+          "contracts": 82,
+          "gold": 43406,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 3 check 1",
+          "fromHours": 48.25,
+          "toHours": 50,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 32,
+          "contracts": 11,
+          "gold": 4244,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 3 check 2",
+          "fromHours": 50.25,
+          "toHours": 52,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 28,
+          "contracts": 9,
+          "gold": 4259,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 3 check 3",
+          "fromHours": 52.25,
+          "toHours": 54,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 18,
+          "contracts": 6,
+          "gold": 3448,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "overnight 3",
+          "fromHours": 54.25,
+          "toHours": 72,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 269,
+          "contracts": 106,
+          "gold": 62313,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 4 check 1",
+          "fromHours": 72.25,
+          "toHours": 74,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 13,
+          "contracts": 3,
+          "gold": 2290,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 4 check 2",
+          "fromHours": 74.25,
+          "toHours": 76,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 6,
+          "contracts": 1,
+          "gold": 4902,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 4 check 3",
+          "fromHours": 76.25,
+          "toHours": 78,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 20,
+          "contracts": 7,
+          "gold": 5345,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "overnight 4",
+          "fromHours": 78.25,
+          "toHours": 96,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 103,
+          "contracts": 40,
+          "gold": 65813,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 5 check 1",
+          "fromHours": 96.25,
+          "toHours": 98,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 13,
+          "contracts": 3,
+          "gold": 5251,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 5 check 2",
+          "fromHours": 98.25,
+          "toHours": 100,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 16,
+          "contracts": 5,
+          "gold": 7618,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 5 check 3",
+          "fromHours": 100.25,
+          "toHours": 102,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 2,
+          "contracts": 0,
+          "gold": 2457,
+          "stop": "Maintaining the selected contract design. Team equipment is protected."
+        },
+        {
+          "label": "overnight 5",
+          "fromHours": 102.25,
+          "toHours": 120,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 120,
+          "contracts": 46,
+          "gold": 64428,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 6 check 1",
+          "fromHours": 120.25,
+          "toHours": 122,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 12,
+          "contracts": 5,
+          "gold": 5078,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 6 check 2",
+          "fromHours": 122.25,
+          "toHours": 124,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 6,
+          "contracts": 2,
+          "gold": 5269,
+          "stop": "Wood requirement not met."
+        }
+      ],
+      "rejections": {}
+    },
+    {
+      "name": "final-response",
+      "complete": true,
+      "files": {
+        "house-engine.js": "807bf1a059408192e0aa191c7fc1be4decb1cfe75f414203172c2e0d5bcc2679",
+        "house-data.js": "570ebe63361b3acac1e6f17e3f229b26cd9b441859b4c4620272510ce70d85b9",
+        "house-combat.js": "17d90e9696adeeb991552ff7fe1c1f8ff276708cff70ac9d2c7754aad9b719fd",
+        "house-campaign.js": "30cf96d691cc5e869f07c07e993aad7e45d671661e189b9b2251232450cd8881",
+        "workshop-engine.js": "872d1d6af5ef040d3aef5042e316e037eafd46f7e63b8c92f2992d12b689ee4e"
+      },
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 7,
+        "resume": {
+          "file": "design/qa/house-campaign-final-checkpoint.json",
+          "wallHours": 124,
+          "simHours": 124,
+          "note": "Continuation of an earned checkpoint; no resources changed."
+        }
+      },
+      "final": {
+        "wallHours": 126.25,
+        "simHours": 126.25,
+        "activeMinutes": 30,
+        "gold": 136977,
+        "smith": 28,
+        "stats": {
+          "strength": 34,
+          "precision": 49,
+          "charisma": 15,
+          "knowledge": 57
+        },
+        "champions": 5,
+        "rung": 0,
+        "wins": 1502,
+        "losses": 21,
+        "contracts": 1036,
+        "crafts": 2847,
+        "mined": 9229,
+        "levels": [
+          [
+            "mara",
+            12
+          ],
+          [
+            "renn",
+            12
+          ],
+          [
+            "wren",
+            12
+          ],
+          [
+            "bren",
+            1
+          ],
+          [
+            "thane",
+            1
+          ],
+          [
+            "sable",
+            1
+          ]
+        ],
+        "mastery": {
+          "daggers": 93,
+          "swords": 83,
+          "axes": 79,
+          "maces": 95,
+          "polearms": 47,
+          "bows": 91,
+          "foci": 41,
+          "armor": 92,
+          "shields": 99,
+          "rings": 95,
+          "charms": 87,
+          "tools": 86,
+          "cloth_armor": 49,
+          "leather_armor": 92,
+          "offhands": 42,
+          "instruments": 78,
+          "talismans": 100
+        },
+        "campaign": {
+          "checks": [
+            {
+              "label": "House established",
+              "current": 454500000,
+              "required": 259200000,
+              "unit": "time",
+              "met": true
+            },
+            {
+              "label": "starforged pieces forged",
+              "current": 181,
+              "required": 36,
+              "met": true
+            },
+            {
+              "label": "Tier 5 contracts",
+              "current": 41,
+              "required": 12,
+              "met": true
+            }
+          ],
+          "eligible": true,
+          "hours": 126.25,
+          "reason": "Guild accreditation complete.",
+          "legacyVisible": true,
+          "nextLeague": 4
+        },
+        "discoveries": [
+          "slag",
+          "song",
+          "memory",
+          "routes",
+          "night",
+          "palimpsest",
+          "echo",
+          "constellation"
+        ],
+        "legacyEligible": true
+      },
+      "milestones": [
+        {
+          "event": "replay response",
+          "wallHours": 124.0111111111111,
+          "simHours": 124.0111111111111,
+          "action": "Renn moved behind the armoured Vanguard",
+          "insight": "Renn fell at 6s. Strengthen the front line or break their defender sooner."
+        },
+        {
+          "event": "champion",
+          "wallHours": 126.00555555555556,
+          "simHours": 126.00555555555556,
+          "tier": 5,
+          "gold": 137724,
+          "crafts": 2835,
+          "contracts": 1030,
+          "team": [
+            {
+              "id": "mara",
+              "level": 12,
+              "equipment": [
+                {
+                  "recipe": "starforged_swords_v1",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_armor_v1",
+                  "quality": 185,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_shields_v1",
+                  "quality": 185,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_charms_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_tools_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 12,
+              "equipment": [
+                {
+                  "recipe": "starforged_daggers_v1",
+                  "quality": 185,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_leather_armor_v2",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_rings_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_talismans_v1",
+                  "quality": 185,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_instruments_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 12,
+              "equipment": [
+                {
+                  "recipe": "starforged_daggers_v1",
+                  "quality": 185,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_leather_armor_v1",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_rings_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_charms_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_tools_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "periods": [
+        {
+          "label": "day 6 check 3",
+          "fromHours": 124.25,
+          "toHours": 126,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 8,
+          "contracts": 3,
+          "gold": 5323,
+          "stop": "Leather requirement not met."
+        }
+      ],
+      "rejections": {}
+    },
+    {
+      "name": "informed",
+      "complete": true,
+      "files": {
+        "house-engine.js": "807bf1a059408192e0aa191c7fc1be4decb1cfe75f414203172c2e0d5bcc2679",
+        "house-data.js": "570ebe63361b3acac1e6f17e3f229b26cd9b441859b4c4620272510ce70d85b9",
+        "house-combat.js": "17d90e9696adeeb991552ff7fe1c1f8ff276708cff70ac9d2c7754aad9b719fd",
+        "house-campaign.js": "30cf96d691cc5e869f07c07e993aad7e45d671661e189b9b2251232450cd8881",
+        "workshop-engine.js": "872d1d6af5ef040d3aef5042e316e037eafd46f7e63b8c92f2992d12b689ee4e"
+      },
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 7
+      },
+      "final": {
+        "wallHours": 100.25,
+        "simHours": 100.25,
+        "activeMinutes": 330,
+        "generation": 1,
+        "gold": 74294,
+        "smith": 27,
+        "stats": {
+          "strength": 34,
+          "precision": 47,
+          "charisma": 15,
+          "knowledge": 54
+        },
+        "champions": 5,
+        "rung": 0,
+        "wins": 1205,
+        "losses": 22,
+        "contracts": 967,
+        "crafts": 2650,
+        "mined": 8404,
+        "levels": [
+          [
+            "mara",
+            11
+          ],
+          [
+            "renn",
+            11
+          ],
+          [
+            "wren",
+            11
+          ],
+          [
+            "bren",
+            1
+          ],
+          [
+            "thane",
+            1
+          ],
+          [
+            "sable",
+            1
+          ]
+        ],
+        "mastery": {
+          "daggers": 78,
+          "swords": 76,
+          "axes": 75,
+          "maces": 92,
+          "polearms": 33,
+          "bows": 74,
+          "foci": 40,
+          "armor": 91,
+          "shields": 90,
+          "rings": 78,
+          "charms": 84,
+          "tools": 92,
+          "cloth_armor": 40,
+          "leather_armor": 84,
+          "offhands": 40,
+          "instruments": 77,
+          "talismans": 94
+        },
+        "campaign": {
+          "checks": [
+            {
+              "label": "House established",
+              "current": 360900000,
+              "required": 259200000,
+              "unit": "time",
+              "met": true
+            },
+            {
+              "label": "starforged pieces forged",
+              "current": 104,
+              "required": 36,
+              "met": true
+            },
+            {
+              "label": "Tier 5 contracts",
+              "current": 24,
+              "required": 12,
+              "met": true
+            }
+          ],
+          "eligible": true,
+          "hours": 100.25,
+          "reason": "Guild accreditation complete.",
+          "legacyVisible": true,
+          "nextLeague": 4
+        },
+        "campaignRecords": {
+          "version": 1,
+          "discoveries": [
+            "slag",
+            "song",
+            "memory",
+            "routes",
+            "night",
+            "palimpsest",
+            "echo",
+            "constellation"
+          ],
+          "projects": [],
+          "research": null,
+          "seals": 0,
+          "totalSeals": 0,
+          "trialDepth": 0,
+          "bestTrial": 0,
+          "burden": "none",
+          "nextBurden": "none",
+          "oaths": [],
+          "exhibitionAt": 360005000,
+          "exhibitionDay": 4,
+          "trainingWins": 42,
+          "tierCrafts": [
+            902,
+            1155,
+            161,
+            328,
+            104
+          ],
+          "tierContracts": [
+            546,
+            282,
+            37,
+            78,
+            24
+          ],
+          "lineage": {
+            "edge": 0,
+            "ward": 0
+          },
+          "revenue": {
+            "contracts": 196864,
+            "exhibitions": 82422,
+            "market": 730
+          },
+          "unread": [
+            "The vacant sixth banner",
+            "The chamber without an echo",
+            "Writing beneath the vellum",
+            "The night bell",
+            "A seal on the ledger",
+            "The heat remembers",
+            "The singing crucible",
+            "Glass in the spoil"
+          ],
+          "crownAt": 360303233
+        },
+        "discoveries": [
+          "slag",
+          "song",
+          "memory",
+          "routes",
+          "night",
+          "palimpsest",
+          "echo",
+          "constellation"
+        ],
+        "legacyEligible": true
+      },
+      "milestones": [
+        {
+          "event": "champion",
+          "wallHours": 2.0055555555555555,
+          "simHours": 2.0055555555555555,
+          "tier": 1,
+          "gold": 203,
+          "crafts": 104,
+          "contracts": 25,
+          "team": [
+            {
+              "id": "mara",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_swords_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v1",
+                  "quality": 82,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields",
+                  "quality": 62,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 44,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v1",
+                  "quality": 75,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_instruments",
+                  "quality": 57,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 81,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 59,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 58,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "replay response",
+          "wallHours": 2.2111111111111112,
+          "simHours": 2.2111111111111112,
+          "action": "Renn moved behind the armoured Vanguard",
+          "insight": "Renn fell at 6s. Strengthen the front line or break their defender sooner."
+        },
+        {
+          "event": "champion",
+          "wallHours": 24.011111111111113,
+          "simHours": 24.011111111111113,
+          "tier": 2,
+          "gold": 13897,
+          "crafts": 1709,
+          "contracts": 636,
+          "team": [
+            {
+              "id": "mara",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "bronze_swords_v1",
+                  "quality": 93,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_shields_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 90,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 90,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 94,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_instruments_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 4,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 94,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v1",
+                  "quality": 100,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 90,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 26.005555555555556,
+          "simHours": 26.005555555555556,
+          "tier": 3,
+          "gold": 2115,
+          "crafts": 1781,
+          "contracts": 655,
+          "team": [
+            {
+              "id": "mara",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "steel_swords_v1",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v2",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields_v2",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_instruments_v1",
+                  "quality": 100,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 52.01111111111111,
+          "simHours": 52.01111111111111,
+          "tier": 4,
+          "gold": 12260,
+          "crafts": 2169,
+          "contracts": 797,
+          "team": [
+            {
+              "id": "mara",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "mithril_swords_v1",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_armor_v1",
+                  "quality": 165,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_shields_v1",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 165,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_charms_v1",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "mithril_daggers_v1",
+                  "quality": 125,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 125,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 165,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_talismans_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_instruments_v1",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "mithril_daggers_v1",
+                  "quality": 165,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 165,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 165,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_charms_v1",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 125,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 100.08888888888889,
+          "simHours": 100.08888888888889,
+          "tier": 5,
+          "gold": 74988,
+          "crafts": 2633,
+          "contracts": 965,
+          "team": [
+            {
+              "id": "mara",
+              "level": 11,
+              "equipment": [
+                {
+                  "recipe": "mithril_swords_v1",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_armor_v1",
+                  "quality": 185,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_shields_v1",
+                  "quality": 185,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 165,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_charms_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_tools_v1",
+                  "quality": 185,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 11,
+              "equipment": [
+                {
+                  "recipe": "steel_daggers_v2",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_leather_armor_v2",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 165,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_talismans_v1",
+                  "quality": 182,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_instruments_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 11,
+              "equipment": [
+                {
+                  "recipe": "steel_daggers_v2",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_leather_armor_v2",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 165,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_charms_v2",
+                  "quality": 165,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_tools_v1",
+                  "quality": 185,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "periods": [
+        {
+          "label": "day 1 check 1",
+          "fromHours": 1,
+          "toHours": 2,
+          "requestedHours": 1,
+          "creditedHours": 1,
+          "crafts": 62,
+          "contracts": 21,
+          "gold": 802,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 1 check 2",
+          "fromHours": 2.25,
+          "toHours": 4,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 121,
+          "contracts": 39,
+          "gold": 1774,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 1 check 3",
+          "fromHours": 4.25,
+          "toHours": 6,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 146,
+          "contracts": 51,
+          "gold": 2613,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "overnight 1",
+          "fromHours": 6.25,
+          "toHours": 24,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 1304,
+          "contracts": 519,
+          "gold": 32273,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 2 check 1",
+          "fromHours": 24.25,
+          "toHours": 26,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 50,
+          "contracts": 18,
+          "gold": 3440,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 2 check 2",
+          "fromHours": 26.25,
+          "toHours": 28,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 48,
+          "contracts": 18,
+          "gold": 4691,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 2 check 3",
+          "fromHours": 28.25,
+          "toHours": 30,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 26,
+          "contracts": 8,
+          "gold": 3190,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "overnight 2",
+          "fromHours": 30.25,
+          "toHours": 48,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 253,
+          "contracts": 97,
+          "gold": 46416,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 3 check 1",
+          "fromHours": 48.25,
+          "toHours": 50,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 21,
+          "contracts": 7,
+          "gold": 4941,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 3 check 2",
+          "fromHours": 50.25,
+          "toHours": 52,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 22,
+          "contracts": 8,
+          "gold": 5126,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 3 check 3",
+          "fromHours": 52.25,
+          "toHours": 54,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 33,
+          "contracts": 11,
+          "gold": 5265,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "overnight 3",
+          "fromHours": 54.25,
+          "toHours": 72,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 207,
+          "contracts": 81,
+          "gold": 61442,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 4 check 1",
+          "fromHours": 72.25,
+          "toHours": 74,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 7,
+          "contracts": 1,
+          "gold": 4913,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 4 check 2",
+          "fromHours": 74.25,
+          "toHours": 76,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 9,
+          "contracts": 3,
+          "gold": 5307,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 4 check 3",
+          "fromHours": 76.25,
+          "toHours": 78,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 5,
+          "contracts": 0,
+          "gold": 2391,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "overnight 4",
+          "fromHours": 78.25,
+          "toHours": 96,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 163,
+          "contracts": 64,
+          "gold": 67717,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 5 check 1",
+          "fromHours": 96.25,
+          "toHours": 98,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 9,
+          "contracts": 3,
+          "gold": 5314,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 5 check 2",
+          "fromHours": 98.25,
+          "toHours": 100,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 6,
+          "contracts": 0,
+          "gold": 2392,
+          "stop": "Wood requirement not met."
+        }
+      ],
+      "rejections": {}
+    },
+    {
+      "name": "second-generation",
+      "complete": true,
+      "files": {
+        "house-engine.js": "807bf1a059408192e0aa191c7fc1be4decb1cfe75f414203172c2e0d5bcc2679",
+        "house-data.js": "570ebe63361b3acac1e6f17e3f229b26cd9b441859b4c4620272510ce70d85b9",
+        "house-combat.js": "17d90e9696adeeb991552ff7fe1c1f8ff276708cff70ac9d2c7754aad9b719fd",
+        "house-campaign.js": "30cf96d691cc5e869f07c07e993aad7e45d671661e189b9b2251232450cd8881",
+        "workshop-engine.js": "872d1d6af5ef040d3aef5042e316e037eafd46f7e63b8c92f2992d12b689ee4e"
+      },
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 10,
+        "resume": {
+          "file": "design/qa/house-campaign-final-response-checkpoint.json",
+          "wallHours": 126.25,
+          "simHours": 126.25,
+          "note": "Continuation of an earned checkpoint; no resources changed."
+        }
+      },
+      "final": {
+        "wallHours": 240,
+        "simHours": 113.7436625,
+        "activeMinutes": 240.38025,
+        "generation": 2,
+        "gold": 49792,
+        "smith": 23,
+        "stats": {
+          "strength": 34,
+          "precision": 39,
+          "charisma": 12,
+          "knowledge": 45
+        },
+        "champions": 4,
+        "rung": 2,
+        "wins": 1137,
+        "losses": 12,
+        "contracts": 713,
+        "crafts": 2048,
+        "mined": 4919,
+        "levels": [
+          [
+            "mara",
+            10
+          ],
+          [
+            "renn",
+            10
+          ],
+          [
+            "wren",
+            10
+          ],
+          [
+            "bren",
+            1
+          ],
+          [
+            "thane",
+            1
+          ],
+          [
+            "sable",
+            1
+          ]
+        ],
+        "mastery": {
+          "daggers": 58,
+          "swords": 51,
+          "axes": 62,
+          "maces": 74,
+          "polearms": 25,
+          "bows": 67,
+          "foci": 38,
+          "armor": 64,
+          "shields": 75,
+          "rings": 63,
+          "charms": 74,
+          "tools": 67,
+          "cloth_armor": 31,
+          "leather_armor": 67,
+          "offhands": 31,
+          "instruments": 65,
+          "talismans": 78
+        },
+        "campaign": {
+          "checks": [
+            {
+              "label": "House established",
+              "current": 409477185,
+              "required": 103680000,
+              "unit": "time",
+              "met": true
+            },
+            {
+              "label": "starforged pieces forged",
+              "current": 0,
+              "required": 36,
+              "met": false
+            },
+            {
+              "label": "Tier 5 contracts",
+              "current": 0,
+              "required": 12,
+              "met": false
+            }
+          ],
+          "eligible": false,
+          "hours": 113.7436625,
+          "reason": "starforged pieces forged: 0 / 36",
+          "legacyVisible": true,
+          "nextLeague": 4
+        },
+        "campaignRecords": {
+          "version": 1,
+          "discoveries": [
+            "slag",
+            "song",
+            "memory",
+            "routes",
+            "night",
+            "palimpsest",
+            "echo",
+            "constellation",
+            "inheritance"
+          ],
+          "projects": [],
+          "research": null,
+          "seals": 1,
+          "totalSeals": 1,
+          "trialDepth": 0,
+          "bestTrial": 1,
+          "burden": "none",
+          "nextBurden": "none",
+          "oaths": [],
+          "exhibitionAt": 409480000,
+          "exhibitionDay": 4,
+          "trainingWins": 212,
+          "tierCrafts": [
+            844,
+            713,
+            262,
+            229,
+            0
+          ],
+          "tierContracts": [
+            422,
+            173,
+            64,
+            54,
+            0
+          ],
+          "lineage": {
+            "edge": 0,
+            "ward": 0
+          },
+          "revenue": {
+            "contracts": 106458,
+            "exhibitions": 77529,
+            "market": 670
+          },
+          "unread": [
+            "A familiar hammer in a new hand"
+          ],
+          "crownAt": null
+        },
+        "discoveries": [
+          "slag",
+          "song",
+          "memory",
+          "routes",
+          "night",
+          "palimpsest",
+          "echo",
+          "constellation",
+          "inheritance"
+        ],
+        "legacyEligible": false
+      },
+      "milestones": [
+        {
+          "event": "earned Crucible attempt",
+          "wallHours": 126.2563375,
+          "simHours": 126.2563375,
+          "depth": 1,
+          "victory": true,
+          "seals": 1
+        },
+        {
+          "event": "earned retirement",
+          "wallHours": 126.2563375,
+          "simHours": 0,
+          "previous": {
+            "wallHours": 126.25,
+            "simHours": 126.25,
+            "generation": 1
+          },
+          "sparks": 69,
+          "generation": 2,
+          "charter": "workforce",
+          "talents": [
+            "inherited_crew",
+            "fuller_moulds",
+            "enduring_tools"
+          ],
+          "heirloom": "item-13618"
+        },
+        {
+          "event": "champion",
+          "wallHours": 146.17222222222222,
+          "simHours": 19.915884722222224,
+          "tier": 1,
+          "gold": 178,
+          "crafts": 22,
+          "contracts": 3,
+          "team": [
+            {
+              "id": "mara",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "starforged_swords_v1",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor",
+                  "quality": 66,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields",
+                  "quality": 65,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 60,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 60,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers",
+                  "quality": 41,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 60,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 61,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 60,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 2,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers",
+                  "quality": 42,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor",
+                  "quality": 61,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings",
+                  "quality": 61,
+                  "treatment": "plain",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools",
+                  "quality": 61,
+                  "treatment": "plain",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 168.00555555555556,
+          "simHours": 41.74921805555555,
+          "tier": 2,
+          "gold": 15029,
+          "crafts": 1164,
+          "contracts": 425,
+          "team": [
+            {
+              "id": "mara",
+              "level": 5,
+              "equipment": [
+                {
+                  "recipe": "starforged_swords_v1",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v1",
+                  "quality": 99,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields_v1",
+                  "quality": 98,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v1",
+                  "quality": 109,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 97,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools_v1",
+                  "quality": 108,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 5,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 99,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor_v1",
+                  "quality": 109,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v1",
+                  "quality": 109,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_talismans",
+                  "quality": 96,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_instruments_v1",
+                  "quality": 108,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 5,
+              "equipment": [
+                {
+                  "recipe": "bronze_daggers_v1",
+                  "quality": 99,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_leather_armor_v1",
+                  "quality": 109,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_rings_v1",
+                  "quality": 109,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_charms",
+                  "quality": 97,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_tools_v1",
+                  "quality": 108,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 172.00555555555556,
+          "simHours": 45.74921805555555,
+          "tier": 3,
+          "gold": 1870,
+          "crafts": 1280,
+          "contracts": 460,
+          "team": [
+            {
+              "id": "mara",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "starforged_swords_v1",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_armor_v2",
+                  "quality": 130,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "bronze_shields_v2",
+                  "quality": 130,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_charms_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 130,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 130,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_talismans_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_instruments_v1",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 6,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 130,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 130,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_charms_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "champion",
+          "wallHours": 194.01111111111112,
+          "simHours": 67.7547736111111,
+          "tier": 4,
+          "gold": 7428,
+          "crafts": 1727,
+          "contracts": 615,
+          "team": [
+            {
+              "id": "mara",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "starforged_swords_v1",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_armor_v1",
+                  "quality": 170,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_shields_v1",
+                  "quality": 170,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 170,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_charms_v1",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_tools_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "iron_daggers_v2",
+                  "quality": 170,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 130,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 170,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_talismans_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_instruments_v1",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 8,
+              "equipment": [
+                {
+                  "recipe": "iron_bows_v2",
+                  "quality": 150,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_leather_armor_v2",
+                  "quality": 170,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "iron_rings_v2",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_charms_v1",
+                  "quality": 130,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_tools_v1",
+                  "quality": 170,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "event": "replay response",
+          "wallHours": 194.07777777777778,
+          "simHours": 67.82144027777778,
+          "action": "Renn moved behind the armoured Vanguard",
+          "insight": "Renn fell at 10s. Strengthen the front line or break their defender sooner."
+        }
+      ],
+      "periods": [
+        {
+          "label": "overnight 6",
+          "fromHours": 126.2563375,
+          "toHours": 144,
+          "requestedHours": 17.7436625,
+          "creditedHours": 17.7436625,
+          "crafts": 0,
+          "contracts": 0,
+          "gold": 0,
+          "stop": "Catalogue production is paused."
+        },
+        {
+          "label": "day 7 check 1",
+          "fromHours": 144.25,
+          "toHours": 146,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 3,
+          "contracts": 0,
+          "gold": 0,
+          "stop": "Catalogue production is paused."
+        },
+        {
+          "label": "day 7 check 2",
+          "fromHours": 146.25,
+          "toHours": 148,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 112,
+          "contracts": 37,
+          "gold": 1484,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 7 check 3",
+          "fromHours": 148.25,
+          "toHours": 150,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 122,
+          "contracts": 40,
+          "gold": 2012,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "overnight 7",
+          "fromHours": 150.25,
+          "toHours": 168,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 879,
+          "contracts": 345,
+          "gold": 21328,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 8 check 1",
+          "fromHours": 168.25,
+          "toHours": 170,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 38,
+          "contracts": 13,
+          "gold": 2590,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 8 check 2",
+          "fromHours": 170.25,
+          "toHours": 172,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 45,
+          "contracts": 18,
+          "gold": 3770,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 8 check 3",
+          "fromHours": 172.25,
+          "toHours": 174,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 45,
+          "contracts": 19,
+          "gold": 4954,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "overnight 8",
+          "fromHours": 174.25,
+          "toHours": 192,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 317,
+          "contracts": 122,
+          "gold": 44944,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 9 check 1",
+          "fromHours": 192.25,
+          "toHours": 194,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 26,
+          "contracts": 8,
+          "gold": 3775,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "day 9 check 2",
+          "fromHours": 194.25,
+          "toHours": 196,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 17,
+          "contracts": 5,
+          "gold": 5122,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 9 check 3",
+          "fromHours": 196.25,
+          "toHours": 198,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 28,
+          "contracts": 10,
+          "gold": 5630,
+          "stop": "Wood requirement not met."
+        },
+        {
+          "label": "overnight 9",
+          "fromHours": 198.25,
+          "toHours": 216,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 194,
+          "contracts": 77,
+          "gold": 44696,
+          "stop": "Starforged Alloy ingot requirement not met."
+        },
+        {
+          "label": "day 10 check 1",
+          "fromHours": 216.25,
+          "toHours": 218,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 5,
+          "contracts": 0,
+          "gold": 2155,
+          "stop": "Starforged Alloy ingot requirement not met."
+        },
+        {
+          "label": "day 10 check 2",
+          "fromHours": 218.25,
+          "toHours": 220,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 2,
+          "contracts": 0,
+          "gold": 2457,
+          "stop": "Starforged Alloy ingot requirement not met."
+        },
+        {
+          "label": "day 10 check 3",
+          "fromHours": 220.25,
+          "toHours": 222,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 0,
+          "contracts": 0,
+          "gold": 2457,
+          "stop": "Starforged Alloy ingot requirement not met."
+        },
+        {
+          "label": "overnight 10",
+          "fromHours": 222.25,
+          "toHours": 240,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 0,
+          "contracts": 0,
+          "gold": 24921,
+          "stop": "Starforged Alloy ingot requirement not met."
+        }
+      ],
+      "rejections": {}
+    },
+    {
+      "name": "second-generation-rescue",
+      "complete": true,
+      "files": {
+        "house-engine.js": "3cc95f5b7771da78633e82d75d33a324b8ed7b43de878d6dd66f34d52cc6d81c",
+        "house-data.js": "570ebe63361b3acac1e6f17e3f229b26cd9b441859b4c4620272510ce70d85b9",
+        "house-combat.js": "17d90e9696adeeb991552ff7fe1c1f8ff276708cff70ac9d2c7754aad9b719fd",
+        "house-campaign.js": "ff05d11c4c23e7c98b3b1c9a8cbc7a64d57b6564328b17a59fa1c4cdb4845cda",
+        "workshop-engine.js": "872d1d6af5ef040d3aef5042e316e037eafd46f7e63b8c92f2992d12b689ee4e"
+      },
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 13,
+        "resume": {
+          "file": "design/qa/house-campaign-second-generation-checkpoint.json",
+          "wallHours": 240,
+          "simHours": 113.7436625,
+          "note": "Continuation of an earned checkpoint; no resources changed."
+        }
+      },
+      "final": {
+        "wallHours": 270.25,
+        "simHours": 143.9936625,
+        "activeMinutes": 120,
+        "generation": 2,
+        "gold": 90269,
+        "smith": 25,
+        "stats": {
+          "strength": 34,
+          "precision": 43,
+          "charisma": 13,
+          "knowledge": 50
+        },
+        "champions": 5,
+        "rung": 0,
+        "wins": 1481,
+        "losses": 17,
+        "contracts": 1063,
+        "crafts": 2879,
+        "mined": 7014,
+        "levels": [
+          [
+            "mara",
+            11
+          ],
+          [
+            "renn",
+            11
+          ],
+          [
+            "wren",
+            11
+          ],
+          [
+            "bren",
+            1
+          ],
+          [
+            "thane",
+            1
+          ],
+          [
+            "sable",
+            1
+          ]
+        ],
+        "mastery": {
+          "daggers": 69,
+          "swords": 67,
+          "axes": 72,
+          "maces": 82,
+          "polearms": 38,
+          "bows": 79,
+          "foci": 52,
+          "armor": 71,
+          "shields": 83,
+          "rings": 73,
+          "charms": 90,
+          "tools": 75,
+          "cloth_armor": 41,
+          "leather_armor": 77,
+          "offhands": 48,
+          "instruments": 71,
+          "talismans": 90
+        },
+        "campaign": {
+          "checks": [
+            {
+              "label": "House established",
+              "current": 518377185,
+              "required": 103680000,
+              "unit": "time",
+              "met": true
+            },
+            {
+              "label": "starforged pieces forged",
+              "current": 50,
+              "required": 36,
+              "met": true
+            },
+            {
+              "label": "Tier 5 contracts",
+              "current": 12,
+              "required": 12,
+              "met": true
+            }
+          ],
+          "eligible": true,
+          "hours": 143.9936625,
+          "reason": "Guild accreditation complete.",
+          "legacyVisible": true,
+          "nextLeague": 4
+        },
+        "campaignRecords": {
+          "version": 1,
+          "discoveries": [
+            "slag",
+            "song",
+            "memory",
+            "routes",
+            "night",
+            "palimpsest",
+            "echo",
+            "constellation",
+            "inheritance"
+          ],
+          "projects": [
+            "dispatch",
+            "thermal",
+            "survey",
+            "oathfolio"
+          ],
+          "research": null,
+          "seals": 0,
+          "totalSeals": 1,
+          "trialDepth": 0,
+          "bestTrial": 1,
+          "burden": "none",
+          "nextBurden": "none",
+          "oaths": [],
+          "exhibitionAt": 517480000,
+          "exhibitionDay": 5,
+          "trainingWins": 275,
+          "tierCrafts": [
+            1468,
+            716,
+            319,
+            326,
+            50
+          ],
+          "tierContracts": [
+            723,
+            174,
+            78,
+            76,
+            12
+          ],
+          "lineage": {
+            "edge": 0,
+            "ward": 0
+          },
+          "revenue": {
+            "contracts": 181984,
+            "exhibitions": 117192,
+            "market": 1039
+          },
+          "unread": [
+            "The Oathbound folio completed",
+            "Chart the silent galleries completed",
+            "Reconstruct the heat ladder completed",
+            "Establish the guild route completed",
+            "A familiar hammer in a new hand"
+          ],
+          "crownAt": 517494786
+        },
+        "discoveries": [
+          "slag",
+          "song",
+          "memory",
+          "routes",
+          "night",
+          "palimpsest",
+          "echo",
+          "constellation",
+          "inheritance"
+        ],
+        "legacyEligible": true
+      },
+      "milestones": [
+        {
+          "event": "inherited rare patterns",
+          "wallHours": 240,
+          "simHours": 113.7436625
+        },
+        {
+          "event": "research started",
+          "wallHours": 240,
+          "simHours": 113.7436625,
+          "id": "dispatch",
+          "finishesAtHours": 115.7436625
+        },
+        {
+          "event": "research started",
+          "wallHours": 242,
+          "simHours": 115.7436625,
+          "id": "thermal",
+          "finishesAtHours": 117.7436625
+        },
+        {
+          "event": "research started",
+          "wallHours": 244,
+          "simHours": 117.7436625,
+          "id": "survey",
+          "finishesAtHours": 120.7436625
+        },
+        {
+          "event": "research started",
+          "wallHours": 264.05,
+          "simHours": 137.7936625,
+          "id": "oathfolio",
+          "finishesAtHours": 143.7936625
+        },
+        {
+          "event": "champion",
+          "wallHours": 270.00555555555553,
+          "simHours": 143.74921805555556,
+          "tier": 5,
+          "gold": 91162,
+          "crafts": 2845,
+          "contracts": 1061,
+          "team": [
+            {
+              "id": "mara",
+              "level": 11,
+              "equipment": [
+                {
+                  "recipe": "starforged_swords_v1",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "mithril_armor_v1",
+                  "quality": 170,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_shields_v1",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_rings_v2",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_charms_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "relic_tools",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "renn",
+              "level": 11,
+              "equipment": [
+                {
+                  "recipe": "relic_daggers",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "relic_leather_armor",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "relic_rings",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "relic_talismans",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "steel_instruments_v1",
+                  "quality": 190,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            },
+            {
+              "id": "wren",
+              "level": 11,
+              "equipment": [
+                {
+                  "recipe": "relic_daggers",
+                  "quality": 200,
+                  "treatment": "keen",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "relic_leather_armor",
+                  "quality": 200,
+                  "treatment": "reinforced",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "relic_rings",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "starforged_charms_v1",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                },
+                {
+                  "recipe": "relic_tools",
+                  "quality": 200,
+                  "treatment": "warding",
+                  "grade": "standard"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "periods": [
+        {
+          "label": "day 11 check 1",
+          "fromHours": 240.25,
+          "toHours": 242,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 130,
+          "contracts": 63,
+          "gold": 5727,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 11 check 2",
+          "fromHours": 242.25,
+          "toHours": 244,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 330,
+          "contracts": 164,
+          "gold": 11443,
+          "stop": "Order complete; the clerk will deliver it."
+        },
+        {
+          "label": "day 11 check 3",
+          "fromHours": 244.25,
+          "toHours": 246,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 11,
+          "contracts": 3,
+          "gold": 6767,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "overnight 11",
+          "fromHours": 246.25,
+          "toHours": 264,
+          "requestedHours": 17.75,
+          "creditedHours": 17.75,
+          "crafts": 190,
+          "contracts": 75,
+          "gold": 67936,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 12 check 1",
+          "fromHours": 264.25,
+          "toHours": 266,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 10,
+          "contracts": 1,
+          "gold": 4691,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 12 check 2",
+          "fromHours": 266.25,
+          "toHours": 268,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 14,
+          "contracts": 5,
+          "gold": 3310,
+          "stop": "Leather requirement not met."
+        },
+        {
+          "label": "day 12 check 3",
+          "fromHours": 268.25,
+          "toHours": 270,
+          "requestedHours": 1.75,
+          "creditedHours": 1.75,
+          "crafts": 19,
+          "contracts": 6,
+          "gold": 5926,
+          "stop": "Wood requirement not met."
+        }
+      ],
+      "rejections": {},
+      "crownCareerHours": 143.74855166666666
+    }
+  ],
+  "openings": [
+    {
+      "profession": "weaponsmith",
+      "valid": true,
+      "crafts": 42,
+      "contracts": 4,
+      "smith": 3,
+      "gold": 36,
+      "wins": 15,
+      "losses": 1,
+      "rung": 3,
+      "miners": 2,
+      "stockkeeper": true,
+      "catalogue": true,
+      "clerk": true
+    },
+    {
+      "profession": "armorer",
+      "valid": true,
+      "crafts": 39,
+      "contracts": 4,
+      "smith": 3,
+      "gold": 39,
+      "wins": 15,
+      "losses": 1,
+      "rung": 3,
+      "miners": 2,
+      "stockkeeper": true,
+      "catalogue": true,
+      "clerk": true
+    },
+    {
+      "profession": "artificer",
+      "valid": true,
+      "crafts": 38,
+      "contracts": 4,
+      "smith": 3,
+      "gold": 25,
+      "wins": 15,
+      "losses": 0,
+      "rung": 3,
+      "miners": 2,
+      "stockkeeper": true,
+      "catalogue": true,
+      "clerk": true
+    },
+    {
+      "profession": "prospector",
+      "valid": true,
+      "crafts": 37,
+      "contracts": 4,
+      "smith": 3,
+      "gold": 59,
+      "wins": 15,
+      "losses": 1,
+      "rung": 3,
+      "miners": 2,
+      "stockkeeper": true,
+      "catalogue": true,
+      "clerk": true
+    },
+    {
+      "profession": "merchant",
+      "valid": true,
+      "crafts": 39,
+      "contracts": 5,
+      "smith": 3,
+      "gold": 90,
+      "wins": 15,
+      "losses": 0,
+      "rung": 3,
+      "miners": 3,
+      "stockkeeper": true,
+      "catalogue": true,
+      "clerk": true
+    },
+    {
+      "profession": "mechanist",
+      "valid": true,
+      "crafts": 37,
+      "contracts": 4,
+      "smith": 3,
+      "gold": 77,
+      "wins": 15,
+      "losses": 2,
+      "rung": 3,
+      "miners": 2,
+      "stockkeeper": true,
+      "catalogue": true,
+      "clerk": true
+    },
+    {
+      "profession": "runesage",
+      "valid": true,
+      "crafts": 40,
+      "contracts": 6,
+      "smith": 3,
+      "gold": 87,
+      "wins": 15,
+      "losses": 0,
+      "rung": 3,
+      "miners": 3,
+      "stockkeeper": true,
+      "catalogue": true,
+      "clerk": true
+    }
+  ]
+}
