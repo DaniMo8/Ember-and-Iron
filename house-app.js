@@ -51,6 +51,7 @@
       employees: "Employees",
       legacy: "Legacy",
     };
+  const inputActivity = EIHouseInput.watch(document, window);
   const marks = {
     smith: "✦",
     mine: "◆",
@@ -1514,7 +1515,7 @@
     const focused = document.activeElement,
       editing =
         focused && ["INPUT", "SELECT", "TEXTAREA"].includes(focused.tagName);
-    if (!force && (editing || document.hidden)) return;
+    if (!force && (editing || document.hidden || inputActivity.busy())) return;
     const scroll = window.scrollY,
       hadDialog = !!$(".dialog"),
       modalScroll = $(".dialog")?.scrollTop || 0,

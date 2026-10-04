@@ -16,3 +16,5 @@ design/qa/house-campaign-*.json
 !design/qa/house-campaign-results.json
 design/qa/campaign-*-tests.txt
 design/qa/house-depth-tests.txt
+design/qa/input-before.html
+design/qa/input-after.html

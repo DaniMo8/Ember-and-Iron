@@ -1,0 +1,238 @@
+TAP version 13
+# Subtest: a live refresh waits across a held mouse press and its delayed click
+ok 1 - a live refresh waits across a held mouse press and its delayed click
+  ---
+  duration_ms: 1.2713
+  type: 'test'
+  ...
+# Subtest: releasing one touch cannot interrupt a second held touch
+ok 2 - releasing one touch cannot interrupt a second held touch
+  ---
+  duration_ms: 0.2764
+  type: 'test'
+  ...
+# Subtest: Space and Enter activation keep the focused button intact until key release
+ok 3 - Space and Enter activation keep the focused button intact until key release
+  ---
+  duration_ms: 0.3659
+  type: 'test'
+  ...
+# Subtest: typing keys and secondary mouse buttons do not latch the render guard
+ok 4 - typing keys and secondary mouse buttons do not latch the render guard
+  ---
+  duration_ms: 0.1857
+  type: 'test'
+  ...
+# Subtest: focus loss and a hidden tab recover a press whose release happened outside the page
+ok 5 - focus loss and a hidden tab recover a press whose release happened outside the page
+  ---
+  duration_ms: 0.3286
+  type: 'test'
+  ...
+# Subtest: review: Craft max accounts for both treatment gold and the selected grade
+ok 6 - review: Craft max accounts for both treatment gold and the selected grade
+  ---
+  duration_ms: 113.9267
+  type: 'test'
+  ...
+# Subtest: review: graded Smelt max includes its additional coal
+ok 7 - review: graded Smelt max includes its additional coal
+  ---
+  duration_ms: 71.124
+  type: 'test'
+  ...
+# Subtest: review: simultaneous standard and premium smelts attribute overflow by delivery order
+ok 8 - review: simultaneous standard and premium smelts attribute overflow by delivery order
+  ---
+  duration_ms: 63.391
+  type: 'test'
+  ...
+# Subtest: review: alloy cancellation returns the exact grade of its consumed intermediate ingots
+ok 9 - review: alloy cancellation returns the exact grade of its consumed intermediate ingots
+  ---
+  duration_ms: 68.8925
+  type: 'test'
+  ...
+# Subtest: review: unequipping cannot occupy a pending craft output reservation
+ok 10 - review: unequipping cannot occupy a pending craft output reservation
+  ---
+  duration_ms: 76.1524
+  type: 'test'
+  ...
+# Subtest: review: fractional fighter intervals always schedule integer match and recovery times
+ok 11 - review: fractional fighter intervals always schedule integer match and recovery times
+  ---
+  duration_ms: 129.8561
+  type: 'test'
+  ...
+# Subtest: review: highest-tier controlled team can win the final champion and retire into every charter
+ok 12 - review: highest-tier controlled team can win the final champion and retire into every charter
+  ---
+  duration_ms: 254.3826
+  type: 'test'
+  ...
+# Subtest: all seven callings create valid houses with twenty allocated points and authored fighters
+ok 13 - all seven callings create valid houses with twenty allocated points and authored fighters
+  ---
+  duration_ms: 441.2193
+  type: 'test'
+  ...
+# Subtest: team commissions are protected; catalogue work is available for disclosed contracts
+ok 14 - team commissions are protected; catalogue work is available for disclosed contracts
+  ---
+  duration_ms: 122.1435
+  type: 'test'
+  ...
+# Subtest: equipping is free and preserves both displaced pieces atomically
+ok 15 - equipping is free and preserves both displaced pieces atomically
+  ---
+  duration_ms: 65.1806
+  type: 'test'
+  ...
+# Subtest: invalid equipment compatibility and full-storage swaps leave every item unchanged
+ok 16 - invalid equipment compatibility and full-storage swaps leave every item unchanged
+  ---
+  duration_ms: 46.774
+  type: 'test'
+  ...
+# Subtest: house roster never buys equipment or automatically departs on Classic quests
+ok 17 - house roster never buys equipment or automatically departs on Classic quests
+  ---
+  duration_ms: 590.3313
+  type: 'test'
+  ...
+# Subtest: a defeated unequipped team keeps gear and recovers without travel states
+ok 18 - a defeated unequipped team keeps gear and recovers without travel states
+  ---
+  duration_ms: 68.5814
+  type: 'test'
+  ...
+# Subtest: simulations are deterministic, protect the front line and have bounded logs
+ok 19 - simulations are deterministic, protect the front line and have bounded logs
+  ---
+  duration_ms: 62.6105
+  type: 'test'
+  ...
+# Subtest: fixed opponent seed survives reload and upgrades affect only later matches
+ok 20 - fixed opponent seed survives reload and upgrades affect only later matches
+  ---
+  duration_ms: 109.3463
+  type: 'test'
+  ...
+# Subtest: one match awards one win; five wins also require all three styles
+ok 21 - one match awards one win; five wins also require all three styles
+  ---
+  duration_ms: 206.9399
+  type: 'test'
+  ...
+# Subtest: replaying or settling twice cannot pay again; exhibitions cannot qualify
+ok 22 - replaying or settling twice cannot pay again; exhibitions cannot qualify
+  ---
+  duration_ms: 110.7386
+  type: 'test'
+  ...
+# Subtest: champion launch is gated and a win opens exactly the next material licence
+ok 23 - champion launch is gated and a win opens exactly the next material licence
+  ---
+  duration_ms: 72.8129
+  type: 'test'
+  ...
+# Subtest: contracts deliver only matching unprotected stock and disclose a once-only price
+ok 24 - contracts deliver only matching unprotected stock and disclose a once-only price
+  ---
+  duration_ms: 70.6153
+  type: 'test'
+  ...
+# Subtest: a zero-gold opening can sell mined ore, buy supplies and fulfil basic work
+ok 25 - a zero-gold opening can sell mined ore, buy supplies and fulfil basic work
+  ---
+  duration_ms: 41.2206
+  type: 'test'
+  ...
+# Subtest: house upgrades spend gold, retain earned records and grow exponentially
+ok 26 - house upgrades spend gold, retain earned records and grow exponentially
+  ---
+  duration_ms: 42.2824
+  type: 'test'
+  ...
+# Subtest: paid prefix treatment and metal properties persist on the completed item
+ok 27 - paid prefix treatment and metal properties persist on the completed item
+  ---
+  duration_ms: 104.847
+  type: 'test'
+  ...
+# Subtest: cancelled treated work refunds its exact gold and material escrow
+ok 28 - cancelled treated work refunds its exact gold and material escrow
+  ---
+  duration_ms: 55.2801
+  type: 'test'
+  ...
+# Subtest: graded smelting reserves and refunds extra coal, then records actual accepted output
+ok 29 - graded smelting reserves and refunds extra coal, then records actual accepted output
+  ---
+  duration_ms: 53.5593
+  type: 'test'
+  ...
+# Subtest: online, offline and save-reloaded active bouts have the same result and payout
+ok 30 - online, offline and save-reloaded active bouts have the same result and payout
+  ---
+  duration_ms: 159.5041
+  type: 'test'
+  ...
+# Subtest: Classic migration is explicit, preserves investments and does not claim arena wins
+ok 31 - Classic migration is explicit, preserves investments and does not claim arena wins
+  ---
+  duration_ms: 82.7364
+  type: 'test'
+  ...
+# Subtest: first-visit explanations persist independently per room and invalid saves are rejected
+ok 32 - first-visit explanations persist independently per room and invalid saves are rejected
+  ---
+  duration_ms: 71.402
+  type: 'test'
+  ...
+# Subtest: catalogue respects an offline purchase budget across save reloads
+ok 33 - catalogue respects an offline purchase budget across save reloads
+  ---
+  duration_ms: 381.8409
+  type: 'test'
+  ...
+# Subtest: catalogue never buys or forges below the disclosed contract quality
+ok 34 - catalogue never buys or forges below the disclosed contract quality
+  ---
+  duration_ms: 82.8746
+  type: 'test'
+  ...
+# Subtest: invalid match and mixed policy commands are atomic, and champion stats cannot be lowered
+ok 35 - invalid match and mixed policy commands are atomic, and champion stats cannot be lowered
+  ---
+  duration_ms: 39.6426
+  type: 'test'
+  ...
+# Subtest: mage cleave respects front lines and guardians protect their allies
+ok 36 - mage cleave respects front lines and guardians protect their allies
+  ---
+  duration_ms: 0.9563
+  type: 'test'
+  ...
+# Subtest: commercial price bonuses apply once to contracts and affect town offers
+ok 37 - commercial price bonuses apply once to contracts and affect town offers
+  ---
+  duration_ms: 80.4564
+  type: 'test'
+  ...
+# Subtest: displayed and compared fighter stats include the same doctrine as the frozen match
+ok 38 - displayed and compared fighter stats include the same doctrine as the frozen match
+  ---
+  duration_ms: 57.7557
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3359.5932

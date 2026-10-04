@@ -1,0 +1,79 @@
+{
+  "method": "Synthetic held mouse, touch and Space sequences against actual 750ms House DOM refreshes; 1100ms hold and 300ms compatibility-click delay. Isolated origin8792.",
+  "before": [
+    {
+      "kind": "mouse",
+      "retained": false,
+      "activated": false,
+      "visible": true
+    },
+    {
+      "kind": "touch",
+      "retained": false,
+      "activated": false,
+      "visible": true
+    },
+    {
+      "kind": "keyboard",
+      "retained": false,
+      "activated": false,
+      "visible": true
+    },
+    {
+      "idleRefreshResumed": true
+    }
+  ],
+  "after": [
+    {
+      "kind": "mouse",
+      "retained": true,
+      "activated": true,
+      "visible": true
+    },
+    {
+      "kind": "touch",
+      "retained": true,
+      "activated": true,
+      "visible": true
+    },
+    {
+      "kind": "keyboard",
+      "retained": true,
+      "activated": true,
+      "visible": true
+    },
+    {
+      "idleRefreshResumed": true
+    }
+  ],
+  "portableNativeNavigation": [
+    {
+      "room": "◆ Mine",
+      "passed": true
+    },
+    {
+      "room": "◉ Smelter",
+      "passed": true
+    },
+    {
+      "room": "⚒ Forge",
+      "passed": true
+    },
+    {
+      "room": "◇ Shop & armoury",
+      "passed": true
+    },
+    {
+      "room": "⚑ Arena",
+      "passed": true
+    },
+    {
+      "room": "♟ Employees",
+      "passed": true
+    },
+    {
+      "room": "✦ Aveline",
+      "passed": true
+    }
+  ]
+}

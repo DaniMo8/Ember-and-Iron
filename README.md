@@ -53,12 +53,15 @@ No framework or package installation is required to play or test. Existing produ
 | `house-engine.js` | House economy, team ownership, contracts, progression, automation and explicit Classic conversion |
 | `house-campaign.js` | Accreditation, discoveries, research, inherited equipment families, Crucible trials, oaths, offline reporting and room evolution |
 | `house-app.js` / `house.css` | Event-delegated interface, responsive rooms, input preservation, introductions and overlays |
+| `house-input.js` | Protects held mouse, touch and keyboard targets from periodic interface replacement |
 | `workshop-engine.js` and earlier engine modules | Tested shared production, staff, materials, items, Legacy and Classic compatibility |
 | `build_game.py` | Portable build from the source page's script order and local WebP assets |
 | `design/tools/render_house_art.py` / `render_house_evolution.py` | Reproducible architectural scenes, five room stages and UI metalwork |
 | `design/tools/render_house_fighters.py` | Reproducible fighter miniatures |
 
 The new code uses shared previews for commands and UI, atomic equipment moves, material/grade escrow, integer event deadlines, once-only payouts and bounded replay history. Simulation advances separately from rendering. Embedded artwork becomes one cached Blob URL per asset; there are no network or third-party font dependencies. See the guide for the audit's trade-offs and follow-up work.
+
+The input fix defers automatic repainting during a press and its compatibility-click window. Simulation continues, and actions still validate current resources when activated. [Before/after browser checks](design/qa/input-browser-checks.json) reproduce the old missed-click behavior; [38 targeted checks](design/qa/input-regression-tests.txt) cover the repair and House regressions. Recreate the isolated browser fixture with `node design/tools/make_input_review.js` on port8792.
 
 ```sh
 node --test tests/*.test.js
