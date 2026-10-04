@@ -102,6 +102,7 @@
     saved = null,
     last = Date.now(),
     lastSave = 0,
+    away = document.hidden,
     lastRender = 0,
     toastTimer,
     sceneTimer,
@@ -168,6 +169,75 @@
     const raw = game.exportSave();
     if (put(KEY, raw)) storedSave = raw;
   }
+  const reportTotals = [
+    "elapsed",
+    "credited",
+    "crafted",
+    "sold",
+    "victories",
+    "defeats",
+    "netGold",
+    "netMaterials",
+    "automationSpent",
+    "contracts",
+    "mined",
+    "smelted",
+    "lost",
+    "contractGold",
+    "exhibitionGold",
+    "marketGold",
+  ];
+  function mergeReports(previous, part) {
+    // Persist only the report's data fields; imported saves are not trusted HTML.
+    const number = (n) => (typeof n === "number" && Number.isFinite(n) ? n : 0);
+    const report = {
+      capped: !!(previous?.capped || part?.capped),
+      limitHours: 24,
+      stopReason: typeof part?.stopReason === "string" ? part.stopReason : "",
+    };
+    for (const key of reportTotals)
+      report[key] = number(previous?.[key]) + number(part?.[key]);
+    for (const key of ["discoveries", "studies", "achievements"])
+      report[key] = [
+        ...new Set(
+          [
+            ...(Array.isArray(previous?.[key]) ? previous[key] : []),
+            ...(Array.isArray(part?.[key]) ? part[key] : []),
+          ].filter((x) => typeof x === "string"),
+        ),
+      ].slice(-100);
+    const materials = new Map();
+    for (const source of [previous, part])
+      for (const entry of Array.isArray(source?.materials)
+        ? source.materials
+        : [])
+        if (entry && D.materials[entry.id])
+          materials.set(
+            entry.id,
+            (materials.get(entry.id) || 0) + number(entry.change),
+          );
+    report.materials = [...materials]
+      .filter(([, change]) => change)
+      .map(([id, change]) => ({ id, change }));
+    return report;
+  }
+  function queueReturnReport(part) {
+    if (!part || part.elapsed <= 0) return;
+    if (
+      game.state.pendingOfflineReport ||
+      part.elapsed >= 60000 ||
+      reportTotals.some(
+        (key) => !["elapsed", "credited"].includes(key) && part[key],
+      ) ||
+      part.discoveries?.length ||
+      part.studies?.length ||
+      part.achievements?.length
+    )
+      game.state.pendingOfflineReport = mergeReports(
+        game.state.pendingOfflineReport,
+        part,
+      );
+  }
   function lease() {
     const wasReadonly = ui.readonly;
     let l;
@@ -200,18 +270,7 @@
       elapsed = Math.max(0, now - began);
     if (elapsed < 60000) {
       const report = game.advanceOffline(now).report;
-      if (
-        report &&
-        (report.crafted ||
-          report.smelted ||
-          report.mined ||
-          report.sold ||
-          report.contracts ||
-          report.discoveries?.length ||
-          report.studies?.length ||
-          report.achievements?.length)
-      )
-        ui.returnReport = report;
+      queueReturnReport(report);
       needsCatchup = false;
       checkpoint();
       last = Date.now();
@@ -220,23 +279,6 @@
     ui.catchingUp = true;
     ui.catchupProgress = 0;
     let report = null;
-    const sums = [
-      "credited",
-      "crafted",
-      "sold",
-      "victories",
-      "defeats",
-      "netGold",
-      "netMaterials",
-      "automationSpent",
-      "contracts",
-      "mined",
-      "smelted",
-      "lost",
-      "contractGold",
-      "exhibitionGold",
-      "marketGold",
-    ];
     try {
       while (game.state.lastWallTime < now) {
         lease();
@@ -247,31 +289,8 @@
             : Math.min(now, game.state.lastWallTime + 15 * 60000);
         const part = game.advanceOffline(cursor).report;
         if (!part) break;
-        if (!report)
-          report = {
-            ...part,
-            discoveries: [...(part.discoveries || [])],
-            studies: [...(part.studies || [])],
-            achievements: [...(part.achievements || [])],
-          };
-        else {
-          for (const k of sums) report[k] = (report[k] || 0) + (part[k] || 0);
-          report.capped ||= part.capped;
-          report.stopReason = part.stopReason;
-          report.discoveries.push(...(part.discoveries || []));
-          report.studies.push(...(part.studies || []));
-          report.achievements = [
-            ...new Set([...report.achievements, ...(part.achievements || [])]),
-          ];
-          const deltas = new Map(
-            (report.materials || []).map((x) => [x.id, x.change]),
-          );
-          for (const x of part.materials || [])
-            deltas.set(x.id, (deltas.get(x.id) || 0) + x.change);
-          report.materials = [...deltas]
-            .filter(([, change]) => change)
-            .map(([id, change]) => ({ id, change }));
-        }
+        report = mergeReports(report, part);
+        queueReturnReport(part);
         ui.catchupProgress = Math.min(
           1,
           (game.state.lastWallTime - began) / elapsed,
@@ -284,7 +303,6 @@
       if (report && game === target) {
         report.elapsed = elapsed;
         game.state.offlineReport = report;
-        ui.returnReport = report;
         if (!ui.readonly) checkpoint();
       }
     } finally {
@@ -720,7 +738,7 @@
             const mat = D.materials[v.id],
               n = s.materials[v.id],
               workers = miners.filter((m) => m.assigned === v.id);
-            return `<article class="seam"><div class="section-line">${sprite("material-" + v.id)}<h3>${v.name}</h3><strong>${num(n)}<small> / ${game.binCapacity()}</small></strong></div>${progress(n, game.binCapacity(), mat.name + " stock")}<p>${workers.length} assigned · ${Math.ceil(v.seconds / (1 + (game._effects().miningSpeed || 0)))}s per load</p><div class="actions">${button(game.quarryDerived().manualReady ? "Help load cart" : "Cart being loaded", "mine", { id: v.id }, !game.quarryDerived().manualReady)}${button("Sell 5 · " + game.materialSalePrice(v.id, 5) + "g", "sell-material", { id: v.id }, n < 5)}</div><small>Help yields ${1 + Math.floor(Math.sqrt(s.player.stats.strength) / 4) + (game._effects().manualYield || 0)} material${game.binCapacity() - n < 2 ? " · full-bin overflow is lost" : ""}.</small></article>`;
+            return `<article class="seam"><div class="section-line">${sprite("material-" + v.id)}<h3>${v.name}</h3><strong>${num(n)}<small> / ${game.binCapacity()}</small></strong></div>${progress(n, game.binCapacity(), mat.name + " stock")}<p>${workers.length} assigned · ${Math.ceil(v.seconds / (1 + (game._effects().miningSpeed || 0)))}s per load</p><div class="actions">${button(game.quarryDerived().manualReady ? "Help load cart" : "Cart being loaded", "mine", { id: v.id }, !game.quarryDerived().manualReady)}${button("Sell 5 · " + game.materialSalePrice(v.id, 5) + "g", "sell-material", { id: v.id }, n < 5)}</div><small>Help every 14s yields ${1 + Math.floor(Math.sqrt(s.player.stats.strength) / 4) + (game._effects().manualYield || 0)} material${game.binCapacity() - n < 2 ? " · full-bin overflow is lost" : ""}.</small></article>`;
           })
           .join(
             "",
@@ -775,7 +793,7 @@
                 .filter(([, n]) => n)
                 .map(([g, n]) => H.grades[g].name + ": " + n)
                 .join(" · ") || "Standard stock"
-            }</p><div class="actions">${[1, 5].map((q) => button("Smelt " + q, "smelt", { id, quantity: q }, !game.smeltPreview(id, q, ui.grade).eligible, "primary")).join("")}${button("Max " + v.maxQuantity, "smelt", { id, quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}</div><small>${v.reason}${game.smeltOverflow(id) ? " Output may overflow; excess is lost." : ""}</small></article>`;
+            }</p><div class="actions">${[1, 5].map((q) => button("Smelt " + q, "smelt", { id, quantity: q }, !game.smeltPreview(id, q, ui.grade).eligible, "primary")).join("")}${button("Max " + v.maxQuantity, "smelt", { id, quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}</div><small>${v.reason}${game.smeltOverflow(id) ? " The last batch may overflow; later batches wait for space." : ""}</small></article>`;
           })
           .join("")}</div>`,
       )}${panel(
@@ -796,7 +814,7 @@
         s.workshop.jobs
           .map((j) => {
             const r = W.smelts[j.recipeId];
-            return `<article class="queue-card"><h3>${r.name}</h3><p>${H.grades[j.grade || "standard"].name} · ${j.status === "active" ? time((j.completeAt - s.simTime) / 1000) : "Queued"}</p>${progress(j.status === "active" ? s.simTime - j.startedAt : 0, j.duration || 1, r.name + " progress")}${button("Cancel & refund", "cancel-smelt", { id: j.id }, false, "quiet")}</article>`;
+            return `<article class="queue-card"><h3>${r.name}</h3><p>${H.grades[j.grade || "standard"].name} · ${j.status === "active" ? time((j.completeAt - s.simTime) / 1000) : game.smeltWaitingForStorage(j) ? "Waiting for ingot storage" : "Queued"}</p>${progress(j.status === "active" ? s.simTime - j.startedAt : 0, j.duration || 1, r.name + " progress")}${button("Cancel & refund", "cancel-smelt", { id: j.id }, false, "quiet")}</article>`;
           })
           .join("") ||
           empty("No batches queued. Ore is consumed when you place an order."),
@@ -1132,8 +1150,8 @@
     return `<p>Repeat a beaten rival every five minutes. The first 12 daily wins against the current or previous league train fighters. All wins earn their purse; exhibitions never qualify the team. Repetition stops on defeat.</p><label>Cleared opponent<select data-ui="exhibitionChoice">${choices.map((c) => `<option value="${c.key}" ${c === choice ? "selected" : ""}>${c.label}</option>`).join("")}</select></label><p>${v.purse}g victory purse · ${v.reason}</p><div class="actions">${button("Launch exhibition", "exhibit", choice, !v.eligible)}${h.exhibition ? button("Stop exhibitions", "stop-exhibitions") : h.upgrades.exhibitions ? button("Authorize repeat", "repeat", choice, !v.eligible) : ""}</div>${h.exhibition ? `<small>Repeating ${H.rivals.find((r) => r.id === h.exhibition.rival).name} in league ${h.exhibition.league + 1}, rung ${h.exhibition.rung + 1}.</small>` : !h.upgrades.exhibitions ? "<small>Develop Exhibition steward after five wins for automatic repetition.</small>" : ""}`;
   }
   function returnSummary() {
-    const r = ui.returnReport;
-    if (!r) return "";
+    if (!game.state.pendingOfflineReport) return "";
+    const r = mergeReports(null, game.state.pendingOfflineReport);
     return (
       `<p class="eyebrow">WELCOME BACK TO THE HOUSE</p><h2>While you were away</h2>` +
       metrics([
@@ -1597,8 +1615,15 @@
       $("#modal-root").innerHTML = "";
       return;
     }
-    if (ui.returnReport && ui.screen === "game" && !ui.modal && !ui.catchingUp)
+    if (
+      game.state.pendingOfflineReport &&
+      ui.screen === "game" &&
+      !ui.readonly &&
+      ui.modal !== "offline"
+    ) {
+      ui.returnToModal = ui.modal;
       ui.modal = "offline";
+    }
     const focused = document.activeElement,
       editing =
         focused && ["INPUT", "SELECT", "TEXTAREA"].includes(focused.tagName);
@@ -1631,8 +1656,16 @@
     revision++;
   }
   function closeDialog() {
-    if (ui.modal === "offline") ui.returnReport = null;
-    ui.modal = null;
+    if (ui.modal === "offline") {
+      const target = game;
+      lease();
+      if (!ui.readonly && game === target) {
+        game.state.pendingOfflineReport = null;
+        checkpoint();
+      }
+      ui.modal = ui.returnToModal || null;
+      ui.returnToModal = null;
+    } else ui.modal = null;
   }
   function act(name, payload = {}) {
     lease();
@@ -1717,10 +1750,7 @@
       act("readDiscoveries");
       ui.modal = null;
     },
-    "dismiss-return": () => {
-      ui.returnReport = null;
-      ui.modal = null;
-    },
+    "dismiss-return": closeDialog,
     begin: () => {
       ui.screen = "creation";
       ui.modal = null;
@@ -2179,44 +2209,77 @@
     e.target.value = "";
   });
   window.addEventListener("pagehide", () => {
+    leaveWorkshop();
     sound.stop();
-    if (!document.hidden) save(true);
     try {
       const l = JSON.parse(get(LEASE) || "null");
       if (l?.owner === owner) localStorage.removeItem(LEASE);
     } catch (e) {}
   });
-  document.addEventListener("visibilitychange", () => {
-    sound.setVisible(!document.hidden);
-    if (document.hidden) {
-      if (!ui.readonly && !ui.catchingUp && !needsCatchup && game.state.started)
-        game.tick(Math.max(0, Date.now() - last));
-      last = Date.now();
-      save(true);
-    } else {
-      const now = Date.now();
-      lease();
-      if (!ui.readonly && game.state.started) {
+  function leaveWorkshop() {
+    if (away) return;
+    away = true;
+    sound.setVisible(false);
+    const now = Date.now();
+    lease();
+    if (!ui.readonly && !ui.catchingUp && !needsCatchup && game.state.started) {
+      if (now - last >= 60000) {
+        game.markSaved(last);
+        needsCatchup = true;
         reconcileOffline(now);
-      }
-      last = now;
-      render(true);
+      } else game.tick(Math.max(0, now - last));
+    }
+    last = now;
+    save(true);
+  }
+  function returnToWorkshop() {
+    if (document.hidden) return;
+    const wasAway = away;
+    away = false;
+    sound.setVisible(true);
+    const now = Date.now();
+    lease();
+    if (!wasAway && !needsCatchup) {
+      if (now - last < 60000) return;
+      if (!ui.readonly && !ui.catchingUp) game.markSaved(last);
+    }
+    if (!ui.readonly && game.state.started) reconcileOffline(now);
+    last = now;
+    render(true);
+  }
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) leaveWorkshop();
+    else returnToWorkshop();
+  });
+  window.addEventListener("blur", leaveWorkshop);
+  window.addEventListener("focus", returnToWorkshop);
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) {
+      away = true;
+      returnToWorkshop();
     }
   });
   setInterval(() => {
-    if (document.hidden || ui.catchingUp) return;
+    if (document.hidden || away || ui.catchingUp) return;
     const now = Date.now(),
       delta = now - last;
-    last = now;
     lease();
     if (needsCatchup) {
       reconcileOffline(now);
       return;
     }
     if (!ui.readonly && game.state.started) {
-      game.tick(delta, { offline: document.hidden });
+      if (delta >= 60000) {
+        // The browser may suspend a visible page without a visibility event.
+        // last is already simulated; the save cursor can lag it by five seconds.
+        game.markSaved(last);
+        reconcileOffline(now);
+        return;
+      }
+      game.tick(Math.max(0, delta));
       save();
     }
+    last = now;
     if (ui.replayPlaying) {
       const m = game.state.house.matches.find((m) => m.id === ui.replay);
       if (m) {

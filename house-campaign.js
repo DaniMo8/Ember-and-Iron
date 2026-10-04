@@ -402,6 +402,14 @@
           ". Exceptional attributes, mastery and materials still apply.";
         data.recipes[r.id] = r;
       }
+    // Retain the historical inputs so paid orders keep their exact escrow on reload.
+    data.houseRecipeCostVersion = 2;
+    data.preHouseRecipeInputs = Object.fromEntries(
+      Object.values(data.recipes).map((r) => [r.id, copy(r.inputs)]),
+    );
+    for (const r of Object.values(data.recipes))
+      for (const id of Object.keys(r.inputs))
+        if (id.endsWith("_ingot")) r.inputs[id] *= 2;
   }
   function extend(Base, { H, P, W, Combat }) {
     H.upgrades.catalogue.cost = 65;

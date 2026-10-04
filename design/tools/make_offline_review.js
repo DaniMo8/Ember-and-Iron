@@ -60,6 +60,9 @@ check(
   }),
 );
 const shop = fresh();
+const fullBin = fresh();
+Object.assign(fullBin.state.materials, { bronze: 10, tin: 10, fuel: 10, bronze_ingot: fullBin.binCapacity() - 1 });
+check(fullBin.command("smelt", { id: "bronze", quantity: 3 }));
 shop.state.player.gold = 212;
 shop.state.world.totalMined = 150;
 function stock(quality, extra = {}) {
@@ -82,7 +85,7 @@ stock(60);
 stock(90);
 stock(60, { treatment: "warding" });
 stock(30, { intent: "stock", protected: false });
-for (const e of [contracts, shop])
+for (const e of [contracts, shop, fullBin])
   check(E.validateSave(e.exportSave(), e.data));
 const output = path.resolve(__dirname, "../qa/offline-review.html");
 fs.writeFileSync(
@@ -94,9 +97,10 @@ fs.writeFileSync(
 <p>After one hour: three swords owned, the strongest equipped automatically, six new ingots, mined materials and empty paid queues. A short absence should retain unfinished work.</p>
 <button data-seconds="5">Resume after 5 seconds</button><button data-seconds="3600">Resume after one hour</button><button data-seconds="0">Load active workshop</button>
 <button data-fixture="contracts" data-seconds="3600">Resume completed contract</button><button data-fixture="shop" data-seconds="0">Review upgrades and equipment</button>
+<button data-fixture="fullBin" data-seconds="3600">Resume full ingot bin</button>
 <p id="status">Separate QA save on port 8792 only. Your normal game is untouched.</p>
 <script>
-const fixtures={production:${game.exportSave()},contracts:${contracts.exportSave()},shop:${shop.exportSave()}};
+const fixtures={production:${game.exportSave()},contracts:${contracts.exportSave()},shop:${shop.exportSave()},fullBin:${fullBin.exportSave()}};
 for(const button of document.querySelectorAll('button'))button.onclick=()=>{
  if(location.hostname!=='127.0.0.1'||location.port!=='8792'){document.querySelector('#status').textContent='Use localhost port 8792 only.';return;}
  const fixture=fixtures[button.dataset.fixture||'production'];fixture.state.lastWallTime=Date.now()-Number(button.dataset.seconds)*1000;

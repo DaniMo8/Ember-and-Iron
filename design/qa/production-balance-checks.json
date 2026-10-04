@@ -1,0 +1,96 @@
+{
+  "version": "3.2.3",
+  "method": "Earned opening-hour simulations using public commands; default deterministic seed, balanced starting attributes, actions every 20 seconds, no resources granted. Existing campaign reviewer policy. This measures openings only, not time to Legacy.",
+  "openingRuns": [
+    {
+      "calling": "armorer",
+      "hours": 1,
+      "gold": 69,
+      "crafted": 37,
+      "contracts": 4,
+      "mined": 139,
+      "smelted": 84,
+      "firstContractMinutes": 4.333333333333333,
+      "saveValid": true,
+      "error": null
+    },
+    {
+      "calling": "artificer",
+      "hours": 1,
+      "gold": 21,
+      "crafted": 36,
+      "contracts": 3,
+      "mined": 128,
+      "smelted": 78,
+      "firstContractMinutes": 4.333333333333333,
+      "saveValid": true,
+      "error": null
+    },
+    {
+      "calling": "mechanist",
+      "hours": 1,
+      "gold": 64,
+      "crafted": 35,
+      "contracts": 3,
+      "mined": 130,
+      "smelted": 78,
+      "firstContractMinutes": 5.0,
+      "saveValid": true,
+      "error": null
+    },
+    {
+      "calling": "merchant",
+      "hours": 1,
+      "gold": 81,
+      "crafted": 36,
+      "contracts": 3,
+      "mined": 128,
+      "smelted": 78,
+      "firstContractMinutes": 4.333333333333333,
+      "saveValid": true,
+      "error": null
+    },
+    {
+      "calling": "prospector",
+      "hours": 1,
+      "gold": 25,
+      "crafted": 37,
+      "contracts": 4,
+      "mined": 147,
+      "smelted": 84,
+      "firstContractMinutes": 4.333333333333333,
+      "saveValid": true,
+      "error": null
+    },
+    {
+      "calling": "runesage",
+      "hours": 1,
+      "gold": 42,
+      "crafted": 37,
+      "contracts": 4,
+      "mined": 135,
+      "smelted": 81,
+      "firstContractMinutes": 4.333333333333333,
+      "saveValid": true,
+      "error": null
+    },
+    {
+      "calling": "weaponsmith",
+      "hours": 1,
+      "gold": 76,
+      "crafted": 37,
+      "contracts": 4,
+      "mined": 137,
+      "smelted": 84,
+      "firstContractMinutes": 4.0,
+      "saveValid": true,
+      "error": null
+    }
+  ],
+  "controlledChecks": {
+    "crewTiming": "Copper crew: 135 seconds per load before bonuses; previously 45. Manual loading: 14 seconds.",
+    "recipes": "Every equipment recipe consumes double its previous ingots; fuel, purchased supplies and enchantment costs unchanged. Paid historical orders retain original inputs and refunds.",
+    "storage": "One free bronze space, three queued batches, one hour away: 3 ingots cast, 1 retained, 2 lost, 2 batches still queued. Using ingots starts the next batch. Concurrent batches account for committed output.",
+    "resume": "Unread summaries persist through reload; suspended timers, blur/focus, hidden tabs and existing overlays covered. Dismissed reports do not repeat."
+  }
+}

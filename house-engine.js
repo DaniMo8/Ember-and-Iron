@@ -98,6 +98,21 @@
       s.house = freshHouse();
       return s;
     }
+    seams() {
+      return super
+        .seams()
+        .map((seam) => ({ ...seam, seconds: seam.seconds * 3 }));
+    }
+    quarryDerived() {
+      const result = super.quarryDerived();
+      return { ...result, seconds: result.seconds * 3 };
+    }
+    _mine(payload) {
+      const result = super._mine(payload);
+      if (result.ok)
+        this.state.quarry.nextManualAt = this.state.simTime + 14000;
+      return result;
+    }
     static validateSave(input, data) {
       const v = Workshop.validateSave(input, data);
       if (!v.ok) return v;
@@ -1002,6 +1017,7 @@
         key = recipe.materialId.replace("_ingot", "");
       for (const j of this.state.jobs.filter((j) => !before.has(j.id)))
         Object.assign(j, {
+          recipeCostVersion: this.data.houseRecipeCostVersion,
           houseIntent: intent,
           heroId,
           treatment,

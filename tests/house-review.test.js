@@ -58,7 +58,7 @@ test("review: Craft max accounts for both treatment gold and the selected grade"
     }).ok,
   );
   assert.equal(e.state.player.gold, 0);
-  assert.equal(e.state.house.graded.bronze.tough, 1);
+  assert.equal(e.state.house.graded.bronze.tough, 0);
 });
 test("review: graded Smelt max includes its additional coal", () => {
   const e = materialFixture();
@@ -79,7 +79,7 @@ test("review: simultaneous standard and premium smelts attribute overflow by del
   const e = materialFixture();
   e.state.workshop.upgrades.racks = 1;
   e.state.workshop.upgrades.chambers = 1;
-  e.state.materials.bronze_ingot = e.binCapacity() - 1;
+  e.state.materials.bronze_ingot = e.binCapacity() - 4;
   assert(e.command("smelt", { id: "bronze", grade: "standard" }).ok);
   assert(e.command("smelt", { id: "bronze", grade: "tough" }).ok);
   assert.equal(
@@ -88,8 +88,8 @@ test("review: simultaneous standard and premium smelts attribute overflow by del
   );
   e.tick(25000);
   assert.equal(e.state.materials.bronze_ingot, e.binCapacity());
-  assert.equal(e.state.house.graded.bronze?.tough || 0, 0);
-  assert.equal(e.state.world.materialsLost, 5);
+  assert.equal(e.state.house.graded.bronze?.tough || 0, 1);
+  assert.equal(e.state.world.materialsLost, 2);
   assert(E.validateSave(e.exportSave(), e.data).ok);
 });
 test("review: alloy cancellation returns the exact grade of its consumed intermediate ingots", () => {

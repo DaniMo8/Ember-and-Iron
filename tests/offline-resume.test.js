@@ -39,6 +39,106 @@ function paidWork(e) {
   for (const j of e.state.jobs)
     assert(e.command("technique", { jobId: j.id }).ok);
 }
+
+test("a visible tab returning after a suspended timer shows the earned progress popup", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  paidWork(e);
+  const tab = browser(clock, new Map([[KEY, e.exportSave()]]));
+  await tab.flush();
+  await tab.click("continue");
+  clock.now += 3600000;
+  await tab.flush();
+  assert.equal(tab.engine.state.stats.crafted, 3);
+  assert.match(tab.nodes.get("#modal-root").innerHTML, /While you were away/);
+});
+
+test("unread earnings survive reopening and a zero-progress reconciliation", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  paidWork(e);
+  const storage = new Map([[KEY, e.exportSave()]]);
+  clock.now += 3600000;
+  const tab = browser(clock, storage);
+  await tab.flush();
+  // Production completes on the title screen, then the page is closed before Continue.
+  await tab.window.emit("pagehide");
+  const reopened = browser(clock, storage, "reopened");
+  await reopened.flush();
+  await reopened.click("continue");
+  assert.match(
+    reopened.nodes.get("#modal-root").innerHTML,
+    /While you were away/,
+  );
+  assert.equal(reopened.engine.state.stats.crafted, 3);
+});
+
+test("returning with an upgrade overlay open still presents the offline popup", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  paidWork(e);
+  const tab = browser(clock, new Map([[KEY, e.exportSave()]]));
+  await tab.flush();
+  await tab.click("continue");
+  await tab.click("upgrades", { room: "mine" });
+  await tab.visibility(true);
+  clock.now += 3600000;
+  await tab.visibility(false);
+  assert.match(
+    tab.nodes.get("#modal-root").innerHTML,
+    /aria-label="Offline progress"/,
+  );
+  await tab.click("dismiss-return");
+  assert.match(tab.nodes.get("#modal-root").innerHTML, /Mine upgrades/);
+});
+
+test("focus and visibility events credit one absence, and duplicate focus cannot replay live ticks", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  const tab = browser(clock, new Map([[KEY, e.exportSave()]]));
+  await tab.flush();
+  await tab.click("continue");
+  clock.now += 2000;
+  await tab.flush();
+  const online = tab.engine.state.simTime;
+  await tab.window.emit("focus");
+  await tab.flush();
+  assert.equal(tab.engine.state.simTime, online);
+  await tab.window.emit("blur");
+  await tab.visibility(true);
+  clock.now += 3600000;
+  await tab.visibility(false);
+  await tab.window.emit("focus");
+  await tab.flush();
+  assert.equal(tab.engine.state.simTime, online + 3600000);
+  assert.equal(tab.engine.state.pendingOfflineReport.elapsed, 3600000);
+  await tab.click("dismiss-return");
+  await tab.window.emit("pagehide");
+  const reopened = browser(clock, tab.storage, "reopened");
+  await reopened.flush();
+  await reopened.click("continue");
+  assert.doesNotMatch(
+    reopened.nodes.get("#modal-root").innerHTML,
+    /Offline progress/,
+  );
+});
+
+test("closing an unfocused visible window does not discard the time since it lost focus", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  paidWork(e);
+  const tab = browser(clock, new Map([[KEY, e.exportSave()]]));
+  await tab.flush();
+  await tab.click("continue");
+  await tab.window.emit("blur");
+  clock.now += 3600000;
+  await tab.window.emit("pagehide");
+  const reopened = browser(clock, tab.storage, "reopened");
+  await reopened.flush();
+  await reopened.click("continue");
+  assert.equal(reopened.engine.state.stats.crafted, 3);
+  assert.match(reopened.nodes.get("#modal-root").innerHTML, /Offline progress/);
+});
 test("reloading active and queued work completes mining, smelting and finished team crafts offline", () => {
   const e = house(1000000);
   paidWork(e);

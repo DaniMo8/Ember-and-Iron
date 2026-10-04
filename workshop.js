@@ -24,6 +24,12 @@ function escrow(data,job){
  if(!job.workshopCraft)return null;
  const inputs=copy(data.recipes[job.recipeId]?.inputs||{}),enchant=data.enchantments[job.enchantmentId];
  if(enchant)for(const[id,n]of Object.entries(enchant.inputs||{}))inputs[id]=(inputs[id]||0)+n;
+ // Only exact historical inputs qualify; never reprice a paid pre-rebalance job.
+ if(job.recipeCostVersion==null&&job.inputs&&data.preHouseRecipeInputs?.[job.recipeId]){
+  const old=copy(data.preHouseRecipeInputs[job.recipeId]);
+  if(enchant)for(const[id,n]of Object.entries(enchant.inputs||{}))old[id]=(old[id]||0)+n;
+  if(JSON.stringify(Object.entries(job.inputs).sort())===JSON.stringify(Object.entries(old).sort()))return old;
+ }
  return inputs;
 }
 function apply(data,P){

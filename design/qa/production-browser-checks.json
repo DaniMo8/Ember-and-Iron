@@ -1,0 +1,40 @@
+{
+  "version": "3.2.3",
+  "origin": "http://127.0.0.1:8792",
+  "method": "Isolated controlled fixtures, not the player save. Source page reopened before reading its earnings; portable page checked with a nearly full output bin and at phone width.",
+  "sourceUnreadPopup": {
+    "documentWidth": 1265,
+    "popup": "×\n\nWELCOME BACK TO THE HOUSE\n\nWhile you were away\nCREDITED\n1h\nCRAFTED\n3\nCONTRACTS\n0\nGOLD\n+0\n\nAway 1h · 26 mined · 6 ingots cast · 0 arena wins · 0 defeats.\n\nContracts / town sales / arena\n0g / 0g / 0g\nAuthorised supply purchases\n−0g\nMaterial balance / overflow lost\n+32 / 0\nAchievements & discoveries\n\n✦ Mara equipped Bronze Short Sword\n\n✦ Renn equipped Bronze Short Sword\n\n✦ Swords mastery reached 2\n\nYour authorised workshop policies kept working.\n\nStill in production: 0 forge jobs · 0 smelting batches.\n\nBack to the house",
+    "viewport": 1280
+  },
+  "portableFullBinPopup": "×\n\nWELCOME BACK TO THE HOUSE\n\nWhile you were away\nCREDITED\n1h\nCRAFTED\n0\nCONTRACTS\n0\nGOLD\n+0\n\nAway 1h · 26 mined · 3 ingots cast · 0 arena wins · 0 defeats.\n\nContracts / town sales / arena\n0g / 0g / 0g\nAuthorised supply purchases\n−0g\nMaterial balance / overflow lost\n+27 / 2\nAchievements & discoveries\n\nNo new milestones this time. Your workshop still made progress.\n\nYour authorised workshop policies kept working.\n\nStill in production: 0 forge jobs · 2 smelting batches.\n\nBack to the house",
+  "portableQueue": {
+    "documentWidth": 1265,
+    "queue": [
+      "Bronze alloy\n\nStandard · Waiting for ingot storage\n\nCancel & refund",
+      "Bronze alloy\n\nStandard · Waiting for ingot storage\n\nCancel & refund"
+    ],
+    "viewport": 1280
+  },
+  "phoneQueue": {
+    "documentWidth": 375,
+    "viewport": 390,
+    "waitingBatches": 2
+  },
+  "mineRates": [
+    "Coal face\n7 / 30\n\n0 assigned · 120s per load\n\nHelp load cart\nSell 5 · 2g\nHelp every 14s yields 1 material.",
+    "Copper workings\n30 / 30\n\n1 assigned · 135s per load\n\nHelp load cart\nSell 5 · 5g\nHelp every 14s yields 1 material · full-bin overflow is lost.",
+    "Tin vein\n8 / 30\n\n0 assigned · 120s per load\n\nHelp load cart\nSell 5 · 2g\nHelp every 14s yields 1 material.",
+    "NEXT WORKING\n\nIron licence\n\nDefeat 1 league champion · Extract 100 total materials\n\nReview · 65g"
+  ],
+  "portablePhonePopup": {
+    "dialog": {
+      "left": 10,
+      "right": 365,
+      "width": 355
+    },
+    "documentWidth": 375,
+    "popup": "×\n\nWELCOME BACK TO THE HOUSE\n\nWhile you were away\nCREDITED\n1h\nCRAFTED\n3\nCONTRACTS\n0\nGOLD\n+0\n\nAway 1h · 26 mined · 6 ingots cast · 0 arena wins · 0 defeats.\n\nContracts / town sales / arena\n0g / 0g / 0g\nAuthorised supply purchases\n−0g\nMaterial balance / overflow lost\n+32 / 0\nAchievements & discoveries\n\n✦ Mara equipped Bronze Short Sword\n\n✦ Renn equipped Bronze Short Sword\n\n✦ Swords mastery reached 2\n\nYour authorised workshop policies kept working.\n\nStill in production: 0 forge jobs · 0 smelting batches.\n\nBack to the house",
+    "viewport": 390
+  }
+}

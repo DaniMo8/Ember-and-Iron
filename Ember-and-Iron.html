@@ -6128,7 +6128,7 @@ class World extends Base{
  hireCost(){const n=this.state.world.miners.length;return Math.ceil(2*Math.pow(1.8,Math.min(n-1,2))*Math.pow(1.25,Math.max(0,n-3)));}
  _hireMiner(){const w=this.state.world,cost=this.hireCost();if(w.miners.length>=this.derived().workerCapacity)return no('Develop Crew quarters for more worker slots.');if(this.currencies().mine<cost)return no('Need '+cost+' Prospecting.');w.spent.mine+=cost;w.miners.push({id:'miner-'+(w.miners.length+1),assigned:'bronze',working:'bronze',progress:0});return ok('A new worker joined the mine.');}
  _mine({materialId=this.state.quarry.activeDeposit}){if(!this.seams().some(s=>s.id===materialId))return no('Expose that seam first.');if(this.state.simTime<this.state.quarry.nextManualAt)return no('Your pick is still recovering.');const qty=Math.min(this.binCapacity()-this.state.materials[materialId],1+(this._effects().manualYield||0)+Math.floor(Math.sqrt(this.state.player.stats.strength-2)/4));if(qty<=0)return no('This material bin is full.');this.state.materials[materialId]+=qty;this.state.world.totalMined+=qty;this.state.quarry.activeDeposit=materialId;this.state.quarry.nextManualAt=this.state.simTime+7000;return ok('Mined '+qty+' '+this.data.materials[materialId].name+'.');}
- _quarryYield(){const w=this.state.world,seams=this.seams(),cap=this.binCapacity(),e=this._effects();for(const m of w.miners){const assigned=seams.find(s=>s.id===m.assigned);const index=seams.indexOf(assigned);const candidates=[assigned,...seams.slice(index+1),...seams.slice(0,index)].filter(Boolean);const seam=candidates.find(s=>this.state.materials[s.id]<cap);if(!seam)continue;if(m.working!==seam.id){const previous=P.seams.find(s=>s.id===m.working);m.progress=Math.min(.999,m.progress*(previous?.seconds||seam.seconds)/seam.seconds);}m.working=seam.id;m.progress+=1/(seam.seconds/(1+(e.miningSpeed||0)));if(m.progress>=1){m.progress-=1;const qty=Math.min(cap-this.state.materials[seam.id],1+(e.miningYield||0));this.state.materials[seam.id]+=qty;w.totalMined+=qty;}}this.state.quarry.lastYieldAt=this.state.simTime;this.state.quarry.nextYieldAt=this.state.simTime+1000;}
+ _quarryYield(){const w=this.state.world,seams=this.seams(),cap=this.binCapacity(),e=this._effects();for(const m of w.miners){const assigned=seams.find(s=>s.id===m.assigned);const index=seams.indexOf(assigned);const candidates=[assigned,...seams.slice(index+1),...seams.slice(0,index)].filter(Boolean);const seam=candidates.find(s=>this.state.materials[s.id]<cap);if(!seam)continue;if(m.working!==seam.id){const previous=seams.find(s=>s.id===m.working);m.progress=Math.min(.999,m.progress*(previous?.seconds||seam.seconds)/seam.seconds);}m.working=seam.id;m.progress+=1/(seam.seconds/(1+(e.miningSpeed||0)));if(m.progress>=1){m.progress-=1;const qty=Math.min(cap-this.state.materials[seam.id],1+(e.miningYield||0));this.state.materials[seam.id]+=qty;w.totalMined+=qty;}}this.state.quarry.lastYieldAt=this.state.simTime;this.state.quarry.nextYieldAt=this.state.simTime+1000;}
  _buyMaterial(p){if((this.state.materials[p.materialId]||0)+(p.quantity||1)>this.binCapacity())return no('This material bin is full.');return super._buyMaterial(p);}
  _fits(materials){return Object.entries(materials||{}).every(([id,n])=>(this.state.materials[id]||0)+n<=this.binCapacity());}
  _deliverQuestReward(bundle){return this._deliver(bundle);}
@@ -6299,6 +6299,12 @@ function escrow(data,job){
  if(!job.workshopCraft)return null;
  const inputs=copy(data.recipes[job.recipeId]?.inputs||{}),enchant=data.enchantments[job.enchantmentId];
  if(enchant)for(const[id,n]of Object.entries(enchant.inputs||{}))inputs[id]=(inputs[id]||0)+n;
+ // Only exact historical inputs qualify; never reprice a paid pre-rebalance job.
+ if(job.recipeCostVersion==null&&job.inputs&&data.preHouseRecipeInputs?.[job.recipeId]){
+  const old=copy(data.preHouseRecipeInputs[job.recipeId]);
+  if(enchant)for(const[id,n]of Object.entries(enchant.inputs||{}))old[id]=(old[id]||0)+n;
+  if(JSON.stringify(Object.entries(job.inputs).sort())===JSON.stringify(Object.entries(old).sort()))return old;
+ }
  return inputs;
 }
 function apply(data,P){
@@ -6593,7 +6599,8 @@ class Workshop extends World{
  _staffClock(){const w=this.state.world,now=this.state.simTime,minutes=Math.max(0,now-(w.staffUpdatedAt??now))/60000;w.staffUpdatedAt=now;if(!minutes)return;const e=this._effects(),drain=2/(1+(e.staffEndurance||0)),recovery=10*(1+(e.staffRecovery||0));for(const st of Object.values(this.state.staff))st.stamina=Math.max(0,Math.min(100,(st.stamina??100)+minutes*(st.active?-drain:recovery)));if(!this.state.workshop?.staffShifts||!e.staffShifts)return;for(const s of Object.values(this.state.staff)){if(s.active&&s.stamina<=35){s.active=false;s.autoRest=true;}else if(s.autoRest&&s.stamina>=90){s.active=true;s.autoRest=false;}}}
  _toggleStaff(p){const r=super._toggleStaff(p);if(r.ok)this.state.staff[p.staffId].autoRest=false;return r;}
  advanceOffline(now){const result=super.advanceOffline(now);if(result.report){result.report.stopReason=this.state.automation.enabled?this.automationStatus():this.quarryDerived().pausedReason||'';result.report.smelter=this.smeltPolicyStatus();}return result;}
- _startSmelts(){if(!this.state.workshop||!this.state.started)return;const d=this.smelterDerived();let active=this.state.workshop.jobs.filter(j=>j.status==='active').length;for(const j of this.state.workshop.jobs)if(j.status==='queued'&&active<d.lanes){j.status='active';j.startedAt=this.state.simTime;j.duration=Math.ceil(W.smelts[j.recipeId].seconds*1000/d.speed);j.completeAt=j.startedAt+j.duration;active++;}}
+ smeltWaitingForStorage(job){const r=W.smelts[job.recipeId],committed=this.state.workshop.jobs.filter(j=>j.status==='active'&&W.smelts[j.recipeId].output===r.output).reduce((n,j)=>n+W.smelts[j.recipeId].amount+this.smelterDerived().extraIngots,0);return this.state.materials[r.output]+committed>=this.binCapacity();}
+ _startSmelts(){if(!this.state.workshop||!this.state.started)return;const d=this.smelterDerived();let active=this.state.workshop.jobs.filter(j=>j.status==='active').length;for(const j of this.state.workshop.jobs)if(j.status==='queued'&&active<d.lanes&&!this.smeltWaitingForStorage(j)){j.status='active';j.startedAt=this.state.simTime;j.duration=Math.ceil(W.smelts[j.recipeId].seconds*1000/d.speed);j.completeAt=j.startedAt+j.duration;active++;}}
  _extraEventTimes(){this._startSmelts();return(this.state.workshop?.jobs||[]).filter(j=>j.status==='active').map(j=>j.completeAt);}
  _processExtraEvents(){if(!this.state.workshop)return;for(const j of [...this.state.workshop.jobs])if(j.status==='active'&&j.completeAt<=this.state.simTime){const r=W.smelts[j.recipeId],amount=r.amount+this.smelterDerived().extraIngots;this._deliver({materials:{[r.output]:amount},source:r.name});this.state.workshop.smelted+=amount;this._staffXp('smelt',r.tier*2);this.state.workshop.jobs=this.state.workshop.jobs.filter(x=>x!==j);this._log('Smelted '+amount+' '+this.data.materials[r.output].name+'.','craft');}this._startSmelts();}
 }
@@ -7822,6 +7829,14 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
           ". Exceptional attributes, mastery and materials still apply.";
         data.recipes[r.id] = r;
       }
+    // Retain the historical inputs so paid orders keep their exact escrow on reload.
+    data.houseRecipeCostVersion = 2;
+    data.preHouseRecipeInputs = Object.fromEntries(
+      Object.values(data.recipes).map((r) => [r.id, copy(r.inputs)]),
+    );
+    for (const r of Object.values(data.recipes))
+      for (const id of Object.keys(r.inputs))
+        if (id.endsWith("_ingot")) r.inputs[id] *= 2;
   }
   function extend(Base, { H, P, W, Combat }) {
     H.upgrades.catalogue.cost = 65;
@@ -8906,6 +8921,21 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
       s.house = freshHouse();
       return s;
     }
+    seams() {
+      return super
+        .seams()
+        .map((seam) => ({ ...seam, seconds: seam.seconds * 3 }));
+    }
+    quarryDerived() {
+      const result = super.quarryDerived();
+      return { ...result, seconds: result.seconds * 3 };
+    }
+    _mine(payload) {
+      const result = super._mine(payload);
+      if (result.ok)
+        this.state.quarry.nextManualAt = this.state.simTime + 14000;
+      return result;
+    }
     static validateSave(input, data) {
       const v = Workshop.validateSave(input, data);
       if (!v.ok) return v;
@@ -9810,6 +9840,7 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
         key = recipe.materialId.replace("_ingot", "");
       for (const j of this.state.jobs.filter((j) => !before.has(j.id)))
         Object.assign(j, {
+          recipeCostVersion: this.data.houseRecipeCostVersion,
           houseIntent: intent,
           heroId,
           treatment,
@@ -11750,6 +11781,7 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
     saved = null,
     last = Date.now(),
     lastSave = 0,
+    away = document.hidden,
     lastRender = 0,
     toastTimer,
     sceneTimer,
@@ -11816,6 +11848,75 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
     const raw = game.exportSave();
     if (put(KEY, raw)) storedSave = raw;
   }
+  const reportTotals = [
+    "elapsed",
+    "credited",
+    "crafted",
+    "sold",
+    "victories",
+    "defeats",
+    "netGold",
+    "netMaterials",
+    "automationSpent",
+    "contracts",
+    "mined",
+    "smelted",
+    "lost",
+    "contractGold",
+    "exhibitionGold",
+    "marketGold",
+  ];
+  function mergeReports(previous, part) {
+    // Persist only the report's data fields; imported saves are not trusted HTML.
+    const number = (n) => (typeof n === "number" && Number.isFinite(n) ? n : 0);
+    const report = {
+      capped: !!(previous?.capped || part?.capped),
+      limitHours: 24,
+      stopReason: typeof part?.stopReason === "string" ? part.stopReason : "",
+    };
+    for (const key of reportTotals)
+      report[key] = number(previous?.[key]) + number(part?.[key]);
+    for (const key of ["discoveries", "studies", "achievements"])
+      report[key] = [
+        ...new Set(
+          [
+            ...(Array.isArray(previous?.[key]) ? previous[key] : []),
+            ...(Array.isArray(part?.[key]) ? part[key] : []),
+          ].filter((x) => typeof x === "string"),
+        ),
+      ].slice(-100);
+    const materials = new Map();
+    for (const source of [previous, part])
+      for (const entry of Array.isArray(source?.materials)
+        ? source.materials
+        : [])
+        if (entry && D.materials[entry.id])
+          materials.set(
+            entry.id,
+            (materials.get(entry.id) || 0) + number(entry.change),
+          );
+    report.materials = [...materials]
+      .filter(([, change]) => change)
+      .map(([id, change]) => ({ id, change }));
+    return report;
+  }
+  function queueReturnReport(part) {
+    if (!part || part.elapsed <= 0) return;
+    if (
+      game.state.pendingOfflineReport ||
+      part.elapsed >= 60000 ||
+      reportTotals.some(
+        (key) => !["elapsed", "credited"].includes(key) && part[key],
+      ) ||
+      part.discoveries?.length ||
+      part.studies?.length ||
+      part.achievements?.length
+    )
+      game.state.pendingOfflineReport = mergeReports(
+        game.state.pendingOfflineReport,
+        part,
+      );
+  }
   function lease() {
     const wasReadonly = ui.readonly;
     let l;
@@ -11848,18 +11949,7 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
       elapsed = Math.max(0, now - began);
     if (elapsed < 60000) {
       const report = game.advanceOffline(now).report;
-      if (
-        report &&
-        (report.crafted ||
-          report.smelted ||
-          report.mined ||
-          report.sold ||
-          report.contracts ||
-          report.discoveries?.length ||
-          report.studies?.length ||
-          report.achievements?.length)
-      )
-        ui.returnReport = report;
+      queueReturnReport(report);
       needsCatchup = false;
       checkpoint();
       last = Date.now();
@@ -11868,23 +11958,6 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
     ui.catchingUp = true;
     ui.catchupProgress = 0;
     let report = null;
-    const sums = [
-      "credited",
-      "crafted",
-      "sold",
-      "victories",
-      "defeats",
-      "netGold",
-      "netMaterials",
-      "automationSpent",
-      "contracts",
-      "mined",
-      "smelted",
-      "lost",
-      "contractGold",
-      "exhibitionGold",
-      "marketGold",
-    ];
     try {
       while (game.state.lastWallTime < now) {
         lease();
@@ -11895,31 +11968,8 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
             : Math.min(now, game.state.lastWallTime + 15 * 60000);
         const part = game.advanceOffline(cursor).report;
         if (!part) break;
-        if (!report)
-          report = {
-            ...part,
-            discoveries: [...(part.discoveries || [])],
-            studies: [...(part.studies || [])],
-            achievements: [...(part.achievements || [])],
-          };
-        else {
-          for (const k of sums) report[k] = (report[k] || 0) + (part[k] || 0);
-          report.capped ||= part.capped;
-          report.stopReason = part.stopReason;
-          report.discoveries.push(...(part.discoveries || []));
-          report.studies.push(...(part.studies || []));
-          report.achievements = [
-            ...new Set([...report.achievements, ...(part.achievements || [])]),
-          ];
-          const deltas = new Map(
-            (report.materials || []).map((x) => [x.id, x.change]),
-          );
-          for (const x of part.materials || [])
-            deltas.set(x.id, (deltas.get(x.id) || 0) + x.change);
-          report.materials = [...deltas]
-            .filter(([, change]) => change)
-            .map(([id, change]) => ({ id, change }));
-        }
+        report = mergeReports(report, part);
+        queueReturnReport(part);
         ui.catchupProgress = Math.min(
           1,
           (game.state.lastWallTime - began) / elapsed,
@@ -11932,7 +11982,6 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
       if (report && game === target) {
         report.elapsed = elapsed;
         game.state.offlineReport = report;
-        ui.returnReport = report;
         if (!ui.readonly) checkpoint();
       }
     } finally {
@@ -12368,7 +12417,7 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
             const mat = D.materials[v.id],
               n = s.materials[v.id],
               workers = miners.filter((m) => m.assigned === v.id);
-            return `<article class="seam"><div class="section-line">${sprite("material-" + v.id)}<h3>${v.name}</h3><strong>${num(n)}<small> / ${game.binCapacity()}</small></strong></div>${progress(n, game.binCapacity(), mat.name + " stock")}<p>${workers.length} assigned · ${Math.ceil(v.seconds / (1 + (game._effects().miningSpeed || 0)))}s per load</p><div class="actions">${button(game.quarryDerived().manualReady ? "Help load cart" : "Cart being loaded", "mine", { id: v.id }, !game.quarryDerived().manualReady)}${button("Sell 5 · " + game.materialSalePrice(v.id, 5) + "g", "sell-material", { id: v.id }, n < 5)}</div><small>Help yields ${1 + Math.floor(Math.sqrt(s.player.stats.strength) / 4) + (game._effects().manualYield || 0)} material${game.binCapacity() - n < 2 ? " · full-bin overflow is lost" : ""}.</small></article>`;
+            return `<article class="seam"><div class="section-line">${sprite("material-" + v.id)}<h3>${v.name}</h3><strong>${num(n)}<small> / ${game.binCapacity()}</small></strong></div>${progress(n, game.binCapacity(), mat.name + " stock")}<p>${workers.length} assigned · ${Math.ceil(v.seconds / (1 + (game._effects().miningSpeed || 0)))}s per load</p><div class="actions">${button(game.quarryDerived().manualReady ? "Help load cart" : "Cart being loaded", "mine", { id: v.id }, !game.quarryDerived().manualReady)}${button("Sell 5 · " + game.materialSalePrice(v.id, 5) + "g", "sell-material", { id: v.id }, n < 5)}</div><small>Help every 14s yields ${1 + Math.floor(Math.sqrt(s.player.stats.strength) / 4) + (game._effects().manualYield || 0)} material${game.binCapacity() - n < 2 ? " · full-bin overflow is lost" : ""}.</small></article>`;
           })
           .join(
             "",
@@ -12423,7 +12472,7 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
                 .filter(([, n]) => n)
                 .map(([g, n]) => H.grades[g].name + ": " + n)
                 .join(" · ") || "Standard stock"
-            }</p><div class="actions">${[1, 5].map((q) => button("Smelt " + q, "smelt", { id, quantity: q }, !game.smeltPreview(id, q, ui.grade).eligible, "primary")).join("")}${button("Max " + v.maxQuantity, "smelt", { id, quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}</div><small>${v.reason}${game.smeltOverflow(id) ? " Output may overflow; excess is lost." : ""}</small></article>`;
+            }</p><div class="actions">${[1, 5].map((q) => button("Smelt " + q, "smelt", { id, quantity: q }, !game.smeltPreview(id, q, ui.grade).eligible, "primary")).join("")}${button("Max " + v.maxQuantity, "smelt", { id, quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}</div><small>${v.reason}${game.smeltOverflow(id) ? " The last batch may overflow; later batches wait for space." : ""}</small></article>`;
           })
           .join("")}</div>`,
       )}${panel(
@@ -12444,7 +12493,7 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
         s.workshop.jobs
           .map((j) => {
             const r = W.smelts[j.recipeId];
-            return `<article class="queue-card"><h3>${r.name}</h3><p>${H.grades[j.grade || "standard"].name} · ${j.status === "active" ? time((j.completeAt - s.simTime) / 1000) : "Queued"}</p>${progress(j.status === "active" ? s.simTime - j.startedAt : 0, j.duration || 1, r.name + " progress")}${button("Cancel & refund", "cancel-smelt", { id: j.id }, false, "quiet")}</article>`;
+            return `<article class="queue-card"><h3>${r.name}</h3><p>${H.grades[j.grade || "standard"].name} · ${j.status === "active" ? time((j.completeAt - s.simTime) / 1000) : game.smeltWaitingForStorage(j) ? "Waiting for ingot storage" : "Queued"}</p>${progress(j.status === "active" ? s.simTime - j.startedAt : 0, j.duration || 1, r.name + " progress")}${button("Cancel & refund", "cancel-smelt", { id: j.id }, false, "quiet")}</article>`;
           })
           .join("") ||
           empty("No batches queued. Ore is consumed when you place an order."),
@@ -12780,8 +12829,8 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
     return `<p>Repeat a beaten rival every five minutes. The first 12 daily wins against the current or previous league train fighters. All wins earn their purse; exhibitions never qualify the team. Repetition stops on defeat.</p><label>Cleared opponent<select data-ui="exhibitionChoice">${choices.map((c) => `<option value="${c.key}" ${c === choice ? "selected" : ""}>${c.label}</option>`).join("")}</select></label><p>${v.purse}g victory purse · ${v.reason}</p><div class="actions">${button("Launch exhibition", "exhibit", choice, !v.eligible)}${h.exhibition ? button("Stop exhibitions", "stop-exhibitions") : h.upgrades.exhibitions ? button("Authorize repeat", "repeat", choice, !v.eligible) : ""}</div>${h.exhibition ? `<small>Repeating ${H.rivals.find((r) => r.id === h.exhibition.rival).name} in league ${h.exhibition.league + 1}, rung ${h.exhibition.rung + 1}.</small>` : !h.upgrades.exhibitions ? "<small>Develop Exhibition steward after five wins for automatic repetition.</small>" : ""}`;
   }
   function returnSummary() {
-    const r = ui.returnReport;
-    if (!r) return "";
+    if (!game.state.pendingOfflineReport) return "";
+    const r = mergeReports(null, game.state.pendingOfflineReport);
     return (
       `<p class="eyebrow">WELCOME BACK TO THE HOUSE</p><h2>While you were away</h2>` +
       metrics([
@@ -13245,8 +13294,15 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
       $("#modal-root").innerHTML = "";
       return;
     }
-    if (ui.returnReport && ui.screen === "game" && !ui.modal && !ui.catchingUp)
+    if (
+      game.state.pendingOfflineReport &&
+      ui.screen === "game" &&
+      !ui.readonly &&
+      ui.modal !== "offline"
+    ) {
+      ui.returnToModal = ui.modal;
       ui.modal = "offline";
+    }
     const focused = document.activeElement,
       editing =
         focused && ["INPUT", "SELECT", "TEXTAREA"].includes(focused.tagName);
@@ -13279,8 +13335,16 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
     revision++;
   }
   function closeDialog() {
-    if (ui.modal === "offline") ui.returnReport = null;
-    ui.modal = null;
+    if (ui.modal === "offline") {
+      const target = game;
+      lease();
+      if (!ui.readonly && game === target) {
+        game.state.pendingOfflineReport = null;
+        checkpoint();
+      }
+      ui.modal = ui.returnToModal || null;
+      ui.returnToModal = null;
+    } else ui.modal = null;
   }
   function act(name, payload = {}) {
     lease();
@@ -13365,10 +13429,7 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
       act("readDiscoveries");
       ui.modal = null;
     },
-    "dismiss-return": () => {
-      ui.returnReport = null;
-      ui.modal = null;
-    },
+    "dismiss-return": closeDialog,
     begin: () => {
       ui.screen = "creation";
       ui.modal = null;
@@ -13827,44 +13888,77 @@ const EIInventory={"generator":"Blender 5.2 / Cycles","tile":192,"columns":16,"r
     e.target.value = "";
   });
   window.addEventListener("pagehide", () => {
+    leaveWorkshop();
     sound.stop();
-    if (!document.hidden) save(true);
     try {
       const l = JSON.parse(get(LEASE) || "null");
       if (l?.owner === owner) localStorage.removeItem(LEASE);
     } catch (e) {}
   });
-  document.addEventListener("visibilitychange", () => {
-    sound.setVisible(!document.hidden);
-    if (document.hidden) {
-      if (!ui.readonly && !ui.catchingUp && !needsCatchup && game.state.started)
-        game.tick(Math.max(0, Date.now() - last));
-      last = Date.now();
-      save(true);
-    } else {
-      const now = Date.now();
-      lease();
-      if (!ui.readonly && game.state.started) {
+  function leaveWorkshop() {
+    if (away) return;
+    away = true;
+    sound.setVisible(false);
+    const now = Date.now();
+    lease();
+    if (!ui.readonly && !ui.catchingUp && !needsCatchup && game.state.started) {
+      if (now - last >= 60000) {
+        game.markSaved(last);
+        needsCatchup = true;
         reconcileOffline(now);
-      }
-      last = now;
-      render(true);
+      } else game.tick(Math.max(0, now - last));
+    }
+    last = now;
+    save(true);
+  }
+  function returnToWorkshop() {
+    if (document.hidden) return;
+    const wasAway = away;
+    away = false;
+    sound.setVisible(true);
+    const now = Date.now();
+    lease();
+    if (!wasAway && !needsCatchup) {
+      if (now - last < 60000) return;
+      if (!ui.readonly && !ui.catchingUp) game.markSaved(last);
+    }
+    if (!ui.readonly && game.state.started) reconcileOffline(now);
+    last = now;
+    render(true);
+  }
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) leaveWorkshop();
+    else returnToWorkshop();
+  });
+  window.addEventListener("blur", leaveWorkshop);
+  window.addEventListener("focus", returnToWorkshop);
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) {
+      away = true;
+      returnToWorkshop();
     }
   });
   setInterval(() => {
-    if (document.hidden || ui.catchingUp) return;
+    if (document.hidden || away || ui.catchingUp) return;
     const now = Date.now(),
       delta = now - last;
-    last = now;
     lease();
     if (needsCatchup) {
       reconcileOffline(now);
       return;
     }
     if (!ui.readonly && game.state.started) {
-      game.tick(delta, { offline: document.hidden });
+      if (delta >= 60000) {
+        // The browser may suspend a visible page without a visibility event.
+        // last is already simulated; the save cursor can lag it by five seconds.
+        game.markSaved(last);
+        reconcileOffline(now);
+        return;
+      }
+      game.tick(Math.max(0, delta));
       save();
     }
+    last = now;
     if (ui.replayPlaying) {
       const m = game.state.house.matches.find((m) => m.id === ui.replay);
       if (m) {

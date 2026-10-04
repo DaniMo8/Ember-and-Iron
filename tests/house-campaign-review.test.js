@@ -8,7 +8,7 @@ function fresh(){const e=new E(copy(D));assert(e.command('create',{profession:'w
 function valid(e){const v=E.validateSave(e.exportSave(),e.data);assert(v.ok,v.message);}
 test('earned opening: spending all starting gold on wood still leaves a public-command route to contract income',()=>{
  const e=fresh(),s=e.state;const spent=e.command('buyMaterial',{materialId:'wood',quantity:s.player.gold/e.materialPrice('wood')});assert(spent.ok,spent.message);assert.equal(s.player.gold,0);
- assert(e.command('smelt',{id:'bronze'}).ok);e.tick(60000);
+ assert(e.command('smelt',{id:'bronze',quantity:2}).ok);e.tick(60000);
  const order=s.house.orders[0];const made=e.command('craft',{recipeId:order.recipeId,intent:'catalogue',quantity:order.quantity});assert(made.ok,made.message);e.tick(6*60000);
  assert.equal(s.house.contracts,1);assert(!s.house.orders.some(o=>o.id===order.id));assert(s.player.gold>0);valid(e);
 });
