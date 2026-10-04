@@ -1,3 +1,13 @@
+# House edition 3.0 — original Blender artwork
+
+The active game uses `assets/house/*.webp`: 21 staged room backgrounds, one splash, one Legacy hall, two rendered UI surfaces and six fighter miniatures. Models, materials and lighting were created locally in Blender 5.2; no downloaded models, textures or reference images were used. The inventory atlas from 2.1 is retained.
+
+Source generators: `design/tools/render_house_art.py` and `design/tools/render_house_fighters.py`. Editable scenes: `house-workshop.blend` and `house-fighters.blend`. Backgrounds use Cycles, 24 samples and denoising at 1440×960; fighters use transparent 320×400 renders. WebP assets were encoded from the original renders with Pillow (quality 86 for backgrounds, 90 for miniatures). This is format compression, not AI image editing.
+
+Stage 0 is used before two championship wins; stage 1 begins after two. Stage 2 requires generation two or later plus four championship wins. Legacy has one distinct ceremonial scene. Blender button and frame textures decorate semantic HTML controls; text is never baked into an image.
+
+The older artwork below remains available to Classic and is excluded from the new portable build.
+
 # Original artwork — The Foundry
 
 Five original cinematic backgrounds were generated with the built-in image-generation tool for this project. No external reference images were used. Original generated files remain in the Codex generated-images folder; copies are included here without raster edits.

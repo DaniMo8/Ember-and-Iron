@@ -1,0 +1,987 @@
+{
+  "generated": "2026-10-04T00:50:12.449Z",
+  "files": {
+    "house-engine.js": "7bed77017548ea819a67b6933fd56cf8ecf13224e17aa12d436fd1073a09cb04",
+    "house-data.js": "570ebe63361b3acac1e6f17e3f229b26cd9b441859b4c4620272510ce70d85b9",
+    "house-combat.js": "17d90e9696adeeb991552ff7fe1c1f8ff276708cff70ac9d2c7754aad9b719fd"
+  },
+  "probes": {
+    "all_professions": [
+      {
+        "profession": "weaponsmith",
+        "orders": 3,
+        "team": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "valid": {
+          "ok": true,
+          "message": "Valid save."
+        }
+      },
+      {
+        "profession": "armorer",
+        "orders": 3,
+        "team": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "valid": {
+          "ok": true,
+          "message": "Valid save."
+        }
+      },
+      {
+        "profession": "artificer",
+        "orders": 3,
+        "team": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "valid": {
+          "ok": true,
+          "message": "Valid save."
+        }
+      },
+      {
+        "profession": "prospector",
+        "orders": 3,
+        "team": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "valid": {
+          "ok": true,
+          "message": "Valid save."
+        }
+      },
+      {
+        "profession": "merchant",
+        "orders": 4,
+        "team": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "valid": {
+          "ok": true,
+          "message": "Valid save."
+        }
+      },
+      {
+        "profession": "mechanist",
+        "orders": 3,
+        "team": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "valid": {
+          "ok": true,
+          "message": "Valid save."
+        }
+      },
+      {
+        "profession": "runesage",
+        "orders": 3,
+        "team": [
+          "mara",
+          "renn",
+          "wren"
+        ],
+        "valid": {
+          "ok": true,
+          "message": "Valid save."
+        }
+      }
+    ],
+    "graded_sale": {
+      "queue": {
+        "ok": true,
+        "message": "Smelting batches queued."
+      },
+      "before": {
+        "stock": 3,
+        "grades": {
+          "bronze": {
+            "tough": 3
+          }
+        }
+      },
+      "sold": {
+        "ok": true,
+        "message": "Sold materials for 3 gold; storage space is available."
+      },
+      "after": {
+        "stock": 0,
+        "grades": {
+          "bronze": {
+            "tough": 0
+          }
+        },
+        "valid": {
+          "ok": true,
+          "message": "Valid save."
+        }
+      },
+      "replacement": {
+        "stock": 3,
+        "grades": {
+          "bronze": {
+            "tough": 0,
+            "spring": 0
+          }
+        }
+      }
+    },
+    "classic_paid_patterns": {
+      "before": true,
+      "after": true,
+      "paid": {
+        "forge_machinery_0": 1,
+        "forge_machinery_1": 1,
+        "forge_machinery_2": 1
+      },
+      "archive": [
+        "bronze_daggers",
+        "iron_daggers",
+        "steel_daggers",
+        "bronze_swords",
+        "iron_swords",
+        "steel_swords",
+        "bronze_bows",
+        "iron_bows",
+        "steel_bows",
+        "bronze_armor",
+        "iron_armor",
+        "steel_armor",
+        "bronze_shields",
+        "iron_shields",
+        "steel_shields",
+        "bronze_rings",
+        "iron_rings",
+        "steel_rings",
+        "bronze_charms",
+        "iron_charms",
+        "steel_charms",
+        "bronze_tools",
+        "iron_tools",
+        "steel_tools",
+        "bronze_daggers_v1",
+        "iron_daggers_v1",
+        "steel_daggers_v1",
+        "bronze_swords_v1",
+        "iron_swords_v1",
+        "steel_swords_v1",
+        "bronze_bows_v1",
+        "iron_bows_v1",
+        "steel_bows_v1",
+        "bronze_armor_v1",
+        "iron_armor_v1",
+        "steel_armor_v1",
+        "bronze_shields_v1",
+        "iron_shields_v1",
+        "steel_shields_v1",
+        "bronze_rings_v1",
+        "iron_rings_v1",
+        "steel_rings_v1",
+        "bronze_charms_v1",
+        "iron_charms_v1",
+        "steel_charms_v1",
+        "bronze_tools_v1",
+        "iron_tools_v1",
+        "steel_tools_v1",
+        "bronze_leather_armor",
+        "iron_leather_armor",
+        "steel_leather_armor",
+        "bronze_leather_armor_v1",
+        "iron_leather_armor_v1",
+        "steel_leather_armor_v1",
+        "bronze_instruments",
+        "iron_instruments",
+        "steel_instruments",
+        "bronze_instruments_v1",
+        "iron_instruments_v1",
+        "steel_instruments_v1",
+        "bronze_talismans",
+        "iron_talismans",
+        "steel_talismans",
+        "bronze_talismans_v1",
+        "iron_talismans_v1",
+        "steel_talismans_v1"
+      ],
+      "valid": {
+        "ok": true,
+        "message": "Valid save."
+      }
+    },
+    "catalogue_offline_buy": {
+      "online": {
+        "gold": 99,
+        "leather": 0,
+        "jobs": 1
+      },
+      "offline": {
+        "gold": 99,
+        "leather": 0,
+        "jobs": 1
+      },
+      "policy": {
+        "enabled": false,
+        "recipeId": null,
+        "targetStock": 3,
+        "autoBuy": false,
+        "autoSell": false,
+        "autoDispatch": false,
+        "goldReserve": 12,
+        "spendCap": 60,
+        "allowRare": false
+      }
+    },
+    "catalogue_wrong_tier": {
+      "craftable": true,
+      "contractEligible": false,
+      "jobs": 1
+    },
+    "grades_cancel_and_save": {
+      "queued": {
+        "ok": true,
+        "message": "Smelting batches queued."
+      },
+      "exactSmeltRefund": true,
+      "craft": {
+        "ok": true,
+        "message": "1 team piece queued. Ingredients and preparation fees are reserved."
+      },
+      "pendingValid": {
+        "ok": true,
+        "message": "Valid save."
+      },
+      "cancel": {
+        "ok": true,
+        "message": "Cancelled. Refunded 1 Leather, 1 Coal, 1 Bronze ingot."
+      },
+      "goldRefundExact": true,
+      "gradeRefundExact": true,
+      "materialsRefundExact": true,
+      "valid": {
+        "ok": true,
+        "message": "Valid save."
+      }
+    },
+    "tier_capabilities": {
+      "tiers": [
+        {
+          "tier": 1,
+          "total": 51,
+          "available": 51,
+          "blocked": []
+        },
+        {
+          "tier": 2,
+          "total": 51,
+          "available": 51,
+          "blocked": []
+        },
+        {
+          "tier": 3,
+          "total": 51,
+          "available": 51,
+          "blocked": []
+        },
+        {
+          "tier": 4,
+          "total": 51,
+          "available": 51,
+          "blocked": []
+        },
+        {
+          "tier": 5,
+          "total": 51,
+          "available": 51,
+          "blocked": []
+        }
+      ],
+      "roster": [
+        "Mara",
+        "Renn",
+        "Wren",
+        "Bren",
+        "Thane",
+        "Sable"
+      ],
+      "valid": {
+        "ok": true,
+        "message": "Valid save."
+      }
+    },
+    "matching_tier_combat": [
+      {
+        "tier": 1,
+        "rival": "choir",
+        "victory": true,
+        "seconds": 14.814814814814815,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 75.97999999999999,
+            "attack": 11.338,
+            "armor": 5.522
+          },
+          {
+            "name": "Renn",
+            "health": 70.88000000000001,
+            "attack": 11.338,
+            "armor": 2.976
+          },
+          {
+            "name": "Wren",
+            "health": 66.86,
+            "attack": 10.668,
+            "armor": 2.976
+          }
+        ],
+        "survivors": 3
+      },
+      {
+        "tier": 1,
+        "rival": "thread",
+        "victory": true,
+        "seconds": 12,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 75.97999999999999,
+            "attack": 11.338,
+            "armor": 5.522
+          },
+          {
+            "name": "Renn",
+            "health": 70.88000000000001,
+            "attack": 11.338,
+            "armor": 2.976
+          },
+          {
+            "name": "Wren",
+            "health": 66.86,
+            "attack": 10.668,
+            "armor": 2.976
+          }
+        ],
+        "survivors": 3
+      },
+      {
+        "tier": 1,
+        "rival": "lantern",
+        "victory": true,
+        "seconds": 12.962962962962964,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 75.97999999999999,
+            "attack": 11.338,
+            "armor": 5.522
+          },
+          {
+            "name": "Renn",
+            "health": 70.88000000000001,
+            "attack": 11.338,
+            "armor": 2.976
+          },
+          {
+            "name": "Wren",
+            "health": 66.86,
+            "attack": 10.668,
+            "armor": 2.976
+          }
+        ],
+        "survivors": 3
+      },
+      {
+        "tier": 2,
+        "rival": "choir",
+        "victory": false,
+        "seconds": 28.6,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 98.16,
+            "attack": 16.067,
+            "armor": 8.133000000000001
+          },
+          {
+            "name": "Renn",
+            "health": 91.44,
+            "attack": 16.067,
+            "armor": 4.314
+          },
+          {
+            "name": "Wren",
+            "health": 85.41,
+            "attack": 15.061999999999998,
+            "armor": 4.314
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 2,
+        "rival": "thread",
+        "victory": false,
+        "seconds": 23.088,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 98.16,
+            "attack": 16.067,
+            "armor": 8.133000000000001
+          },
+          {
+            "name": "Renn",
+            "health": 91.44,
+            "attack": 16.067,
+            "armor": 4.314
+          },
+          {
+            "name": "Wren",
+            "health": 85.41,
+            "attack": 15.061999999999998,
+            "armor": 4.314
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 2,
+        "rival": "lantern",
+        "victory": false,
+        "seconds": 20.7,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 98.16,
+            "attack": 16.067,
+            "armor": 8.133000000000001
+          },
+          {
+            "name": "Renn",
+            "health": 91.44,
+            "attack": 16.067,
+            "armor": 4.314
+          },
+          {
+            "name": "Wren",
+            "health": 85.41,
+            "attack": 15.061999999999998,
+            "armor": 4.314
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 3,
+        "rival": "choir",
+        "victory": false,
+        "seconds": 15.6,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 129.04999999999998,
+            "attack": 23.040499999999998,
+            "armor": 11.8495
+          },
+          {
+            "name": "Renn",
+            "health": 120.04,
+            "attack": 23.040499999999998,
+            "armor": 6.1209999999999996
+          },
+          {
+            "name": "Wren",
+            "health": 110.995,
+            "attack": 21.532999999999998,
+            "armor": 6.1209999999999996
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 3,
+        "rival": "thread",
+        "victory": false,
+        "seconds": 12,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 129.04999999999998,
+            "attack": 23.040499999999998,
+            "armor": 11.8495
+          },
+          {
+            "name": "Renn",
+            "health": 120.04,
+            "attack": 23.040499999999998,
+            "armor": 6.1209999999999996
+          },
+          {
+            "name": "Wren",
+            "health": 110.995,
+            "attack": 21.532999999999998,
+            "armor": 6.1209999999999996
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 3,
+        "rival": "lantern",
+        "victory": false,
+        "seconds": 13,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 129.04999999999998,
+            "attack": 23.040499999999998,
+            "armor": 11.8495
+          },
+          {
+            "name": "Renn",
+            "health": 120.04,
+            "attack": 23.040499999999998,
+            "armor": 6.1209999999999996
+          },
+          {
+            "name": "Wren",
+            "health": 110.995,
+            "attack": 21.532999999999998,
+            "armor": 6.1209999999999996
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 4,
+        "rival": "choir",
+        "victory": false,
+        "seconds": 12,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 173.87599999999995,
+            "attack": 33.605199999999996,
+            "armor": 17.334799999999998
+          },
+          {
+            "name": "Renn",
+            "health": 161.504,
+            "attack": 33.605199999999996,
+            "armor": 8.6784
+          },
+          {
+            "name": "Wren",
+            "health": 147.83599999999998,
+            "attack": 31.327199999999998,
+            "armor": 8.6784
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 4,
+        "rival": "thread",
+        "victory": false,
+        "seconds": 12,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 173.87599999999995,
+            "attack": 33.605199999999996,
+            "armor": 17.334799999999998
+          },
+          {
+            "name": "Renn",
+            "health": 161.504,
+            "attack": 33.605199999999996,
+            "armor": 8.6784
+          },
+          {
+            "name": "Wren",
+            "health": 147.83599999999998,
+            "attack": 31.327199999999998,
+            "armor": 8.6784
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 4,
+        "rival": "lantern",
+        "victory": false,
+        "seconds": 12.5,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 173.87599999999995,
+            "attack": 33.605199999999996,
+            "armor": 17.334799999999998
+          },
+          {
+            "name": "Renn",
+            "health": 161.504,
+            "attack": 33.605199999999996,
+            "armor": 8.6784
+          },
+          {
+            "name": "Wren",
+            "health": 147.83599999999998,
+            "attack": 31.327199999999998,
+            "armor": 8.6784
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 5,
+        "rival": "choir",
+        "victory": false,
+        "seconds": 12,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 241.34799999999996,
+            "attack": 50.0056,
+            "armor": 25.694399999999995
+          },
+          {
+            "name": "Renn",
+            "health": 223.87199999999999,
+            "attack": 50.0056,
+            "armor": 12.455199999999998
+          },
+          {
+            "name": "Wren",
+            "health": 202.96799999999996,
+            "attack": 46.5216,
+            "armor": 12.455199999999998
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 5,
+        "rival": "thread",
+        "victory": false,
+        "seconds": 12,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 241.34799999999996,
+            "attack": 50.0056,
+            "armor": 25.694399999999995
+          },
+          {
+            "name": "Renn",
+            "health": 223.87199999999999,
+            "attack": 50.0056,
+            "armor": 12.455199999999998
+          },
+          {
+            "name": "Wren",
+            "health": 202.96799999999996,
+            "attack": 46.5216,
+            "armor": 12.455199999999998
+          }
+        ],
+        "survivors": 0
+      },
+      {
+        "tier": 5,
+        "rival": "lantern",
+        "victory": false,
+        "seconds": 12,
+        "heroes": [
+          {
+            "name": "Mara",
+            "health": 241.34799999999996,
+            "attack": 50.0056,
+            "armor": 25.694399999999995
+          },
+          {
+            "name": "Renn",
+            "health": 223.87199999999999,
+            "attack": 50.0056,
+            "armor": 12.455199999999998
+          },
+          {
+            "name": "Wren",
+            "health": 202.96799999999996,
+            "attack": 46.5216,
+            "armor": 12.455199999999998
+          }
+        ],
+        "survivors": 0
+      }
+    ],
+    "earned_opening": {
+      "noResourceGrants": true,
+      "policy": "Three opening contracts, then every compatible bronze training equipment slot with one finishing pass. After the first defeat, allocate points, buy patterns/quality/doctrine, switch to Hold, replace three weapons with finished standard designs, retry, then earn iron access and practise swords to the first iron pattern.",
+      "minutes": 91.32345,
+      "champions": 1,
+      "rung": 0,
+      "wins": 16,
+      "losses": 1,
+      "gold": 81,
+      "smithLevel": 4,
+      "unspentPoints": 0,
+      "crafts": 51,
+      "actions": {
+        "craft": 51,
+        "mine": 75,
+        "smelt": 25,
+        "buy": 42
+      },
+      "milestones": [
+        {
+          "event": "contract",
+          "minutes": 1.8668333333333333,
+          "gold": 39
+        },
+        {
+          "event": "contract",
+          "minutes": 5.050333333333334,
+          "gold": 79
+        },
+        {
+          "event": "contract",
+          "minutes": 8.5005,
+          "gold": 128
+        },
+        {
+          "event": "team equipped",
+          "minutes": 39.268,
+          "gold": 111,
+          "crafted": 24
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 0,
+          "victory": true,
+          "minutes": 39.501333333333335,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "thread",
+          "rung": 0,
+          "victory": true,
+          "minutes": 39.90133333333333,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "lantern",
+          "rung": 0,
+          "victory": true,
+          "minutes": 40.30133333333333,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 0,
+          "victory": true,
+          "minutes": 40.73466666666667,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 0,
+          "victory": true,
+          "minutes": 41.168,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 1,
+          "victory": true,
+          "minutes": 41.63466666666667,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "thread",
+          "rung": 1,
+          "victory": true,
+          "minutes": 42.034666666666666,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "lantern",
+          "rung": 1,
+          "victory": true,
+          "minutes": 42.4569,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 1,
+          "victory": true,
+          "minutes": 42.923566666666666,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 1,
+          "victory": true,
+          "minutes": 43.390233333333335,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 2,
+          "victory": true,
+          "minutes": 43.935916666666664,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "thread",
+          "rung": 2,
+          "victory": true,
+          "minutes": 44.34925,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "lantern",
+          "rung": 2,
+          "victory": true,
+          "minutes": 44.815916666666666,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 2,
+          "victory": true,
+          "minutes": 45.3616,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "rival",
+          "rival": "choir",
+          "rung": 2,
+          "victory": true,
+          "minutes": 45.90728333333333,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "champion",
+          "rival": "choir",
+          "rung": 2,
+          "victory": false,
+          "minutes": 46.540616666666665,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          }
+        },
+        {
+          "event": "invest after defeat",
+          "minutes": 46.540616666666665,
+          "gold": 143,
+          "stats": {
+            "strength": 6,
+            "precision": 7,
+            "charisma": 5,
+            "knowledge": 7
+          }
+        },
+        {
+          "event": "champion rematch",
+          "victory": true,
+          "minutes": 55.87095,
+          "pendingValid": {
+            "ok": true,
+            "message": "Valid save."
+          },
+          "gold": 259
+        },
+        {
+          "event": "iron supply path",
+          "minutes": 56.70445,
+          "gold": 19,
+          "mined": 117,
+          "ingots": 2
+        },
+        {
+          "event": "first iron sword equipped",
+          "minutes": 91.32345,
+          "mastery": 15,
+          "smithLevel": 4,
+          "quality": 73
+        }
+      ],
+      "valid": {
+        "ok": true,
+        "message": "Valid save."
+      }
+    }
+  }
+}

@@ -10,3 +10,4 @@ node_modules/
 Thumbs.db
 Ember-and-Iron-save*.json
 tmp/
+assets/house/*.png

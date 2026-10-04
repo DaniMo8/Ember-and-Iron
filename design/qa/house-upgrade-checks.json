@@ -1,0 +1,182 @@
+[
+  {
+    "room": "Mine",
+    "branch": "Depth",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 5,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Mine",
+    "branch": "Workers",
+    "body": 345,
+    "dialog": 323,
+    "nodes": 2,
+    "status": "Overview saved.",
+    "visible": 323,
+    "width": 360
+  },
+  {
+    "room": "Mine",
+    "branch": "Storage",
+    "body": 345,
+    "dialog": 323,
+    "nodes": 1,
+    "status": "Overview saved.",
+    "visible": 323,
+    "width": 360
+  },
+  {
+    "room": "Smelter",
+    "branch": "Speed",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 7,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Smelter",
+    "branch": "Alloys",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 4,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Smelter",
+    "branch": "Quality",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 4,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Forge",
+    "branch": "Patterns",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 6,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Forge",
+    "branch": "Craftsmanship",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 4,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Forge",
+    "branch": "Production",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 3,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Shop & armoury",
+    "branch": "Contracts",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 2,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Shop & armoury",
+    "branch": "Stock",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 2,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Shop & armoury",
+    "branch": "Patrons",
+    "body": 345,
+    "dialog": 323,
+    "nodes": 1,
+    "status": "Overview saved.",
+    "visible": 323,
+    "width": 360
+  },
+  {
+    "room": "Arena",
+    "branch": "Preparation",
+    "body": 345,
+    "dialog": 323,
+    "nodes": 2,
+    "status": "Overview saved.",
+    "visible": 323,
+    "width": 360
+  },
+  {
+    "room": "Arena",
+    "branch": "Exhibitions",
+    "body": 345,
+    "dialog": 323,
+    "nodes": 1,
+    "status": "Overview saved.",
+    "visible": 323,
+    "width": 360
+  },
+  {
+    "room": "Arena",
+    "branch": "Fighters",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 3,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Employees",
+    "branch": "Organization",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 4,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Employees",
+    "branch": "Training",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 4,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  },
+  {
+    "room": "Employees",
+    "branch": "Welfare",
+    "body": 345,
+    "dialog": 308,
+    "nodes": 4,
+    "status": "Overview saved.",
+    "visible": 308,
+    "width": 360
+  }
+]

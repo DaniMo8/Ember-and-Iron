@@ -1,0 +1,15 @@
+✔ review: Craft max accounts for both treatment gold and the selected grade (58.0812ms)
+✔ review: graded Smelt max includes its additional coal (26.2919ms)
+✔ review: simultaneous standard and premium smelts attribute overflow by delivery order (45.569ms)
+✔ review: alloy cancellation returns the exact grade of its consumed intermediate ingots (29.1617ms)
+✔ review: unequipping cannot occupy a pending craft output reservation (81.8128ms)
+✔ review: fractional fighter intervals always schedule integer match and recovery times (144.9896ms)
+✔ review: highest-tier controlled team can win the final champion and retire into every charter (142.2008ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 635.4047

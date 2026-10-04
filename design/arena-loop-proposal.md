@@ -1,6 +1,8 @@
 # Ember & Iron: The House of the Hammer
 
-## A proposed redesign of the whole game
+## The original whole-game proposal
+
+**House edition 3.0 update:** the local arena-house loop is now playable. Read the [implementation guide](house-guide.html) for shipped features, measured playtest results and remaining extensions. The proposal below is retained as design history; individual aspirational examples are not a release checklist.
 
 **Your weapons enter the arena. Your workshop wins the crown.**
 
@@ -8,7 +10,7 @@ The player begins as an obscure smith with a leaking workshop and three fighters
 
 This proposal replaces the game's centre of gravity, not just its quest screen. The main growth loop becomes **identify a competitive weakness → improve the production chain → make the answer → equip the team → prove the design → reinvest the winnings**. A dependable shop supports that loop, and repeat work becomes an earned source of idle income.
 
-**Status:** Everything described below is proposed unless explicitly labelled current. No arena, ladder, opponent sharing or redesigned economy is claimed to be playable. Current v2.2 already has ore and alloy production, crafting and mastery, automated adventurer shopping/quests, branching upgrades, finite-demand automation, staff stamina, and Legacy. The accompanying Employees update implements a dedicated room with eight specialists, experience from useful work, stamina, manual leave, earned managed breaks and twelve upgrades. This document proposes its longer-term purpose and relationships without treating those future systems as shipped.
+**Original proposal status:** This was written before the House edition implementation. The local league, owned team, contracts, item intentions, staff room, deterministic replays, charters and redesigned interface now ship. Online/friend-team exchange, procedural audience commentary and deeper workshop logistics remain future extensions.
 
 The recent review supports this direction: five- and fifteen-minute visits can already sustain a prepared workshop, but a single production pattern eventually exhausts its buyers. The redesign gives the player a stronger reason to make the next item and separates reliable workshop income from competitive equipment decisions.
 
