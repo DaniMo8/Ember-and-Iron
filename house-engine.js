@@ -1102,9 +1102,21 @@
           ? this.state.adventurers.filter((u) => u.id === item.reservedFor)
           : this.state.adventurers;
         for (const hero of heroes) {
-          const preview = this.equipmentPreview(hero.id, item.id);
-          if (preview.eligible && preview.improves) {
-            this._equipHouse({ heroId: hero.id, itemId: item.id });
+          const options = this.equipmentSlots(item.recipeId)
+            .map((slot) => this.equipmentPreview(hero.id, item.id, slot))
+            .filter((option) => option.eligible && option.improves);
+          // Prefer a free-hand upgrade over weakening a stronger main weapon.
+          const preview =
+            (!hero.equipment.weapon &&
+              options.find((option) => option.slot === "weapon")) ||
+            options.find((option) => option.changes.every((c) => c.improved)) ||
+            options[0];
+          if (preview) {
+            this._equipHouse({
+              heroId: hero.id,
+              itemId: item.id,
+              slot: preview.slot,
+            });
             break;
           }
         }
@@ -1325,7 +1337,14 @@
       }
       return r;
     }
-    equipmentPreview(heroId, itemId) {
+    equipmentSlots(recipeId) {
+      const recipe = this.data.recipes[recipeId];
+      if (!recipe) return [];
+      return recipe.classId === "daggers"
+        ? ["weapon", "offhand"]
+        : [recipe.slot];
+    }
+    equipmentPreview(heroId, itemId, slot = null) {
       const u = this.state.adventurers.find((u) => u.id === heroId),
         i = this._item(itemId),
         r = i && this.data.recipes[i.recipeId];
@@ -1333,6 +1352,12 @@
         return {
           eligible: false,
           reason: "Choose a fighter and an owned item.",
+        };
+      slot ??= r.slot;
+      if (!this.equipmentSlots(r.id).includes(slot))
+        return {
+          eligible: false,
+          reason: "This item cannot be equipped in that slot.",
         };
       if (this.activeMatch()?.snapshot.heroes.some((x) => x.id === heroId))
         return {
@@ -1348,7 +1373,7 @@
             ".",
         };
       if (
-        r.slot === "offhand" &&
+        slot === "offhand" &&
         u.equipment.weapon &&
         this.data.recipes[u.equipment.weapon.recipeId].twoHanded
       )
@@ -1357,7 +1382,7 @@
           reason: "Unequip the two-handed weapon first.",
         };
       const displaced = [
-        u.equipment[r.slot],
+        u.equipment[slot],
         ...(r.twoHanded ? [u.equipment.offhand] : []),
       ].filter(Boolean);
       if (
@@ -1372,7 +1397,7 @@
           reason: "Make warehouse space for displaced equipment.",
         };
       const after = copy(u);
-      after.equipment[r.slot] = i;
+      after.equipment[slot] = i;
       if (r.twoHanded) after.equipment.offhand = null;
       const beforeStats = this._arenaStats(u),
         afterStats = this._arenaStats(after);
@@ -1416,6 +1441,7 @@
         .filter((c) => Math.abs(c.delta) > 1e-7);
       return {
         eligible: true,
+        slot,
         reason:
           "Equip freely. Replaced items return protected to the warehouse.",
         before: beforeStats,
@@ -1425,8 +1451,8 @@
         displaced,
       };
     }
-    _equipHouse({ heroId, itemId }) {
-      const v = this.equipmentPreview(heroId, itemId);
+    _equipHouse({ heroId, itemId, slot = null }) {
+      const v = this.equipmentPreview(heroId, itemId, slot);
       if (!v.eligible) return no(v.reason);
       const u = this.state.adventurers.find((u) => u.id === heroId),
         i = this._item(itemId),
@@ -1441,7 +1467,7 @@
           protected: true,
           reservedFor: null,
         });
-      u.equipment[r.slot] = {
+      u.equipment[v.slot] = {
         ...i,
         displayed: false,
         protected: true,

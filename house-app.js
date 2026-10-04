@@ -471,7 +471,7 @@
       : H.rivals.find((r) => r.id === m.rival).name;
   }
   function splash() {
-    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.2.4</span></footer></main>`;
+    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.2.5</span></footer></main>`;
   }
   function creation() {
     const p = H.professions[ui.calling],
@@ -1010,7 +1010,7 @@
         0,
         (game.state.house.recovery[h.id] || 0) - game.state.simTime,
       );
-    return `<div class="fighter-header"><span class="portrait large">${fighterArt(h.archetypeId)}</span><div><h2>${esc(h.name)}</h2><p>${D.archetypes[h.archetypeId].name} · Level ${h.level}</p><small>${recovery ? "Recovering · " + time(recovery / 1000) : "Ready for the arena"}</small></div></div><div class="progress-label"><span>Fighter experience</span><b>${h.xp} / ${xp}</b></div>${progress(h.xp, xp, h.name + " experience")}${statsList(st)}<p class="equip-types"><b>Can equip</b> ${D.archetypes[h.archetypeId].preferences.map((id) => D.classes[id].name).join(" · ")}</p>`;
+    return `<div class="fighter-header"><span class="portrait large">${fighterArt(h.archetypeId)}</span><div><h2>${esc(h.name)}</h2><p>${D.archetypes[h.archetypeId].name} · Level ${h.level}</p><small>${recovery ? "Recovering · " + time(recovery / 1000) : "Ready for the arena"}</small></div></div><div class="progress-label"><span>Fighter experience</span><b>${h.xp} / ${xp}</b></div>${progress(h.xp, xp, h.name + " experience")}${statsList(st)}<p class="equip-types"><b>Can equip</b> ${D.archetypes[h.archetypeId].preferences.map((id) => D.classes[id].name + (id === "daggers" ? " (either hand)" : "")).join(" · ")}</p>`;
   }
   function equipment(h) {
     return `<div class="equipment-list">${H.slots
@@ -1068,12 +1068,19 @@
       ui.shopTab === "armoury"
         ? `<div class="room-grid"><div>${heroSelect()}${panel("The house roster", fighterDetail(h) + equipment(h))}</div><aside>${panel(
             "Equip from your stock",
-            `<p>Only items that improve at least one combat stat are shown. Green is a gain; red is a tradeoff. Swaps are free.</p>${
+            `<p>Only items that improve at least one combat stat are shown. Green is a gain; red is a tradeoff. Swaps are free. Daggers fit either hand; a two-handed weapon blocks the off hand. Off-hand damage and bonuses add to your main-hand attacks.</p>${
               s.inventory
-                .map((i) => ({ i, v: game.equipmentPreview(h.id, i.id) }))
-                .filter(({ v }) => v.improves)
-                .map(({ i, v }) => {
-                  return `<article class="stock-piece ${quality(i.quality)}">${itemIcon(D.recipes[i.recipeId])}<div><h3>${esc(itemName(i))}</h3><p>${itemMeta(i)}</p><small>${itemStatsText(i)}</small>${equipmentComparison(v)}${button("Equip on " + esc(h.name), "equip", { hero: h.id, id: i.id }, !v.eligible, "primary")}<small>${v.reason}</small></div></article>`;
+                .map((i) => ({
+                  i,
+                  options: game
+                    .equipmentSlots(i.recipeId)
+                    .map((slot) => game.equipmentPreview(h.id, i.id, slot))
+                    .filter((v) => v.improves),
+                }))
+                .filter(({ options }) => options.length)
+                .map(({ i, options }) => {
+                  const dagger = D.recipes[i.recipeId].classId === "daggers";
+                  return `<article class="stock-piece ${quality(i.quality)}">${itemIcon(D.recipes[i.recipeId])}<div><h3>${esc(itemName(i))}</h3><p>${itemMeta(i)}</p><small>${itemStatsText(i)}</small>${options.map((v) => `${dagger ? `<h4>${v.slot === "weapon" ? "Main hand" : "Off hand"}</h4>` : ""}${equipmentComparison(v)}${button(dagger ? "Equip " + (v.slot === "weapon" ? "main hand" : "off hand") : "Equip on " + esc(h.name), "equip", { hero: h.id, id: i.id, slot: v.slot }, !v.eligible, "primary")}<small>${v.reason}</small>`).join("")}</div></article>`;
                 })
                 .join("") ||
               empty(
@@ -1945,7 +1952,7 @@
     hero: (d) => {
       ui.hero = d.id;
     },
-    equip: (d) => act("equip", { heroId: d.hero, itemId: d.id }),
+    equip: (d) => act("equip", { heroId: d.hero, itemId: d.id, slot: d.slot }),
     unequip: (d) => act("unequip", { heroId: d.hero, slot: d.slot }),
     deliver: (d) => act("deliverContract", { id: d.id }),
     "contract-plan": (d) => {

@@ -85,6 +85,7 @@ stock(60);
 stock(90);
 stock(60, { treatment: "warding" });
 stock(30, { intent: "stock", protected: false });
+stock(60, { recipeId: "bronze_daggers" });
 for (const e of [contracts, shop, fullBin])
   check(E.validateSave(e.exportSave(), e.data));
 const output = path.resolve(__dirname, "../qa/offline-review.html");

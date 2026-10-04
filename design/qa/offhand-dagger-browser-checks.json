@@ -1,0 +1,42 @@
+{
+  "version": "3.2.5",
+  "origin": "http://127.0.0.1:8792",
+  "method": "Controlled protected-stock fixture in the portable build. Selected Renn, inspected both hand comparisons, equipped off hand, checked phone width and reloaded. No player save accessed.",
+  "before": {
+    "choices": [
+      "Bronze Bollock Knife\n\nT1 · Q60 fine · Standard\n\n3.6 damage\nMain hand\nDamage\n5 → 5.55 +0.55\nSwing time\n1.85s → 1.48s -0.37s\nCritical chance\n3% → 9% +6%\nEquip main hand\nEquip freely. Replaced items return protected to the warehouse.\nOff hand\nDamage\n5 → 8.55 +3.55\nCritical chance\n3% → 9% +6%\nEquip off hand\nEquip freely. Replaced items return protected to the warehouse."
+    ],
+    "types": "CAN EQUIP\nDaggers (either hand) · Swords · Leather armour · Rings · Talismans · Instruments"
+  },
+  "after": {
+    "equipment": [
+      "Weapon\n◇\nBorrowed weapon",
+      "Body\n◇\nBorrowed clothing",
+      "Offhand\nBronze Bollock Knife\nT1 · Q60 fine · Standard\n3.6 damage\nUnequip",
+      "Ring\n◇\nBorrowed — empty slot",
+      "Charm\n◇\nBorrowed — empty slot",
+      "Tool\n◇\nBorrowed — empty slot"
+    ],
+    "stats": "Damage\n8.6\nHealth\n35\nArmour\n1.0\nSwing\n1.85s\nCritical\n9%\nBlock\n0%\nPiercing\n0.0\nFire ward\n0%"
+  },
+  "phone": {
+    "documentWidth": 375,
+    "slots": [
+      "Weapon\n◇\nBorrowed weapon",
+      "Body\n◇\nBorrowed clothing",
+      "Offhand\nBronze Bollock Knife\nT1 · Q60 fine · Standard\n3.6 damage\nUnequip",
+      "Ring\n◇\nBorrowed — empty slot",
+      "Charm\n◇\nBorrowed — empty slot",
+      "Tool\n◇\nBorrowed — empty slot"
+    ],
+    "viewport": 390
+  },
+  "reloaded": [
+    "Weapon\n◇\nBorrowed weapon",
+    "Body\n◇\nBorrowed clothing",
+    "Offhand\nBronze Bollock Knife\nT1 · Q60 fine · Standard\n3.6 damage\nUnequip",
+    "Ring\n◇\nBorrowed — empty slot",
+    "Charm\n◇\nBorrowed — empty slot",
+    "Tool\n◇\nBorrowed — empty slot"
+  ]
+}
