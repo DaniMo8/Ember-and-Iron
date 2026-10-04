@@ -1,0 +1,25 @@
+{
+  "version": "3.2.4",
+  "origin": "http://127.0.0.1:8792",
+  "method": "Controlled QA production fixture. Real browser time on initial title and after returning to title, followed by Continue. No player save accessed. Portable build separately tested with a one-hour absence.",
+  "regressionsBeforeFix": {
+    "titleScreenRunningNormally": "Progress happened but the popup was absent.",
+    "initialSplashWait": "Work was credited without a pending report.",
+    "continueWithoutFocusEvent": "Return was not reconciled."
+  },
+  "sourceTitle": {
+    "footer": "Local saves · No account · No daily deadlines\nHOUSE EDITION / 3.2.4",
+    "screen": "Ember\n& Iron."
+  },
+  "initialTitleContinue": {
+    "report": "×\n\nWELCOME BACK TO THE HOUSE\n\nWhile you were away\nCREDITED\n44s\nCRAFTED\n0\nCONTRACTS\n0\nGOLD\n+0\n\nAway 44s · 0 mined · 3 ingots cast · 0 arena wins · 0 defeats.\n\nContracts / town sales / arena\n0g / 0g / 0g\nAuthorised supply purchases\n−0g\nMaterial balance / overflow lost\n+3 / 0\nAchievements & discoveries\n\nNo new milestones this time. Your workshop still made progress.\n\nYour authorised workshop policies kept working.\n\nStill in production: 3 forge jobs · 0 smelting batches.\n\nBack to the house",
+    "title": "While you were away"
+  },
+  "returnViaTitle": {
+    "report": "×\n\nWELCOME BACK TO THE HOUSE\n\nWhile you were away\nCREDITED\n51s\nCRAFTED\n1\nCONTRACTS\n0\nGOLD\n+0\n\nAway 51s · 1 mined · 0 ingots cast · 0 arena wins · 0 defeats.\n\nContracts / town sales / arena\n0g / 0g / 0g\nAuthorised supply purchases\n−0g\nMaterial balance / overflow lost\n+1 / 0\nAchievements & discoveries\n\n✦ Mara equipped Bronze Short Sword\n\n✦ Swords mastery reached 1\n\nYour authorised workshop policies kept working.\n\nStill in production: 2 forge jobs · 0 smelting batches.\n\nBack to the house",
+    "title": "While you were away"
+  },
+  "portableTitleVersion": "Local saves · No account · No daily deadlines\nHOUSE EDITION / 3.2.4",
+  "portableContinue": "×\n\nWELCOME BACK TO THE HOUSE\n\nWhile you were away\nCREDITED\n1h\nCRAFTED\n3\nCONTRACTS\n0\nGOLD\n+0\n\nAway 1h · 27 mined · 6 ingots cast · 0 arena wins · 0 defeats.\n\nContracts / town sales / arena\n0g / 0g / 0g\nAuthorised supply purchases\n−0g\nMaterial balance / overflow lost\n+33 / 0\nAchievements & discoveries\n\n✦ Mara equipped Bronze Short Sword\n\n✦ Renn equipped Bronze Short Sword\n\n✦ Swords mastery reached 2\n\nYour authorised workshop policies kept working.\n\nStill in production: 0 forge jobs · 0 smelting batches.\n\nBack to the house",
+  "automatedChecks": 294
+}

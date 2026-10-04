@@ -40,6 +40,80 @@ function paidWork(e) {
     assert(e.command("technique", { jobId: j.id }).ok);
 }
 
+test("Continue reports work earned while the title screen stayed open", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  paidWork(e);
+  const tab = browser(clock, new Map([[KEY, e.exportSave()]]));
+  await tab.flush();
+  await tab.click("continue");
+  await tab.click("title");
+  // Normal browser timer delivery, with no blur or visibility event.
+  for (let i = 0; i < 60; i++) {
+    clock.now += 10000;
+    await tab.flush();
+  }
+  await tab.click("continue");
+  assert.equal(tab.engine.state.stats.crafted, 3);
+  assert.match(tab.nodes.get("#modal-root").innerHTML, /While you were away/);
+  assert.equal(tab.engine.state.pendingOfflineReport.crafted, 3);
+  assert.equal(tab.engine.state.pendingOfflineReport.elapsed, 600000);
+});
+
+test("Continue includes the wait on the initial splash screen", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  paidWork(e);
+  const tab = browser(clock, new Map([[KEY, e.exportSave()]]));
+  await tab.flush();
+  for (let i = 0; i < 60; i++) {
+    clock.now += 10000;
+    await tab.flush();
+  }
+  await tab.click("continue");
+  assert.equal(tab.engine.state.pendingOfflineReport?.crafted, 3);
+  assert.match(tab.nodes.get("#modal-root").innerHTML, /While you were away/);
+});
+
+test("Continue resumes after a blur even if the browser omits the matching focus event", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  paidWork(e);
+  const tab = browser(clock, new Map([[KEY, e.exportSave()]]));
+  await tab.flush();
+  await tab.window.emit("blur");
+  clock.now += 3600000;
+  await tab.click("continue");
+  assert.equal(tab.engine.state.stats.crafted, 3);
+  assert.match(tab.nodes.get("#modal-root").innerHTML, /While you were away/);
+  const before = tab.engine.state.simTime;
+  clock.now += 1000;
+  await tab.flush();
+  assert.equal(tab.engine.state.simTime, before + 1000);
+});
+
+test("closing from the title screen preserves its unclaimed production interval", async () => {
+  const clock = { now: 1000000 },
+    e = house(clock.now);
+  paidWork(e);
+  const tab = browser(clock, new Map([[KEY, e.exportSave()]]));
+  await tab.flush();
+  await tab.click("continue");
+  await tab.click("title");
+  clock.now += 3600000;
+  await tab.flush();
+  await tab.window.emit("pagehide");
+  const reopened = browser(clock, tab.storage, "reopened");
+  await reopened.click("continue"); // Before the deferred startup callback.
+  assert.equal(reopened.engine.state.stats.crafted, 3);
+  assert.equal(reopened.engine.state.pendingOfflineReport.crafted, 3);
+  assert.equal(reopened.engine.state.pendingOfflineReport.elapsed, 3600000);
+  assert.match(
+    reopened.nodes.get("#modal-root").innerHTML,
+    /While you were away/,
+  );
+});
+
 test("a visible tab returning after a suspended timer shows the earned progress popup", async () => {
   const clock = { now: 1000000 },
     e = house(clock.now);

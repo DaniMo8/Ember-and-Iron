@@ -1,0 +1,1774 @@
+TAP version 13
+# Subtest: all room upgrades occupy the requested sections and prerequisite graphs have no cycles
+ok 1 - all room upgrades occupy the requested sections and prerequisite graphs have no cycles
+  ---
+  duration_ms: 84.0893
+  type: 'test'
+  ...
+# Subtest: Forge recipes, rather than level alone, unlock standard and higher-tier patterns
+ok 2 - Forge recipes, rather than level alone, unlock standard and higher-tier patterns
+  ---
+  duration_ms: 37.3556
+  type: 'test'
+  ...
+# Subtest: focused prerequisites cannot be bypassed by a purchase
+ok 3 - focused prerequisites cannot be bypassed by a purchase
+  ---
+  duration_ms: 74.3597
+  type: 'test'
+  ...
+# Subtest: v2 purchases and discovered recipes migrate without granting free ranks or losing investments
+ok 4 - v2 purchases and discovered recipes migrate without granting free ranks or losing investments
+  ---
+  duration_ms: 237.1787
+  type: 'test'
+  ...
+# Subtest: Smelter quality improves new forging jobs while preserving an already active job
+ok 5 - Smelter quality improves new forging jobs while preserving an already active job
+  ---
+  duration_ms: 31.0659
+  type: 'test'
+  ...
+# Subtest: Legacy reduces only rank growth, stays exponential and never skips prerequisites
+ok 6 - Legacy reduces only rank growth, stays exponential and never skips prerequisites
+  ---
+  duration_ms: 98.5971
+  type: 'test'
+  ...
+# Subtest: inherited workers apply once at creation and survive reload without duplicating
+ok 7 - inherited workers apply once at creation and survive reload without duplicating
+  ---
+  duration_ms: 100.9647
+  type: 'test'
+  ...
+# Subtest: Legacy extra ingots match the preview, survive reload and obey no-overflow storage
+ok 8 - Legacy extra ingots match the preview, survive reload and obey no-overflow storage
+  ---
+  duration_ms: 145.2502
+  type: 'test'
+  ...
+# Subtest: rare and legendary archives unlock distinct recipes, retain all crafting gates and persist across retirement
+ok 9 - rare and legendary archives unlock distinct recipes, retain all crafting gates and persist across retirement
+  ---
+  duration_ms: 76.6535
+  type: 'test'
+  ...
+# Subtest: quantity expands existing customer classes; new buyer classes require their unlock
+ok 10 - quantity expands existing customer classes; new buyer classes require their unlock
+  ---
+  duration_ms: 75.3784
+  type: 'test'
+  ...
+# Subtest: one normal campaign reward cannot buy all powerful Legacy upgrades
+ok 11 - one normal campaign reward cannot buy all powerful Legacy upgrades
+  ---
+  duration_ms: 54.5507
+  type: 'test'
+  ...
+# Subtest: Blender atlas covers every current equipment recipe and obtainable material
+ok 12 - Blender atlas covers every current equipment recipe and obtainable material
+  ---
+  duration_ms: 71.5997
+  type: 'test'
+  ...
+# Subtest: each tier has three five-win quest levels and a boss requiring its own three approaches
+ok 13 - each tier has three five-win quest levels and a boss requiring its own three approaches
+  ---
+  duration_ms: 39.5762
+  type: 'test'
+  ...
+# Subtest: gather and launch immediately dispatches ready heroes, clears reservation and prevents duplicates
+ok 14 - gather and launch immediately dispatches ready heroes, clears reservation and prevents duplicates
+  ---
+  duration_ms: 99.5146
+  type: 'test'
+  ...
+# Subtest: gathered heroes complete a failed journey and recovery before one automatic launch
+ok 15 - gathered heroes complete a failed journey and recovery before one automatic launch
+  ---
+  duration_ms: 488.9786
+  type: 'test'
+  ...
+# Subtest: pending launches survive save/reload and offline recovery with identical results
+ok 16 - pending launches survive save/reload and offline recovery with identical results
+  ---
+  duration_ms: 449.4427
+  type: 'test'
+  ...
+# Subtest: a free expedition berth is required even when the selected boss party is home
+ok 17 - a free expedition berth is required even when the selected boss party is home
+  ---
+  duration_ms: 96.6246
+  type: 'test'
+  ...
+# Subtest: cancelling gathering prevents later launch and old manual reservations stay manual
+ok 18 - cancelling gathering prevents later launch and old manual reservations stay manual
+  ---
+  duration_ms: 429.67
+  type: 'test'
+  ...
+# Subtest: invalid selections and missing wins cannot reserve a party or overwrite an existing order
+ok 19 - invalid selections and missing wins cannot reserve a party or overwrite an existing order
+  ---
+  duration_ms: 104.0218
+  type: 'test'
+  ...
+# Subtest: Legacy is locked until the first final boss, persists between generations, and uses one hall
+ok 20 - Legacy is locked until the first final boss, persists between generations, and uses one hall
+  ---
+  duration_ms: 102.2814
+  type: 'test'
+  ...
+# Subtest: campaign catalogue has exactly three distinct patterns per class and tier; application is idempotent
+ok 21 - campaign catalogue has exactly three distinct patterns per class and tier; application is idempotent
+  ---
+  duration_ms: 83.6095
+  type: 'test'
+  ...
+# Subtest: quality labels use fixed standards across the entire 200-quality range
+ok 22 - quality labels use fixed standards across the entire 200-quality range
+  ---
+  duration_ms: 1.4197
+  type: 'test'
+  ...
+# Subtest: crafted prefix and enchanted suffix compose medieval names, improve combat and customer value
+ok 23 - crafted prefix and enchanted suffix compose medieval names, improve combat and customer value
+  ---
+  duration_ms: 44.532
+  type: 'test'
+  ...
+# Subtest: quality115 commissions survive export, validation and reload
+ok 24 - quality115 commissions survive export, validation and reload
+  ---
+  duration_ms: 41.8973
+  type: 'test'
+  ...
+# Subtest: every quest above tier1 requires the previous boss and all bosses are manual
+ok 25 - every quest above tier1 requires the previous boss and all bosses are manual
+  ---
+  duration_ms: 305.3055
+  type: 'test'
+  ...
+# Subtest: boss reservation gathers away heroes through recovery, launches three before charter and rejects duplicate preparation
+ok 26 - boss reservation gathers away heroes through recovery, launches three before charter and rejects duplicate preparation
+  ---
+  duration_ms: 275.281
+  type: 'test'
+  ...
+# Subtest: active and queued cancellation return exact escrow once; a full bin blocks cancellation until space exists
+ok 27 - active and queued cancellation return exact escrow once; a full bin blocks cancellation until space exists
+  ---
+  duration_ms: 44.6516
+  type: 'test'
+  ...
+# Subtest: displays fill lowest quality first, honor holds and protection, and refill immediately after clearance
+ok 28 - displays fill lowest quality first, honor holds and protection, and refill immediately after clearance
+  ---
+  duration_ms: 19.7353
+  type: 'test'
+  ...
+# Subtest: creation accepts names/classes, saves them and limits actual purchases to class equipment
+ok 29 - creation accepts names/classes, saves them and limits actual purchases to class equipment
+  ---
+  duration_ms: 126.6179
+  type: 'test'
+  ...
+# Subtest: invalid or duplicate starting hero names cannot partially create a smith
+ok 30 - invalid or duplicate starting hero names cannot partially create a smith
+  ---
+  duration_ms: 15.3511
+  type: 'test'
+  ...
+# Subtest: recruitment opens an empty paid charter, waits for name/class and spawns exactly one hero
+ok 31 - recruitment opens an empty paid charter, waits for name/class and spawns exactly one hero
+  ---
+  duration_ms: 262.9961
+  type: 'test'
+  ...
+# Subtest: stamina scales real employee effects, only time off restores it, and storage remains physical
+ok 32 - stamina scales real employee effects, only time off restores it, and storage remains physical
+  ---
+  duration_ms: 1772.1766
+  type: 'test'
+  ...
+# Subtest: employees learn only from matching work performed while effective; experience survives reload
+ok 33 - employees learn only from matching work performed while effective; experience survives reload
+  ---
+  duration_ms: 42.2641
+  type: 'test'
+  ...
+# Subtest: new patterns have coherent increasing costs, quality and prestige gates beyond the next tier
+ok 34 - new patterns have coherent increasing costs, quality and prestige gates beyond the next tier
+  ---
+  duration_ms: 51.0645
+  type: 'test'
+  ...
+# Subtest: strict formations protect both rear lines; multi-round replays remain deterministic after reload
+ok 35 - strict formations protect both rear lines; multi-round replays remain deterministic after reload
+  ---
+  duration_ms: 69.8601
+  type: 'test'
+  ...
+# Subtest: ordinary wins add party contributions toward5, bosses stay one clear, and journeys are mostly battle
+ok 36 - ordinary wins add party contributions toward5, bosses stay one clear, and journeys are mostly battle
+  ---
+  duration_ms: 37.2063
+  type: 'test'
+  ...
+# Subtest: ordinary quest pressure rises with mastery and stops increasing after5
+ok 37 - ordinary quest pressure rises with mastery and stops increasing after5
+  ---
+  duration_ms: 46.7998
+  type: 'test'
+  ...
+# Subtest: older campaign saves migrate missing proficiency, company identities and employee stamina once
+ok 38 - older campaign saves migrate missing proficiency, company identities and employee stamina once
+  ---
+  duration_ms: 31.7664
+  type: 'test'
+  ...
+# Subtest: old in-progress orders refund their old escrow after pattern costs change
+ok 39 - old in-progress orders refund their old escrow after pattern costs change
+  ---
+  duration_ms: 52.2545
+  type: 'test'
+  ...
+# Subtest: staff stamina and effects follow the same clock online, offline, and after resting reload
+ok 40 - staff stamina and effects follow the same clock online, offline, and after resting reload
+  ---
+  duration_ms: 340.0327
+  type: 'test'
+  ...
+# Subtest: costly new furnishings grant real recovery and learning effects and survive Legacy
+ok 41 - costly new furnishings grant real recovery and learning effects and survive Legacy
+  ---
+  duration_ms: 94.3907
+  type: 'test'
+  ...
+# Subtest: Legacy depth costs are exponential and the complete tree costs304 sparks
+ok 42 - Legacy depth costs are exponential and the complete tree costs304 sparks
+  ---
+  duration_ms: 55.4882
+  type: 'test'
+  ...
+# Subtest: Legacy requires the tier5 boss and rewards distinct boss difficulty
+ok 43 - Legacy requires the tier5 boss and rewards distinct boss difficulty
+  ---
+  duration_ms: 56.8516
+  type: 'test'
+  ...
+# Subtest: one full campaign buys a meaningful subset of Legacy and old sparks/talents survive
+ok 44 - one full campaign buys a meaningful subset of Legacy and old sparks/talents survive
+  ---
+  duration_ms: 98.606
+  type: 'test'
+  ...
+# Subtest: all common materials and batch sizes1–30 lose money on immediate resale, including maximum legitimate discounts
+ok 45 - all common materials and batch sizes1–30 lose money on immediate resale, including maximum legitimate discounts
+  ---
+  duration_ms: 225.489
+  type: 'test'
+  ...
+# Subtest: raw-sale quotes match execution; bulk and split sales cannot manufacture coins
+ok 46 - raw-sale quotes match execution; bulk and split sales cannot manufacture coins
+  ---
+  duration_ms: 46.9142
+  type: 'test'
+  ...
+# Subtest: clearance offers remain below customer value and current replacement inputs at every tier
+ok 47 - clearance offers remain below customer value and current replacement inputs at every tier
+  ---
+  duration_ms: 324.4414
+  type: 'test'
+  ...
+# Subtest: paid Quartermaster and migrated material warehouses increase actual per-bin storage
+ok 48 - paid Quartermaster and migrated material warehouses increase actual per-bin storage
+  ---
+  duration_ms: 42.607
+  type: 'test'
+  ...
+# Subtest: all96 room nodes and worker hires have positive exponentially escalating prices
+ok 49 - all96 room nodes and worker hires have positive exponentially escalating prices
+  ---
+  duration_ms: 54.2133
+  type: 'test'
+  ...
+# Subtest: four departments each have two specialists and employee upgrades use gold without spending Prospecting
+ok 50 - four departments each have two specialists and employee upgrades use gold without spending Prospecting
+  ---
+  duration_ms: 94.02
+  type: 'test'
+  ...
+# Subtest: specialist hires require their level and signing cost; a duplicate cannot charge again
+ok 51 - specialist hires require their level and signing cost; a duplicate cannot charge again
+  ---
+  duration_ms: 106.2598
+  type: 'test'
+  ...
+# Subtest: specialists improve real smelting, metal quality, extraction and sale effects
+ok 52 - specialists improve real smelting, metal quality, extraction and sale effects
+  ---
+  duration_ms: 74.3289
+  type: 'test'
+  ...
+# Subtest: experience comes from completed departmental work and stops during leave
+ok 53 - experience comes from completed departmental work and stops during leave
+  ---
+  duration_ms: 221.5229
+  type: 'test'
+  ...
+# Subtest: training increases earned work XP and role power without changing permanent bin capacity
+ok 54 - training increases earned work XP and role power without changing permanent bin capacity
+  ---
+  duration_ms: 54.8036
+  type: 'test'
+  ...
+# Subtest: welfare slows stamina loss, improves rest and never grows stamina above 100
+ok 55 - welfare slows stamina loss, improves rest and never grows stamina above 100
+  ---
+  duration_ms: 551.1606
+  type: 'test'
+  ...
+# Subtest: old hires and paid shift roster survive the move to Employees without a purchase or reset
+ok 56 - old hires and paid shift roster survive the move to Employees without a purchase or reset
+  ---
+  duration_ms: 70.7238
+  type: 'test'
+  ...
+# Subtest: employees and their earnings remain equivalent through offline work and a saved reload
+ok 57 - employees and their earnings remain equivalent through offline work and a saved reload
+  ---
+  duration_ms: 381.2737
+  type: 'test'
+  ...
+# Subtest: employee goals and pricing expose prerequisites; forged employee ranks are rejected
+ok 58 - employee goals and pricing expose prerequisites; forged employee ranks are rejected
+  ---
+  duration_ms: 39.3055
+  type: 'test'
+  ...
+# Subtest: an old pinned Forge shift goal migrates on load and import without losing its target rank
+ok 59 - an old pinned Forge shift goal migrates on load and import without losing its target rank
+  ---
+  duration_ms: 90.511
+  type: 'test'
+  ...
+# Subtest: employee room growth respects first-generation and boss gates
+ok 60 - employee room growth respects first-generation and boss gates
+  ---
+  duration_ms: 44.7354
+  type: 'test'
+  ...
+# Subtest: all legal creation builds support all starter recipe gates; stats change real outcomes
+ok 61 - all legal creation builds support all starter recipe gates; stats change real outcomes
+  ---
+  duration_ms: 106.1989
+  type: 'test'
+  ...
+# Subtest: queue escrows exactly once; technique once; cancel refunds; output awards only once
+ok 62 - queue escrows exactly once; technique once; cancel refunds; output awards only once
+  ---
+  duration_ms: 42.146
+  type: 'test'
+  ...
+# Subtest: queue capacity, storage reservation and parallel lanes prevent overproduction
+ok 63 - queue capacity, storage reservation and parallel lanes prevent overproduction
+  ---
+  duration_ms: 10.4319
+  type: 'test'
+  ...
+# Subtest: quarry uses free elapsed-time production, worker yield and exact manual cooldown
+ok 64 - quarry uses free elapsed-time production, worker yield and exact manual cooldown
+  ---
+  duration_ms: 1.6637
+  type: 'test'
+  ...
+# Subtest: advanced quarry and supplier unlocks preserve AND gates around alternate routes
+ok 65 - advanced quarry and supplier unlocks preserve AND gates around alternate routes
+  ---
+  duration_ms: 0.8926
+  type: 'test'
+  ...
+# Subtest: seeded battle results agree after reload and quality changes actual combat
+ok 66 - seeded battle results agree after reload and quality changes actual combat
+  ---
+  duration_ms: 6.2497
+  type: 'test'
+  ...
+# Subtest: guild ranks permit parties and finale actually requires three heroes
+ok 67 - guild ranks permit parties and finale actually requires three heroes
+  ---
+  duration_ms: 32.5426
+  type: 'test'
+  ...
+# Subtest: failed adventurer recovers with same identity, quest, history and equipment
+ok 68 - failed adventurer recovers with same identity, quest, history and equipment
+  ---
+  duration_ms: 8.1596
+  type: 'test'
+  ...
+# Subtest: save validation rejects malformed state without changing current save
+ok 69 - save validation rejects malformed state without changing current save
+  ---
+  duration_ms: 1.7571
+  type: 'test'
+  ...
+# Subtest: offline cap consumes discarded wall time; no repeated craft or return rewards
+ok 70 - offline cap consumes discarded wall time; no repeated craft or return rewards
+  ---
+  duration_ms: 2488.4618
+  type: 'test'
+  ...
+# Subtest: equivalent time chunks produce identical scheduled production and seeded events
+ok 71 - equivalent time chunks produce identical scheduled production and seeded events
+  ---
+  duration_ms: 55.2796
+  type: 'test'
+  ...
+# Subtest: enchantments respect slots and add authored flat values with captured knowledge scaling
+ok 72 - enchantments respect slots and add authored flat values with captured knowledge scaling
+  ---
+  duration_ms: 4.376
+  type: 'test'
+  ...
+# Subtest: legacy reset keeps exactly promised records and enforces sequential talents
+ok 73 - legacy reset keeps exactly promised records and enforces sequential talents
+  ---
+  duration_ms: 1.3861
+  type: 'test'
+  ...
+# Subtest: full resource storage has explicit liquidation recovery without spending escrow
+ok 74 - full resource storage has explicit liquidation recovery without spending escrow
+  ---
+  duration_ms: 1.4536
+  type: 'test'
+  ...
+# Subtest: active craft affix seed is stable across online customer activity and offline time
+ok 75 - active craft affix seed is stable across online customer activity and offline time
+  ---
+  duration_ms: 2.8826
+  type: 'test'
+  ...
+# Subtest: customers who recover offline continue the same autonomous retry lifecycle
+ok 76 - customers who recover offline continue the same autonomous retry lifecycle
+  ---
+  duration_ms: 257.3961
+  type: 'test'
+  ...
+# Subtest: mailbox reward delivery and claim cannot duplicate quest proceeds
+ok 77 - mailbox reward delivery and claim cannot duplicate quest proceeds
+  ---
+  duration_ms: 2.0431
+  type: 'test'
+  ...
+# Subtest: relationship milestones create named commissions and delivery pays exactly once
+ok 78 - relationship milestones create named commissions and delivery pays exactly once
+  ---
+  duration_ms: 1.8688
+  type: 'test'
+  ...
+# Subtest: masterwork commission requires quality85 and cannot spend protected heirlooms
+ok 79 - masterwork commission requires quality85 and cannot spend protected heirlooms
+  ---
+  duration_ms: 0.535
+  type: 'test'
+  ...
+# Subtest: unlocked advanced quests reach new visitors and failed returnees retain retry targets
+ok 80 - unlocked advanced quests reach new visitors and failed returnees retain retry targets
+  ---
+  duration_ms: 1.6257
+  type: 'test'
+  ...
+# Subtest: hidden ticks and reloads share one eight-hour allowance until foreground resumes
+ok 81 - hidden ticks and reloads share one eight-hour allowance until foreground resumes
+  ---
+  duration_ms: 6429.6404
+  type: 'test'
+  ...
+# Subtest: offline procurement cap persists across hidden ticks and reload but resets on foreground
+ok 82 - offline procurement cap persists across hidden ticks and reload but resets on foreground
+  ---
+  duration_ms: 14.1068
+  type: 'test'
+  ...
+# Subtest: story choices apply lasting bonuses once and preserve the generation branch
+ok 83 - story choices apply lasting bonuses once and preserve the generation branch
+  ---
+  duration_ms: 0.7031
+  type: 'test'
+  ...
+# Subtest: shelf customers buy and depart autonomously from a fresh forge
+ok 84 - shelf customers buy and depart autonomously from a fresh forge
+  ---
+  duration_ms: 5.8799
+  type: 'test'
+  ...
+# Subtest: NPC checkout respects budget, two-handed equipment and displayed stock
+ok 85 - NPC checkout respects budget, two-handed equipment and displayed stock
+  ---
+  duration_ms: 0.7035
+  type: 'test'
+  ...
+# Subtest: autonomous commissions accept and deliver only matching shelf stock
+ok 86 - autonomous commissions accept and deliver only matching shelf stock
+  ---
+  duration_ms: 0.6422
+  type: 'test'
+  ...
+# Subtest: online and offline autonomous customers produce the same purchases, returns and battles
+ok 87 - online and offline autonomous customers produce the same purchases, returns and battles
+  ---
+  duration_ms: 199.0158
+  type: 'test'
+  ...
+# Subtest: the three-hero finale assembles itself and story branches resolve autonomously
+ok 88 - the three-hero finale assembles itself and story branches resolve autonomously
+  ---
+  duration_ms: 149.7811
+  type: 'test'
+  ...
+# Subtest: old saves migrate NPC clocks without changing existing equipment or reserved items
+ok 89 - old saves migrate NPC clocks without changing existing equipment or reserved items
+  ---
+  duration_ms: 1.2508
+  type: 'test'
+  ...
+# Subtest: customers value resistance for their quest and deferred rewards unpack automatically
+ok 90 - customers value resistance for their quest and deferred rewards unpack automatically
+  ---
+  duration_ms: 0.8517
+  type: 'test'
+  ...
+# Subtest: late finishing adds the full original duration, quality and additive prefix chance exactly once
+ok 91 - late finishing adds the full original duration, quality and additive prefix chance exactly once
+  ---
+  duration_ms: 256.2688
+  type: 'test'
+  ...
+# Subtest: queued finishing survives reload, captures current bonuses at start and applies only once
+ok 92 - queued finishing survives reload, captures current bonuses at start and applies only once
+  ---
+  duration_ms: 100.9195
+  type: 'test'
+  ...
+# Subtest: finishing respects quality ceilings while adding prefix chance beyond the normal chance cap
+ok 93 - finishing respects quality ceilings while adding prefix chance beyond the normal chance cap
+  ---
+  duration_ms: 69.8045
+  type: 'test'
+  ...
+# Subtest: a seeded craft gains an actual prefix with finishing, with identical online and offline completion
+ok 94 - a seeded craft gains an actual prefix with finishing, with identical online and offline completion
+  ---
+  duration_ms: 197.9035
+  type: 'test'
+  ...
+# Subtest: finishing costs no extra materials and cancellation still refunds active and queued escrow exactly
+ok 95 - finishing costs no extra materials and cancellation still refunds active and queued escrow exactly
+  ---
+  duration_ms: 23.073
+  type: 'test'
+  ...
+# Subtest: older active orders with a finish already applied retain their saved time and bonus
+ok 96 - older active orders with a finish already applied retain their saved time and bonus
+  ---
+  duration_ms: 36.9341
+  type: 'test'
+  ...
+# Subtest: fresh guidance honors a valid selected recipe and both selectors are read-only
+ok 97 - fresh guidance honors a valid selected recipe and both selectors are read-only
+  ---
+  duration_ms: 10.0179
+  type: 'test'
+  ...
+# Subtest: fuel and bronze shortages lead to free gathering, not automatic purchases or another recipe
+ok 98 - fuel and bronze shortages lead to free gathering, not automatic purchases or another recipe
+  ---
+  duration_ms: 2.4978
+  type: 'test'
+  ...
+# Subtest: fittings purchases show actual deficits while a penniless empty forge gets valid rescue guidance
+ok 99 - fittings purchases show actual deficits while a penniless empty forge gets valid rescue guidance
+  ---
+  duration_ms: 3.737
+  type: 'test'
+  ...
+# Subtest: storage pressure does not direct players to gather into a full warehouse or sell keepsakes
+ok 100 - storage pressure does not direct players to gather into a full warehouse or sell keepsakes
+  ---
+  duration_ms: 14.113
+  type: 'test'
+  ...
+# Subtest: working forge offers one real temper action then timer guidance without duplicating the craft
+ok 101 - working forge offers one real temper action then timer guidance without duplicating the craft
+  ---
+  duration_ms: 4.881
+  type: 'test'
+  ...
+# Subtest: stored stock, a matching customer, and the first departure each have a different next step
+ok 102 - stored stock, a matching customer, and the first departure each have a different next step
+  ---
+  duration_ms: 13.6186
+  type: 'test'
+  ...
+# Subtest: the next tier uses exact proficiency, stat and station gates and respects discovery OR
+ok 103 - the next tier uses exact proficiency, stat and station gates and respects discovery OR
+  ---
+  duration_ms: 3.1625
+  type: 'test'
+  ...
+# Subtest: mastered tiers point to mastery or genuine commissions, with no unrelated collection progress
+ok 104 - mastered tiers point to mastery or genuine commissions, with no unrelated collection progress
+  ---
+  duration_ms: 3.0101
+  type: 'test'
+  ...
+# Subtest: full materials and waiting parties point to gift space after points and finished-storage priorities
+ok 105 - full materials and waiting parties point to gift space after points and finished-storage priorities
+  ---
+  duration_ms: 4.3041
+  type: 'test'
+  ...
+# Subtest: gift guidance clears when the next bundle has room and never watches a pending battle
+ok 106 - gift guidance clears when the next bundle has room and never watches a pending battle
+  ---
+  duration_ms: 1.5507
+  type: 'test'
+  ...
+# Subtest: purchased oil is required only for tiers3–5, cannot be mined, and applying content is idempotent
+ok 107 - purchased oil is required only for tiers3–5, cannot be mined, and applying content is idempotent
+  ---
+  duration_ms: 60.6791
+  type: 'test'
+  ...
+# Subtest: oil purchases, advanced crafting and cancellation account for real materials and gold
+ok 108 - oil purchases, advanced crafting and cancellation account for real materials and gold
+  ---
+  duration_ms: 45.7079
+  type: 'test'
+  ...
+# Subtest: old supply-free orders and saves migrate without inventing an oil refund
+ok 109 - old supply-free orders and saves migrate without inventing an oil refund
+  ---
+  duration_ms: 66.073
+  type: 'test'
+  ...
+# Subtest: hero forge suggestions are read-only, class-compatible and match the actual purchase comparison
+ok 110 - hero forge suggestions are read-only, class-compatible and match the actual purchase comparison
+  ---
+  duration_ms: 23.7538
+  type: 'test'
+  ...
+# Subtest: suggestions separate shortages and queue limits, and reject downgrades to strong enchanted gear
+ok 111 - suggestions separate shortages and queue limits, and reject downgrades to strong enchanted gear
+  ---
+  duration_ms: 93.7295
+  type: 'test'
+  ...
+# Subtest: offhand recommendations respect two-handed gear and include the cost of losing an equipped offhand
+ok 112 - offhand recommendations respect two-handed gear and include the cost of losing an equipped offhand
+  ---
+  duration_ms: 125.9811
+  type: 'test'
+  ...
+# Subtest: hero combat summary uses final equipment/training stats and actual level experience thresholds
+ok 113 - hero combat summary uses final equipment/training stats and actual level experience thresholds
+  ---
+  duration_ms: 27.7111
+  type: 'test'
+  ...
+# Subtest: active combat stat cards use the dispatched party snapshot and replay health
+ok 114 - active combat stat cards use the dispatched party snapshot and replay health
+  ---
+  duration_ms: 44.725
+  type: 'test'
+  ...
+# Subtest: device options round-trip independently of career data
+ok 115 - device options round-trip independently of career data
+  ---
+  duration_ms: 1.7453
+  type: 'test'
+  ...
+# Subtest: invalid or unavailable storage falls back without blocking the game
+ok 116 - invalid or unavailable storage falls back without blocking the game
+  ---
+  duration_ms: 0.3926
+  type: 'test'
+  ...
+# Subtest: option values clamp safely and zero volume survives normalization
+ok 117 - option values clamp safely and zero volume survives normalization
+  ---
+  duration_ms: 0.2217
+  type: 'test'
+  ...
+# Subtest: transparency changes surfaces only and zero dimming clears the scenery
+ok 118 - transparency changes surfaces only and zero dimming clears the scenery
+  ---
+  duration_ms: 0.3157
+  type: 'test'
+  ...
+# Subtest: every room has a distinct original, bounded 32-bar score
+ok 119 - every room has a distinct original, bounded 32-bar score
+  ---
+  duration_ms: 14.4664
+  type: 'test'
+  ...
+# Subtest: audio stays lazy until a user gesture and tolerates absent browser audio
+ok 120 - audio stays lazy until a user gesture and tolerates absent browser audio
+  ---
+  duration_ms: 1.5153
+  type: 'test'
+  ...
+# Subtest: earned opening: spending all starting gold on wood still leaves a public-command route to contract income
+ok 121 - earned opening: spending all starting gold on wood still leaves a public-command route to contract income
+  ---
+  duration_ms: 334.3966
+  type: 'test'
+  ...
+# Subtest: campaign fixture: an absence is credited up to24h cumulatively, not once per tick call
+ok 122 - campaign fixture: an absence is credited up to24h cumulatively, not once per tick call
+  ---
+  duration_ms: 23071.1734
+  type: 'test'
+  ...
+# Subtest: campaign fixture: completing all other Crown requirements does not allow early first retirement
+ok 123 - campaign fixture: completing all other Crown requirements does not allow early first retirement
+  ---
+  duration_ms: 47.2736
+  type: 'test'
+  ...
+# Subtest: campaign fixture: research consumes premium input credits with the actual ingots
+ok 124 - campaign fixture: research consumes premium input credits with the actual ingots
+  ---
+  duration_ms: 42.4186
+  type: 'test'
+  ...
+# Subtest: campaign fixture: contract refresh offers capable higher-tier work after old orders are delivered
+ok 125 - campaign fixture: contract refresh offers capable higher-tier work after old orders are delivered
+  ---
+  duration_ms: 409.8134
+  type: 'test'
+  ...
+# Subtest: campaign fixture: equivalent whole-absence and small-step simulation discover methods at the same useful time
+ok 126 - campaign fixture: equivalent whole-absence and small-step simulation discover methods at the same useful time
+  ---
+  duration_ms: 8628.1287
+  type: 'test'
+  ...
+# Subtest: earned-stall regression: rotating work skips starforged orders when their ore path is locked
+ok 127 - earned-stall regression: rotating work skips starforged orders when their ore path is locked
+  ---
+  duration_ms: 54.2194
+  type: 'test'
+  ...
+# Subtest: Legacy remains absent until both full age and the fifth champion, including after reload
+ok 128 - Legacy remains absent until both full age and the fifth champion, including after reload
+  ---
+  duration_ms: 256.8454
+  type: 'test'
+  ...
+# Subtest: old bronze contracts cannot satisfy a higher-material accreditation
+ok 129 - old bronze contracts cannot satisfy a higher-material accreditation
+  ---
+  duration_ms: 111.395
+  type: 'test'
+  ...
+# Subtest: repeat room upgrades require new licences while one-off automation remains reachable
+ok 130 - repeat room upgrades require new licences while one-off automation remains reachable
+  ---
+  duration_ms: 74.6385
+  type: 'test'
+  ...
+# Subtest: low-tier smith experience tapers while advanced and inherited commissions remain meaningful
+ok 131 - low-tier smith experience tapers while advanced and inherited commissions remain meaningful
+  ---
+  duration_ms: 64.3452
+  type: 'test'
+  ...
+# Subtest: every relic family has seventeen distinct gated patterns and substantial inputs
+ok 132 - every relic family has seventeen distinct gated patterns and substantial inputs
+  ---
+  duration_ms: 78.6624
+  type: 'test'
+  ...
+# Subtest: decoding a pattern cannot bypass its generation or high attribute requirements
+ok 133 - decoding a pattern cannot bypass its generation or high attribute requirements
+  ---
+  duration_ms: 106.7632
+  type: 'test'
+  ...
+# Subtest: research completes once offline and is retained together with seals and an oath
+ok 134 - research completes once offline and is retained together with seals and an oath
+  ---
+  duration_ms: 91.2926
+  type: 'test'
+  ...
+# Subtest: Crucible rewards are paid once; replay inspection cannot farm seals
+ok 135 - Crucible rewards are paid once; replay inspection cannot farm seals
+  ---
+  duration_ms: 197.5958
+  type: 'test'
+  ...
+# Subtest: Crucible circles grow in difficulty and later generations open more depth
+ok 136 - Crucible circles grow in difficulty and later generations open more depth
+  ---
+  duration_ms: 132.8221
+  type: 'test'
+  ...
+# Subtest: inherited sigils consume exact permanent currency and scale the stats used in combat
+ok 137 - inherited sigils consume exact permanent currency and scale the stats used in combat
+  ---
+  duration_ms: 93.6281
+  type: 'test'
+  ...
+# Subtest: set bonuses require matching pieces and appear in final fighter stats
+ok 138 - set bonuses require matching pieces and appear in final fighter stats
+  ---
+  duration_ms: 87.9865
+  type: 'test'
+  ...
+# Subtest: a new oath affects only the next generation and restores after save
+ok 139 - a new oath affects only the next generation and restores after save
+  ---
+  duration_ms: 108.5561
+  type: 'test'
+  ...
+# Subtest: each room can evolve independently and grand scenes remain a later-generation discovery
+ok 140 - each room can evolve independently and grand scenes remain a later-generation discovery
+  ---
+  duration_ms: 137.2191
+  type: 'test'
+  ...
+# Subtest: offline return itemises production, spending and new discoveries without duplicate credit
+ok 141 - offline return itemises production, spending and new discoveries without duplicate credit
+  ---
+  duration_ms: 61.2978
+  type: 'test'
+  ...
+# Subtest: unknown research, forged trial depths and malformed permanent ranks are rejected atomically
+ok 142 - unknown research, forged trial depths and malformed permanent ranks are rejected atomically
+  ---
+  duration_ms: 68.6487
+  type: 'test'
+  ...
+# Subtest: discovery-only enchantments are unavailable before their method is learned
+ok 143 - discovery-only enchantments are unavailable before their method is learned
+  ---
+  duration_ms: 62.9007
+  type: 'test'
+  ...
+# Subtest: imported early campaign saves gain missing material ledgers and inherited sigils
+ok 144 - imported early campaign saves gain missing material ledgers and inherited sigils
+  ---
+  duration_ms: 54.3899
+  type: 'test'
+  ...
+# Subtest: return ledger explains a spent supply allowance without making unauthorised purchases
+ok 145 - return ledger explains a spent supply allowance without making unauthorised purchases
+  ---
+  duration_ms: 67.6103
+  type: 'test'
+  ...
+# Subtest: Iron keeps its champion lock; the Surveyor's ledger is an independent optional upgrade
+ok 146 - Iron keeps its champion lock; the Surveyor's ledger is an independent optional upgrade
+  ---
+  duration_ms: 184.3922
+  type: 'test'
+  ...
+# Subtest: contract work stays in the warehouse and completes automatically without buying a clerk
+ok 147 - contract work stays in the warehouse and completes automatically without buying a clerk
+  ---
+  duration_ms: 309.2258
+  type: 'test'
+  ...
+# Subtest: warehouse contract completion runs offline and its payment cannot repeat on reload
+ok 148 - warehouse contract completion runs offline and its payment cannot repeat on reload
+  ---
+  duration_ms: 478.1688
+  type: 'test'
+  ...
+# Subtest: display fills and refills with the weakest sale stock while contract and team pieces stay held
+ok 149 - display fills and refills with the weakest sale stock while contract and team pieces stay held
+  ---
+  duration_ms: 166.6209
+  type: 'test'
+  ...
+# Subtest: team work equips its selected fighter automatically; equal or weaker work remains protected
+ok 150 - team work equips its selected fighter automatically; equal or weaker work remains protected
+  ---
+  duration_ms: 378.2498
+  type: 'test'
+  ...
+# Subtest: team work waits through a live bout and equips afterwards without changing the replay snapshot
+ok 151 - team work waits through a live bout and equips afterwards without changing the replay snapshot
+  ---
+  duration_ms: 126.5056
+  type: 'test'
+  ...
+# Subtest: equipment suggestions exclude equals and downgrades, and disclose both sides of a tradeoff
+ok 152 - equipment suggestions exclude equals and downgrades, and disclose both sides of a tradeoff
+  ---
+  duration_ms: 62.6542
+  type: 'test'
+  ...
+# Subtest: old saves enable automatic delivery, but a later explicit pause survives a reload
+ok 153 - old saves enable automatic delivery, but a later explicit pause survives a reload
+  ---
+  duration_ms: 152.1517
+  type: 'test'
+  ...
+# Subtest: a live refresh waits across a held mouse press and its delayed click
+ok 154 - a live refresh waits across a held mouse press and its delayed click
+  ---
+  duration_ms: 1.3106
+  type: 'test'
+  ...
+# Subtest: releasing one touch cannot interrupt a second held touch
+ok 155 - releasing one touch cannot interrupt a second held touch
+  ---
+  duration_ms: 0.3217
+  type: 'test'
+  ...
+# Subtest: Space and Enter activation keep the focused button intact until key release
+ok 156 - Space and Enter activation keep the focused button intact until key release
+  ---
+  duration_ms: 0.3717
+  type: 'test'
+  ...
+# Subtest: typing keys and secondary mouse buttons do not latch the render guard
+ok 157 - typing keys and secondary mouse buttons do not latch the render guard
+  ---
+  duration_ms: 0.188
+  type: 'test'
+  ...
+# Subtest: focus loss and a hidden tab recover a press whose release happened outside the page
+ok 158 - focus loss and a hidden tab recover a press whose release happened outside the page
+  ---
+  duration_ms: 1.347
+  type: 'test'
+  ...
+# Subtest: review: Craft max accounts for both treatment gold and the selected grade
+ok 159 - review: Craft max accounts for both treatment gold and the selected grade
+  ---
+  duration_ms: 266.1096
+  type: 'test'
+  ...
+# Subtest: review: graded Smelt max includes its additional coal
+ok 160 - review: graded Smelt max includes its additional coal
+  ---
+  duration_ms: 90.0847
+  type: 'test'
+  ...
+# Subtest: review: simultaneous standard and premium smelts attribute overflow by delivery order
+ok 161 - review: simultaneous standard and premium smelts attribute overflow by delivery order
+  ---
+  duration_ms: 234.9736
+  type: 'test'
+  ...
+# Subtest: review: alloy cancellation returns the exact grade of its consumed intermediate ingots
+ok 162 - review: alloy cancellation returns the exact grade of its consumed intermediate ingots
+  ---
+  duration_ms: 121.133
+  type: 'test'
+  ...
+# Subtest: review: unequipping cannot occupy a pending craft output reservation
+ok 163 - review: unequipping cannot occupy a pending craft output reservation
+  ---
+  duration_ms: 275.4092
+  type: 'test'
+  ...
+# Subtest: review: fractional fighter intervals always schedule integer match and recovery times
+ok 164 - review: fractional fighter intervals always schedule integer match and recovery times
+  ---
+  duration_ms: 242.5177
+  type: 'test'
+  ...
+# Subtest: review: highest-tier controlled team can win the final champion and retire into every charter
+ok 165 - review: highest-tier controlled team can win the final champion and retire into every charter
+  ---
+  duration_ms: 569.2334
+  type: 'test'
+  ...
+# Subtest: all seven callings create valid houses with twenty allocated points and authored fighters
+ok 166 - all seven callings create valid houses with twenty allocated points and authored fighters
+  ---
+  duration_ms: 1304.9126
+  type: 'test'
+  ...
+# Subtest: team commissions auto-equip and remain protected from contracts
+ok 167 - team commissions auto-equip and remain protected from contracts
+  ---
+  duration_ms: 402.606
+  type: 'test'
+  ...
+# Subtest: equipping is free and preserves both displaced pieces atomically
+ok 168 - equipping is free and preserves both displaced pieces atomically
+  ---
+  duration_ms: 163.7778
+  type: 'test'
+  ...
+# Subtest: invalid equipment compatibility and full-storage swaps leave every item unchanged
+ok 169 - invalid equipment compatibility and full-storage swaps leave every item unchanged
+  ---
+  duration_ms: 130.4922
+  type: 'test'
+  ...
+# Subtest: house roster never buys equipment or automatically departs on Classic quests
+ok 170 - house roster never buys equipment or automatically departs on Classic quests
+  ---
+  duration_ms: 1488.2309
+  type: 'test'
+  ...
+# Subtest: a defeated unequipped team keeps gear and recovers without travel states
+ok 171 - a defeated unequipped team keeps gear and recovers without travel states
+  ---
+  duration_ms: 159.0408
+  type: 'test'
+  ...
+# Subtest: simulations are deterministic, protect the front line and have bounded logs
+ok 172 - simulations are deterministic, protect the front line and have bounded logs
+  ---
+  duration_ms: 165.8245
+  type: 'test'
+  ...
+# Subtest: fixed opponent seed survives reload and upgrades affect only later matches
+ok 173 - fixed opponent seed survives reload and upgrades affect only later matches
+  ---
+  duration_ms: 156.6176
+  type: 'test'
+  ...
+# Subtest: one match awards one win; five wins also require all three styles
+ok 174 - one match awards one win; five wins also require all three styles
+  ---
+  duration_ms: 268.3536
+  type: 'test'
+  ...
+# Subtest: replaying or settling twice cannot pay again; exhibitions cannot qualify
+ok 175 - replaying or settling twice cannot pay again; exhibitions cannot qualify
+  ---
+  duration_ms: 100.8897
+  type: 'test'
+  ...
+# Subtest: champion launch is gated and a win opens exactly the next material licence
+ok 176 - champion launch is gated and a win opens exactly the next material licence
+  ---
+  duration_ms: 206.1269
+  type: 'test'
+  ...
+# Subtest: contracts deliver only matching unprotected stock and disclose a once-only price
+ok 177 - contracts deliver only matching unprotected stock and disclose a once-only price
+  ---
+  duration_ms: 183.8797
+  type: 'test'
+  ...
+# Subtest: a zero-gold opening can sell mined ore, buy supplies and fulfil basic work
+ok 178 - a zero-gold opening can sell mined ore, buy supplies and fulfil basic work
+  ---
+  duration_ms: 88.2369
+  type: 'test'
+  ...
+# Subtest: house upgrades spend gold, retain earned records and grow exponentially
+ok 179 - house upgrades spend gold, retain earned records and grow exponentially
+  ---
+  duration_ms: 46.3609
+  type: 'test'
+  ...
+# Subtest: paid prefix treatment and metal properties persist on the completed item
+ok 180 - paid prefix treatment and metal properties persist on the completed item
+  ---
+  duration_ms: 157.9415
+  type: 'test'
+  ...
+# Subtest: cancelled treated work refunds its exact gold and material escrow
+ok 181 - cancelled treated work refunds its exact gold and material escrow
+  ---
+  duration_ms: 68.3102
+  type: 'test'
+  ...
+# Subtest: graded smelting reserves and refunds extra coal, then records actual accepted output
+ok 182 - graded smelting reserves and refunds extra coal, then records actual accepted output
+  ---
+  duration_ms: 85.2549
+  type: 'test'
+  ...
+# Subtest: online, offline and save-reloaded active bouts have the same result and payout
+ok 183 - online, offline and save-reloaded active bouts have the same result and payout
+  ---
+  duration_ms: 277.9931
+  type: 'test'
+  ...
+# Subtest: Classic migration is explicit, preserves investments and does not claim arena wins
+ok 184 - Classic migration is explicit, preserves investments and does not claim arena wins
+  ---
+  duration_ms: 114.4132
+  type: 'test'
+  ...
+# Subtest: first-visit explanations persist independently per room and invalid saves are rejected
+ok 185 - first-visit explanations persist independently per room and invalid saves are rejected
+  ---
+  duration_ms: 101.4175
+  type: 'test'
+  ...
+# Subtest: catalogue respects an offline purchase budget across save reloads
+ok 186 - catalogue respects an offline purchase budget across save reloads
+  ---
+  duration_ms: 664.6013
+  type: 'test'
+  ...
+# Subtest: catalogue never buys or forges below the disclosed contract quality
+ok 187 - catalogue never buys or forges below the disclosed contract quality
+  ---
+  duration_ms: 138.7686
+  type: 'test'
+  ...
+# Subtest: invalid match and mixed policy commands are atomic, and champion stats cannot be lowered
+ok 188 - invalid match and mixed policy commands are atomic, and champion stats cannot be lowered
+  ---
+  duration_ms: 72.4899
+  type: 'test'
+  ...
+# Subtest: mage cleave respects front lines and guardians protect their allies
+ok 189 - mage cleave respects front lines and guardians protect their allies
+  ---
+  duration_ms: 3.086
+  type: 'test'
+  ...
+# Subtest: commercial price bonuses apply once to contracts and affect town offers
+ok 190 - commercial price bonuses apply once to contracts and affect town offers
+  ---
+  duration_ms: 105.5828
+  type: 'test'
+  ...
+# Subtest: displayed and compared fighter stats include the same doctrine as the frozen match
+ok 191 - displayed and compared fighter stats include the same doctrine as the frozen match
+  ---
+  duration_ms: 116.0554
+  type: 'test'
+  ...
+# Subtest: Continue reports work earned while the title screen stayed open
+ok 192 - Continue reports work earned while the title screen stayed open
+  ---
+  duration_ms: 699.6086
+  type: 'test'
+  ...
+# Subtest: Continue includes the wait on the initial splash screen
+ok 193 - Continue includes the wait on the initial splash screen
+  ---
+  duration_ms: 1003.0274
+  type: 'test'
+  ...
+# Subtest: Continue resumes after a blur even if the browser omits the matching focus event
+ok 194 - Continue resumes after a blur even if the browser omits the matching focus event
+  ---
+  duration_ms: 1844.1204
+  type: 'test'
+  ...
+# Subtest: closing from the title screen preserves its unclaimed production interval
+ok 195 - closing from the title screen preserves its unclaimed production interval
+  ---
+  duration_ms: 1623.4612
+  type: 'test'
+  ...
+# Subtest: a visible tab returning after a suspended timer shows the earned progress popup
+ok 196 - a visible tab returning after a suspended timer shows the earned progress popup
+  ---
+  duration_ms: 1296.5702
+  type: 'test'
+  ...
+# Subtest: unread earnings survive reopening and a zero-progress reconciliation
+ok 197 - unread earnings survive reopening and a zero-progress reconciliation
+  ---
+  duration_ms: 1570.1195
+  type: 'test'
+  ...
+# Subtest: returning with an upgrade overlay open still presents the offline popup
+ok 198 - returning with an upgrade overlay open still presents the offline popup
+  ---
+  duration_ms: 1484.7671
+  type: 'test'
+  ...
+# Subtest: focus and visibility events credit one absence, and duplicate focus cannot replay live ticks
+ok 199 - focus and visibility events credit one absence, and duplicate focus cannot replay live ticks
+  ---
+  duration_ms: 1541.6928
+  type: 'test'
+  ...
+# Subtest: closing an unfocused visible window does not discard the time since it lost focus
+ok 200 - closing an unfocused visible window does not discard the time since it lost focus
+  ---
+  duration_ms: 1585.446
+  type: 'test'
+  ...
+# Subtest: reloading active and queued work completes mining, smelting and finished team crafts offline
+ok 201 - reloading active and queued work completes mining, smelting and finished team crafts offline
+  ---
+  duration_ms: 1405.6397
+  type: 'test'
+  ...
+# Subtest: an old hidden tab must reload newer paid queues before reclaiming the save
+ok 202 - an old hidden tab must reload newer paid queues before reclaiming the save
+  ---
+  duration_ms: 158.4858
+  type: 'test'
+  ...
+# Subtest: loading while hidden must not mark the absence as played before offline catch-up
+ok 203 - loading while hidden must not mark the absence as played before offline catch-up
+  ---
+  duration_ms: 1174.9332
+  type: 'test'
+  ...
+# Subtest: cold-load output is persisted and cannot be credited again after a second reload
+ok 204 - cold-load output is persisted and cannot be credited again after a second reload
+  ---
+  duration_ms: 784.0043
+  type: 'test'
+  ...
+# Subtest: a short absence retains unfinished paid jobs, order, finishing and material escrow
+ok 205 - a short absence retains unfinished paid jobs, order, finishing and material escrow
+  ---
+  duration_ms: 74.8796
+  type: 'test'
+  ...
+# Subtest: returning to an existing hidden tab advances all production once
+ok 206 - returning to an existing hidden tab advances all production once
+  ---
+  duration_ms: 625.2879
+  type: 'test'
+  ...
+# Subtest: hiding during chunked recovery cannot consume or restart the absence allowance
+ok 207 - hiding during chunked recovery cannot consume or restart the absence allowance
+  ---
+  duration_ms: 1354.0891
+  type: 'test'
+  ...
+# Subtest: importing an older save completes its paid production before updating its timestamp
+ok 208 - importing an older save completes its paid production before updating its timestamp
+  ---
+  duration_ms: 676.0872
+  type: 'test'
+  ...
+# Subtest: closing an old tab cannot overwrite a newer queue after its lease expires
+ok 209 - closing an old tab cannot overwrite a newer queue after its lease expires
+  ---
+  duration_ms: 94.8632
+  type: 'test'
+  ...
+# Subtest: reopening resumes automated mining, ingot targets, catalogue work and contract delivery together
+ok 210 - reopening resumes automated mining, ingot targets, catalogue work and contract delivery together
+  ---
+  duration_ms: 4540.4235
+  type: 'test'
+  ...
+# Subtest: a saved character-creation screen does not wait for nonexistent offline work
+ok 211 - a saved character-creation screen does not wait for nonexistent offline work
+  ---
+  duration_ms: 125.9911
+  type: 'test'
+  ...
+# Subtest: an explicit run reset clears pending restoration so character creation still works
+ok 212 - an explicit run reset clears pending restoration so character creation still works
+  ---
+  duration_ms: 117.3395
+  type: 'test'
+  ...
+# Subtest: one partial smelt fills the bin; paid batches wait offline and resume after crafting
+ok 213 - one partial smelt fills the bin; paid batches wait offline and resume after crafting
+  ---
+  duration_ms: 2209.2573
+  type: 'test'
+  ...
+# Subtest: parallel furnaces reserve output space and can skip a blocked alloy
+ok 214 - parallel furnaces reserve output space and can skip a blocked alloy
+  ---
+  duration_ms: 226.4603
+  type: 'test'
+  ...
+# Subtest: mining crews are three times slower and manual loading takes fourteen seconds
+ok 215 - mining crews are three times slower and manual loading takes fourteen seconds
+  ---
+  duration_ms: 372.657
+  type: 'test'
+  ...
+# Subtest: all equipment recipes charge double ingots without repricing fuel or supplies
+ok 216 - all equipment recipes charge double ingots without repricing fuel or supplies
+  ---
+  duration_ms: 152.6872
+  type: 'test'
+  ...
+# Subtest: historical paid crafts reload, complete, or refund their original ingots exactly
+ok 217 - historical paid crafts reload, complete, or refund their original ingots exactly
+  ---
+  duration_ms: 251.1563
+  type: 'test'
+  ...
+# Subtest: all five tiers follow level 1 (5) to level 2 (5) to level 3 (5) to boss to next tier
+ok 218 - all five tiers follow level 1 (5) to level 2 (5) to level 3 (5) to boss to next tier
+  ---
+  duration_ms: 142.7675
+  type: 'test'
+  ...
+# Subtest: new approaches strengthen within their tier, have valid combat and never duplicate story rewards
+ok 219 - new approaches strengthen within their tier, have valid combat and never duplicate story rewards
+  ---
+  duration_ms: 59.8308
+  type: 'test'
+  ...
+# Subtest: balanced heroes continue a reachable partially-cleared level instead of stalling after its first win
+ok 220 - balanced heroes continue a reachable partially-cleared level instead of stalling after its first win
+  ---
+  duration_ms: 47.8937
+  type: 'test'
+  ...
+# Subtest: old completed bosses and ordered parties retain their milestones without rewards or repeat migration
+ok 221 - old completed bosses and ordered parties retain their milestones without rewards or repeat migration
+  ---
+  duration_ms: 135.1151
+  type: 'test'
+  ...
+# Subtest: furnishings buy five levels at exponential prices, stack real effects and stop charging at max
+ok 222 - furnishings buy five levels at exponential prices, stack real effects and stop charging at max
+  ---
+  duration_ms: 44.5117
+  type: 'test'
+  ...
+# Subtest: furnishing levels survive reload and retirement and old owned furnishings become level one
+ok 223 - furnishing levels survive reload and retirement and old owned furnishings become level one
+  ---
+  duration_ms: 92.9001
+  type: 'test'
+  ...
+# Subtest: invalid furnishing levels cannot be imported or create unowned effects
+ok 224 - invalid furnishing levels cannot be imported or create unowned effects
+  ---
+  duration_ms: 37.2291
+  type: 'test'
+  ...
+# Subtest: Shop filters capability before taking the five easiest active requests
+ok 225 - Shop filters capability before taking the five easiest active requests
+  ---
+  duration_ms: 62.7406
+  type: 'test'
+  ...
+# Subtest: requests include achievable finishing quality but never exceed the quality ceiling
+ok 226 - requests include achievable finishing quality but never exceed the quality ceiling
+  ---
+  duration_ms: 28.5975
+  type: 'test'
+  ...
+# Subtest: recipe discovery, machinery, attributes and mastery remain capability requirements
+ok 227 - recipe discovery, machinery, attributes and mastery remain capability requirements
+  ---
+  duration_ms: 26.3597
+  type: 'test'
+  ...
+# Subtest: temporary material shortages, full queue and full warehouse do not hide a request
+ok 228 - temporary material shortages, full queue and full warehouse do not hide a request
+  ---
+  duration_ms: 47.6293
+  type: 'test'
+  ...
+# Subtest: returning heroes come home with full bins and full mailbox; currencies awarded once and excess materials discarded
+ok 229 - returning heroes come home with full bins and full mailbox; currencies awarded once and excess materials discarded
+  ---
+  duration_ms: 53.7625
+  type: 'test'
+  ...
+# Subtest: old pending saves recover immediately on load without losing their quest reward
+ok 230 - old pending saves recover immediately on load without losing their quest reward
+  ---
+  duration_ms: 103.7369
+  type: 'test'
+  ...
+# Subtest: old quest cargo is delivered up to capacity once and excess is discarded on migration
+ok 231 - old quest cargo is delivered up to capacity once and excess is discarded on migration
+  ---
+  duration_ms: 93.2509
+  type: 'test'
+  ...
+# Subtest: stale returning statuses with missing or completed runs are repaired without duplicate rewards
+ok 232 - stale returning statuses with missing or completed runs are repaired without duplicate rewards
+  ---
+  duration_ms: 77.7291
+  type: 'test'
+  ...
+# Subtest: hero follow activity reports shop, outward journey, battle, homeward journey and recovery
+ok 233 - hero follow activity reports shop, outward journey, battle, homeward journey and recovery
+  ---
+  duration_ms: 69.1242
+  type: 'test'
+  ...
+# Subtest: cargo validation rejects unsafe, negative and unknown material balances
+ok 234 - cargo validation rejects unsafe, negative and unknown material balances
+  ---
+  duration_ms: 102.4647
+  type: 'test'
+  ...
+# Subtest: repeated successful returns discard overflow without overflowing expedition history or blocking another trip
+ok 235 - repeated successful returns discard overflow without overflowing expedition history or blocking another trip
+  ---
+  duration_ms: 479.3563
+  type: 'test'
+  ...
+# Subtest: new and uncreated workshops always use the humble backgrounds
+ok 236 - new and uncreated workshops always use the humble backgrounds
+  ---
+  duration_ms: 75.0468
+  type: 'test'
+  ...
+# Subtest: middle scenes require the first boss and each room milestone
+ok 237 - middle scenes require the first boss and each room milestone
+  ---
+  duration_ms: 36.3486
+  type: 'test'
+  ...
+# Subtest: first-life endgame keeps middle backgrounds; a deep second generation unlocks grand scenes
+ok 238 - first-life endgame keeps middle backgrounds; a deep second generation unlocks grand scenes
+  ---
+  duration_ms: 27.1197
+  type: 'test'
+  ...
+# Subtest: a fresh Legacy run starts humble and rooms still require their own late milestones
+ok 239 - a fresh Legacy run starts humble and rooms still require their own late milestones
+  ---
+  duration_ms: 77.4327
+  type: 'test'
+  ...
+# Subtest: all fifteen room stages have complete landscape PNG assets
+ok 240 - all fifteen room stages have complete landscape PNG assets
+  ---
+  duration_ms: 37.3485
+  type: 'test'
+  ...
+# Subtest: hero following tracks shop, outward journey, battle, return, recovery, and shopping again
+ok 241 - hero following tracks shop, outward journey, battle, return, recovery, and shopping again
+  ---
+  duration_ms: 113.8594
+  type: 'test'
+  ...
+# Subtest: viewing room progression and hero activity does not mutate the save
+ok 242 - viewing room progression and hero activity does not mutate the save
+  ---
+  duration_ms: 25.5013
+  type: 'test'
+  ...
+# Subtest: defeats give bounded help but cannot unlock new classes or repeat the allowance on reload
+ok 243 - defeats give bounded help but cannot unlock new classes or repeat the allowance on reload
+  ---
+  duration_ms: 236.3959
+  type: 'test'
+  ...
+# Subtest: classes require useful sales and victories then regional bosses
+ok 244 - classes require useful sales and victories then regional bosses
+  ---
+  duration_ms: 74.7333
+  type: 'test'
+  ...
+# Subtest: clearance sales do not count as useful customer sales
+ok 245 - clearance sales do not count as useful customer sales
+  ---
+  duration_ms: 71.2467
+  type: 'test'
+  ...
+# Subtest: old Merit balances migrate once without removing earned purchasing power
+ok 246 - old Merit balances migrate once without removing earned purchasing power
+  ---
+  duration_ms: 318.8127
+  type: 'test'
+  ...
+# Subtest: stock targets preserve inputs, include pending output and never cause overflow
+ok 247 - stock targets preserve inputs, include pending output and never cause overflow
+  ---
+  duration_ms: 168.2864
+  type: 'test'
+  ...
+# Subtest: automatic high alloys refill intermediate ingots without a separate target
+ok 248 - automatic high alloys refill intermediate ingots without a separate target
+  ---
+  duration_ms: 138.432
+  type: 'test'
+  ...
+# Subtest: maintained production is identical online, offline and through a mid-run reload
+ok 249 - maintained production is identical online, offline and through a mid-run reload
+  ---
+  duration_ms: 1476.5274
+  type: 'test'
+  ...
+# Subtest: rare crafting opt-in is enforced before spending resources
+ok 250 - rare crafting opt-in is enforced before spending resources
+  ---
+  duration_ms: 32.2563
+  type: 'test'
+  ...
+# Subtest: automatic clearance respects protected, held, reserved and commission pieces
+ok 251 - automatic clearance respects protected, held, reserved and commission pieces
+  ---
+  duration_ms: 55.0507
+  type: 'test'
+  ...
+# Subtest: buying respects reserves and offline allowance atomically
+ok 252 - buying respects reserves and offline allowance atomically
+  ---
+  duration_ms: 30.8381
+  type: 'test'
+  ...
+# Subtest: item demand explains unaffordable, outclassed and away customers without changing state
+ok 253 - item demand explains unaffordable, outclassed and away customers without changing state
+  ---
+  duration_ms: 23.3337
+  type: 'test'
+  ...
+# Subtest: optional rotation releases old displays for useful stock and preserves manual holds
+ok 254 - optional rotation releases old displays for useful stock and preserves manual holds
+  ---
+  duration_ms: 55.1786
+  type: 'test'
+  ...
+# Subtest: support paths avoid unrelated taxes and goals include missing prerequisite cost
+ok 255 - support paths avoid unrelated taxes and goals include missing prerequisite cost
+  ---
+  duration_ms: 22.2602
+  type: 'test'
+  ...
+# Subtest: next attribute and upgrade previews are read-only and match real purchases
+ok 256 - next attribute and upgrade previews are read-only and match real purchases
+  ---
+  duration_ms: 45.1689
+  type: 'test'
+  ...
+# Subtest: earned shift management cycles staff without exhaustion; manual leave stays manual
+ok 257 - earned shift management cycles staff without exhaustion; manual leave stays manual
+  ---
+  duration_ms: 2790.8465
+  type: 'test'
+  ...
+# Subtest: policy validation rejects invalid reserves, unknown goals and fabricated Merit carry
+ok 258 - policy validation rejects invalid reserves, unknown goals and fabricated Merit carry
+  ---
+  duration_ms: 24.4588
+  type: 'test'
+  ...
+# Subtest: bulk stock targets commit together and a pinned rank completes after its purchase
+ok 259 - bulk stock targets commit together and a pinned rank completes after its purchase
+  ---
+  duration_ms: 24.4421
+  type: 'test'
+  ...
+# Subtest: zero base attributes, exactly 20 assigned points and fixed starting customers
+ok 260 - zero base attributes, exactly 20 assigned points and fixed starting customers
+  ---
+  duration_ms: 162.1265
+  type: 'test'
+  ...
+# Subtest: every extreme zero-stat build can mine, smelt, craft and save without invalid numbers
+ok 261 - every extreme zero-stat build can mine, smelt, craft and save without invalid numbers
+  ---
+  duration_ms: 611.4926
+  type: 'test'
+  ...
+# Subtest: ore is distinct from ingots, bronze alloys copper and tin, steel cannot be mined or bought
+ok 262 - ore is distinct from ingots, bronze alloys copper and tin, steel cannot be mined or bought
+  ---
+  duration_ms: 71.3291
+  type: 'test'
+  ...
+# Subtest: smelting honours all alloy gates, exponential upgrades and refunds exactly once
+ok 263 - smelting honours all alloy gates, exponential upgrades and refunds exactly once
+  ---
+  duration_ms: 50.9809
+  type: 'test'
+  ...
+# Subtest: smelting refund waits for bin room; completed batches lose excess output without overflow
+ok 264 - smelting refund waits for bin room; completed batches lose excess output without overflow
+  ---
+  duration_ms: 58.4505
+  type: 'test'
+  ...
+# Subtest: smelting and forge completion are identical online, offline and after a saved queue reload
+ok 265 - smelting and forge completion are identical online, offline and after a saved queue reload
+  ---
+  duration_ms: 487.9821
+  type: 'test'
+  ...
+# Subtest: finishing gives diminishing quality on the same item and constant additional work
+ok 266 - finishing gives diminishing quality on the same item and constant additional work
+  ---
+  duration_ms: 204.2975
+  type: 'test'
+  ...
+# Subtest: queued finishing applies exactly once at start and respects the quality ceiling
+ok 267 - queued finishing applies exactly once at start and respects the quality ceiling
+  ---
+  duration_ms: 71.4959
+  type: 'test'
+  ...
+# Subtest: chosen enchantment reserves combined materials and gold, survives reload, refunds atomically
+ok 268 - chosen enchantment reserves combined materials and gold, survives reload, refunds atomically
+  ---
+  duration_ms: 144.3672
+  type: 'test'
+  ...
+# Subtest: invalid material, unaffordable or incompatible enchantment cannot mutate a craft
+ok 269 - invalid material, unaffordable or incompatible enchantment cannot mutate a craft
+  ---
+  duration_ms: 41.5153
+  type: 'test'
+  ...
+# Subtest: unlocking customer classes automatically attracts fixed customers and opens their equipment
+ok 270 - unlocking customer classes automatically attracts fixed customers and opens their equipment
+  ---
+  duration_ms: 60.8925
+  type: 'test'
+  ...
+# Subtest: old runs preserve identity, metal value, active finishing and exact historical refund escrow
+ok 271 - old runs preserve identity, metal value, active finishing and exact historical refund escrow
+  ---
+  duration_ms: 208.2374
+  type: 'test'
+  ...
+# Subtest: retraining refunds actual investment, and Legacy restarts with zero attributes and 20 points
+ok 272 - retraining refunds actual investment, and Legacy restarts with zero attributes and 20 points
+  ---
+  duration_ms: 26.0675
+  type: 'test'
+  ...
+# Subtest: save validation rejects forged smelting refunds, enchantment gold and finishing counts
+ok 273 - save validation rejects forged smelting refunds, enchantment gold and finishing counts
+  ---
+  duration_ms: 131.2345
+  type: 'test'
+  ...
+# Subtest: twenty creation points, five professions, exactly three starter heroes and restricted recipe classes
+ok 274 - twenty creation points, five professions, exactly three starter heroes and restricted recipe classes
+  ---
+  duration_ms: 1139.3287
+  type: 'test'
+  ...
+# Subtest: profession benefits change actual quality, sales, learning and mining output
+ok 275 - profession benefits change actual quality, sales, learning and mining output
+  ---
+  duration_ms: 102.7887
+  type: 'test'
+  ...
+# Subtest: uncapped attributes and levels survive save validation; level rewards five points
+ok 276 - uncapped attributes and levels survive save validation; level rewards five points
+  ---
+  duration_ms: 73.1115
+  type: 'test'
+  ...
+# Subtest: worker assignments use independent progress, overflow to another seam and return without exceeding bins
+ok 277 - worker assignments use independent progress, overflow to another seam and return without exceeding bins
+  ---
+  duration_ms: 34.1785
+  type: 'test'
+  ...
+# Subtest: mining points exclude purchases, liquidation and refunds; thresholds escalate
+ok 278 - mining points exclude purchases, liquidation and refunds; thresholds escalate
+  ---
+  duration_ms: 63.5791
+  type: 'test'
+  ...
+# Subtest: upgrade parents, section currencies, exponential costs and extra gates are enforced
+ok 279 - upgrade parents, section currencies, exponential costs and extra gates are enforced
+  ---
+  duration_ms: 19.4882
+  type: 'test'
+  ...
+# Subtest: worker recruitment grows costs and respects capacity; two iron workers and one coal worker can coexist
+ok 280 - worker recruitment grows costs and respects capacity; two iron workers and one coal worker can coexist
+  ---
+  duration_ms: 107.8789
+  type: 'test'
+  ...
+# Subtest: recruitment unlocks matching heroes and craft classes, while locked gear stays hidden
+ok 281 - recruitment unlocks matching heroes and craft classes, while locked gear stays hidden
+  ---
+  duration_ms: 64.1647
+  type: 'test'
+  ...
+# Subtest: new metallurgy machinery satisfies recipe stations and runic workbench enables enchanting
+ok 282 - new metallurgy machinery satisfies recipe stations and runic workbench enables enchanting
+  ---
+  duration_ms: 22.8779
+  type: 'test'
+  ...
+# Subtest: quality breakthroughs exceed 100, and reloading preserves captured quality
+ok 283 - quality breakthroughs exceed 100, and reloading preserves captured quality
+  ---
+  duration_ms: 152.6037
+  type: 'test'
+  ...
+# Subtest: craft batches reserve exact inputs, cannot exceed warehouse or queue, and refund safely
+ok 284 - craft batches reserve exact inputs, cannot exceed warehouse or queue, and refund safely
+  ---
+  duration_ms: 68.6829
+  type: 'test'
+  ...
+# Subtest: per-material cap drops excess rewards while gold arrives immediately
+ok 285 - per-material cap drops excess rewards while gold arrives immediately
+  ---
+  duration_ms: 29.712
+  type: 'test'
+  ...
+# Subtest: automatic salvage protects displayed and reserved pieces, and automatic restock fills spaces
+ok 286 - automatic salvage protects displayed and reserved pieces, and automatic restock fills spaces
+  ---
+  duration_ms: 29.0574
+  type: 'test'
+  ...
+# Subtest: training, journey speed, recovery and party policy upgrades change real adventurer behavior
+ok 287 - training, journey speed, recovery and party policy upgrades change real adventurer behavior
+  ---
+  duration_ms: 66.8377
+  type: 'test'
+  ...
+# Subtest: old saves retain inventories and investments, get extra starting and level points exactly once
+ok 288 - old saves retain inventories and investments, get extra starting and level points exactly once
+  ---
+  duration_ms: 44.8959
+  type: 'test'
+  ...
+# Subtest: malformed room saves are rejected without replacing the active workshop
+ok 289 - malformed room saves are rejected without replacing the active workshop
+  ---
+  duration_ms: 26.9236
+  type: 'test'
+  ...
+# Subtest: offline and online chunking preserve mining and autonomous outcomes
+ok 290 - offline and online chunking preserve mining and autonomous outcomes
+  ---
+  duration_ms: 633.9645
+  type: 'test'
+  ...
+# Subtest: retirement resets room investment, retains selected heirloom and opens legacy talents
+ok 291 - retirement resets room investment, retains selected heirloom and opens legacy talents
+  ---
+  duration_ms: 21.54
+  type: 'test'
+  ...
+# Subtest: Prospecting has no 250-point ceiling and cumulative thresholds stay exact
+ok 292 - Prospecting has no 250-point ceiling and cumulative thresholds stay exact
+  ---
+  duration_ms: 0.3591
+  type: 'test'
+  ...
+# Subtest: explicit worker reassignment cannot transfer an almost-finished cheap load into rare ore
+ok 293 - explicit worker reassignment cannot transfer an almost-finished cheap load into rare ore
+  ---
+  duration_ms: 21.25
+  type: 'test'
+  ...
+# Subtest: recovery upgrades shorten actual retreat downtime without awarding a second Merit
+ok 294 - recovery upgrades shorten actual retreat downtime without awarding a second Merit
+  ---
+  duration_ms: 63.6209
+  type: 'test'
+  ...
+1..294
+# tests 294
+# suites 0
+# pass 294
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 35720.6351

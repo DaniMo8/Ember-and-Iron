@@ -323,7 +323,8 @@
       (!force && Date.now() - lastSave < 5000)
     )
       return;
-    game.markSaved(Date.now());
+    // The title screen is time away. Saving it must not consume that absence.
+    if (ui.screen !== "splash") game.markSaved(Date.now());
     const raw = game.exportSave(),
       old = get(KEY);
     if (old && old !== raw && EIHouseEngine.validateSave(old, D).ok)
@@ -470,7 +471,7 @@
       : H.rivals.find((r) => r.id === m.rival).name;
   }
   function splash() {
-    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.2</span></footer></main>`;
+    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.2.4</span></footer></main>`;
   }
   function creation() {
     const p = H.professions[ui.calling],
@@ -1757,15 +1758,20 @@
       startSound();
     },
     continue: () => {
+      // Continue is an explicit return, even if the browser omitted focus events.
+      lease();
+      away = false;
+      sound.setVisible(!document.hidden);
+      reconcileOffline(Date.now());
       navigate(ui.room);
       startSound();
     },
     title: () => {
+      leaveWorkshop();
       ui.screen = "splash";
       ui.modal = null;
       ui.replayPlaying = false;
       sound.setRoom("smith");
-      save(true);
     },
     menu: () => {
       ui.modal = "menu";
@@ -2222,7 +2228,13 @@
     sound.setVisible(false);
     const now = Date.now();
     lease();
-    if (!ui.readonly && !ui.catchingUp && !needsCatchup && game.state.started) {
+    if (
+      !ui.readonly &&
+      !ui.catchingUp &&
+      !needsCatchup &&
+      game.state.started &&
+      ui.screen === "game"
+    ) {
       if (now - last >= 60000) {
         game.markSaved(last);
         needsCatchup = true;
@@ -2268,6 +2280,9 @@
       reconcileOffline(now);
       return;
     }
+    // Do not silently advance and save live play behind the Continue button.
+    // Continue (or a browser return) reconciles this entire interval offline.
+    if (ui.screen !== "game") return;
     if (!ui.readonly && game.state.started) {
       if (delta >= 60000) {
         // The browser may suspend a visible page without a visibility event.
