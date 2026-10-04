@@ -53,7 +53,8 @@
     goal: null,
     exhibition: null,
     catalogue: { enabled: false, recipeId: null, reserve: 2, autoBuy: false },
-    autoDeliver: false,
+    autoDeliver: true,
+    deliveryVersion: 1,
     graded: {},
     gradeMode: "standard",
     nextPocket: 0,
@@ -79,6 +80,11 @@
       }
       super(data, saved);
       this.state.house ??= freshHouse();
+      // Earlier houses defaulted to manual delivery behind a purchased clerk.
+      if (!this.state.house.deliveryVersion) {
+        this.state.house.autoDeliver = true;
+        this.state.house.deliveryVersion = 1;
+      }
       this.state.house.market ??= {
         nextAt: this.state.simTime + 60000,
         sales: 0,
@@ -281,6 +287,7 @@
         );
         check(
           typeof h.autoDeliver === "boolean" &&
+            (h.deliveryVersion == null || h.deliveryVersion === 1) &&
             H.grades[h.gradeMode] &&
             h.graded &&
             Object.entries(h.graded).every(
@@ -311,7 +318,9 @@
         for (const j of s.jobs)
           if (j.houseIntent)
             check(
-              ["team", "catalogue", "practice"].includes(j.houseIntent) &&
+              ["team", "catalogue", "stock", "practice"].includes(
+                j.houseIntent,
+              ) &&
                 H.grades[j.grade] &&
                 H.treatments[j.treatment] &&
                 integer(j.treatmentGold),
@@ -375,6 +384,10 @@
       const v = House.validateSave(raw, this.data);
       if (!v.ok) return v;
       this.state = v.state;
+      if (!this.state.house.deliveryVersion) {
+        this.state.house.autoDeliver = true;
+        this.state.house.deliveryVersion = 1;
+      }
       this._migrate();
       this._migrateWorkshop();
       this._settleRoster();
@@ -564,20 +577,14 @@
     }
     _runNpcs() {
       this._settleRoster();
+      this._equipCompletedTeamWork();
+      this._deliverReadyContracts();
       this._restockShelves();
       const h = this.state.house,
         m = h.market;
       if (m && this.state.simTime >= m.nextAt) {
         const i = this.state.inventory.find(
-          (i) =>
-            i.displayed &&
-            !this._protected(i) &&
-            !h.orders.some(
-              (o) =>
-                this.data.recipes[i.recipeId].classId === o.classId &&
-                this.data.recipes[i.recipeId].tier >= o.tier &&
-                i.quality >= o.quality,
-            ),
+          (i) => i.displayed && !this._protected(i),
         );
         if (i) {
           const name = this.data.recipes[i.recipeId].name,
@@ -615,10 +622,7 @@
       if (!this.state.house) return;
       this._autoSmelt();
       const h = this.state.house;
-      if (h.autoDeliver && h.upgrades.clerk)
-        for (const o of [...h.orders])
-          if (this.contractPreview(o.id).eligible)
-            this._deliverContract({ id: o.id });
+      this._deliverReadyContracts();
       const c = h.catalogue,
         r = this.data.recipes[c.recipeId];
       if (
@@ -896,7 +900,11 @@
       const t = H.treatments[treatment],
         g = H.grades[grade];
       let reason = "";
-      if (!t || !g || !["team", "catalogue", "practice"].includes(intent))
+      if (
+        !t ||
+        !g ||
+        !["team", "catalogue", "stock", "practice"].includes(intent)
+      )
         reason = "Choose a valid craft purpose and treatment.";
       else if (treatment !== "plain" && !this.treatmentAvailable(id, treatment))
         reason =
@@ -1024,6 +1032,15 @@
       }
       return r;
     }
+    _protect(payload) {
+      const r = super._protect(payload),
+        item = this._item(payload.itemId);
+      if (r.ok && !this._protected(item)) {
+        item.autoEquipPending = false;
+        if (item.intent === "team") item.intent = "stock";
+      }
+      return r;
+    }
     _completeJob(job) {
       const prof =
           this.state.player.proficiency[
@@ -1040,6 +1057,7 @@
         item.protected = true;
         item.displayed = false;
         item.reservedFor = job.heroId || null;
+        item.autoEquipPending = true;
       }
       if (
         item.intent === "practice" &&
@@ -1052,7 +1070,29 @@
           prof.level++;
         }
       }
+      this._equipCompletedTeamWork();
+      this._deliverReadyContracts();
       this._restockShelves();
+    }
+    _equipCompletedTeamWork() {
+      for (const item of [...this.state.inventory]) {
+        if (
+          !item.autoEquipPending ||
+          item.intent !== "team" ||
+          !this._protected(item)
+        )
+          continue;
+        const heroes = item.reservedFor
+          ? this.state.adventurers.filter((u) => u.id === item.reservedFor)
+          : this.state.adventurers;
+        for (const hero of heroes) {
+          const preview = this.equipmentPreview(hero.id, item.id);
+          if (preview.eligible && preview.improves) {
+            this._equipHouse({ heroId: hero.id, itemId: item.id });
+            break;
+          }
+        }
+      }
     }
     _finishingMultiplier(recipeId) {
       return (
@@ -1318,12 +1358,54 @@
       const after = copy(u);
       after.equipment[r.slot] = i;
       if (r.twoHanded) after.equipment.offhand = null;
+      const beforeStats = this._arenaStats(u),
+        afterStats = this._arenaStats(after);
+      const fields = [
+        ["attack", "Damage", "number"],
+        ["health", "Health", "number"],
+        ["armor", "Armour", "number"],
+        ["interval", "Swing time", "seconds"],
+        ["crit", "Critical chance", "percent"],
+        ["block", "Block chance", "percent"],
+        ["evasion", "Evasion", "percent"],
+        ["armorPen", "Piercing", "number"],
+        ["aoe", "Cleave", "percent"],
+        ["protection", "Team protection", "percent"],
+        ...Object.keys({
+          ...beforeStats.resistances,
+          ...afterStats.resistances,
+        }).map((k) => [
+          "resistances." + k,
+          k[0].toUpperCase() + k.slice(1) + " ward",
+          "percent",
+        ]),
+      ];
+      const value = (stats, key) =>
+        key.split(".").reduce((s, k) => s?.[k], stats) || 0;
+      const changes = fields
+        .map(([key, label, format]) => {
+          const before = value(beforeStats, key),
+            after = value(afterStats, key),
+            delta = after - before;
+          return {
+            key,
+            label,
+            format,
+            before,
+            after,
+            delta,
+            improved: key === "interval" ? delta < 0 : delta > 0,
+          };
+        })
+        .filter((c) => Math.abs(c.delta) > 1e-7);
       return {
         eligible: true,
         reason:
           "Equip freely. Replaced items return protected to the warehouse.",
-        before: this._arenaStats(u),
-        after: this._arenaStats(after),
+        before: beforeStats,
+        after: afterStats,
+        changes,
+        improves: changes.some((c) => c.improved),
         displaced,
       };
     }
@@ -1348,6 +1430,7 @@
         displayed: false,
         protected: true,
         reservedFor: null,
+        autoEquipPending: false,
       };
       if (r.twoHanded) u.equipment.offhand = null;
       return yes(u.name + " equipped " + r.name + ".");
@@ -1813,7 +1896,55 @@
         };
       });
     }
-    contractPreview(id) {
+    _deliverReadyContracts() {
+      if (!this.state.house?.autoDeliver) return;
+      for (const o of [...this.state.house.orders])
+        if (this.contractPreview(o.id).eligible)
+          this._deliverContract({ id: o.id });
+    }
+    contractStockIds() {
+      const reserved = new Set();
+      for (const order of [...this.state.house.orders].sort(
+        (a, b) => b.tier - a.tier || b.quality - a.quality,
+      )) {
+        for (const item of this.contractPreview(order.id, reserved).items)
+          reserved.add(item.id);
+      }
+      return reserved;
+    }
+    _restockShelves() {
+      if (!this.state.house) return super._restockShelves();
+      const reserved = this.contractStockIds();
+      const stock = this.state.inventory.filter(
+        (i) =>
+          !this._protected(i) &&
+          i.intent !== "catalogue" &&
+          i.intent !== "team" &&
+          !reserved.has(i.id),
+      );
+      const allowed = new Set(stock.map((i) => i.id));
+      for (const item of this.state.inventory) {
+        // Legacy warehouse/rotation holds have no controls in the House edition.
+        delete item.autoDisplayHold;
+        delete item.rotationHold;
+        if (!allowed.has(item.id)) item.displayed = false;
+      }
+      let room =
+        this.derived().displayCapacity -
+        stock.filter((i) => i.displayed).length;
+      for (const item of stock
+        .filter((i) => !i.displayed)
+        .sort(
+          (a, b) =>
+            a.quality - b.quality ||
+            a.createdAt - b.createdAt ||
+            a.id.localeCompare(b.id),
+        )) {
+        if (room-- <= 0) break;
+        item.displayed = true;
+      }
+    }
+    contractPreview(id, excluded = new Set()) {
       const o = this.state.house.orders.find((o) => o.id === id);
       if (!o)
         return {
@@ -1825,6 +1956,10 @@
         .filter(
           (i) =>
             !this._protected(i) &&
+            !i.displayed &&
+            i.intent !== "stock" &&
+            i.intent !== "team" &&
+            !excluded.has(i.id) &&
             this.data.recipes[i.recipeId].classId === o.classId &&
             this.data.recipes[i.recipeId].tier >= o.tier &&
             i.quality >= o.quality,
@@ -1859,8 +1994,8 @@
       else {
         const other = [...h.orders];
         this._newContracts();
-        const candidate = other.some(x => x.tier === 1)
-          ? h.orders[1 + h.contractCycle % Math.max(1, h.orders.length - 1)]
+        const candidate = other.some((x) => x.tier === 1)
+          ? h.orders[1 + (h.contractCycle % Math.max(1, h.orders.length - 1))]
           : h.orders[0];
         h.orders = [
           ...other,
@@ -1884,7 +2019,7 @@
         return `Expected quality ${v.quality} is below the order’s ${o.quality}. Improve quality or finish pieces manually.`;
       if (this.contractPreview(o.id).eligible)
         return h.autoDeliver
-          ? "Order complete; the clerk will deliver it."
+          ? "Order complete; automatic delivery is ready."
           : "Order complete. Deliver it at the shop.";
       if (!v.eligible) return v.reason;
       if (
@@ -1926,12 +2061,8 @@
         )
           return no("Choose a valid catalogue policy.");
       }
-      if (
-        "autoDeliver" in p &&
-        (typeof p.autoDeliver !== "boolean" ||
-          (p.autoDeliver && !h.upgrades.clerk))
-      )
-        return no("Develop Contract clerk.");
+      if ("autoDeliver" in p && typeof p.autoDeliver !== "boolean")
+        return no("Choose whether automatic delivery is enabled.");
       // Apply together only after all requested settings validate.
       if ("exhibition" in p) h.exhibition = copy(p.exhibition);
       if ("catalogue" in p) h.catalogue = copy(p.catalogue);

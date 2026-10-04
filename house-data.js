@@ -160,8 +160,8 @@
     shop: [
       "Shop & armoury",
       "Keep the best. Sell the repeatable.",
-      "Equip your fighters freely. Deliver disclosed contracts, maintain a catalogue and sell spare work.",
-      "Team commissions are protected automatically. Replaced equipment returns to the warehouse.",
+      "Team upgrades equip automatically. Warehouse contracts complete automatically; shop stock fills the displays.",
+      "Spare team gear stays protected in the warehouse. Green comparisons improve a stat; red comparisons show a tradeoff.",
     ],
     arena: [
       "The proving ground",
@@ -378,7 +378,7 @@
     90,
     1,
     {},
-    "Reveal rich pockets: optional extra carts every ten minutes.",
+    "Optional extra carts from already-open workings every ten minutes. Does not unlock new ores.",
     { mined: 150 },
   );
   node(
@@ -537,8 +537,8 @@
     "Contract clerk",
     220,
     1,
-    {},
-    "Automatically deliver matching unprotected catalogue work.",
+    { contractPay: 0.1 },
+    "Negotiate 10% higher payments on newly issued contracts. Deliveries are automatic from the start.",
     { contracts: 4 },
   );
   node(

@@ -1216,6 +1216,25 @@
             projects: [...c.projects],
             materials: copy(s.materials),
             lost: s.world.materialsLost || 0,
+            level: s.player.level,
+            mastery: Object.fromEntries(
+              Object.entries(s.player.proficiency).map(([id, p]) => [
+                id,
+                p.level,
+              ]),
+            ),
+            heroes: Object.fromEntries(
+              s.adventurers.map((u) => [u.id, u.level]),
+            ),
+            champions: s.house.champions,
+            equipment: new Set(
+              s.adventurers.flatMap((u) =>
+                Object.values(u.equipment)
+                  .filter(Boolean)
+                  .map((i) => i.id),
+              ),
+            ),
+            trial: c.bestTrial,
           };
         const r = super.advanceOffline(now);
         if (r.report) {
@@ -1232,6 +1251,36 @@
             studies: c.projects
               .filter((x) => !before.projects.includes(x))
               .map((id) => projects.find((p) => p.id === id).name),
+            achievements: [
+              ...s.adventurers.flatMap((u) =>
+                Object.values(u.equipment)
+                  .filter((i) => i && !before.equipment.has(i.id))
+                  .map(
+                    (i) =>
+                      u.name +
+                      " equipped " +
+                      this.data.recipes[i.recipeId].name,
+                  ),
+              ),
+              ...(s.player.level > before.level
+                ? ["Smith reached level " + s.player.level]
+                : []),
+              ...Object.entries(s.player.proficiency)
+                .filter(([id, p]) => p.level > before.mastery[id])
+                .map(
+                  ([id, p]) =>
+                    this.data.classes[id].name + " mastery reached " + p.level,
+                ),
+              ...s.adventurers
+                .filter((u) => u.level > before.heroes[u.id])
+                .map((u) => u.name + " reached level " + u.level),
+              ...(s.house.champions > before.champions
+                ? ["League champion defeated"]
+                : []),
+              ...(c.bestTrial > before.trial
+                ? ["Crucible trial " + c.bestTrial + " cleared"]
+                : []),
+            ],
             materials: Object.entries(s.materials)
               .filter(([id, n]) => n !== before.materials[id])
               .map(([id, n]) => ({ id, change: n - before.materials[id] })),

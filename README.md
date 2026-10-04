@@ -10,9 +10,13 @@ The new **House edition 3.2** has its own save, backup and active-tab ownership 
 
 **Menu → Options** offers live overlay transparency and background dimming, plus Readable, Balanced and Scenic presets. Master, music and effects volumes are independent, with a mute switch. Options are remembered on this device separately from the career. Eight original instrumental scores and procedural room sounds play locally after starting or continuing the game; they fade between rooms and pause when the page is hidden. No audio downloads are needed.
 
+**Resume repair (3.2.2):** paid forge and smelter queues, including finishing passes, survive reopening. Mining, smelting, forging and enabled production/delivery automation advance during an absence, within the existing supply, storage and 24-hour limits. Catch-up finishes before live play can update the saved timestamp. An older tab reloads newer saved work before taking ownership, preventing it from overwriting paid queues. Imported saves also receive their elapsed production before being saved again. A resume popup shows earnings, production, new equipment, mastery gains, discoveries and completed studies, including productive short absences.
+
+**Item routing (3.2.2):** Contract orders stay in the warehouse and deliver automatically when enough qualifying pieces exist. Team commissions automatically equip a compatible fighter when they improve a combat stat; busy fighters wait until the bout ends, and spare gear stays protected. Shop stock fills display slots automatically, lowest quality first. Equipment suggestions hide equal or weaker pieces and show green gains/red tradeoffs. Ore licence locks remain; Mine upgrades distinguish the main ore path from optional exploration and list outstanding requirements. The Contract clerk now improves newly issued contract payments by 10%.
+
 ## The playable loop
 
-**Mine → smelt → forge → equip or deliver → challenge → review → improve.**
+**Mine → smelt → forge → automatic equipment or delivery → challenge → review → improve.**
 
 - Seven callings, three origins and four working vows. Start with zero attributes and allocate 20 points; gain five per smith level, without an attribute cap.
 - Eight rooms: **Smith, Mine, Smelter, Forge, Shop & armoury, Arena, Employees and Legacy**. First-visit introductions explain each room's purpose and its next step.
@@ -23,7 +27,7 @@ The new **House edition 3.2** has its own save, backup and active-tab ownership 
 - Replays preserve the actual launch equipment, deterministic outcome and event log. Play, pause, step or scrub; rewatching never pays twice. The last twelve bouts are stored.
 - Eight specialists in four employee departments, experience, stamina, manual leave and earned managed shifts. 59 room upgrade nodes plus 36 permanent Legacy talents.
 - Gold buys ordinary development; mined materials, contracts and victories are access records. Repeated ranks cost 1.9×, reducible to 1.6× through Legacy. Furnishings cost 2.4× per rank and survive retirement.
-- Ingot targets, contract catalogue production, a delivery clerk and cleared-rival exhibitions support prepared idle play. Offline work has a cumulative 24-hour allowance per absence and an explicit supply budget. A return ledger shows production, earnings, purchases, overflow and discoveries. Rotating contracts keep available work moving; exhibitions stop on defeat and never launch a champion. Only the first twelve suitable exhibition wins each day grant fighter XP.
+- Ingot targets, contract catalogue production, automatic warehouse deliveries and cleared-rival exhibitions support prepared idle play. Offline work has a cumulative 24-hour allowance per absence and an explicit supply budget. A return ledger shows production, earnings, purchases, overflow and discoveries. Rotating contracts keep available work moving; exhibitions stop on defeat and never launch a champion. Only the first twelve suitable exhibition wins each day grant fighter XP.
 - Legacy stays hidden until at least 72 credited hours and the fifth champion. Each promotion also needs current-material crafting and contracts; early-tier farming cannot replace that proof. Later careers shorten accreditation, while production and combat still matter. Defeat the fifth champion to retire. Choose a workforce, patron or archive charter; keep permanent talents, furnishings, chronicle and one chosen stored heirloom. A run reset has a typed warning and does not award sparks.
 
 - Eleven discoveries reveal new methods, three enchantments and nine permanent research projects. Sixty increasingly difficult Crucible trials award persistent seals; optional oaths, inherited sigils and matched equipment sets give later careers different goals.
@@ -34,14 +38,15 @@ The new **House edition 3.2** has its own save, backup and active-tab ownership 
 - **[Long campaign guide, flowcharts and background gallery](design/campaign-guide.html)**
 - [House edition guide and room map](design/house-guide.html)
 - [Independent long-campaign review](design/qa/house-campaign-review.md)
-- [Automated test results](design/qa/version-3.2-tests.txt)
+- [Automated test results](design/qa/version-3.2.2-tests.txt)
+- [Offline resume browser checks](design/qa/offline-browser-checks.json)
 - [Original room music and sound design](assets/AUDIO.md)
 - [Original whole-game proposal](design/arena-loop-proposal.md)
 - [Historical Classic specification](design/game-specification.html)
 
-The scheduled player follows **one initial hour, then 15 minutes at hours 2, 4 and 6; later days use 15-minute visits at hours 0, 2, 4 and 6**. Overnight is simulated as offline work. No resources, equipment or levels are granted to earned runs. An informed first career reached the Crown at **100.08 elapsed hours**, about 4.2 days and 5.5 active hours; a conservative policy needed about 126 hours. The 72-hour floor prevents early retirement, but it does not guarantee victory at that time.
+The scheduled player follows **one initial hour, then 15 minutes at hours 2, 4 and 6; later days use 15-minute visits at hours 0, 2, 4 and 6**. Overnight is simulated as offline work. No resources, equipment or levels are granted to earned runs. An informed first career reached the Crown at **100.08 elapsed hours**, about 4.2 days and 5.5 active hours; a conservative policy needed about 126 hours. The 72-hour floor prevents early retirement, but it does not guarantee victory at that time. These campaign timings predate the 3.2.2 automatic-delivery and equipment changes; they are historical pacing evidence, not a newly measured campaign benchmark.
 
-**260 automated checks pass**, including Classic regressions, long-campaign invariants, input preservation and device preferences. Browser audio checks render all eight actual scores, verify independent volume controls and silence when muted, and exercise room transitions and background suspension. All seven callings were checked through their opening hour. The rescued second career earned another Crown and four permanent studies; its timing includes the repaired automation stall and is not a clean pacing benchmark. Separate controlled tests cover save integrity, overnight limits, discoveries, research, equipment sets, oaths, seals, replay payouts and later-generation scene gates. The independent report separates these fixtures from earned second-generation results; generation-five recipes and the deepest trials are not claimed as naturally completed campaigns.
+**280 automated checks pass**, including Classic regressions, long-campaign invariants, input preservation and device preferences. Twelve resume checks exercise the actual application lifecycle as well as production: stale tabs, startup visibility changes, interrupted catch-up, imports, paid queue preservation, automation and once-only output. Eight additional fulfilment checks cover stock routing, automatic deliveries, delayed team equipment, comparison tradeoffs and existing-save migration. An isolated one-hour browser fixture produced three swords, six ingots and 80 mined materials, auto-equipped team upgrades and displayed mastery achievements. A separate contract fixture automatically delivered two pieces for 27g. Phone checks verified the progression panel and colored equipment comparisons without horizontal overflow. Browser audio checks render all eight actual scores, verify independent volume controls and silence when muted, and exercise room transitions and background suspension. All seven callings were checked through their opening hour. The rescued second career earned another Crown and four permanent studies; its timing includes the repaired automation stall and is not a clean pacing benchmark. Separate controlled tests cover save integrity, overnight limits, discoveries, research, equipment sets, oaths, seals, replay payouts and later-generation scene gates. The independent report separates these fixtures from earned second-generation results; generation-five recipes and the deepest trials are not claimed as naturally completed campaigns.
 
 The portable build is approximately **13 MB**, including original Blender room scenes, splash, button/frame surfaces, fighter miniatures, the retained inventory atlas and all music synthesis. Earlier UI checks cover every room at 320, 390, 768 and 1440 pixel widths; this appearance update was checked at desktop and phone sizes with separate test saves.
 
@@ -78,6 +83,8 @@ python -m http.server 8777
 To regenerate original art, use Blender 5.x in background mode with the scene and fighter render scripts. PNGs are working outputs; the checked-in WebP files are the game assets. Editable source scenes are in `assets/house`.
 
 For isolated UI fixtures, run `node design/tools/make_campaign_review.js`, serve this folder on port **8792**, and open `design/qa/campaign-review.html`. The fixture page refuses other ports and never edits the normal 8777 save. These injected visual fixtures are not pacing evidence.
+
+For resume checks, run `node design/tools/make_offline_review.js` and open `design/qa/offline-review.html` on that same isolated port. It offers short and one-hour absences with paid forge and smelter jobs, using controlled supplies.
 
 ## Historical Classic release notes
 

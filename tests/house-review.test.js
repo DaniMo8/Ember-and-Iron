@@ -119,7 +119,12 @@ test("review: unequipping cannot occupy a pending craft output reservation", () 
   assert(!e.command("unequip", { heroId: "mara", slot: "weapon" }).ok);
   assert.equal(e.exportSave(), before);
   e.tick(120000);
-  assert.equal(e.state.inventory.length, e.derived().storageCapacity);
+  assert.equal(e.state.inventory.length, e.derived().storageCapacity - 1);
+  assert.equal(
+    e.state.adventurers.find((u) => u.id === "renn").equipment.weapon.recipeId,
+    "bronze_daggers",
+  );
+  assert.equal(e.state.jobs.length, 0);
 });
 test("review: fractional fighter intervals always schedule integer match and recovery times", () => {
   const e = fresh();

@@ -1418,7 +1418,7 @@ input[type="range"] {
 }
 .forge-purpose {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 7px;
   margin-bottom: 20px;
 }
@@ -1683,6 +1683,30 @@ input[type="range"] {
 .comparison dd {
   margin: 0;
   color: #dfcb9a;
+}
+.comparison dd.stat-gain {
+  color: #8de6b2;
+}
+.comparison dd.stat-loss {
+  color: #ff9c91;
+}
+.comparison dd strong {
+  margin-left: 8px;
+}
+.upgrade-path-note {
+  padding: 14px 16px;
+  background: #bc914917;
+  border-left: 3px solid #bd9456;
+  margin: 16px 0;
+}
+.upgrade-side-path {
+  margin: 22px 0 4px;
+}
+.upgrade-node .upgrade-blockers {
+  margin: 8px 0 0;
+  padding-left: 16px;
+  font-size: 11px;
+  color: #dcc294;
 }
 .stock-piece {
   display: flex;

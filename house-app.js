@@ -162,6 +162,12 @@
     }
   }
   game = new EIHouseEngine(D, saved);
+  let storedSave = get(KEY),
+    needsCatchup = !!saved?.started;
+  function checkpoint() {
+    const raw = game.exportSave();
+    if (put(KEY, raw)) storedSave = raw;
+  }
   function lease() {
     const wasReadonly = ui.readonly;
     let l;
@@ -170,10 +176,15 @@
     } catch (e) {}
     ui.readonly = !!(l && l.owner !== owner && Date.now() - l.time < 8000);
     if (!ui.readonly) {
-      if (wasReadonly) {
-        const v = EIHouseEngine.validateSave(get(KEY), D);
+      // A hidden tab may never have observed the other owner while it was active.
+      // Compare the saved snapshot whenever ownership changes, including expired leases.
+      const latest = wasReadonly || l?.owner !== owner ? get(KEY) : storedSave;
+      if (latest && latest !== storedSave) {
+        const v = EIHouseEngine.validateSave(latest, D);
         if (v.ok) {
           game = new EIHouseEngine(D, v.state);
+          storedSave = latest;
+          needsCatchup = game.state.started;
           setTimeout(() => reconcileOffline(Date.now()), 0);
           last = Date.now();
         }
@@ -184,10 +195,25 @@
   lease();
   async function reconcileOffline(now) {
     if (ui.catchingUp || ui.readonly || !game.state.started) return;
-    const began = game.state.lastWallTime,
+    const target = game,
+      began = game.state.lastWallTime,
       elapsed = Math.max(0, now - began);
     if (elapsed < 60000) {
-      game.advanceOffline(now);
+      const report = game.advanceOffline(now).report;
+      if (
+        report &&
+        (report.crafted ||
+          report.smelted ||
+          report.mined ||
+          report.sold ||
+          report.contracts ||
+          report.discoveries?.length ||
+          report.studies?.length ||
+          report.achievements?.length)
+      )
+        ui.returnReport = report;
+      needsCatchup = false;
+      checkpoint();
       last = Date.now();
       return;
     }
@@ -214,7 +240,7 @@
     try {
       while (game.state.lastWallTime < now) {
         lease();
-        if (ui.readonly) break;
+        if (ui.readonly || game !== target) break;
         const cursor =
           game.state.offlineSession.credited >= game.offlineLimit()
             ? now
@@ -226,6 +252,7 @@
             ...part,
             discoveries: [...(part.discoveries || [])],
             studies: [...(part.studies || [])],
+            achievements: [...(part.achievements || [])],
           };
         else {
           for (const k of sums) report[k] = (report[k] || 0) + (part[k] || 0);
@@ -233,6 +260,9 @@
           report.stopReason = part.stopReason;
           report.discoveries.push(...(part.discoveries || []));
           report.studies.push(...(part.studies || []));
+          report.achievements = [
+            ...new Set([...report.achievements, ...(part.achievements || [])]),
+          ];
           const deltas = new Map(
             (report.materials || []).map((x) => [x.id, x.change]),
           );
@@ -247,25 +277,30 @@
           (game.state.lastWallTime - began) / elapsed,
         );
         // Preserve the credited cursor without advancing it to the live wall clock.
-        put(KEY, game.exportSave());
+        checkpoint();
         render(true);
         await new Promise((resolve) => setTimeout(resolve, 0));
       }
-      if (report) {
+      if (report && game === target) {
         report.elapsed = elapsed;
         game.state.offlineReport = report;
         ui.returnReport = report;
+        if (!ui.readonly) checkpoint();
       }
     } finally {
+      if (game === target && game.state.lastWallTime >= now)
+        needsCatchup = false;
       ui.catchingUp = false;
       last = Date.now();
       render(true);
     }
   }
   function save(force = false) {
+    lease();
     if (
       ui.readonly ||
       ui.catchingUp ||
+      needsCatchup ||
       (!game.state.started && game.state.player.legacy.generation === 1) ||
       (!force && Date.now() - lastSave < 5000)
     )
@@ -275,7 +310,7 @@
       old = get(KEY);
     if (old && old !== raw && EIHouseEngine.validateSave(old, D).ok)
       put(BACKUP, old);
-    put(KEY, raw);
+    if (put(KEY, raw)) storedSave = raw;
     lastSave = Date.now();
   }
   function notify(text) {
@@ -511,12 +546,12 @@
     } else if (!s.stats.crafted) {
       heading = "Forge your first team piece";
       body =
-        "Mine copper, tin and coal → smelt bronze → forge a weapon → equip it in the Armoury.";
+        "Mine copper, tin and coal → smelt bronze → forge a team upgrade → it equips automatically.";
       room = s.materials.bronze_ingot ? "forge" : "smelter";
     } else if (!h.contracts) {
       heading = "Finance the next investment";
       body =
-        "Use Catalogue purpose to make unprotected work for a disclosed contract.";
+        "Use Contract order to make warehouse pieces for an automatic delivery.";
       room = "shop";
     } else if (h.rung === 3 && !game.campaignStatus().eligible) {
       heading = "Build the house behind the champion";
@@ -646,8 +681,8 @@
       ],
       [
         "Shop",
-        "Hire the delivery clerk and enable deliveries",
-        h.upgrades.clerk && h.autoDeliver,
+        "Leave automatic contract deliveries enabled",
+        h.autoDeliver,
         "shop",
       ],
     ];
@@ -805,8 +840,9 @@
     return `<div class="room-grid forge-grid"><div>${panel(
       "Design a piece",
       `<div class="forge-purpose" role="group" aria-label="Craft purpose">${[
-        ["team", "Team commission", "Protected for your fighters"],
-        ["catalogue", "Catalogue order", "For contracts and town sales"],
+        ["team", "Team commission", "Auto-equip a fighter’s upgrade"],
+        ["catalogue", "Contract order", "Hold in warehouse · auto-deliver"],
+        ["stock", "Shop stock", "Automatically fill the displays"],
         ["practice", "Mastery practice", "Learn an item class"],
       ]
         .map(
@@ -873,7 +909,7 @@
                 ["Preparation", v.gold + "g"],
                 ["Mastery", master.level],
               ],
-            )}<div class="craft-bar">${button("Craft 1", "craft", { quantity: 1 }, !v.eligible, "primary")}${button("Craft 5", "craft", { quantity: 5 }, !game.craftPreview(r.id, { ...options, quantity: 5 }).eligible)}${button("Craft max · " + v.maxQuantity, "craft", { quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}<span>${esc(v.reason)}</span></div><small>${game.craftExperience(r).smith < 1 ? "Familiar work grants " + Math.round(game.craftExperience(r).smith * 100) + "% smith XP. Newer materials teach more. " : ""}${ui.intent === "team" ? "Finished team commissions are protected and never auto-sold." : ui.intent === "practice" ? `Earn class mastery. Town clearance returns ${game._townPrice({ recipeId: r.id, quality: v.quality })}g; materials and time are still consumed.` : "Only unprotected pieces can satisfy contracts."}</small></div>`
+            )}<div class="craft-bar">${button("Craft 1", "craft", { quantity: 1 }, !v.eligible, "primary")}${button("Craft 5", "craft", { quantity: 5 }, !game.craftPreview(r.id, { ...options, quantity: 5 }).eligible)}${button("Craft max · " + v.maxQuantity, "craft", { quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}<span>${esc(v.reason)}</span></div><small>${game.craftExperience(r).smith < 1 ? "Familiar work grants " + Math.round(game.craftExperience(r).smith * 100) + "% smith XP. Newer materials teach more. " : ""}${ui.intent === "team" ? "Team upgrades equip automatically. During a bout, or if no improvement is available, they wait protected in the warehouse." : ui.intent === "practice" ? `Earn class mastery. Town clearance returns ${game._townPrice({ recipeId: r.id, quality: v.quality })}g; materials and time are still consumed.` : "Contract pieces stay in the warehouse and deliver automatically when an order is complete. Shop stock fills displays for town buyers."}</small></div>`
           : empty("No pattern available in this class.")
       }`,
     )}${
@@ -933,7 +969,7 @@
   }
   function catalogueForm() {
     const c = game.state.house.catalogue;
-    return `<p>Maintain your chosen design, or rotate through eligible orders as the clerk delivers them. Production respects quality, storage and reserves.</p><label>Recipe<select name="catalogue-recipe">${Object.values(
+    return `<p>Maintain your chosen design, or rotate through eligible orders as they are automatically delivered. Production respects quality, storage and reserves.</p><label>Recipe<select name="catalogue-recipe">${Object.values(
       D.recipes,
     )
       .filter((r) => game._recipeKnown(r) && r.variant < 2)
@@ -982,6 +1018,16 @@
         : "")
     );
   }
+  function equipmentComparison(preview) {
+    const format = (n, kind) => {
+      const value = kind === "percent" ? n * 100 : n;
+      return (
+        Number(value.toFixed(2)) +
+        (kind === "percent" ? "%" : kind === "seconds" ? "s" : "")
+      );
+    };
+    return `<dl class="comparison">${(preview.changes || []).map((c) => `<div><dt>${esc(c.label)}</dt><dd class="${c.improved ? "stat-gain" : "stat-loss"}">${format(c.before, c.format)} → ${format(c.after, c.format)} <strong>${c.delta > 0 ? "+" : ""}${format(c.delta, c.format)}</strong></dd></div>`).join("")}</dl>`;
+  }
   function shop() {
     const s = game.state,
       h = currentHero();
@@ -1003,33 +1049,29 @@
       ui.shopTab === "armoury"
         ? `<div class="room-grid"><div>${heroSelect()}${panel("The house roster", fighterDetail(h) + equipment(h))}</div><aside>${panel(
             "Equip from your stock",
-            `<p>Compare before equipping. Swaps are free; displaced equipment returns protected to storage.</p>${
+            `<p>Only items that improve at least one combat stat are shown. Green is a gain; red is a tradeoff. Swaps are free.</p>${
               s.inventory
-                .filter((i) =>
-                  D.archetypes[h.archetypeId].preferences.includes(
-                    D.recipes[i.recipeId].classId,
-                  ),
-                )
-                .map((i) => {
-                  const v = game.equipmentPreview(h.id, i.id);
-                  return `<article class="stock-piece ${quality(i.quality)}">${itemIcon(D.recipes[i.recipeId])}<div><h3>${esc(itemName(i))}</h3><p>${itemMeta(i)}</p><small>${itemStatsText(i)}</small>${v.before ? `<dl class="comparison"><div><dt>Damage</dt><dd>${v.before.attack.toFixed(1)} → ${v.after.attack.toFixed(1)}</dd></div><div><dt>Health</dt><dd>${Math.round(v.before.health)} → ${Math.round(v.after.health)}</dd></div><div><dt>Armour</dt><dd>${v.before.armor.toFixed(1)} → ${v.after.armor.toFixed(1)}</dd></div></dl>` : ""}${button("Equip on " + esc(h.name), "equip", { hero: h.id, id: i.id }, !v.eligible, "primary")}<small>${v.reason}</small></div></article>`;
+                .map((i) => ({ i, v: game.equipmentPreview(h.id, i.id) }))
+                .filter(({ v }) => v.improves)
+                .map(({ i, v }) => {
+                  return `<article class="stock-piece ${quality(i.quality)}">${itemIcon(D.recipes[i.recipeId])}<div><h3>${esc(itemName(i))}</h3><p>${itemMeta(i)}</p><small>${itemStatsText(i)}</small>${equipmentComparison(v)}${button("Equip on " + esc(h.name), "equip", { hero: h.id, id: i.id }, !v.eligible, "primary")}<small>${v.reason}</small></div></article>`;
                 })
                 .join("") ||
               empty(
-                "No compatible equipment in stock. Team commissions arrive here protected.",
+                "No equipment upgrades ready for this fighter. Finish the current bout or forge a stronger piece; all stock remains in Displays & warehouse.",
               )
             }`,
           )}</aside></div>`
         : ui.shopTab === "contracts"
           ? `<div class="room-grid"><div>${panel(
               "The contract counter",
-              `<p>Disclosed orders stay until fulfilled. There are no daily deadlines. Only unprotected pieces are delivered, lowest quality first.</p><div class="contract-grid">${s.house.orders
+              `<p>Disclosed orders stay until fulfilled. Orders complete automatically when enough matching pieces are ready. Only unprotected pieces are delivered, lowest quality first.</p><div class="contract-grid">${s.house.orders
                 .map((o) => {
                   const v = game.contractPreview(o.id);
-                  return `<article class="contract"><p class="eyebrow">${esc(o.client)}</p><h3>${o.quantity} × ${D.classes[o.classId].name}</h3><p>Tier ${o.tier}+ · quality ${o.quality}+</p><strong class="contract-price">${o.payment}<small> GOLD ON DELIVERY</small></strong>${progress(v.items.length, o.quantity, "Contract completion")}<p>${v.reason}</p><div class="actions">${button("Deliver order", "deliver", { id: o.id }, !v.eligible, "primary")}${button("Plan this work", "contract-plan", { id: o.id })}</div></article>`;
+                  return `<article class="contract"><p class="eyebrow">${esc(o.client)}</p><h3>${o.quantity} × ${D.classes[o.classId].name}</h3><p>Tier ${o.tier}+ · quality ${o.quality}+</p><strong class="contract-price">${o.payment}<small> GOLD ON DELIVERY</small></strong>${progress(v.items.length, o.quantity, "Contract completion")}<p>${v.reason}</p><div class="actions">${!s.house.autoDeliver ? button("Deliver order", "deliver", { id: o.id }, !v.eligible, "primary") : ""}${button("Plan this work", "contract-plan", { id: o.id })}</div></article>`;
                 })
                 .join("")}</div>`,
-            )}${panel("House hallmarks", s.house.hallmarks.length ? `<p>These designs accompanied a champion victory. Keep the original in your armoury and reproduce its pattern for the house.</p><div class="tag-list">${s.house.hallmarks.map((id) => tag(D.recipes[id].name)).join("")}</div>` : empty("Win a championship with your own equipment to establish a hallmark."))}</div><aside>${panel("Counter staff", departmentSummary("shop"))}${panel("Contract handling", s.house.upgrades.clerk ? `<p>Automatically deliver complete orders using unprotected pieces. Reserved and equipped work is safe.</p>${button(s.house.autoDeliver ? "Pause deliveries" : "Enable deliveries", "auto-deliver", {}, false, "primary")}` : `<p>After four contracts, develop the Contract clerk to delegate deliveries.</p>${button("Shop upgrades", "upgrades", { room: "shop" })}`)}${panel(
+            )}${panel("House hallmarks", s.house.hallmarks.length ? `<p>These designs accompanied a champion victory. Keep the original in your armoury and reproduce its pattern for the house.</p><div class="tag-list">${s.house.hallmarks.map((id) => tag(D.recipes[id].name)).join("")}</div>` : empty("Win a championship with your own equipment to establish a hallmark."))}</div><aside>${panel("Counter staff", departmentSummary("shop"))}${panel("Contract handling", `<p>Automatic delivery is available from the start. Finished orders pay immediately. Reserved and equipped work is safe.</p>${button(s.house.autoDeliver ? "Pause deliveries" : "Enable deliveries", "auto-deliver", {}, false, "primary")}`)}${panel(
               "Commercial record",
               metrics([
                 ["Delivered", s.house.contracts],
@@ -1039,7 +1081,7 @@
             )}</aside></div>`
           : `${panel(
               "Display cases",
-              `<div class="display-grid">${s.inventory
+              `<p>Displays automatically fill from spare stock, lowest quality first. Contract pieces stay in the warehouse; team upgrades equip automatically. Protected spare gear is never sold.</p><div class="display-grid">${s.inventory
                 .filter((i) => i.displayed)
                 .map((i) => stockRow(i))
                 .join(
@@ -1059,7 +1101,7 @@
   }
   function stockRow(i) {
     const sale = game.salePreview(i.id);
-    return `<article class="stock-row ${quality(i.quality)}">${itemIcon(D.recipes[i.recipeId])}<div><h3>${esc(itemName(i))}</h3><p>${itemMeta(i)}</p><small>${itemStatsText(i)}</small><small>${game._protected(i) ? "Protected for the house" : "Available for sale or contracts"}</small></div><div class="actions">${button(game._protected(i) ? "Release" : "Protect", "protection", { id: i.id })}${button("Sell " + sale.price + "g", "sell-item", { id: i.id }, !sale.eligible)}${button("Scrap", "scrap", { id: i.id }, game._protected(i))}</div></article>`;
+    return `<article class="stock-row ${quality(i.quality)}">${itemIcon(D.recipes[i.recipeId])}<div><h3>${esc(itemName(i))}</h3><p>${itemMeta(i)}</p><small>${itemStatsText(i)}</small><small>${game._protected(i) ? "Protected for the house" : i.intent === "catalogue" || game.contractStockIds().has(i.id) ? "Warehouse · held for contracts" : "Automatically stocked for sale"}</small></div><div class="actions">${button(game._protected(i) ? "Release" : "Protect", "protection", { id: i.id })}${button("Sell " + sale.price + "g", "sell-item", { id: i.id }, !sale.eligible)}${button("Scrap", "scrap", { id: i.id }, game._protected(i))}</div></article>`;
   }
   function exhibitions() {
     const h = game.state.house,
@@ -1092,15 +1134,15 @@
   function returnSummary() {
     const r = ui.returnReport;
     if (!r) return "";
-    return panel(
-      "While you were away",
+    return (
+      `<p class="eyebrow">WELCOME BACK TO THE HOUSE</p><h2>While you were away</h2>` +
       metrics([
         ["Credited", time(r.credited / 1000)],
         ["Crafted", r.crafted],
         ["Contracts", r.contracts || 0],
         ["Gold", (r.netGold >= 0 ? "+" : "") + num(r.netGold)],
       ]) +
-        `<p>Away ${time(r.elapsed / 1000)} · ${r.mined || 0} mined · ${r.smelted || 0} ingots cast · ${r.victories} arena wins · ${r.defeats} defeats.</p><dl class="compact-ledger"><div><dt>Contracts / town sales / arena</dt><dd>${num(r.contractGold)}g / ${num(r.marketGold)}g / ${num(r.exhibitionGold)}g</dd></div><div><dt>Authorised supply purchases</dt><dd>−${num(r.automationSpent)}g</dd></div><div><dt>Material balance / overflow lost</dt><dd>${r.netMaterials >= 0 ? "+" : ""}${num(r.netMaterials)} / ${num(r.lost)}</dd></div></dl>${r.capped ? `<p class="warning">24-hour allowance reached. ${time((r.elapsed - r.credited) / 1000)} was not simulated. Return visits reset the allowance.</p>` : ""}${[...(r.discoveries || []), ...(r.studies || [])].map((x) => `<p class="discovery-note">✦ ${esc(x)}</p>`).join("")}<p>${esc(r.stopReason || "Your authorised workshop policies kept working.")}</p>${button("Back to the house", "dismiss-return", {}, false, "quiet")}`,
+      `<p>Away ${time(r.elapsed / 1000)} · ${r.mined || 0} mined · ${r.smelted || 0} ingots cast · ${r.victories} arena wins · ${r.defeats} defeats.</p><dl class="compact-ledger"><div><dt>Contracts / town sales / arena</dt><dd>${num(r.contractGold)}g / ${num(r.marketGold)}g / ${num(r.exhibitionGold)}g</dd></div><div><dt>Authorised supply purchases</dt><dd>−${num(r.automationSpent)}g</dd></div><div><dt>Material balance / overflow lost</dt><dd>${r.netMaterials >= 0 ? "+" : ""}${num(r.netMaterials)} / ${num(r.lost)}</dd></div></dl><h3>Achievements & discoveries</h3>${[...(r.achievements || []), ...(r.discoveries || []), ...(r.studies || []).map((x) => "Study completed: " + x)].map((x) => `<p class="discovery-note">✦ ${esc(x)}</p>`).join("") || "<p>No new milestones this time. Your workshop still made progress.</p>"}${r.capped ? `<p class="warning">24-hour allowance reached. ${time((r.elapsed - r.credited) / 1000)} was not simulated. Return visits reset the allowance.</p>` : ""}<p>${esc(r.stopReason || "Your authorised workshop policies kept working.")}</p><p class="footnote">Still in production: ${game.state.jobs.length} forge jobs · ${game.state.workshop.jobs.length} smelting batches.</p><div class="actions">${button("Back to the house", "dismiss-return", {}, false, "primary")}</div>`
     );
   }
   function campaignPanel() {
@@ -1440,7 +1482,7 @@
     legacy,
   };
   function shell() {
-    return `<div class="house-shell" style="--scene:url('${asset(stage(ui.room))}')">${header()}<main id="main-content" class="room room-${ui.room}">${toolbar()}${storageMessage ? `<p role="alert" class="warning">${storageMessage}</p>` : ""}${ui.readonly ? '<p role="alert" class="warning">This house is active in another tab. This window is read-only until that tab closes.</p>' : ""}${overview()}${returnSummary()}${goal()}${ui.room === "legacy" ? "" : campaignPanel()}${renderers[ui.room]()}${ui.room === "legacy" ? campaignPanel() : ""}<footer class="room-footer"><span>${esc(game.state.shopName)} · generation ${game.state.player.legacy.generation}</span><span>Craftsmanship made visible.</span></footer></main>${game.activeMatch() && ui.room !== "arena" ? `<button class="live-bout" data-action="room" data-room="arena"><span class="pulse"></span>ARENA LIVE · ${recordTitle(game.activeMatch())}<b>Watch ↗</b></button>` : ""}</div>`;
+    return `<div class="house-shell" style="--scene:url('${asset(stage(ui.room))}')">${header()}<main id="main-content" class="room room-${ui.room}">${toolbar()}${storageMessage ? `<p role="alert" class="warning">${storageMessage}</p>` : ""}${ui.readonly ? '<p role="alert" class="warning">This house is active in another tab. This window is read-only until that tab closes.</p>' : ""}${overview()}${goal()}${ui.room === "legacy" ? "" : campaignPanel()}${renderers[ui.room]()}${ui.room === "legacy" ? campaignPanel() : ""}<footer class="room-footer"><span>${esc(game.state.shopName)} · generation ${game.state.player.legacy.generation}</span><span>Craftsmanship made visible.</span></footer></main>${game.activeMatch() && ui.room !== "arena" ? `<button class="live-bout" data-action="room" data-room="arena"><span class="pulse"></span>ARENA LIVE · ${recordTitle(game.activeMatch())}<b>Watch ↗</b></button>` : ""}</div>`;
   }
   function upgradeRows(room) {
     if (room === "employees")
@@ -1488,11 +1530,22 @@
           ["Training", "Welfare", "Organization"].indexOf(b),
       );
     if (!branches.includes(ui.branch)) ui.branch = branches[0];
-    return `<p class="eyebrow">DEVELOP YOUR HOUSE</p><div class="section-line"><h2>${roomNames[room]} upgrades</h2><span class="upgrade-wallet">${num(game.state.player.gold)}<small> GOLD</small></span></div><div class="room-pills">${["mine", "smelter", "forge", "shop", "arena", "employees"].map((r) => button(roomNames[r], "upgrade-room", { room: r }, false, room === r ? "selected" : "")).join("")}</div><div class="tabs">${branches.map((b) => button(b, "branch", { id: b }, false, b === ui.branch ? "selected" : "")).join("")}</div><p>Ranks grow exponentially in cost. Achievements prove access; gold pays for the investment.</p><div class="upgrade-tree">${rows
+    const depth = room === "mine" && ui.branch === "Depth";
+    return `<p class="eyebrow">DEVELOP YOUR HOUSE</p><div class="section-line"><h2>${roomNames[room]} upgrades</h2><span class="upgrade-wallet">${num(game.state.player.gold)}<small> GOLD</small></span></div><div class="room-pills">${["mine", "smelter", "forge", "shop", "arena", "employees"].map((r) => button(roomNames[r], "upgrade-room", { room: r }, false, room === r ? "selected" : "")).join("")}</div><div class="tabs">${branches.map((b) => button(b, "branch", { id: b }, false, b === ui.branch ? "selected" : "")).join("")}</div><p>Ranks grow exponentially in cost. Achievements prove access; gold pays for the investment.</p>${depth ? `<div class="upgrade-path-note"><strong>Main path · Open deeper workings</strong><p>Iron is the first new ore. Defeat the Cinder Yard champion, mine 100 total materials, then buy the 65g Iron licence. Optional exploration below improves existing workings and does not advance this path.</p>${button("View champion requirements", "room", { room: "arena" }, false, "quiet")}</div>` : ""}<div class="upgrade-tree">${rows
       .filter((n) => n.branch === ui.branch)
       .map((n) => {
         const v = n.preview;
-        return `<article class="upgrade-node ${v.eligible ? "affordable" : ""} ${v.rank > 0 ? "owned" : ""}"><div class="node-track">${v.rank >= n.max ? "✓" : "◇"}</div><div><div class="section-line"><h3>${n.name}</h3>${tag((v.rank || 0) + " / " + n.max)}</div><p>${n.text}</p><div class="rank-pips">${Array.from({ length: n.max }, (_, i) => `<i class="${i < v.rank ? "filled" : ""}"></i>`).join("")}</div><small>${esc(v.reason)}</small></div>${button(v.rank >= n.max ? "Developed" : num(v.cost) + "g", n.action, { id: n.id }, !v.eligible, "primary")}</article>`;
+        const blockers = [
+          ...(v.gates || [])
+            .filter((g) => typeof g === "string" || !g.met)
+            .map((g) =>
+              typeof g === "string" ? g : g.label || "Requirement not met",
+            ),
+          ...(game.state.player.gold < v.cost
+            ? ["Need " + num(v.cost - game.state.player.gold) + " more gold"]
+            : []),
+        ];
+        return `${depth && n.id === "survey" ? `<div class="upgrade-side-path"><h3>Optional exploration</h3><p>Available independently of ore licences.</p></div>` : ""}<article class="upgrade-node ${v.eligible ? "affordable" : ""} ${v.rank > 0 ? "owned" : ""}"><div class="node-track">${v.rank >= n.max ? "✓" : "◇"}</div><div><div class="section-line"><h3>${n.name}</h3>${tag((v.rank || 0) + " / " + n.max)}</div><p>${n.text}</p><div class="rank-pips">${Array.from({ length: n.max }, (_, i) => `<i class="${i < v.rank ? "filled" : ""}"></i>`).join("")}</div>${v.rank < n.max && blockers.length ? `<ul class="upgrade-blockers">${blockers.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>` : `<small>${esc(v.reason)}</small>`}</div>${button(v.rank >= n.max ? "Developed" : num(v.cost) + "g", n.action, { id: n.id }, !v.eligible, "primary")}</article>`;
       })
       .join("")}</div>`;
   }
@@ -1510,6 +1563,7 @@
     if (ui.modal === "upgrades") body = upgrades();
     else if (ui.modal === "menu") body = menu();
     else if (ui.modal === "options") body = options();
+    else if (ui.modal === "offline") body = returnSummary();
     else if (ui.modal === "convert") {
       let summary = "";
       const raw = get(CLASSIC),
@@ -1533,7 +1587,7 @@
       body = `<p class="eyebrow">END A CHAMPIONSHIP CAREER</p><h2>Pass on the hammer.</h2><p>Receive ${game.derived().legacyReward} sparks. The current run resets; permanent talents, furnishings and the chronicle persist.</p><p class="discovery-note">${game.state.house.campaign.seals} Crucible seals will carry over. One first-time Crucible victory earns the seal needed for the Oathbound folio in generation two. Its 6-hour study also needs 6,500g and mithril. ${game.state.house.campaign.seals ? "You have a seal reserve for inherited studies." : "Retiring now is valid; you can earn seals after the next Crown instead."}</p><div class="actions">${button("Visit the Crucible first", "room", { room: "arena" }, false, "quiet")}</div><label>One heirloom from storage<select name="heirloom"><option value="">No heirloom</option>${game.state.inventory.map((i) => `<option value="${i.id}">${esc(itemName(i))}</option>`).join("")}</select></label><p>Unequip a team item before retiring if you want to choose it here.</p>${button("Retire & begin a new generation", "confirm-retire", {}, false, "primary")}`;
     }
     return ui.modal
-      ? `<div class="modal-backdrop ${ui.modal === "options" ? "options-backdrop" : ""}"><section class="dialog ${ui.modal === "options" ? "options-dialog" : ""}" role="dialog" aria-modal="true" aria-label="${ui.modal === "upgrades" ? "Room upgrades" : ui.modal === "options" ? "Options" : "House menu"}"><button class="modal-close" data-action="close" aria-label="Close dialog">×</button>${body}</section></div>`
+      ? `<div class="modal-backdrop ${ui.modal === "options" ? "options-backdrop" : ""}"><section class="dialog ${ui.modal === "options" ? "options-dialog" : ""}" role="dialog" aria-modal="true" aria-label="${ui.modal === "upgrades" ? "Room upgrades" : ui.modal === "options" ? "Options" : ui.modal === "offline" ? "Offline progress" : "House menu"}"><button class="modal-close" data-action="close" aria-label="Close dialog">×</button>${body}</section></div>`
       : "";
   }
   function render(force = false) {
@@ -1543,6 +1597,8 @@
       $("#modal-root").innerHTML = "";
       return;
     }
+    if (ui.returnReport && ui.screen === "game" && !ui.modal && !ui.catchingUp)
+      ui.modal = "offline";
     const focused = document.activeElement,
       editing =
         focused && ["INPUT", "SELECT", "TEXTAREA"].includes(focused.tagName);
@@ -1574,9 +1630,21 @@
     lastRender = Date.now();
     revision++;
   }
+  function closeDialog() {
+    if (ui.modal === "offline") ui.returnReport = null;
+    ui.modal = null;
+  }
   function act(name, payload = {}) {
+    lease();
     if (ui.readonly) {
       notify("This house is active in another tab.");
+      return { ok: false };
+    }
+    if (needsCatchup || ui.catchingUp) {
+      reconcileOffline(Date.now());
+      notify(
+        "Restoring the workshop’s progress. Try again when the ledger opens.",
+      );
       return { ok: false };
     }
     const r = game.command(name, payload);
@@ -1651,6 +1719,7 @@
     },
     "dismiss-return": () => {
       ui.returnReport = null;
+      ui.modal = null;
     },
     begin: () => {
       ui.screen = "creation";
@@ -1687,9 +1756,7 @@
       preferences = { ...EIHouseSettings.defaults };
       applyPreferences(true);
     },
-    close: () => {
-      ui.modal = null;
-    },
+    close: closeDialog,
     room: (d) => navigate(d.room),
     calling: (d) => {
       ui.calling = d.id;
@@ -2017,8 +2084,9 @@
           JSON.stringify(old.house.campaign[key]),
         );
       game = next;
+      needsCatchup = false;
       game.markSaved(Date.now());
-      put(KEY, game.exportSave());
+      checkpoint();
       put(BACKUP, game.exportSave());
       ui.modal = null;
       ui.screen = "creation";
@@ -2066,7 +2134,7 @@
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && ui.modal) {
-      ui.modal = null;
+      closeDialog();
       render(true);
     }
     if (e.key === "Tab" && ui.modal) {
@@ -2101,9 +2169,11 @@
     }
     if (ui.readonly) return;
     game = new EIHouseEngine(D, v.state);
-    save(true);
+    needsCatchup = game.state.started;
     ui.screen = game.state.started ? "game" : "creation";
     ui.modal = null;
+    if (needsCatchup) await reconcileOffline(Date.now());
+    save(true);
     render(true);
     notify("Arena house imported.");
     e.target.value = "";
@@ -2119,7 +2189,7 @@
   document.addEventListener("visibilitychange", () => {
     sound.setVisible(!document.hidden);
     if (document.hidden) {
-      if (!ui.readonly && game.state.started)
+      if (!ui.readonly && !ui.catchingUp && !needsCatchup && game.state.started)
         game.tick(Math.max(0, Date.now() - last));
       last = Date.now();
       save(true);
@@ -2139,6 +2209,10 @@
       delta = now - last;
     last = now;
     lease();
+    if (needsCatchup) {
+      reconcileOffline(now);
+      return;
+    }
     if (!ui.readonly && game.state.started) {
       game.tick(delta, { offline: document.hidden });
       save();

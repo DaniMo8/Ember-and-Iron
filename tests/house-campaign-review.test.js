@@ -10,7 +10,7 @@ test('earned opening: spending all starting gold on wood still leaves a public-c
  const e=fresh(),s=e.state;const spent=e.command('buyMaterial',{materialId:'wood',quantity:s.player.gold/e.materialPrice('wood')});assert(spent.ok,spent.message);assert.equal(s.player.gold,0);
  assert(e.command('smelt',{id:'bronze'}).ok);e.tick(60000);
  const order=s.house.orders[0];const made=e.command('craft',{recipeId:order.recipeId,intent:'catalogue',quantity:order.quantity});assert(made.ok,made.message);e.tick(6*60000);
- const delivered=e.command('deliverContract',{id:order.id});assert(delivered.ok,delivered.message);assert(s.player.gold>0);valid(e);
+ assert.equal(s.house.contracts,1);assert(!s.house.orders.some(o=>o.id===order.id));assert(s.player.gold>0);valid(e);
 });
 test('campaign fixture: an absence is credited up to24h cumulatively, not once per tick call',()=>{
  const e=fresh();e.tick(23*hour,{offline:true});e.tick(3*hour,{offline:true});assert.equal(e.state.simTime,24*hour);e.tick(hour,{offline:true});assert.equal(e.state.simTime,24*hour);valid(e);

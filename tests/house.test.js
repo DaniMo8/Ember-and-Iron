@@ -85,7 +85,7 @@ test("all seven callings create valid houses with twenty allocated points and au
     assert.equal(e.state.house.orders.length, id === "merchant" ? 4 : 3);
   }
 });
-test("team commissions are protected; catalogue work is available for disclosed contracts", () => {
+test("team commissions auto-equip and remain protected from contracts", () => {
   const e = fresh();
   rich(e);
   assert(
@@ -96,9 +96,9 @@ test("team commissions are protected; catalogue work is available for disclosed 
     }).ok,
   );
   e.tick(300000);
-  const i = e.state.inventory[0];
+  const i = e.state.adventurers.find((u) => u.id === "renn").equipment.weapon;
   assert(i.protected);
-  assert.equal(i.reservedFor, "renn");
+  assert.equal(i.reservedFor, null);
   assert(!i.displayed);
   assert(!e.contractPreview(e.state.house.orders[0].id).items.includes(i));
   assert(E.validateSave(e.exportSave(), e.data).ok);
@@ -285,7 +285,9 @@ test("paid prefix treatment and metal properties persist on the completed item",
     }).ok,
   );
   e.tick(300000);
-  const i = e.state.inventory.at(-1);
+  const i = e.state.adventurers
+    .flatMap((u) => Object.values(u.equipment))
+    .find((i) => i?.recipeId === "bronze_daggers");
   assert.equal(i.treatment, "keen");
   assert(e._itemCombat(i).armorPen >= 2);
   assert.equal(e.state.player.gold, gold); // Oathblade mastery makes Keen preparation free.
@@ -442,7 +444,7 @@ test("invalid match and mixed policy commands are atomic, and champion stats can
     assert(!e.command("challenge", payload).ok);
   assert.equal(e.exportSave(), original);
   assert(
-    !e.command("housePolicy", { offlineBudget: 10, autoDeliver: true }).ok,
+    !e.command("housePolicy", { offlineBudget: 10, autoDeliver: "yes" }).ok,
   );
   assert.equal(
     e.state.automation.spendCap,

@@ -1,0 +1,40 @@
+{
+  "version": "3.2.2",
+  "date": "2026-10-04",
+  "origin": "http://127.0.0.1:8792",
+  "kind": "Controlled supplied fixtures, not pacing benchmarks",
+  "productionPopup": "\n  - button \"Close dialog\" [active]: ×\n  - paragraph: WELCOME BACK TO THE HOUSE\n  - heading \"While you were away\" [level=2]\n  - generic: Credited\n  - strong: 1h\n  - generic: Crafted\n  - strong: \"3\"\n  - generic: Contracts\n  - strong: \"0\"\n  - generic: Gold\n  - strong: \"+0\"\n  - paragraph: Away 1h · 80 mined · 6 ingots cast · 0 arena wins · 0 defeats.\n  - term: Contracts / town sales / arena\n  - definition: 0g / 0g / 0g\n  - term: Authorised supply purchases\n  - definition: −0g\n  - term: Material balance / overflow lost\n  - definition: +86 / 0\n  - heading \"Achievements & discoveries\" [level=3]\n  - paragraph: ✦ Mara equipped Bronze Short Sword\n  - paragraph: ✦ Renn equipped Bronze Short Sword\n  - paragraph: ✦ Swords mastery reached 2\n  - paragraph: All open bins are full.\n  - paragraph: \"Still in production: 0 forge jobs · 0 smelting batches.\"\n  - button \"Back to the house\"",
+  "contractPopup": "\n  - button \"Close dialog\" [active]: ×\n  - paragraph: WELCOME BACK TO THE HOUSE\n  - heading \"While you were away\" [level=2]\n  - generic: Credited\n  - strong: 1h\n  - generic: Crafted\n  - strong: \"2\"\n  - generic: Contracts\n  - strong: \"1\"\n  - generic: Gold\n  - strong: \"+27\"\n  - paragraph: Away 1h · 75 mined · 0 ingots cast · 0 arena wins · 0 defeats.\n  - term: Contracts / town sales / arena\n  - definition: 27g / 0g / 0g\n  - term: Authorised supply purchases\n  - definition: −0g\n  - term: Material balance / overflow lost\n  - definition: +75 / 0\n  - heading \"Achievements & discoveries\" [level=3]\n  - paragraph: ✦ Daggers mastery reached 2\n  - paragraph: All open bins are full.\n  - paragraph: \"Still in production: 0 forge jobs · 0 smelting batches.\"\n  - button \"Back to the house\"",
+  "depthPanel": "\n  - button \"Close dialog\" [active]: ×\n  - paragraph: DEVELOP YOUR HOUSE\n  - heading \"Mine upgrades\" [level=2]\n  - generic: 214 GOLD\n  - button \"Mine\"\n  - button \"Smelter\"\n  - button \"Forge\"\n  - button \"Shop & armoury\"\n  - button \"Arena\"\n  - button \"Employees\"\n  - button \"Depth\"\n  - button \"Workers\"\n  - button \"Storage\"\n  - paragraph: Ranks grow exponentially in cost. Achievements prove access; gold pays for the investment.\n  - strong: Main path · Open deeper workings\n  - paragraph: Iron is the first new ore. Defeat the Cinder Yard champion, mine 100 total materials, then buy the 65g Iron licence. Optional exploration below improves existing workings and does not advance this path.\n  - button \"View champion requirements\"\n  - article:\n    - generic: ◇\n    - heading \"Iron licence\" [level=3]\n    - generic: 0 / 1\n    - paragraph: Open a new working.\n    - list:\n      - listitem: Defeat 1 league champion\n    - button \"65g\" [disabled]\n  - article:\n    - generic: ◇\n    - heading \"Gem pocket\" [level=3]\n    - generic: 0 / 1\n    - paragraph: Open a new working.\n    - list:\n      - listitem: Defeat 1 league champion\n      - listitem: Extract 250 total materials\n    - button \"120g\" [disabled]\n  - article:\n    - generic: ◇\n    - heading \"Mithril gallery\" [level=3]\n    - generic: 0 / 1\n    - paragraph: Open a new working.\n    - list:\n      - listitem: Defeat 3 league champions\n      - listitem: Extract 2500 total materials\n      - listitem: Need 1,486 more gold\n    - button \"1,700g\" [disabled]\n  - article:\n    - generic: ◇\n    - heading \"Starfall fissure\" [level=3]\n    - generic: 0 / 1\n    - paragraph: Open a new working.\n    - list:\n      - listitem: Defeat 4 league champions\n      - listitem: Extract 6000 total materials\n      - listitem: Need 5,986 more gold\n    - button \"6,200g\" [disabled]\n  - heading \"Optional exploration\" [level=3]\n  - paragraph: Available independently of ore licences.\n  - article:\n    - generic: ◇\n    - heading \"Surveyor’s ledger\" [level=3]\n    - generic: 0 / 1\n    - paragraph: Optional extra carts from already-open workings every ten minutes. Does not unlock new ores.\n    - text: Ready to develop.\n    - button \"90g\"",
+  "phone": {
+    "depth": {
+      "dialogWidth": 355,
+      "documentWidth": 375,
+      "width": 390
+    },
+    "equipment": {
+      "changes": [
+        {
+          "color": "rgb(141, 230, 178)",
+          "text": "6.54 → 7.47 +0.92"
+        },
+        {
+          "color": "rgb(255, 156, 145)",
+          "text": "6.54 → 6.32 -0.23"
+        },
+        {
+          "color": "rgb(141, 230, 178)",
+          "text": "0% → 18% +18%"
+        },
+        {
+          "color": "rgb(141, 230, 178)",
+          "text": "0% → 18% +18%"
+        }
+      ],
+      "documentWidth": 375,
+      "suggestions": 2,
+      "width": 390
+    }
+  },
+  "portablePopup": "\n  - button \"Close dialog\" [active]: ×\n  - paragraph: WELCOME BACK TO THE HOUSE\n  - heading \"While you were away\" [level=2]\n  - generic: Credited\n  - strong: 1h\n  - generic: Crafted\n  - strong: \"3\"\n  - generic: Contracts\n  - strong: \"0\"\n  - generic: Gold\n  - strong: \"+0\"\n  - paragraph: Away 1h · 80 mined · 6 ingots cast · 0 arena wins · 0 defeats.\n  - term: Contracts / town sales / arena\n  - definition: 0g / 0g / 0g\n  - term: Authorised supply purchases\n  - definition: −0g\n  - term: Material balance / overflow lost\n  - definition: +86 / 0\n  - heading \"Achievements & discoveries\" [level=3]\n  - paragraph: ✦ Mara equipped Bronze Short Sword\n  - paragraph: ✦ Renn equipped Bronze Short Sword\n  - paragraph: ✦ Swords mastery reached 2\n  - paragraph: All open bins are full.\n  - paragraph: \"Still in production: 0 forge jobs · 0 smelting batches.\"\n  - button \"Back to the house\""
+}
