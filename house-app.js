@@ -125,6 +125,30 @@
       return false;
     }
   }
+  const preferenceStorage = {
+    getItem: (key) => localStorage.getItem(key),
+    setItem: (key, value) => localStorage.setItem(key, value),
+  };
+  let preferences = EIHouseSettings.read(preferenceStorage);
+  const sound = new EIHouseAudio.Soundscape();
+  function applyPreferences(persist = false) {
+    preferences = EIHouseSettings.apply(preferences, document.documentElement);
+    sound.setVolumes({
+      master: preferences.master / 100,
+      music: preferences.music / 100,
+      effects: preferences.effects / 100,
+      muted: preferences.muted,
+    });
+    if (persist && !EIHouseSettings.write(preferenceStorage, preferences))
+      notify(
+        "Options apply for this visit. Your browser could not remember them.",
+      );
+  }
+  function startSound() {
+    sound.setRoom(ui.screen === "game" ? ui.room : "smith");
+    sound.unlock().catch(() => {});
+  }
+  applyPreferences();
   for (const key of [KEY, BACKUP]) {
     const raw = get(key);
     if (raw) {
@@ -284,7 +308,7 @@
   function asset(name) {
     if (artCache[name]) return artCache[name];
     const raw = window.EIHouseArt?.[name];
-    if (!raw) return "assets/house/" + name + ".webp";
+    if (!raw) return "assets/house/" + name + ".webp?v=3.2.0-scenes";
     const parts = raw.split(","),
       binary = atob(parts[1]),
       bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
@@ -393,7 +417,7 @@
       : H.rivals.find((r) => r.id === m.rival).name;
   }
   function splash() {
-    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.1</span></footer></main>`;
+    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.2</span></footer></main>`;
   }
   function creation() {
     const p = H.professions[ui.calling],
@@ -1473,12 +1497,19 @@
       .join("")}</div>`;
   }
   function menu() {
-    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Export arena house", "export", {}, !game.state.started, "primary")}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 3.1 · 24-hour offline limit · Original Blender artwork · No networked ranking</p>`;
+    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Options · appearance & sound", "options", {}, false, "primary")}${button("Export arena house", "export", {}, !game.state.started)}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 3.2 · 24-hour offline limit · Original Blender artwork & music · No networked ranking</p>`;
+  }
+  function options() {
+    const slider = (key, label, hint, max = 100) =>
+      `<label class="option-slider"><span>${label}<output data-option-output="${key}">${preferences[key]}%</output></span><input type="range" min="0" max="${max}" step="1" value="${preferences[key]}" data-setting="${key}" aria-label="${label}"><small>${hint}</small></label>`;
+    const theme = EIHouseAudio.themes[ui.screen === "game" ? ui.room : "smith"];
+    return `<p class="eyebrow">MAKE YOURSELF AT HOME</p><h2>Options</h2><p>Changes appear immediately and are remembered on this device.</p><section class="option-section"><h3>Appearance</h3>${slider("transparency", "Overlay transparency", "Higher lets more of the room show through. Text stays solid.", 85)}<div class="option-presets">${button("Readable", "transparency-preset", { value: 15 })}${button("Balanced", "transparency-preset", { value: 40 })}${button("Scenic", "transparency-preset", { value: 65 })}</div>${slider("backgroundShade", "Background dimming", "Darken the scenery to make information easier to read.", 70)}</section><section class="option-section"><div class="section-line"><h3>Sound</h3><label class="mute-option"><input type="checkbox" data-setting="muted" ${preferences.muted ? "checked" : ""}> Mute all</label></div>${slider("master", "Master volume", "Overall volume.")}${slider("music", "Music volume", "Original instrumental themes for each room.")}${slider("effects", "Sound effects volume", "Room ambience and sounds from your actions.")}<div class="now-playing"><span class="eyebrow">THIS ROOM’S THEME</span><strong>${esc(theme.title)}</strong><small>Music fades between rooms and pauses when the game is hidden.</small>${button("Play room theme", "preview-sound", {}, false, "quiet")}</div></section><div class="actions">${button("Restore default options", "default-options", {}, false, "quiet")}${button("Done", "close", {}, false, "primary")}</div>`;
   }
   function dialog() {
     let body = "";
     if (ui.modal === "upgrades") body = upgrades();
     else if (ui.modal === "menu") body = menu();
+    else if (ui.modal === "options") body = options();
     else if (ui.modal === "convert") {
       let summary = "";
       const raw = get(CLASSIC),
@@ -1502,7 +1533,7 @@
       body = `<p class="eyebrow">END A CHAMPIONSHIP CAREER</p><h2>Pass on the hammer.</h2><p>Receive ${game.derived().legacyReward} sparks. The current run resets; permanent talents, furnishings and the chronicle persist.</p><p class="discovery-note">${game.state.house.campaign.seals} Crucible seals will carry over. One first-time Crucible victory earns the seal needed for the Oathbound folio in generation two. Its 6-hour study also needs 6,500g and mithril. ${game.state.house.campaign.seals ? "You have a seal reserve for inherited studies." : "Retiring now is valid; you can earn seals after the next Crown instead."}</p><div class="actions">${button("Visit the Crucible first", "room", { room: "arena" }, false, "quiet")}</div><label>One heirloom from storage<select name="heirloom"><option value="">No heirloom</option>${game.state.inventory.map((i) => `<option value="${i.id}">${esc(itemName(i))}</option>`).join("")}</select></label><p>Unequip a team item before retiring if you want to choose it here.</p>${button("Retire & begin a new generation", "confirm-retire", {}, false, "primary")}`;
     }
     return ui.modal
-      ? `<div class="modal-backdrop"><section class="dialog" role="dialog" aria-modal="true" aria-label="${ui.modal === "upgrades" ? "Room upgrades" : "House menu"}"><button class="modal-close" data-action="close" aria-label="Close dialog">×</button>${body}</section></div>`
+      ? `<div class="modal-backdrop ${ui.modal === "options" ? "options-backdrop" : ""}"><section class="dialog ${ui.modal === "options" ? "options-dialog" : ""}" role="dialog" aria-modal="true" aria-label="${ui.modal === "upgrades" ? "Room upgrades" : ui.modal === "options" ? "Options" : "House menu"}"><button class="modal-close" data-action="close" aria-label="Close dialog">×</button>${body}</section></div>`
       : "";
   }
   function render(force = false) {
@@ -1550,7 +1581,28 @@
     }
     const r = game.command(name, payload);
     notify(r.message);
-    if (r.ok) save(true);
+    if (r.ok) {
+      save(true);
+      sound.effect(
+        {
+          mine: "pick",
+          pocket: "pick",
+          craft: "hammer",
+          technique: "hammer",
+          smelt: "pour",
+          buyMaterial: "coin",
+          sell: "coin",
+          sellMaterial: "coin",
+          deliverContract: "coin",
+          houseUpgrade: "chime",
+          smeltUpgrade: "chime",
+          research: "chime",
+          challenge: "drum",
+          ascend: "chime",
+          equip: "wood",
+        }[name] || "ui",
+      );
+    }
     render(true);
     return r;
   }
@@ -1559,6 +1611,7 @@
     if (room === "legacy" && !game.campaignStatus().legacyVisible) return;
     ui.room = room;
     ui.screen = "game";
+    sound.setRoom(room);
     ui.modal = null;
     ui.overview = null;
     ui.replayPlaying = false;
@@ -1602,16 +1655,37 @@
     begin: () => {
       ui.screen = "creation";
       ui.modal = null;
+      startSound();
     },
-    continue: () => navigate(ui.room),
+    continue: () => {
+      navigate(ui.room);
+      startSound();
+    },
     title: () => {
       ui.screen = "splash";
       ui.modal = null;
       ui.replayPlaying = false;
+      sound.setRoom("smith");
       save(true);
     },
     menu: () => {
       ui.modal = "menu";
+    },
+    options: () => {
+      ui.modal = "options";
+    },
+    "preview-sound": () => {
+      preferences.muted = false;
+      applyPreferences(true);
+      startSound();
+    },
+    "transparency-preset": (d) => {
+      preferences.transparency = Number(d.value);
+      applyPreferences(true);
+    },
+    "default-options": () => {
+      preferences = { ...EIHouseSettings.defaults };
+      applyPreferences(true);
     },
     close: () => {
       ui.modal = null;
@@ -1963,6 +2037,15 @@
   });
   document.addEventListener("input", (e) => {
     const el = e.target;
+    if (Object.hasOwn(EIHouseSettings.defaults, el.dataset.setting)) {
+      const key = el.dataset.setting;
+      preferences[key] = el.type === "checkbox" ? el.checked : Number(el.value);
+      applyPreferences(true);
+      const output = document.querySelector(`[data-option-output="${key}"]`);
+      if (output) output.textContent = preferences[key] + "%";
+      if (["master", "music", "effects", "muted"].includes(key)) startSound();
+      return;
+    }
     if (el.dataset.create) ui[el.dataset.create] = el.value;
     if (el.hasAttribute("data-replay-time")) {
       ui.replayAt = Number(el.value);
@@ -2026,6 +2109,7 @@
     e.target.value = "";
   });
   window.addEventListener("pagehide", () => {
+    sound.stop();
     if (!document.hidden) save(true);
     try {
       const l = JSON.parse(get(LEASE) || "null");
@@ -2033,6 +2117,7 @@
     } catch (e) {}
   });
   document.addEventListener("visibilitychange", () => {
+    sound.setVisible(!document.hidden);
     if (document.hidden) {
       if (!ui.readonly && game.state.started)
         game.tick(Math.max(0, Date.now() - last));

@@ -1,10 +1,23 @@
-# House edition 3.1 — original Blender artwork
+# House edition 3.2 — original Blender artwork
 
 The active game has **40 room backgrounds: eight rooms × five architectural stages**, plus the existing splash, rendered button/frame surfaces, six fighter miniatures and inventory atlas. Every room includes its own starting workshop and later inherited estate. Models, materials and lights are original local Blender geometry, with no downloaded models or textures.
 
-`design/tools/render_house_evolution.py` imports the modelling helpers in `render_house_art.py`. It generates the Mine, Smelter, Forge, Shop, Arena, Smith, Employees and Legacy scenes. Editable sources are the eight `assets/house/*-evolution.blend` files. The new scenes use Blender 5.2, Cycles with 12 samples and denoising, 1280×854 output, and WebP quality83 encoding. This is format compression, not AI image editing.
+`design/tools/render_themed_rooms.py` imports the modelling primitives in `render_house_art.py`, replacing the old shared tiled diorama shell. It generates the Mine, Smelter, Forge, Shop, Arena, Smith, Employees and Legacy scenes. Editable sources are the eight `assets/house/*-evolution.blend` files. Scenes use Blender 5.2, Cycles with 20 samples and denoising, 1440×960 output, and WebP quality85 encoding. CUDA is used when available; CPU rendering is the fallback. This is format compression, not AI image editing.
 
-Five stages progress from rough timber to stone workshops, an established estate, a guild hall and celestial architecture. New equipment includes a mine lift, power hammer, display vitrines, employee classrooms, arena terraces and an armillary. Rooms evolve independently from their own upgrades; later stages also require subsequent generations and permanent research. Exact thresholds are intentionally absent from the player interface.
+Each room has its own materials, architecture, lighting and five development stages:
+
+| Room | Visual theme | Later additions |
+|---|---|---|
+| Mine | Uneven packed earth, natural cavern walls, timber pit props, lanterns and cart rails; no tiled floor | Sorting bench, ore hoist, underground pool, deep crystal seams |
+| Smelter | Refractory furnaces, molten crucibles, casting gutters, moulds and coal | Additional furnaces, lifting gantry, assay tables, celestial alloy bath |
+| Forge | Soot-dark masonry hearth and chimney, anvil, tongs, bellows and quench tub | Grinding wheel, power hammer, tempering vessels, runed heat stones |
+| Shop | Oak boards, counter, ledger, coins and weapon racks | Shields, carpet runner, armour displays and relics |
+| Smith | Quiet timber study, drafting vellum, books and candlelight | Additional desk, guild trophies and armillary |
+| Employees | Communal table, pewter cups, benches and warm hearth | Rest bunks, duty board, training desk and artisan pennants |
+| Arena | Fighting sand, training dummies, banners and open mountain skyline | Spectator stands, champion gate, seals and Crucible runes |
+| Legacy | Blue marble, memorial inscriptions, candlelit columns and ceremonial anvil | Braziers, ancestral crystals and celestial armillary |
+
+Rooms evolve independently from their own upgrades; later stages also require subsequent generations and permanent research. Exact thresholds are intentionally absent from the player interface. Perspective cameras keep the working area central for desktop and phone crops. Options change panel surface alpha and scenery dimming independently; text itself is never made transparent.
 
 `render_house_art.py` also reproduces the original splash and semantic-control metalwork; `render_house_fighters.py` reproduces transparent miniatures. Text is never baked into a button image. Runtime dimming and responsive cropping keep information legible. Unused historical artwork below remains available to Classic but is excluded from the active portable build.
 

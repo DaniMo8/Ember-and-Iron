@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>The long-lived house · Ember & Iron 3.1</title>
+    <title>The long-lived house · Ember & Iron 3.2</title>
     <style>
       :root {
         color-scheme: dark;
@@ -186,7 +186,7 @@
   </head>
   <body>
     <header>
-      <p class="eyebrow">Ember & Iron · House edition 3.1</p>
+      <p class="eyebrow">Ember & Iron · House edition 3.2</p>
       <h1>A workshop for days.<br />A house for generations.</h1>
       <p>
         Short visits make decisions. The working house carries them through the
@@ -466,10 +466,19 @@
         <p class="eyebrow">Original Blender environments</p>
         <h2>The rooms remember your investment.</h2>
         <p>
-          Eight rooms each have five backgrounds, from rough timber to inherited
-          halls and celestial machinery. Individual room upgrades determine
-          local development; later generations and research enable the grandest
-          architecture. The game keeps this evolution unannounced.
+          Eight rooms each have five themed backgrounds: bare rock tunnels in
+          the mine, a glowing foundry, a working hearth, a timber shop, a sandy
+          arena, a private study, communal quarters and an ancestral hall.
+          Individual room upgrades determine local development; later
+          generations and research enable the grandest architecture. The game
+          keeps this evolution unannounced.
+        </p>
+        <p>
+          Menu → Options adjusts overlay transparency and scenery dimming live.
+          Readable, Balanced and Scenic presets keep text solid. Each room has
+          an original instrumental theme and matching ambience, with separate
+          master, music and sound effects volumes. Music fades between rooms and
+          pauses when the game is hidden.
         </p>
         <details>
           <summary>Explore all forty backgrounds · visual spoilers</summary>
@@ -487,7 +496,7 @@
           ><label
             >Architecture<select id="stage">
               <option value="0">Opening workshop</option>
-              <option value="1">Stone workshop</option>
+              <option value="1">Developing workshop</option>
               <option value="2">Established estate</option>
               <option value="3">Guild hall</option>
               <option value="4">Celestial house</option>
@@ -496,7 +505,7 @@
           <figure>
             <img
               id="scene"
-              src="../assets/house/smith-0.webp"
+              src="../assets/house/smith-0.webp?v=3.2.0-scenes"
               alt="Smith opening workshop"
             />
             <figcaption id="caption">Smith · Opening workshop</figcaption>
@@ -522,7 +531,7 @@
         </p>
         <nav>
           <a href="qa/house-campaign-review.md">Independent review</a
-          ><a href="qa/version-3.1-tests.txt">Automated checks</a
+          ><a href="qa/version-3.2-tests.txt">Automated checks</a
           ><a href="qa/campaign-browser-checks.json">Responsive layout checks</a
           ><a href="../assets/ARTWORK.md">Art provenance</a>
         </nav>
@@ -536,7 +545,11 @@
         const label =
           room.selectedOptions[0].text + " · " + stage.selectedOptions[0].text;
         document.querySelector("#scene").src =
-          "../assets/house/" + room.value + "-" + stage.value + ".webp";
+          "../assets/house/" +
+          room.value +
+          "-" +
+          stage.value +
+          ".webp?v=3.2.0-scenes";
         document.querySelector("#scene").alt = label;
         document.querySelector("#caption").textContent = label;
       }

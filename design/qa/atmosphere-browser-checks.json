@@ -1,0 +1,98 @@
+[
+  {
+    "background": "url(\"http://127.0.0.1:8792/assets/house/smelter-1.webp?v=3.2.0-scenes\")",
+    "errors": false,
+    "room": "The foundry",
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "background": "url(\"http://127.0.0.1:8792/assets/house/forge-1.webp?v=3.2.0-scenes\")",
+    "errors": false,
+    "room": "The forge",
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "background": "url(\"http://127.0.0.1:8792/assets/house/shop-1.webp?v=3.2.0-scenes\")",
+    "errors": false,
+    "room": "Shop & armoury",
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "background": "url(\"http://127.0.0.1:8792/assets/house/arena-1.webp?v=3.2.0-scenes\")",
+    "errors": false,
+    "room": "The proving ground",
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "background": "url(\"http://127.0.0.1:8792/assets/house/employees-0.webp?v=3.2.0-scenes\")",
+    "errors": false,
+    "room": "The common room",
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "background": "url(\"http://127.0.0.1:8792/assets/house/smith-1.webp?v=3.2.0-scenes\")",
+    "errors": false,
+    "room": "The maker",
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "background": "url(\"blob:http://127.0.0.1:8792/3286ccb5-8cde-4be7-b1e2-18f28d1c04f2\")",
+    "error": "",
+    "externalCss": 0,
+    "externalScripts": 0,
+    "portable": true,
+    "scroll": 375,
+    "width": 390
+  },
+  {
+    "error": "",
+    "portableOptions": true,
+    "prefs": [
+      {
+        "name": "transparency",
+        "value": "40"
+      },
+      {
+        "name": "backgroundShade",
+        "value": "25"
+      },
+      {
+        "name": "muted",
+        "value": false
+      },
+      {
+        "name": "master",
+        "value": "60"
+      },
+      {
+        "name": "music",
+        "value": "40"
+      },
+      {
+        "name": "effects",
+        "value": "45"
+      }
+    ],
+    "theme": "Beneath the Mountain"
+  },
+  {
+    "background": "url(\"http://127.0.0.1:8792/assets/house/legacy-4.webp?v=3.2.0-scenes\")",
+    "error": "",
+    "room": "legacy",
+    "scroll": 305,
+    "width": 320
+  },
+  {
+    "dialogWidth": 285,
+    "room": "legacy-options",
+    "scroll": 305,
+    "theme": "Names in Starlight",
+    "width": 320
+  }
+]

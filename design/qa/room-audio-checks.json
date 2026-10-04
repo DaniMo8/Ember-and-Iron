@@ -1,0 +1,100 @@
+[
+  {
+    "room": "smith",
+    "peak": 0.08256,
+    "rms": 0.01904,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "room": "mine",
+    "peak": 0.09345,
+    "rms": 0.01722,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "room": "smelter",
+    "peak": 0.06314,
+    "rms": 0.01426,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "room": "forge",
+    "peak": 0.08333,
+    "rms": 0.01264,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "room": "shop",
+    "peak": 0.08345,
+    "rms": 0.0194,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "room": "arena",
+    "peak": 0.09298,
+    "rms": 0.02081,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "room": "employees",
+    "peak": 0.08467,
+    "rms": 0.01944,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "room": "legacy",
+    "peak": 0.11367,
+    "rms": 0.01747,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "settings": {
+      "muted": true
+    },
+    "peak": 0,
+    "rms": 0,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "settings": {
+      "master": 0
+    },
+    "peak": 0,
+    "rms": 0,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "settings": {
+      "music": 0,
+      "effects": 0
+    },
+    "peak": 0,
+    "rms": 0,
+    "finite": true,
+    "pass": true
+  },
+  {
+    "separateBuses": true,
+    "music": {
+      "peak": 0.05766,
+      "rms": 0.01562,
+      "finite": true
+    },
+    "effects": {
+      "peak": 0.05051,
+      "rms": 0.00679,
+      "finite": true
+    },
+    "pass": true
+  }
+]
