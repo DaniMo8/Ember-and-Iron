@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#1d302b" />
+    <title>Ember & Iron · The Living Atelier</title>
+    <link rel="stylesheet" href="atelier/atelier.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./atelier/vendor/three/build/three.module.js",
+          "three/addons/": "./atelier/vendor/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a
+        class="wordmark"
+        href="index.html"
+        aria-label="Return to the current Ember and Iron game"
+        ><span class="mark">✦</span
+        ><span>EMBER <i>&</i> IRON<small>THE LIVING ATELIER</small></span></a
+      >
+      <nav aria-label="Atelier rooms">
+        <button data-room="forge" aria-pressed="true">
+          <span>01</span> Forge</button
+        ><button data-room="shop" aria-pressed="false">
+          <span>02</span> Showroom</button
+        ><button data-room="arena" aria-pressed="false">
+          <span>03</span> Arena
+        </button>
+      </nav>
+      <div class="resources">
+        <span><i class="coin"></i><b id="gold">70</b><small>gold</small></span
+        ><span
+          ><i class="ingot"></i><b id="metal">24</b><small>ingots</small></span
+        ><button id="options-button" aria-label="Open display options">
+          ☷
+        </button>
+      </div>
+    </header>
+    <main class="workspace">
+      <section class="world-area" aria-label="Interactive 3D room">
+        <div id="scene-host">
+          <canvas
+            id="world"
+            aria-label="Living 3D diorama. Drag to orbit and scroll to zoom; all actions are also available in the panels."
+          ></canvas>
+        </div>
+        <div class="room-heading">
+          <span class="eyebrow" id="room-eyebrow"
+            >HOUSE OF THE HAMMER · WORKSHOP I</span
+          >
+          <h1 id="room-name">A good edge.<br />A better beginning.</h1>
+          <p id="room-subtitle">Fire, patience, and something worth making.</p>
+        </div>
+        <div id="loading" role="status">
+          <span class="loading-spark">✦</span><b>Warming the workshop…</b
+          ><small>Loading original Blender models</small>
+        </div>
+        <div class="view-controls">
+          <button id="reset-view" aria-label="Reset the room camera">
+            ↺ <span>Reset view</span></button
+          ><button id="inspect-current" aria-label="Inspect the current piece">
+            ◇ <span>Inspect the piece</span></button
+          ><button
+            id="scenic"
+            aria-label="Toggle scenic view"
+            aria-pressed="false"
+          >
+            ◉ <span>Scenic view</span>
+          </button>
+        </div>
+        <div class="scene-caption">
+          <span class="live-dot"></span
+          ><span id="scene-status"
+            >The hearth is warm. The workbench is ready.</span
+          >
+        </div>
+        <div class="orbit-hint">
+          DRAG TO LOOK AROUND · SCROLL TO DRAW CLOSER
+        </div>
+        <div id="combat-overlay" hidden>
+          <div id="combat-bars"></div>
+          <div id="battle-caption" aria-live="polite"></div>
+        </div>
+      </section>
+      <aside class="work-panel">
+        <section id="forge-panel">
+          <div class="panel-heading">
+            <span class="eyebrow">THE NEXT PIECE</span>
+            <h2>A rondel, made yours.</h2>
+            <p>
+              Turn the same piece in your hands, set it on a shelf, or send it
+              into the ring.
+            </p>
+          </div>
+          <div class="pattern-card">
+            <span class="pattern-icon">†</span>
+            <div>
+              <strong>Rondel dagger</strong
+              ><small>Diamond blade · bound grip · twin rondels</small>
+            </div>
+            <span class="tag">I</span>
+          </div>
+          <label for="material">The metal</label
+          ><select id="material">
+            <option value="bronze">Bronze — warm & honest</option>
+            <option value="iron">Iron — dark & practical</option>
+            <option value="steel" selected>Steel — a clean silver edge</option>
+            <option value="mithril">Mithril — pale & luminous</option>
+            <option value="starforged">Starforged — midnight metal</option>
+          </select>
+          <div class="form-row">
+            <div>
+              <label for="prefix">Crafted character</label
+              ><select id="prefix">
+                <option value="plain">Plain</option>
+                <option value="keen">Keen edge</option>
+                <option value="precise">Precise markings</option>
+                <option value="piercing">Piercing point</option>
+              </select>
+            </div>
+            <div>
+              <label for="enchant">Inscription</label
+              ><select id="enchant">
+                <option value="none">Unenchanted</option>
+                <option value="flame" selected>Ember runes</option>
+                <option value="starlight">Starlight</option>
+              </select>
+            </div>
+          </div>
+          <label for="quality" class="range-label"
+            >Workmanship <output id="quality-label">90 / 200</output></label
+          ><input
+            id="quality"
+            type="range"
+            min="20"
+            max="200"
+            step="5"
+            value="90"
+          />
+          <div class="range-captions">
+            <span>Rough forged</span><span>Extraordinary</span>
+          </div>
+          <p class="finish-note" id="finish-note">
+            Fitted brass, a polished edge and carefully bound leather.
+          </p>
+          <div class="metrics" id="item-metrics"></div>
+          <div class="destination" role="group" aria-label="Destination">
+            <button data-destination="team" aria-pressed="true">
+              ♜ For Renn<small>Protected · auto equip</small></button
+            ><button data-destination="shelf" aria-pressed="false">
+              ▥ For the shop<small>Display · browse · sell</small>
+            </button>
+          </div>
+          <button id="craft" class="primary">
+            Commission this piece <span id="craft-cost">9g · 2 ingots</span>
+          </button>
+          <p class="quiet" id="craft-time"></p>
+        </section>
+        <section id="shop-panel" hidden>
+          <div class="panel-heading">
+            <span class="eyebrow">A WINDOW ON THE TOWN</span>
+            <h2>Good work finds a home.</h2>
+            <p>
+              Every blade on these shelves is an actual piece. Visitors browse,
+              consider, and carry their purchase away.
+            </p>
+          </div>
+          <div class="visitor-card">
+            <span class="portrait-dot">A</span>
+            <div>
+              <strong>A traveller at the door</strong
+              ><small id="visitor-status">Arriving at the shop</small>
+            </div>
+          </div>
+          <h3>On display <span id="shelf-count">1 / 3</span></h3>
+          <div id="shelf-list" class="item-list"></div>
+          <h3>The team’s armoury</h3>
+          <div id="equipped-card"></div>
+          <h3>Held in the workshop</h3>
+          <div id="warehouse-list" class="item-list"></div>
+          <p class="quiet">
+            Sale stock fills empty displays automatically. Team commissions stay
+            protected.
+          </p>
+        </section>
+        <section id="arena-panel" hidden>
+          <div class="panel-heading">
+            <span class="eyebrow">THE CINDER YARD</span>
+            <h2>Let the steel speak.</h2>
+            <p>
+              Mara holds the front. Renn strikes behind her guard. Their
+              opponents must lose the front line before the rear is exposed.
+            </p>
+          </div>
+          <div id="team-card"></div>
+          <div class="rival-card">
+            <span class="eyebrow">YOUR OPPONENT</span>
+            <h3>The Gatehouse Pair</h3>
+            <p>
+              A patient shield-bearer and a quick blade. Stronger craftsmanship
+              changes the outcome.
+            </p>
+          </div>
+          <button id="launch" class="primary">
+            Gather & launch <span>Real-time · automatic</span>
+          </button>
+          <div class="form-row arena-actions">
+            <button id="replay" disabled>↻ Watch replay</button
+            ><button id="follow">Follow Renn</button>
+          </div>
+          <div id="battle-result" class="battle-result" hidden></div>
+          <div id="replay-controls" hidden>
+            <label for="replay-position"
+              >Saved replay <output id="replay-time"></output></label
+            ><input
+              id="replay-position"
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+            /><button id="replay-play">Pause replay</button
+            ><button id="replay-exit">Return to live room</button>
+          </div>
+          <div id="fight-log" class="fight-log"></div>
+        </section>
+        <div class="slice-note">
+          <span>✧</span>
+          <div>
+            <strong>A small, working study</strong>
+            <p>
+              Accelerated crafting, sample resources, separate save. Your full
+              House campaign is untouched.
+            </p>
+            <button id="restock">Replenish sample supplies</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <footer class="work-tray">
+      <div class="active-work">
+        <span class="eyebrow" id="work-eyebrow">THE ANVIL IS READY</span
+        ><strong id="work-name">What will you make first?</strong>
+        <div class="progress-track"><span id="work-progress"></span></div>
+        <small id="work-detail"
+          >Your orders continue while you look around.</small
+        >
+      </div>
+      <div class="queue-area">
+        <span class="eyebrow">UP NEXT <b id="queue-count">0 / 6</b></span>
+        <div id="queue-list">
+          <span class="empty-queue">A little room for ambition.</span>
+        </div>
+      </div>
+      <a class="design-link" href="design/diorama-design.html"
+        >The design book <span>↗</span></a
+      >
+    </footer>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <dialog id="options">
+      <button class="close" data-close="options" aria-label="Close options">
+        ×</button
+      ><span class="eyebrow">MAKE YOURSELF COMFORTABLE</span>
+      <h2>The way you see it.</h2>
+      <label for="render-quality">Scene detail</label
+      ><select id="render-quality">
+        <option value="high">High — soft shadows</option>
+        <option value="balanced" selected>Balanced</option>
+        <option value="low">Low — lighter on your device</option></select
+      ><label class="check"
+        ><input id="reduced-motion" type="checkbox" /> Reduce motion and camera
+        travel</label
+      ><label class="check"
+        ><input id="sound" type="checkbox" /> Quiet workshop sounds</label
+      >
+      <p class="quiet" id="render-stats"></p>
+      <a href="index.html">Return to the full House campaign ↗</a>
+    </dialog>
+    <dialog id="offline">
+      <span class="eyebrow">WHILE THE HOUSE WAS QUIET</span>
+      <h2>Welcome back, maker.</h2>
+      <p id="offline-duration"></p>
+      <div id="offline-summary" class="offline-summary"></div>
+      <button id="dismiss-offline" class="primary">Back to the workshop</button>
+    </dialog>
+    <div id="inspection" hidden>
+      <div class="inspection-copy">
+        <span class="eyebrow">A PIECE OF YOUR HOUSE</span>
+        <h2 id="inspection-name"></h2>
+        <p id="inspection-detail"></p>
+        <button id="close-inspection">← Return to the room</button>
+      </div>
+      <div class="inspection-label">
+        <span>DRAG TO TURN · SCROLL TO INSPECT</span
+        ><b id="inspection-quality"></b>
+      </div>
+    </div>
+    <noscript
+      ><p class="fallback">
+        This 3D study needs JavaScript. Your full game remains available in
+        <a href="index.html">the House edition</a>.
+      </p></noscript
+    >
+    <script type="module" src="atelier/app.js"></script>
+  </body>
+</html>

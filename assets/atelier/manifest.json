@@ -1,0 +1,49 @@
+{
+  "author": "Ember & Iron \u2014 original Blender-authored diorama slice",
+  "generator": "design/tools/build_atelier_assets.py",
+  "coordinates": "glTF +Y up, character forward +Z",
+  "assets": [
+    {
+      "file": "forge.glb",
+      "objects": 28,
+      "polygons": 33094,
+      "bytes": 6113820
+    },
+    {
+      "file": "showroom.glb",
+      "objects": 13,
+      "polygons": 24068,
+      "bytes": 4479280
+    },
+    {
+      "file": "arena.glb",
+      "objects": 9,
+      "polygons": 11318,
+      "bytes": 2588972
+    },
+    {
+      "file": "character.glb",
+      "objects": 46,
+      "polygons": 8982,
+      "bytes": 1488896
+    },
+    {
+      "file": "dagger.glb",
+      "objects": 12,
+      "polygons": 5680,
+      "bytes": 671956
+    },
+    {
+      "file": "shield.glb",
+      "objects": 7,
+      "polygons": 508,
+      "bytes": 619908
+    },
+    {
+      "file": "hammer.glb",
+      "objects": 5,
+      "polygons": 248,
+      "bytes": 202156
+    }
+  ]
+}

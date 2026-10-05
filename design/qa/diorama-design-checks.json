@@ -1,0 +1,233 @@
+{
+  "date": "2026-10-05",
+  "scope": "Design book only; no game or asset implementation",
+  "roomsAndBattle": [
+    {
+      "missing": false,
+      "overflow": false,
+      "room": "The maker’s study",
+      "stages": 5,
+      "stations": 4
+    },
+    {
+      "missing": false,
+      "overflow": false,
+      "room": "The lantern workings",
+      "stages": 5,
+      "stations": 5
+    },
+    {
+      "missing": false,
+      "overflow": false,
+      "room": "The casting yard",
+      "stages": 5,
+      "stations": 4
+    },
+    {
+      "missing": false,
+      "overflow": false,
+      "room": "The heart of the house",
+      "stages": 5,
+      "stations": 5
+    },
+    {
+      "missing": false,
+      "overflow": false,
+      "room": "The window on the town",
+      "stages": 5,
+      "stations": 4
+    },
+    {
+      "missing": false,
+      "overflow": false,
+      "room": "The proving ring",
+      "stages": 5,
+      "stations": 4
+    },
+    {
+      "missing": false,
+      "overflow": false,
+      "room": "The common room",
+      "stages": 5,
+      "stations": 4
+    },
+    {
+      "missing": false,
+      "overflow": false,
+      "room": "The hall of names",
+      "stages": 1,
+      "stations": 4
+    },
+    {
+      "graphic": true,
+      "phase": "Prepare the line",
+      "rule": true
+    },
+    {
+      "graphic": true,
+      "phase": "Close to valid range",
+      "rule": true
+    },
+    {
+      "graphic": true,
+      "phase": "A hit has a cause",
+      "rule": true
+    },
+    {
+      "graphic": true,
+      "phase": "The rear is exposed",
+      "rule": true
+    },
+    {
+      "graphic": true,
+      "phase": "Find the next craft",
+      "rule": true
+    }
+  ],
+  "layouts": [
+    {
+      "chapter": "01 The look",
+      "overflow": false,
+      "visible": 1,
+      "width": 320
+    },
+    {
+      "chapter": "02 Every room",
+      "overflow": false,
+      "visible": 1,
+      "width": 320
+    },
+    {
+      "chapter": "03 Living items",
+      "overflow": false,
+      "visible": 1,
+      "width": 320
+    },
+    {
+      "chapter": "04 Real-time arena",
+      "overflow": false,
+      "visible": 1,
+      "width": 320
+    },
+    {
+      "chapter": "05 People & interface",
+      "overflow": false,
+      "visible": 1,
+      "width": 320
+    },
+    {
+      "chapter": "06 Making it real",
+      "overflow": false,
+      "visible": 1,
+      "width": 320
+    },
+    {
+      "chapter": "01 The look",
+      "overflow": false,
+      "visible": 1,
+      "width": 390
+    },
+    {
+      "chapter": "02 Every room",
+      "overflow": false,
+      "visible": 1,
+      "width": 390
+    },
+    {
+      "chapter": "03 Living items",
+      "overflow": false,
+      "visible": 1,
+      "width": 390
+    },
+    {
+      "chapter": "04 Real-time arena",
+      "overflow": false,
+      "visible": 1,
+      "width": 390
+    },
+    {
+      "chapter": "05 People & interface",
+      "overflow": false,
+      "visible": 1,
+      "width": 390
+    },
+    {
+      "chapter": "06 Making it real",
+      "overflow": false,
+      "visible": 1,
+      "width": 390
+    },
+    {
+      "chapter": "01 The look",
+      "overflow": false,
+      "visible": 1,
+      "width": 768
+    },
+    {
+      "chapter": "02 Every room",
+      "overflow": false,
+      "visible": 1,
+      "width": 768
+    },
+    {
+      "chapter": "03 Living items",
+      "overflow": false,
+      "visible": 1,
+      "width": 768
+    },
+    {
+      "chapter": "04 Real-time arena",
+      "overflow": false,
+      "visible": 1,
+      "width": 768
+    },
+    {
+      "chapter": "05 People & interface",
+      "overflow": false,
+      "visible": 1,
+      "width": 768
+    },
+    {
+      "chapter": "06 Making it real",
+      "overflow": false,
+      "visible": 1,
+      "width": 768
+    },
+    {
+      "chapter": "01 The look",
+      "overflow": false,
+      "visible": 1,
+      "width": 1440
+    },
+    {
+      "chapter": "02 Every room",
+      "overflow": false,
+      "visible": 1,
+      "width": 1440
+    },
+    {
+      "chapter": "03 Living items",
+      "overflow": false,
+      "visible": 1,
+      "width": 1440
+    },
+    {
+      "chapter": "04 Real-time arena",
+      "overflow": false,
+      "visible": 1,
+      "width": 1440
+    },
+    {
+      "chapter": "05 People & interface",
+      "overflow": false,
+      "visible": 1,
+      "width": 1440
+    },
+    {
+      "chapter": "06 Making it real",
+      "overflow": false,
+      "visible": 1,
+      "width": 1440
+    }
+  ]
+}

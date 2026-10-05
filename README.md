@@ -2,6 +2,20 @@
 
 A playable local HTML blacksmith RPG. Build a workshop, equip an owned gladiator team, fulfil contracts and earn the crown through craftsmanship.
 
+## The first live 3D slice
+
+**[Open the Living Atelier](atelier.html)** through the same local server as the game, for example `http://127.0.0.1:8777/atelier.html`. This is the first working implementation of the approved handcrafted-diorama design: an original Blender Forge, Showroom and small Arena, with articulated people and actual 3D equipment. Drag to orbit, inspect a piece, commission it for Renn or the shop, and watch its destination and a live bout.
+
+The study has one modular rondel family, five metal appearances, adjustable workmanship, three crafted modifiers and two inscriptions. A finished piece keeps its properties on the anvil, on a display and in Renn's hand. The founder works with a hammer; Tomas prepares fittings; Perrin serves a customer who browses, checks out and carries the purchased piece away. Paid jobs, held equipment, automatic display filling, exact refunds, return summaries and saved replays are functional.
+
+The Arena advances a separate fixed-step combat state with movement, wind-up, impact, recovery, front-line eligibility and deterministic replay. It does not preselect a result for an animation. The four fighters use equipped meshes; the commissioned dagger changes Renn's actual damage. A saved replay cannot award another purse.
+
+**This is an accelerated, separately saved study, not a migration of the full campaign.** Sample replenishment and freely selectable visual properties are explicitly labelled. The eight-room campaign, its balance, saves and portable file are unchanged. Remaining production includes the other rooms, the full recipe catalogue, further character/animation refinement and campaign integration. A real phone hardware benchmark is still needed; narrow browser viewports verify layout only.
+
+Run the regular local server and open `atelier.html`; this module-based study is not the single-file portable release. Three.js 0.186.1 and its MIT licence are vendored locally, so the study makes no CDN requests. Source assets are in `assets/atelier/atelier-source.blend`; `design/tools/build_atelier_assets.py` regenerates the GLB models in a separate Blender background process.
+
+Verification: **307 tests passed** after adding eight study regressions, including frame-chunk independence, once-only sales/rewards, protected team work, front-line rules, escrow refunds and offline recovery. See [test output](design/qa/atelier-regression-tests.txt) and [browser evidence](design/qa/atelier-browser-checks.json). All three room layouts were checked at 320, 390, 768 and 1440 pixels. The first room's models currently total 9.1 MB, above the design's 8 MB initial asset target; asset and draw-call reduction remain rollout work. The [design book](design/diorama-design.html) remains the direction for the later rollout.
+
 ## Play
 
 Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or serve **[index.html](index.html)** with the source files. The portable edition embeds every script, style, background, miniature and inventory icon; it needs no installation, account or internet connection.
@@ -39,6 +53,7 @@ The new **House edition 3.2** has its own save, backup and active-tab ownership 
 
 ## Design and verification
 
+- **[Approved 3D diorama design book](design/diorama-design.html)**: room composition and evolution, visible employees/customers, item appearance rules, real-time arena design, responsive interface layouts and Blender production briefs. Its interactive figures are planning diagrams; the separate Living Atelier above implements the first three-room slice.
 - **[Long campaign guide, flowcharts and background gallery](design/campaign-guide.html)**
 - [House edition guide and room map](design/house-guide.html)
 - [Independent long-campaign review](design/qa/house-campaign-review.md)

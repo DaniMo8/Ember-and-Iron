@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-05",
+  "scope": "Accelerated separate 3D slice; full campaign untouched",
+  "routing": {
+    "crafted": "Piercing Steel rondel of Embers Q160",
+    "destination": "Automatically equipped to Renn; damage 16",
+    "shop": "Two Bronze Q160 orders automatically stocked and sold"
+  },
+  "battle": {
+    "result": "Victory",
+    "durationSeconds": 24.2,
+    "purse": 24,
+    "replayGoldBefore": 122,
+    "replayGoldAfter": 122
+  },
+  "desktopPerformance": {
+    "fps": 138,
+    "drawCalls": 319,
+    "triangles": 252000,
+    "textures": 73,
+    "note": "One desktop browser sample, balanced preset; not a real-phone benchmark"
+  },
+  "offline": {
+    "duration": "The workshop kept working for 24s while you were away.",
+    "heading": "Welcome back, maker.",
+    "summary": "0g\nGold earned\n1\nPieces finished\n0\nVisitors served\n0\nBouts won"
+  },
+  "layouts": [
+    {
+      "canvasWidth": 305,
+      "overflow": false,
+      "pageWidth": 307,
+      "primaryPanelVisible": true,
+      "room": "01 Forge",
+      "width": 320
+    },
+    {
+      "canvasWidth": 305,
+      "overflow": false,
+      "pageWidth": 307,
+      "primaryPanelVisible": true,
+      "room": "02 Showroom",
+      "width": 320
+    },
+    {
+      "canvasWidth": 305,
+      "overflow": false,
+      "pageWidth": 307,
+      "primaryPanelVisible": true,
+      "room": "03 Arena",
+      "width": 320
+    },
+    {
+      "canvasWidth": 375,
+      "overflow": false,
+      "pageWidth": 375,
+      "primaryPanelVisible": true,
+      "room": "01 Forge",
+      "width": 390
+    },
+    {
+      "canvasWidth": 375,
+      "overflow": false,
+      "pageWidth": 375,
+      "primaryPanelVisible": true,
+      "room": "02 Showroom",
+      "width": 390
+    },
+    {
+      "canvasWidth": 375,
+      "overflow": false,
+      "pageWidth": 375,
+      "primaryPanelVisible": true,
+      "room": "03 Arena",
+      "width": 390
+    },
+    {
+      "canvasWidth": 753,
+      "overflow": false,
+      "pageWidth": 753,
+      "primaryPanelVisible": true,
+      "room": "01 Forge",
+      "width": 768
+    },
+    {
+      "canvasWidth": 753,
+      "overflow": false,
+      "pageWidth": 753,
+      "primaryPanelVisible": true,
+      "room": "02 Showroom",
+      "width": 768
+    },
+    {
+      "canvasWidth": 753,
+      "overflow": false,
+      "pageWidth": 753,
+      "primaryPanelVisible": true,
+      "room": "03 Arena",
+      "width": 768
+    },
+    {
+      "canvasWidth": 1092,
+      "overflow": false,
+      "pageWidth": 1440,
+      "primaryPanelVisible": true,
+      "room": "01 Forge",
+      "width": 1440
+    },
+    {
+      "canvasWidth": 1092,
+      "overflow": false,
+      "pageWidth": 1440,
+      "primaryPanelVisible": true,
+      "room": "02 Showroom",
+      "width": 1440
+    },
+    {
+      "canvasWidth": 1092,
+      "overflow": false,
+      "pageWidth": 1440,
+      "primaryPanelVisible": true,
+      "room": "03 Arena",
+      "width": 1440
+    }
+  ],
+  "inspection": {
+    "arenaHealthBarsHidden": true,
+    "equipmentMesh": "Piercing Steel rondel of Embers Q160",
+    "visibleProps": "Material, blade profile, grip, brass rondels, quality trim and runes"
+  }
+}

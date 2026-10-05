@@ -12,6 +12,7 @@ Ember-and-Iron-save*.json
 tmp/
 assets/house/*.png
 assets/house/*.blend1
+assets/atelier/*.blend1
 # Local campaign replay checkpoints and intermediate runs; compact evidence is tracked.
 design/qa/house-campaign-*.json
 !design/qa/house-campaign-results.json
