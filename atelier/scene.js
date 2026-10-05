@@ -37,7 +37,7 @@ export class AtelierScene {
     this.renderer.setClearColor(0x000000, 0);
     this.renderer.outputColorSpace = T.SRGBColorSpace;
     this.renderer.toneMapping = T.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.04;
+    this.renderer.toneMappingExposure = 0.92;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = T.PCFSoftShadowMap;
     this.scene = new T.Scene();
@@ -52,8 +52,8 @@ export class AtelierScene {
     this.controls.enablePan = false;
     this.controls.rotateSpeed = 0.4;
     this.controls.zoomSpeed = 0.65;
-    this.scene.add(new T.HemisphereLight(0xd9e7d3, 0x5d4731, 2.25));
-    this.key = new T.DirectionalLight(0xffe4b7, 4.1);
+    this.scene.add(new T.HemisphereLight(0xbfc9d0, 0x30251d, 1.1));
+    this.key = new T.DirectionalLight(0xf2d4ae, 3.5);
     this.key.position.set(-3, 8, 5);
     this.key.castShadow = true;
     this.key.shadow.mapSize.set(2048, 2048);
@@ -67,7 +67,7 @@ export class AtelierScene {
     this.key.shadow.normalBias = 0.028;
     this.key.shadow.radius = 3;
     this.scene.add(this.key);
-    const fill = new T.DirectionalLight(0xb0d5dc, 1.2);
+    const fill = new T.DirectionalLight(0xa2b3c6, 0.8);
     fill.position.set(4, 4, -4);
     this.scene.add(fill);
     this.fireLight = new T.PointLight(0xff9c42, 15, 4, 1.65);
@@ -77,7 +77,7 @@ export class AtelierScene {
       environment = new RoomEnvironment();
     this.envTarget = pmrem.fromScene(environment, 0.04);
     this.scene.environment = this.envTarget.texture;
-    this.scene.environmentIntensity = 0.46;
+    this.scene.environmentIntensity = 0.36;
     environment.dispose();
     pmrem.dispose();
     this.ground = new T.Mesh(
@@ -191,7 +191,7 @@ export class AtelierScene {
   async asset(name) {
     if (!this.models[name])
       this.models[name] = this.loader
-        .loadAsync(`assets/atelier/${name}.glb`)
+        .loadAsync(`assets/atelier/${name}.glb?v=weathered-1`)
         .then((g) => {
           g.scene.traverse((o) => {
             if (o.isMesh) {
@@ -303,6 +303,8 @@ export class AtelierScene {
       "Grip_R",
     ])
       joints[name] = root.getObjectByName(name);
+    // First silhouette correction; the final campaign gets new adult rigs.
+    joints.Head.scale.setScalar(0.79);
     root.userData.person = id;
     const p = {
       root,
@@ -338,7 +340,7 @@ export class AtelierScene {
           if (m.name === "Inscription") {
             m.color.setHex(a.enchant === "flame" ? 0xf2ad42 : 0x93c6ed);
             m.emissive.copy(m.color);
-            m.emissiveIntensity = a.enchant === "none" ? 0 : 2.0;
+            m.emissiveIntensity = a.enchant === "none" ? 0 : 0.85;
           }
           if (m.name === "Grip leather") {
             m.roughness = clamp(0.95 - a.quality * 0.002, 0.5, 0.95);
@@ -368,6 +370,129 @@ export class AtelierScene {
     if (!root) return;
     root.removeFromParent();
     root.userData.materials?.forEach((m) => m.dispose());
+  }
+  setupPreview(canvas) {
+    this.previewCanvas = canvas;
+    this.previewContext = canvas.getContext("2d");
+    if (!this.previewContext)
+      throw new Error("Item preview canvas unavailable");
+    this.previewScene = new T.Scene();
+    this.previewScene.environment = this.envTarget.texture;
+    this.previewScene.environmentIntensity = 1.1;
+    this.previewScene.add(new T.HemisphereLight(0xd5dee4, 0x31271f, 1.5));
+    const key = new T.DirectionalLight(0xf3e4cb, 4.2);
+    key.position.set(-2, 3, 4);
+    const rim = new T.DirectionalLight(0xa7c5df, 3.2);
+    rim.position.set(3, 1, -2);
+    this.previewScene.add(key, rim);
+    this.previewCamera = new T.PerspectiveCamera(30, 1, 0.1, 10);
+    this.previewCamera.position.set(0, 0, 1.7);
+    this.previewRoot = new T.Group();
+    this.previewRoot.rotation.set(0.05, -0.35, -0.75);
+    this.previewScene.add(this.previewRoot);
+    this.previewAbort = new AbortController();
+    const options = { signal: this.previewAbort.signal };
+    let press = null;
+    canvas.addEventListener(
+      "pointerdown",
+      (e) => {
+        press = e.clientX;
+        canvas.setPointerCapture(e.pointerId);
+      },
+      options,
+    );
+    canvas.addEventListener(
+      "pointermove",
+      (e) => {
+        if (press === null) return;
+        this.turnPreview((e.clientX - press) * 0.016);
+        press = e.clientX;
+      },
+      options,
+    );
+    for (const event of ["pointerup", "pointercancel", "lostpointercapture"])
+      canvas.addEventListener(
+        event,
+        () => {
+          press = null;
+        },
+        options,
+      );
+    canvas.addEventListener(
+      "keydown",
+      (e) => {
+        if (!["ArrowLeft", "ArrowRight", "Home"].includes(e.key)) return;
+        e.preventDefault();
+        if (e.key === "Home") this.previewRoot.rotation.y = -0.35;
+        else this.turnPreview(e.key === "ArrowLeft" ? -0.18 : 0.18);
+        this.previewDirty = true;
+      },
+      options,
+    );
+    this.previewObserver = new ResizeObserver(() => {
+      this.previewDirty = true;
+    });
+    this.previewObserver.observe(canvas);
+  }
+  previewDraft(input) {
+    if (!this.previewRoot) return;
+    const key = JSON.stringify(appearance(input));
+    if (key === this.previewKey) return;
+    this.releaseItem(this.previewItem);
+    this.previewItem = this.makeItem(input);
+    const bounds = new T.Box3().setFromObject(this.previewItem);
+    this.previewItem.position.sub(bounds.getCenter(new T.Vector3()));
+    this.previewRoot.add(this.previewItem);
+    this.previewKey = key;
+    this.previewDirty = true;
+  }
+  turnPreview(amount) {
+    if (!this.previewRoot) return;
+    this.previewRoot.rotation.y += amount;
+    this.previewDirty = true;
+  }
+  drawPreview() {
+    if (!this.previewDirty || !this.previewItem || this.room !== "forge")
+      return;
+    const canvas = this.previewCanvas,
+      box = canvas.getBoundingClientRect();
+    if (!box.width || !box.height || box.bottom < 0 || box.top > innerHeight)
+      return;
+    const ratio = Math.min(this.renderer.getPixelRatio(), 1.5);
+    const width = Math.min(this.canvas.width, Math.round(box.width * ratio));
+    const height = Math.min(this.canvas.height, Math.round(box.height * ratio));
+    if (!width || !height) return;
+    canvas.width = width;
+    canvas.height = height;
+    this.previewCamera.aspect = width / height;
+    this.previewCamera.updateProjectionMatrix();
+    const pixelRatio = this.renderer.getPixelRatio();
+    // Draw only when the design, angle or size changes. Reuse the room's
+    // WebGL context, then copy the item into its independent UI canvas.
+    this.renderer.setViewport(0, 0, width / pixelRatio, height / pixelRatio);
+    this.renderer.setScissor(0, 0, width / pixelRatio, height / pixelRatio);
+    this.renderer.setScissorTest(true);
+    this.renderer.render(this.previewScene, this.previewCamera);
+    this.previewContext.clearRect(0, 0, width, height);
+    this.previewContext.drawImage(
+      this.canvas,
+      0,
+      this.canvas.height - height,
+      width,
+      height,
+      0,
+      0,
+      width,
+      height,
+    );
+    this.renderer.setScissorTest(false);
+    this.renderer.setViewport(
+      0,
+      0,
+      this.canvas.width / pixelRatio,
+      this.canvas.height / pixelRatio,
+    );
+    this.previewDirty = false;
   }
   attachDagger(p, input) {
     const key = JSON.stringify(input);
@@ -433,14 +558,18 @@ export class AtelierScene {
     this.renderer.setSize(w, h, false);
     const span = this.inspecting
       ? Math.max(2.25, 2.1 / aspect)
-      : Math.max(6.9, 9.1 / aspect);
-    this.camera.left = (-span * aspect) / 2;
-    this.camera.right = (span * aspect) / 2;
-    this.camera.top = span / 2;
-    this.camera.bottom = -span / 2;
+      : Math.max(8.0, 9.1 / aspect);
+    const scenic = document.body.classList.contains("scenic-mode");
+    const offsetX = !scenic && w > 800 ? span * aspect * 0.1 : 0;
+    const offsetY = !scenic && w <= 800 ? -span * 0.13 : 0;
+    this.camera.left = (-span * aspect) / 2 + offsetX;
+    this.camera.right = (span * aspect) / 2 + offsetX;
+    this.camera.top = span / 2 + offsetY;
+    this.camera.bottom = -span / 2 + offsetY;
     this.camera.updateProjectionMatrix();
   }
   setQuality(q) {
+    this.previewDirty = true;
     this.quality = q;
     this.renderer.setPixelRatio(
       Math.min(devicePixelRatio, q === "high" ? 2 : q === "low" ? 1 : 1.5),
@@ -772,6 +901,7 @@ export class AtelierScene {
       }
     }
     this.controls.update();
+    this.drawPreview();
     this.renderer.render(this.scene, this.camera);
   }
   stats() {
@@ -779,6 +909,9 @@ export class AtelierScene {
     return `${i.render.calls} draw calls · ${Math.round(i.render.triangles / 1000)}k triangles · ${i.memory.textures} textures · Three.js ${T.REVISION}`;
   }
   dispose() {
+    this.previewObserver?.disconnect();
+    this.previewAbort?.abort();
+    this.releaseItem(this.previewItem);
     this.resizeObserver.disconnect();
     this.controls.dispose();
     this.renderer.dispose();

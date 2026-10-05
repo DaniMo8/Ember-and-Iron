@@ -21,9 +21,13 @@ def texture(name,kind,color):
     if kind=='wood': h=.45+.14*np.sin((x+np.sin(y*13)*.014)*160)+.06*np.sin(x*700+y*9)+noise*.05
     elif kind=='cloth': h=.45+.12*np.sin(x*480)*np.sin(y*480)+noise*.04
     elif kind=='leather': h=.45+noise*.20+.04*np.sin(x*145+y*97)
-    else: h=.45+noise*.10+.04*np.sin(x*83)*np.cos(y*67)
+    elif kind=='metal': h=.49+noise*.035+.014*np.sin(x*850+y*14)
+    else: h=.45+noise*.14+.08*np.sin(x*83)*np.cos(y*67)
+    # Broad stains and small wear live in the material, not a screen-wide filter.
+    grime=np.clip(.81+.10*np.sin(x*19+y*11)*np.cos(y*17-x*7)+noise*.07,.64,1)
+    if kind=='metal': grime=.94+noise*.05
     rgba=np.ones((n,n,4),dtype=np.float32)
-    for k in range(3):rgba[:,:,k]=np.clip(color[k]*(.78+h*.38),0,1)
+    for k in range(3):rgba[:,:,k]=np.clip(color[k]*(.78+h*.38)*grime,0,1)
     img=bpy.data.images.new(name+'_albedo',width=n,height=n,alpha=True);img.pixels.foreach_set(rgba.ravel());img.pack()
     dy,dx=np.gradient(h); normal=np.ones_like(rgba);normal[:,:,0]=.5-dx*.65;normal[:,:,1]=.5-dy*.65;normal[:,:,2]=.99
     bump=bpy.data.images.new(name+'_normal',width=n,height=n,alpha=True);bump.colorspace_settings.name='Non-Color';bump.pixels.foreach_set(normal.ravel());bump.pack()
@@ -40,14 +44,14 @@ def mat(name,color,rough=.6,metal=0,kind=None,emission=0):
         p.inputs['Emission Color'].default_value=(*color,1);p.inputs['Emission Strength'].default_value=emission
     return m
 
-oak=mat('Oak honey',(.39,.225,.102),.78,kind='wood');oak_light=mat('Oak cut edge',(.51,.33,.16),.64,kind='wood')
+oak=mat('Oak honey',(.235,.162,.107),.86,kind='wood');oak_light=mat('Oak cut edge',(.35,.255,.175),.81,kind='wood')
 oak_dark=mat('Oak end grain',(.20,.114,.058),.88,kind='wood');pine=mat('Painted pine',(.15,.25,.19),.8)
-plaster=mat('Warm lime plaster',(.58,.52,.37),.98,kind='stone');plaster_green=mat('Sage plaster',(.28,.38,.30),.96,kind='stone')
+plaster=mat('Warm lime plaster',(.34,.326,.288),.98,kind='stone');plaster_green=mat('Sage plaster',(.22,.265,.239),.96,kind='stone')
 stone=mat('Carved limestone',(.38,.39,.32),.9,kind='stone');slate=mat('Charcoal slate',(.18,.22,.21),.85)
-brick=[mat('Fired brick '+str(i),(.39+i*.019,.19+i*.014,.103+i*.009),.95) for i in range(5)]
+brick=[mat('Fired brick '+str(i),(.23+i*.014,.137+i*.011,.095+i*.009),.97,kind='stone') for i in range(5)]
 iron=mat('Blackened iron',(.115,.145,.143),.49,.75);steel=mat('Steel',(.56,.64,.63),.25,.92)
-brass=mat('Aged brass',(.56,.36,.125),.35,.78);leather=mat('Oiled leather',(.23,.105,.049),.72,kind='leather')
-linen=mat('Warm linen',(.65,.60,.44),.95,kind='cloth');cloth=mat('House teal',(.12,.29,.27),.92,kind='cloth')
+brass=mat('Aged brass',(.38,.255,.109),.46,.78);leather=mat('Oiled leather',(.14,.073,.043),.85,kind='leather')
+linen=mat('Warm linen',(.41,.386,.32),.95,kind='cloth');cloth=mat('House teal',(.09,.17,.16),.95,kind='cloth')
 skin=mat('Warm skin',(.61,.37,.22),.83);hair=mat('Chestnut hair',(.16,.081,.040),.82)
 eyes=mat('Eyes',(.045,.06,.05),.3);cream=mat('Eye whites',(.88,.82,.63),.65)
 coal=mat('Coal',(.031,.037,.031),.85);ember=mat('Ember',(.95,.18,.025),.5,emission=4)
@@ -309,7 +313,7 @@ def character():
 
 def dagger():
     root=empty('Dagger')
-    blade=mat('Blade metal',(.53,.62,.64),.24,.94);edge=mat('Honed edge',(.72,.79,.79),.17,.96)
+    blade=mat('Blade metal',(.80,.82,.82),.24,.94,kind='metal');edge=mat('Honed edge',(.87,.9,.9),.17,.96)
     grip=mat('Grip leather',(.21,.075,.036),.64,kind='leather');fitting=mat('Fitting metal',(.53,.34,.11),.29,.84)
     # Diamond-section tapered blade with actual central ridge and separate cutting facets.
     levels=[(.28,.038,.012),(.34,.045,.016),(.75,.031,.013),(.94,.015,.007),(1.06,.001,.001)]

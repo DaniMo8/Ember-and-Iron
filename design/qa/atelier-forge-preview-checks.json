@@ -1,0 +1,176 @@
+{
+  "scope": "Live intended-item preview, overlay UI and weathered art revision",
+  "date": "2026-10-05",
+  "variants": [
+    {
+      "canvasLabel": "Close-up: Steel rondel of Embers, quality 200. Drag or use the left and right arrow keys to rotate.",
+      "description": "18 damage · 10% critical · 48g sale value",
+      "name": "Steel rondel of Embers",
+      "quality": "Q200"
+    },
+    {
+      "canvasLabel": "Close-up: Bronze rondel, quality 20. Drag or use the left and right arrow keys to rotate.",
+      "description": "4 damage · 10% critical · 7g sale value",
+      "name": "Bronze rondel",
+      "quality": "Q20"
+    },
+    {
+      "canvasLabel": "Close-up: Piercing Mithril rondel of Starlight, quality 20. Drag or use the left and right arrow keys to rotate.",
+      "description": "10 damage · 10% critical · 31g sale value",
+      "name": "Piercing Mithril rondel of Starlight",
+      "quality": "Q20"
+    }
+  ],
+  "layouts": [
+    {
+      "overflow": false,
+      "room": "01 Forge",
+      "sceneHeight": 844,
+      "sceneWidth": 305,
+      "screenHeight": 844,
+      "width": 320
+    },
+    {
+      "overflow": false,
+      "room": "02 Showroom",
+      "sceneHeight": 844,
+      "sceneWidth": 305,
+      "screenHeight": 844,
+      "width": 320
+    },
+    {
+      "overflow": false,
+      "room": "03 Arena",
+      "sceneHeight": 844,
+      "sceneWidth": 305,
+      "screenHeight": 844,
+      "width": 320
+    },
+    {
+      "overflow": false,
+      "room": "01 Forge",
+      "sceneHeight": 844,
+      "sceneWidth": 375,
+      "screenHeight": 844,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "room": "02 Showroom",
+      "sceneHeight": 844,
+      "sceneWidth": 375,
+      "screenHeight": 844,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "room": "03 Arena",
+      "sceneHeight": 844,
+      "sceneWidth": 375,
+      "screenHeight": 844,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "room": "01 Forge",
+      "sceneHeight": 1000,
+      "sceneWidth": 753,
+      "screenHeight": 1000,
+      "width": 768
+    },
+    {
+      "overflow": false,
+      "room": "02 Showroom",
+      "sceneHeight": 1000,
+      "sceneWidth": 753,
+      "screenHeight": 1000,
+      "width": 768
+    },
+    {
+      "overflow": false,
+      "room": "03 Arena",
+      "sceneHeight": 1000,
+      "sceneWidth": 753,
+      "screenHeight": 1000,
+      "width": 768
+    },
+    {
+      "overflow": false,
+      "room": "01 Forge",
+      "sceneHeight": 1000,
+      "sceneWidth": 1440,
+      "screenHeight": 1000,
+      "width": 1440
+    },
+    {
+      "overflow": false,
+      "room": "02 Showroom",
+      "sceneHeight": 1000,
+      "sceneWidth": 1440,
+      "screenHeight": 1000,
+      "width": 1440
+    },
+    {
+      "overflow": false,
+      "room": "03 Arena",
+      "sceneHeight": 1000,
+      "sceneWidth": 1440,
+      "screenHeight": 1000,
+      "width": 1440
+    }
+  ],
+  "orderIsolation": {
+    "active": "Bronze rondel",
+    "detail": "23s remaining · Q200 · Protected for Renn",
+    "preview": "Piercing Mithril rondel of Starlight",
+    "previewQuality": "Q20",
+    "queue": "Working · BronzeQ200 · Team×Queued · BronzeQ200 · Team×"
+  },
+  "opacityMinimum": {
+    "label": "40%",
+    "panelBackground": "rgba(21, 24, 24, 0.4)",
+    "scene": {
+      "bottom": 1000,
+      "height": 1000,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    }
+  },
+  "opacityAfterReload": {
+    "label": "40%",
+    "panelBackground": "rgba(21, 24, 24, 0.4)"
+  },
+  "phoneAdjustment": {
+    "opacity": "76%",
+    "preview": {
+      "bottom": 402.5,
+      "height": 290.5,
+      "left": 23,
+      "right": 352,
+      "top": 112,
+      "width": 329,
+      "x": 23,
+      "y": 112
+    },
+    "quality": {
+      "bottom": 645.046875,
+      "height": 26,
+      "left": 31,
+      "right": 344,
+      "top": 619.046875,
+      "width": 313,
+      "x": 31,
+      "y": 619.046875
+    }
+  },
+  "verification": {
+    "rendering": "Visually checked plain bronze, engraved steel and enchanted mithril; live geometry/materials update with each choice.",
+    "rotation": "Arrow control rotates the intended item.",
+    "regressions": "8 atelier tests passed; main campaign code unchanged.",
+    "art": "Weathered Blender exports and restrained lighting; final adult character rigs remain production work."
+  }
+}

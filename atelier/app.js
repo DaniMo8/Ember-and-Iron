@@ -59,6 +59,7 @@ let settings = {
   quality: innerWidth < 700 ? "low" : "balanced",
   reduced: matchMedia("(prefers-reduced-motion: reduce)").matches,
   sound: false,
+  opacity: 76,
 };
 try {
   settings = {
@@ -166,6 +167,15 @@ function updateDraft() {
     q = quote(a),
     stats = itemStats(a);
   $("quality-label").textContent = `${a.quality} / 200`;
+  $("preview-quality").textContent = `Q${a.quality}`;
+  $("preview-name").textContent = itemName(a);
+  $("preview-detail").textContent =
+    `${stats.attack} damage · ${Math.round(stats.crit * 100)}% critical · ${stats.value}g sale value`;
+  $("draft-preview").setAttribute(
+    "aria-label",
+    `Close-up: ${itemName(a)}, quality ${a.quality}. Drag or use the left and right arrow keys to rotate.`,
+  );
+  renderer?.previewDraft(a);
   $("finish-note").textContent =
     a.quality < 60
       ? "Rougher metal, unadorned fittings and a simple grip."
@@ -387,6 +397,8 @@ document.addEventListener("click", (e) => {
 });
 async function changeRoom(next) {
   room = next;
+  document.querySelector(".workspace").dataset.currentRoom = next;
+  if (innerWidth <= 800) window.scrollTo({ top: 0, behavior: "instant" });
   closeInspection(false);
   replayFrame = null;
   replayPlaying = false;
@@ -534,6 +546,24 @@ $("render-quality").value = settings.quality;
 $("reduced-motion").checked = settings.reduced;
 $("sound").checked = settings.sound;
 sound = settings.sound;
+function applyOpacity() {
+  const value = Number(settings.opacity);
+  settings.opacity = Number.isFinite(value)
+    ? Math.min(95, Math.max(40, value))
+    : 76;
+  document.documentElement.style.setProperty(
+    "--overlay-opacity",
+    settings.opacity / 100,
+  );
+  $("overlay-opacity").value = settings.opacity;
+  $("overlay-opacity-label").textContent = `${settings.opacity}%`;
+}
+applyOpacity();
+$("overlay-opacity").addEventListener("input", () => {
+  settings.opacity = Number($("overlay-opacity").value);
+  applyOpacity();
+  storeSettings();
+});
 function storeSettings() {
   localStorage.setItem("emberiron.atelier.settings", JSON.stringify(settings));
 }
@@ -606,6 +636,9 @@ try {
   renderer.quality = settings.quality;
   renderer.reduced = settings.reduced;
   await renderer.init();
+  renderer.setupPreview($("draft-preview"));
+  renderer.previewDraft(draft());
+  $("preview-loading").hidden = true;
   $("loading").hidden = true;
 } catch (error) {
   $("loading").innerHTML =
@@ -614,7 +647,11 @@ try {
     .getElementById("retry-3d")
     .addEventListener("click", () => location.reload());
   console.error("Atelier scene:", error);
+  $("preview-loading").textContent =
+    "3D preview unavailable. Your choices and crafting controls still work.";
 }
+$("preview-left").addEventListener("click", () => renderer?.turnPreview(-0.35));
+$("preview-right").addEventListener("click", () => renderer?.turnPreview(0.35));
 let frameAt = performance.now(),
   frames = 0,
   fpsAt = frameAt;

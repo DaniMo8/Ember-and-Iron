@@ -25,13 +25,20 @@ quality presets change resolution and shadows without changing simulation.
 World-item LODs, texture deduplication across packages and further animation
 work remain useful production improvements before full campaign integration.
 
-Measured slice, 5 October 2026: GLB packages total 16,164,988 bytes. The initial
-Forge plus shared people and equipment is 9,096,736 bytes before locally served
+Measured weathered revision, 5 October 2026: GLB packages total 17,836,464 bytes. The initial
+Forge plus shared people and equipment is 10,553,152 bytes before locally served
 renderer code. Shop and Arena load on first visit. These are uncompressed asset
-sizes; the first load exceeds the design book's initial 8 MB production target.
-One desktop balanced-preset sample reported 138 FPS, 319 renderer draw calls
+sizes; the basic local server sends them uncompressed. The design book's
+8 MB compressed production target has not been certified for this build.
+The earlier slice's desktop balanced-preset sample reported 138 FPS, 319 renderer draw calls
 (including shadows), 252,000 triangles and 73 textures. It is not a mobile
 benchmark. Real-device testing, LODs and lower draw counts remain rollout work.
 
 Three.js 0.186.1 is separately vendored under atelier/vendor/three with its MIT
 licence. The game makes no runtime requests to a third-party asset or code CDN.
+
+Weathered revision: soot-toned brick, aged timber and leather, uneven limewash,
+fine blade grinding marks, restrained enchantment emission and smaller heads.
+These remain prototype characters; final adult rigs are specified in the design
+book. The live item close-up uses the existing WebGL renderer only when its
+configuration, angle or size changes, then copies to the UI canvas.

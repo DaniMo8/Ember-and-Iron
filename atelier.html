@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#1d302b" />
+    <meta name="theme-color" content="#171918" />
     <title>Ember & Iron · The Living Atelier</title>
     <link rel="stylesheet" href="atelier/atelier.css" />
     <script type="importmap">
@@ -42,7 +42,7 @@
         </button>
       </div>
     </header>
-    <main class="workspace">
+    <main class="workspace" data-current-room="forge">
       <section class="world-area" aria-label="Interactive 3D room">
         <div id="scene-host">
           <canvas
@@ -92,12 +92,38 @@
         <section id="forge-panel">
           <div class="panel-heading">
             <span class="eyebrow">THE NEXT PIECE</span>
-            <h2>A rondel, made yours.</h2>
-            <p>
-              Turn the same piece in your hands, set it on a shelf, or send it
-              into the ring.
-            </p>
+            <h2>At the workbench.</h2>
           </div>
+          <figure class="draft-preview" aria-label="Intended item preview">
+            <div class="preview-heading">
+              <span class="eyebrow">PLANNED PIECE</span
+              ><output id="preview-quality">Q90</output>
+            </div>
+            <canvas
+              id="draft-preview"
+              tabindex="0"
+              aria-label="Close-up of the intended rondel. Drag or use the left and right arrow keys to rotate."
+            ></canvas>
+            <span id="preview-loading">Preparing the piece…</span>
+            <figcaption>
+              <strong id="preview-name">Steel rondel of Embers</strong
+              ><span id="preview-detail"></span>
+            </figcaption>
+            <div class="preview-controls">
+              <button
+                id="preview-left"
+                aria-label="Turn the intended item left"
+              >
+                ↶</button
+              ><small>Drag to turn · updates as you design</small
+              ><button
+                id="preview-right"
+                aria-label="Turn the intended item right"
+              >
+                ↷
+              </button>
+            </div>
+          </figure>
           <div class="pattern-card">
             <span class="pattern-icon">†</span>
             <div>
@@ -108,7 +134,7 @@
           </div>
           <label for="material">The metal</label
           ><select id="material">
-            <option value="bronze">Bronze — warm & honest</option>
+            <option value="bronze">Bronze — burnished copper</option>
             <option value="iron">Iron — dark & practical</option>
             <option value="steel" selected>Steel — a clean silver edge</option>
             <option value="mithril">Mithril — pale & luminous</option>
@@ -278,6 +304,20 @@
       ><label class="check"
         ><input id="sound" type="checkbox" /> Quiet workshop sounds</label
       >
+      <label for="overlay-opacity" class="range-label"
+        >Overlay opacity <output id="overlay-opacity-label">76%</output></label
+      >
+      <input
+        id="overlay-opacity"
+        type="range"
+        min="40"
+        max="95"
+        value="76"
+        step="1"
+      />
+      <p class="quiet">
+        Lower it to reveal more of the room behind the controls.
+      </p>
       <p class="quiet" id="render-stats"></p>
       <a href="index.html">Return to the full House campaign ↗</a>
     </dialog>
