@@ -143,6 +143,7 @@ def banner(x,y,z,material=cloth):
     for r in range(6):
         for c in range(4):i=r*5+c;faces.append((i,i+1,i+6,i+5))
     o=mesh_obj('Woven house pennant',verts,faces,material)
+    o['ambient']='cloth'
     so=o.modifiers.new('Cloth thickness','SOLIDIFY');so.thickness=.012;bpy.context.view_layer.objects.active=o;bpy.ops.object.modifier_apply(modifier=so.name)
     rod('Banner rod',(x-.36,y,z+.04),(x+.36,y,z+.04),.027,brass)
     rod('Hammer hallmark stem',(x,y-.06,z-.18),(x,y-.06,z-.52),.025,brass)
@@ -155,13 +156,14 @@ def shelf(x,y):
     for dx in [-.43,0,.43]:rod('Rack hook',(x+dx,y-.05,1.40),(x+dx,y-.20,1.40),.025,brass)
     box('Display backcloth',(x,y+.13,.81),(1.58,.025,1.34),cloth,.005)
 def room_shell(kind):
-    box('Carved miniature plinth',(0,0,-.19),(7.2,5.5,.38),oak_dark,.16)
-    box('Plinth inlaid border',(0,0,-.065),(7.12,5.42,.095),brass,.12)
     if kind=='arena':
+        box('Worn arena foundation',(0,.45,-.24),(7.45,6.45,.49),stone,.12)
         box('Compacted sand',(0,0,0),(6.98,5.28,.13),sand,.16)
         for i in range(80):
             x=random.uniform(-3.35,3.35);y=random.uniform(-2.45,2.45);sphere('Sandstone pebble',(x,y,.04),(.018,.02,.01),stone)
         return
+    box('Carved miniature plinth',(0,0,-.19),(7.2,5.5,.38),oak_dark,.16)
+    box('Plinth inlaid border',(0,0,-.065),(7.12,5.42,.095),brass,.12)
     for i in range(20):
         y=-2.49+i*.26
         for j in range(3):plank((-2.30+j*2.30,y,.035),(2.27,.246,.095),[oak,oak_light,oak][(i+j)%3])
@@ -256,7 +258,19 @@ def arena():
         for dx in [-.60,.60]:box('Gate upright',(x+dx,2.49,.92),(.16,.20,1.78),oak,.025)
         box('Gate lintel',(x,2.49,1.76),(1.42,.25,.18),oak_dark,.035)
         banner(x,2.48,1.68,cloth if x<0 else red)
-    for x in [-1.3,0,1.3]:table(x,2.75,1.15,.34,.49)
+    # Low terraces frame the contest; an open foreground keeps feet and weapons readable.
+    for row in range(3):
+        y=2.69+row*.36;z=.20+row*.28
+        box('Terrace riser',(0,y,z/2),(3.45,.38,z),stone,.032)
+        plank((0,y,z+.025),(3.52,.34,.08),oak)
+    for x in [-3.47,3.47]:
+        for z in [.28,.64,1.0]:box('Sandstone gate pier',(x,2.46,z),(.35,.45,.35),stone,.045)
+        box('Pier cap',(x,2.46,1.22),(.44,.53,.12),stone,.03)
+        lantern(x,2.44,1.48)
+    for i in range(22):
+        x=random.uniform(-2.85,2.85);y=random.uniform(-1.9,1.9)
+        angle=random.uniform(0,math.tau);length=random.uniform(.06,.18)
+        curve('Scuffed sand',[(x,y,.073),(x+math.cos(angle)*length,y+math.sin(angle)*length,.073)],.004,stone)
     # Ring markings are shallow inlays rather than emissive game lanes.
     curve('Arena circle',[(2.07*math.cos(i*math.tau/48),1.73*math.sin(i*math.tau/48),.085) for i in range(49)],.016,linen)
     for x in [-1.15,1.15]:curve('Formation mark',[(x,-.64,.084),(x,.64,.084)],.012,linen)
@@ -371,9 +385,9 @@ def export(name,creator,merge=False):
                 co=o.data.vertices[o.data.loops[li].vertex_index].co;uv.data[li].uv=(co[a]*1.7,co[b]*1.7)
     if merge:
         # Static geometry batched by material for an affordable browser draw count.
-        mats={o.data.materials[0] for o in objs if o.type=='MESH' and len(o.data.materials)==1}
+        mats={o.data.materials[0] for o in objs if o.type=='MESH' and len(o.data.materials)==1 and not o.get('ambient')}
         for m in mats:
-            selected=[o for o in bpy.data.objects if o not in before and o.type=='MESH' and len(o.data.materials)==1 and o.data.materials[0]==m]
+            selected=[o for o in bpy.data.objects if o not in before and o.type=='MESH' and len(o.data.materials)==1 and o.data.materials[0]==m and not o.get('ambient')]
             bpy.ops.object.select_all(action='DESELECT')
             for o in selected:o.select_set(True)
             bpy.context.view_layer.objects.active=selected[0]

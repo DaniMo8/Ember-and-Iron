@@ -17,6 +17,7 @@ import {
   tickBattle,
 } from "./core.js";
 import { AtelierScene } from "./scene.js";
+import { DOCTRINES, TEAM_HEALTH } from "./combat.js";
 const $ = (id) => document.getElementById(id),
   escape = (s) =>
     String(s).replace(
@@ -60,6 +61,7 @@ let settings = {
   reduced: matchMedia("(prefers-reduced-motion: reduce)").matches,
   sound: false,
   opacity: 76,
+  doctrine: "balanced",
 };
 try {
   settings = {
@@ -80,8 +82,8 @@ const notes = {
   ],
   arena: [
     "THE CINDER YARD · EXHIBITION",
-    "The line holds.<br>Until it doesn’t.",
-    "Watch the craft you put into their hands.",
+    "Steel against steel.",
+    "Hold the line. Break their guard. Take the opening.",
   ],
 };
 const visitorNames = {
@@ -92,6 +94,11 @@ const visitorNames = {
   leave: "Heading back to the town",
   absent: "The next traveller is on the way",
 };
+function visitorLabel() {
+  return state.visitor.phase === "consider" && !state.visitor.itemId
+    ? "No suitable piece in stock"
+    : visitorNames[state.visitor.phase];
+}
 function draft() {
   return appearance({
     material: $("material").value,
@@ -229,7 +236,8 @@ function teamCard() {
   const i = state.items.find((i) => i.location === "team");
   if (!i) return "";
   const stats = itemStats(i);
-  return `<article class="stock-item"><div><strong>Renn · Duelist</strong><small>${stats.attack} damage · 82 health · ${Math.round(stats.crit * 100)}% critical</small><small>${escape(itemName(i))}</small></div><span class="quality">Q${i.quality}</span><div class="stock-actions"><button data-inspect="${escape(i.id)}">Inspect equipped blade</button></div></article><p class="quiet">Mara · Vanguard · 118 health · mail & heater shield</p>`;
+  const stance = DOCTRINES[$("doctrine").value] || DOCTRINES.balanced;
+  return `<article class="stock-item"><div><strong>Renn · Duelist</strong><small>${(stats.attack * stance.attack).toFixed(1)} damage · ${TEAM_HEALTH.renn} health · ${Math.round(stats.crit * 100)}% critical</small><small>${escape(itemName(i))}</small></div><span class="quality">Q${i.quality}</span><div class="stock-actions"><button data-inspect="${escape(i.id)}">Inspect equipped blade</button></div></article><p class="quiet">Mara · Vanguard · ${TEAM_HEALTH.mara} health · ${Math.round(42 * stance.guard)} guard · mail & heater shield</p>`;
 }
 function refresh(force = false) {
   $("gold").textContent = fmt(state.gold);
@@ -288,7 +296,7 @@ function refresh(force = false) {
         .join("") || '<div class="empty-stock">No pieces in reserve.</div>';
     shelfStamp = stamp;
   }
-  $("visitor-status").textContent = visitorNames[state.visitor.phase];
+  $("visitor-status").textContent = visitorLabel();
   const equipped = state.items.find((i) => i.location === "team"),
     tStamp = equipped?.id || "";
   if (force || tStamp !== teamStamp) {
@@ -299,11 +307,12 @@ function refresh(force = false) {
   const b = replayFrame || state.battle;
   $("launch").disabled = !!replayFrame || state.battle?.status === "live";
   $("replay").disabled = !state.replay || state.battle?.status === "live";
+  $("doctrine").disabled = !!replayFrame || state.battle?.status === "live";
   if (room === "arena" && b) {
     $("combat-bars").innerHTML = b.units
       .map(
         (u) =>
-          `<div class="fighter-bar ${u.team === "away" ? "away" : ""}"><strong>${escape(u.name)}</strong><small>${Math.ceil(u.hp)} / ${u.maxHp} · ${u.hp <= 0 ? "Yielded" : u.line === "front" ? "Front" : "Guarded"}</small><div class="fighter-hp"><i style="width:${(100 * u.hp) / u.maxHp}%"></i></div></div>`,
+          `<div class="fighter-bar ${u.team === "away" ? "away" : ""}"><strong>${escape(u.name)}</strong><small>${Math.ceil(u.hp)} / ${u.maxHp} · ${phaseLabel(u, b)}</small><div class="fighter-hp"><i style="width:${(100 * u.hp) / u.maxHp}%"></i></div>${u.guardMax ? `<div class="fighter-guard" aria-label="${escape(u.name)} guard ${Math.round(u.guard)} of ${u.guardMax}"><i style="width:${(100 * u.guard) / u.guardMax}%"></i></div>` : ""}</div>`,
       )
       .join("");
     const recent = b.events
@@ -315,18 +324,28 @@ function refresh(force = false) {
           ? "Victory for the house."
           : b.status === "lost"
             ? "A lesson in steel."
-            : "The bout ends in a draw."
+            : "The bell sounds. A two-minute draw."
         : recent
           ? recent.team === "away"
             ? "Their front line is broken."
             : "Our front line has fallen."
           : replayFrame
             ? "SAVED REPLAY"
-            : "";
+            : b.stage === "forming"
+              ? "Take your marks."
+              : "";
+    $("bout-readout").textContent =
+      `${replayFrame ? "Replay" : "Bout"} · ${(b.tick / 20).toFixed(1)}s · ${b.version === 1 ? "Original rules" : DOCTRINES[b.doctrine].name}`;
     $("battle-result").hidden = b.status === "live";
     if (b.status !== "live")
       $("battle-result").innerHTML =
-        `<strong>${b.status === "won" ? "The house takes the ring." : b.status === "lost" ? "An edge to improve." : "A hard-fought draw."}</strong><p>${replayFrame ? "Saved replay · no additional rewards." : `${b.status === "won" ? 24 : 5}g purse received. ${b.status === "won" ? "Your craftsmanship made the difference." : "Try a finer blade or a piercing point against that shield."}`}</p>`;
+        `<strong>${b.status === "won" ? "The house takes the ring." : b.status === "lost" ? "An edge to improve." : "A hard-fought draw."}</strong><p>${replayFrame ? "Saved replay · no additional rewards." : `${b.status === "won" ? 24 : 5}g purse received. ${b.status === "won" ? "Your craftsmanship made the difference." : "Try a finer blade, a piercing point or a different doctrine."}`}</p><div class="bout-summary">${b.units
+          .filter((u) => u.team === "home")
+          .map(
+            (u) =>
+              `<span>${escape(u.name)} <b>${Math.round(u.damage)} dealt</b> · ${Math.round(u.blocked || 0)} blocked</span>`,
+          )
+          .join("")}</div>`;
     $("fight-log").innerHTML = b.events
       .slice(-6)
       .reverse()
@@ -341,7 +360,7 @@ function refresh(force = false) {
     $("scene-status").textContent =
       state.lastSale && state.clock - state.lastSale.at < 7000
         ? `${state.lastSale.name} left with a traveller · ${state.lastSale.value}g.`
-        : visitorNames[state.visitor.phase] + ".";
+        : visitorLabel() + ".";
   if (room === "arena")
     $("scene-status").textContent = replayFrame
       ? "Revisiting a saved bout. The workshop keeps working."
@@ -349,15 +368,28 @@ function refresh(force = false) {
         ? "The match is live. Every movement and hit is being resolved now."
         : "The ring is ready. Equip your work, then gather the team.";
 }
+function phaseLabel(u, b) {
+  if (u.hp <= 0) return "Yielded";
+  if (b.status !== "live") return "Standing";
+  if (b.tick < u.brokenUntil) return "Guard broken";
+  if (u.phase === "windup") return "Winding up";
+  if (u.phase === "strike") return "Striking";
+  if (u.phase === "recover") return "Recovering";
+  return u.moving ? "Footwork" : "Guarding";
+}
 function eventText(e, b) {
   const name = (id) => escape(b.units.find((u) => u.id === id)?.name || id);
   return e.type === "hit"
     ? `${name(e.actor)} → ${name(e.target)} · <b>${e.damage}</b>${e.block ? " · blocked" : ""}${e.crit ? " · critical" : ""}`
-    : e.type === "fall"
-      ? `${name(e.target)} yields.`
-      : e.type === "breach"
-        ? `${e.team === "away" ? "Their" : "Our"} rear is exposed.`
-        : "The bout is settled.";
+    : e.type === "guardbreak"
+      ? `${name(e.target)}’s guard breaks.`
+      : e.type === "miss"
+        ? `${name(e.actor)}’s attack falls short.`
+        : e.type === "fall"
+          ? `${name(e.target)} yields.`
+          : e.type === "breach"
+            ? `${e.team === "away" ? "Their" : "Our"} rear is exposed.`
+            : "The bout is settled.";
 }
 document.addEventListener("click", (e) => {
   const inspectButton = e.target.closest("[data-inspect]"),
@@ -417,7 +449,7 @@ async function changeRoom(next) {
   $("room-subtitle").textContent = n[2];
   $("combat-overlay").hidden = next !== "arena";
   $("room-name").parentElement.hidden = false;
-  if (renderer?.ready) {
+  if (renderer) {
     try {
       await renderer.setRoom(next);
     } catch {
@@ -476,7 +508,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeInspection();
 });
 $("launch").addEventListener("click", () => {
-  const r = launch(state);
+  const r = launch(state, $("doctrine").value);
   if (!r.ok) return toast(r.reason);
   replayFrame = null;
   renderer.follow = false;
@@ -496,7 +528,12 @@ $("follow").addEventListener("click", () => {
 function replayAt(tick) {
   if (!state.replay) return;
   const serial = Number(state.replay.id.split("-")[1]);
-  const b = newBattle(state.replay.item, serial);
+  const b = newBattle(
+    state.replay.item,
+    serial,
+    state.replay.doctrine,
+    state.replay.version || 1,
+  );
   for (let i = 0; i < tick && b.status === "live"; i++) tickBattle(b);
   replayFrame = b;
   $("replay-time").textContent =
@@ -545,6 +582,16 @@ document
 $("render-quality").value = settings.quality;
 $("reduced-motion").checked = settings.reduced;
 $("sound").checked = settings.sound;
+$("doctrine").value = DOCTRINES[settings.doctrine]
+  ? settings.doctrine
+  : "balanced";
+$("doctrine-note").textContent = DOCTRINES[$("doctrine").value].description;
+$("doctrine").addEventListener("change", () => {
+  settings.doctrine = $("doctrine").value;
+  $("doctrine-note").textContent = DOCTRINES[settings.doctrine].description;
+  storeSettings();
+  refresh(true);
+});
 sound = settings.sound;
 function applyOpacity() {
   const value = Number(settings.opacity);
@@ -625,7 +672,7 @@ try {
           tomas:
             "Tomas · workshop apprentice · preparing fittings at the bench.",
           perrin: "Perrin · shopkeeper · keeping the counter ready.",
-          customer: visitorNames[state.visitor.phase],
+          customer: visitorLabel(),
           mara: "Mara · Vanguard · mail and shield hold the front.",
           renn: "Renn · Duelist · wearing your actual commissioned dagger.",
           warden: "The Warden · a shield protects the rear.",

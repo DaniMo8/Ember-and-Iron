@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-05",
+  "layouts": [
+    {
+      "overflow": false,
+      "panelWidth": 285,
+      "room": "01 Forge",
+      "sceneHeight": 360,
+      "width": 320
+    },
+    {
+      "overflow": false,
+      "panelWidth": 285,
+      "room": "02 Showroom",
+      "sceneHeight": 360,
+      "width": 320
+    },
+    {
+      "overflow": false,
+      "panelWidth": 285,
+      "room": "03 Arena",
+      "sceneHeight": 480,
+      "width": 320
+    },
+    {
+      "overflow": false,
+      "panelWidth": 355,
+      "room": "01 Forge",
+      "sceneHeight": 360,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "panelWidth": 355,
+      "room": "02 Showroom",
+      "sceneHeight": 360,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "panelWidth": 355,
+      "room": "03 Arena",
+      "sceneHeight": 480,
+      "width": 390
+    },
+    {
+      "overflow": false,
+      "panelWidth": 733,
+      "room": "01 Forge",
+      "sceneHeight": 360,
+      "width": 768
+    },
+    {
+      "overflow": false,
+      "panelWidth": 733,
+      "room": "02 Showroom",
+      "sceneHeight": 360,
+      "width": 768
+    },
+    {
+      "overflow": false,
+      "panelWidth": 733,
+      "room": "03 Arena",
+      "sceneHeight": 480,
+      "width": 768
+    },
+    {
+      "overflow": false,
+      "panelWidth": 366,
+      "room": "01 Forge",
+      "sceneHeight": 668,
+      "width": 1440
+    },
+    {
+      "overflow": false,
+      "panelWidth": 366,
+      "room": "02 Showroom",
+      "sceneHeight": 668,
+      "width": 1440
+    },
+    {
+      "overflow": false,
+      "panelWidth": 366,
+      "room": "03 Arena",
+      "sceneHeight": 668,
+      "width": 1440
+    }
+  ],
+  "replay": {
+    "pause": true,
+    "keyboardSeekSeconds": 11.4,
+    "rewardBefore": 222,
+    "rewardAfter": 222
+  },
+  "observations": [
+    "Rapid room selection during initial loading now opens the selected 3D room.",
+    "Smith routes around the anvil and raises the hammer over its workpiece.",
+    "Tomas faces the fittings bench.",
+    "Arena health and guard bars sit below the fighting area.",
+    "Phone replay leaves all four fighters visible."
+  ],
+  "shop": {
+    "commissionGold": 9,
+    "finishedSaleValue": 33,
+    "goldBefore": 222,
+    "goldAfter": 246,
+    "protectedTeamGearUnchanged": true
+  },
+  "options": {
+    "reducedMotionToggle": true,
+    "lowAndBalancedDetail": true
+  }
+}

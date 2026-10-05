@@ -220,8 +220,9 @@
             <span class="eyebrow">THE CINDER YARD</span>
             <h2>Let the steel speak.</h2>
             <p>
-              Mara holds the front. Renn strikes behind her guard. Their
-              opponents must lose the front line before the rear is exposed.
+              Mara holds the shield line. Renn steps in, strikes and withdraws.
+              Break a shield fighter’s guard to deal full damage; defeat the
+              front line to expose the duelist.
             </p>
           </div>
           <div id="team-card"></div>
@@ -233,6 +234,13 @@
               changes the outcome.
             </p>
           </div>
+          <label for="doctrine">Team doctrine</label>
+          <select id="doctrine">
+            <option value="balanced">Measured</option>
+            <option value="pressure">Press the attack</option>
+            <option value="bulwark">Hold the line</option>
+          </select>
+          <p id="doctrine-note" class="quiet"></p>
           <button id="launch" class="primary">
             Gather & launch <span>Real-time · automatic</span>
           </button>
@@ -240,6 +248,9 @@
             <button id="replay" disabled>↻ Watch replay</button
             ><button id="follow">Follow Renn</button>
           </div>
+          <p id="bout-readout" class="bout-readout">
+            Choose a doctrine, then gather the team.
+          </p>
           <div id="battle-result" class="battle-result" hidden></div>
           <div id="replay-controls" hidden>
             <label for="replay-position"

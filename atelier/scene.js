@@ -3,6 +3,17 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { MATERIALS, appearance } from "./core.js";
+import { ARENA } from "./combat.js";
+import {
+  FLOOR_OBSTACLES,
+  FORGE_STATIONS,
+  VISIT_DURATIONS,
+  planRoute,
+  sampleRoute,
+  visitorRoute,
+} from "./navigation.js";
+import { hammerStroke, attackMotion } from "./motion.js";
+import { Atmosphere } from "./atmosphere.js";
 
 const lerp = T.MathUtils.lerp,
   clamp = T.MathUtils.clamp;
@@ -125,6 +136,7 @@ export class AtelierScene {
       }),
     );
     this.scene.add(this.sparks);
+    this.atmosphere = new Atmosphere(this.scene);
     this.loader = new GLTFLoader();
     this.resizeObserver = new ResizeObserver(() => this.resize());
     this.resizeObserver.observe(canvas.parentElement);
@@ -191,7 +203,7 @@ export class AtelierScene {
   async asset(name) {
     if (!this.models[name])
       this.models[name] = this.loader
-        .loadAsync(`assets/atelier/${name}.glb?v=weathered-1`)
+        .loadAsync(`assets/atelier/${name}.glb?v=footwork-2`)
         .then((g) => {
           g.scene.traverse((o) => {
             if (o.isMesh) {
@@ -202,6 +214,10 @@ export class AtelierScene {
               });
             }
           });
+          this.atmosphere.register(
+            name === "showroom" ? "shop" : name,
+            g.scene,
+          );
           return g.scene;
         });
     return this.models[name];
@@ -222,8 +238,8 @@ export class AtelierScene {
     this.people.perrin = this.person("perrin", 0x946746);
     this.people.customer = this.person("customer", 0x778b70);
     this.hammer = hammer.clone(true);
-    this.hammer.rotation.x = 1.45;
-    this.hammer.position.y = -0.05;
+    this.hammer.rotation.set(Math.PI / 2, Math.PI / 2, 0);
+    this.hammer.scale.setScalar(0.88);
     this.people.smith.joints.Grip_R.add(this.hammer);
     for (const [name, color] of [
       ["mara", 0x315e59],
@@ -259,12 +275,14 @@ export class AtelierScene {
     });
     this.ready = true;
     this.setQuality(this.quality);
-    this.setRoom(this.room);
+    await this.setRoom(this.room);
     return this;
   }
   person(id, color, apron = false, mail = false) {
-    const root = this.characterSource.clone(true),
+    const visual = this.characterSource.clone(true),
+      root = new T.Group(),
       materials = new Map();
+    root.add(visual);
     root.name = id;
     root.scale.setScalar(id === "customer" ? 0.91 : id === "mara" ? 1.05 : 1);
     root.traverse((o) => {
@@ -308,6 +326,8 @@ export class AtelierScene {
     root.userData.person = id;
     const p = {
       root,
+      visual,
+      distance: 0,
       joints,
       phase: 0,
       item: null,
@@ -536,7 +556,8 @@ export class AtelierScene {
           : room === "shop"
             ? ["perrin", "customer"].includes(id)
             : ["mara", "renn", "warden", "rook"].includes(id);
-    this.people.smith.root.position.set(-0.6, 0, 1.08);
+    this.people.smith.root.position.set(0.35, 0, 1.18);
+    this.people.smith.routeKey = null;
     this.people.tomas.root.position.set(1.62, 0, -0.35);
     this.people.perrin.root.position.set(2.03, 0, -1.23);
     this.home();
@@ -544,8 +565,10 @@ export class AtelierScene {
   }
   home() {
     this.follow = false;
-    this.controls.target.set(0, 1.35, 0);
-    this.camera.position.set(8, 8.4, 11);
+    this.controls.target.set(0, this.room === "arena" ? 0.65 : 1.35, 0);
+    this.camera.position.set(
+      ...(this.room === "arena" ? [2, 10.5, 12] : [8, 8.4, 11]),
+    );
     this.camera.zoom = 1;
     this.camera.updateProjectionMatrix();
     this.controls.update();
@@ -558,7 +581,7 @@ export class AtelierScene {
     this.renderer.setSize(w, h, false);
     const span = this.inspecting
       ? Math.max(2.25, 2.1 / aspect)
-      : Math.max(8.0, 9.1 / aspect);
+      : Math.max(this.room === "arena" ? 7.2 : 8.0, 9.1 / aspect);
     const scenic = document.body.classList.contains("scenic-mode");
     const offsetX = !scenic && w > 800 ? span * aspect * 0.1 : 0;
     const offsetY = !scenic && w <= 800 ? -span * 0.13 : 0;
@@ -663,137 +686,183 @@ export class AtelierScene {
     if (this.people.customer.item)
       this.people.customer.item.visible = !!carrying;
   }
+  turn(p, angle, dt) {
+    const delta = Math.atan2(
+      Math.sin(angle - p.root.rotation.y),
+      Math.cos(angle - p.root.rotation.y),
+    );
+    p.root.rotation.y += delta * Math.min(1, dt * 12);
+  }
   pose(
     p,
     time,
     {
       walk = 0,
-      hammer = 0,
       guard = 0,
-      swing = 0,
+      hammer = false,
       hurt = 0,
+      block = 0,
       yielded = false,
       attackPhase = null,
-      attackProgress = 0,
+      attackAge = 0,
+      legacy = false,
     } = {},
   ) {
     const j = p.joints,
-      phase = time * 8,
-      leg = Math.sin(phase) * walk * 0.55;
+      phase = p.distance * 11,
+      leg = Math.sin(phase) * walk * 0.46;
+    let bladeAngle = Math.PI / 2;
+    p.visual.position.set(0, 0, 0);
+    p.visual.rotation.set(0, 0, 0);
     j.Thigh_L.rotation.x = leg;
     j.Thigh_R.rotation.x = -leg;
-    j.Shin_L.rotation.x = Math.max(0, -leg) * 0.6;
-    j.Shin_R.rotation.x = Math.max(0, leg) * 0.6;
+    j.Shin_L.rotation.x = Math.max(0, -leg) * 0.72;
+    j.Shin_R.rotation.x = Math.max(0, leg) * 0.72;
     j.Hips.position.y =
       0.72 +
-      (this.reduced
+      (this.reduced || hammer
         ? 0
-        : Math.abs(Math.sin(phase)) * walk * 0.018 +
-          Math.sin(time * 2) * 0.003);
-    j.Shoulder_R.rotation.x = walk
-      ? leg * 0.7
-      : hammer
-        ? -1.38 + Math.sin(time * 7) * 0.65
-        : -0.22 - guard * 0.48 - swing * 1.5;
-    j.Shoulder_L.rotation.x = walk ? -leg * 0.7 : -0.18 - guard * 0.7;
-    j.Elbow_R.rotation.x = -0.12 - hammer * 0.45 - swing * 0.6;
-    j.Elbow_L.rotation.x = -0.12 - guard * 0.4;
-    if (attackPhase === "windup") {
-      j.Shoulder_R.rotation.x = -0.9 - 0.5 * attackProgress;
-      j.Elbow_R.rotation.x = -0.1;
+        : Math.abs(Math.sin(phase)) * walk * 0.012 +
+          Math.sin(time * 1.7) * 0.002);
+    j.Shoulder_R.rotation.set(
+      walk ? leg * 0.55 : -0.38 - guard * 0.25,
+      0,
+      -0.04,
+    );
+    j.Shoulder_L.rotation.set(
+      walk ? -leg * 0.55 : -0.28 - guard * 0.52,
+      0,
+      0.04,
+    );
+    j.Elbow_R.rotation.x = -0.36;
+    j.Elbow_L.rotation.x = -0.25 - guard * 0.18;
+    j.Head.rotation.set(
+      hurt * 0.12,
+      this.reduced ? 0 : Math.sin(time * 0.65) * 0.025,
+      0,
+    );
+    if (attackPhase) {
+      const m = attackMotion(
+        attackPhase,
+        attackAge,
+        legacy ? 9 : ARENA.windup,
+        legacy ? 8 : ARENA.strike,
+      );
+      bladeAngle = 0.52 + m.thrust * 1.05;
+      j.Shoulder_R.rotation.x = -0.58 + m.pull * 0.33 - m.thrust * 0.94;
+      j.Elbow_R.rotation.x = -1.0 - m.pull * 0.4 + m.thrust * 0.86;
+      j.Shoulder_R.rotation.z = -0.05 - m.pull * 0.16;
+      p.visual.position.z = m.thrust * 0.13;
+      p.visual.rotation.y = -m.pull * 0.12 + m.thrust * 0.1;
+      j.Thigh_R.rotation.x -= m.thrust * 0.12;
     }
-    if (attackPhase === "recover") {
-      j.Shoulder_R.rotation.x = -0.25 - 0.2 * attackProgress;
-      j.Elbow_R.rotation.x = -0.1;
+    if (block) {
+      j.Shoulder_L.rotation.x = -1.13;
+      j.Elbow_L.rotation.x = -0.32;
     }
-    j.Shoulder_R.rotation.z = -0.04 - swing * 0.3;
-    j.Shoulder_L.rotation.z = 0.04;
-    j.Head.rotation.y = this.reduced ? 0 : Math.sin(time * 0.8) * 0.055;
-    j.Head.rotation.x = hurt * 0.17;
+    p.visual.rotation.x = -hurt * 0.13;
+    if (hammer) {
+      const stroke = hammerStroke(time);
+      j.Shoulder_R.rotation.set(stroke.shoulder, 0, 0);
+      j.Elbow_R.rotation.x = stroke.elbow;
+      j.Shoulder_L.rotation.x = -0.9;
+      j.Elbow_L.rotation.x = -0.55;
+      this.hammer.rotation.set(stroke.wrist, Math.PI / 2, 0);
+      if (stroke.contact && Math.floor(time / 1.45) !== this.lastHammerCycle) {
+        this.lastHammerCycle = Math.floor(time / 1.45);
+        this.hammerImpactAt = time;
+      }
+    } else if (p === this.people.smith)
+      this.hammer.rotation.set(Math.PI / 2, Math.PI / 2, 0);
     if (yielded) {
-      j.Thigh_L.rotation.x = -0.75;
-      j.Shin_L.rotation.x = 1.05;
-      j.Hips.position.y = 0.49;
-      j.Head.rotation.x = 0.32;
-      j.Shoulder_R.rotation.x = 0.15;
+      j.Thigh_L.rotation.x = -0.95;
+      j.Shin_L.rotation.x = 1.7;
+      j.Thigh_R.rotation.x = -0.8;
+      j.Shin_R.rotation.x = 1.65;
+      j.Hips.position.y = 0.72;
+      j.Head.rotation.x = 0.5;
+      p.visual.position.y = -0.29;
+      p.visual.rotation.x = 0.28;
+      j.Shoulder_R.rotation.x = 0.1;
+      j.Elbow_R.rotation.x = -0.12;
+      j.Shoulder_L.rotation.x = -0.2;
+      bladeAngle = 2.55;
     }
+    // The wrist turns the point into a thrust; the shield stays upright on the forearm.
+    if (p.item)
+      p.item.rotation.x =
+        bladeAngle - j.Shoulder_R.rotation.x - j.Elbow_R.rotation.x;
+    if (p.shield)
+      p.shield.rotation.x = -j.Shoulder_L.rotation.x - j.Elbow_L.rotation.x;
   }
-  walk(p, target, dt, time, lookAt) {
-    const v = new T.Vector3(...target),
-      distance = p.root.position.distanceTo(v),
-      step = Math.min(distance, dt * 1.5);
-    if (distance > 0.035) {
-      const direction = v.clone().sub(p.root.position).normalize();
-      p.root.position.addScaledVector(direction, step);
-      p.root.rotation.y = Math.atan2(direction.x, direction.z);
-      this.pose(p, time, { walk: 1 });
-      return true;
-    }
-    if (lookAt)
-      p.root.rotation.y = Math.atan2(
-        lookAt[0] - p.root.position.x,
-        lookAt[2] - p.root.position.z,
+  walk(p, station, dt, time) {
+    const target = FORGE_STATIONS[station],
+      key = station;
+    if (p.routeKey !== key) {
+      p.route = planRoute(
+        [p.root.position.x, p.root.position.z],
+        target.position,
+        FLOOR_OBSTACLES.forge,
       );
-    this.pose(p, time, {});
-    return false;
+      p.routeIndex = 1;
+      p.routeKey = key;
+    }
+    let remaining = dt * 1.18,
+      moved = 0;
+    while (remaining > 0 && p.routeIndex < p.route.length) {
+      const next = p.route[p.routeIndex],
+        dx = next[0] - p.root.position.x,
+        dz = next[1] - p.root.position.z,
+        d = Math.hypot(dx, dz);
+      const step = Math.min(d, remaining);
+      if (d > 1e-7) {
+        p.root.position.x += (dx / d) * step;
+        p.root.position.z += (dz / d) * step;
+        this.turn(p, Math.atan2(dx, dz), dt);
+      }
+      moved += step;
+      remaining -= step;
+      if (d <= step + 0.001) p.routeIndex++;
+      else break;
+    }
+    p.distance += moved;
+    const walking = p.routeIndex < p.route.length;
+    const facing = Math.atan2(
+      target.look[0] - p.root.position.x,
+      target.look[1] - p.root.position.z,
+    );
+    if (!walking) this.turn(p, facing, dt);
+    this.pose(p, time, { walk: walking ? 1 : 0 });
+    return (
+      walking ||
+      Math.abs(
+        Math.atan2(
+          Math.sin(p.root.rotation.y - facing),
+          Math.cos(p.root.rotation.y - facing),
+        ),
+      ) > 0.04
+    );
   }
-  customer(s, time) {
+  customer(s, time, dt) {
     const p = this.people.customer,
-      v = s.visitor,
-      progress = clamp(
-        (s.clock - v.phaseAt) /
-          {
-            enter: 3500,
-            browse: 6000,
-            consider: 4000,
-            checkout: 2800,
-            leave: 4500,
-            absent: 7000,
-          }[v.phase],
-        0,
-        1,
-      );
+      v = s.visitor;
     p.root.visible =
       this.room === "shop" && !this.inspecting && v.phase !== "absent";
-    const routes = {
-      enter: [
-        [-0.4, 0, 2.95],
-        [-1.65, 0, 1.4],
-        [-1.75, 0, -0.73],
-      ],
-      browse: [
-        [-1.75, 0, -0.73],
-        [-1.65, 0, -0.81],
-      ],
-      consider: [
-        [-1.65, 0, -0.81],
-        [-1.65, 0, -0.81],
-      ],
-      checkout: [
-        [-1.65, 0, -0.81],
-        [1.15, 0, -0.08],
-      ],
-      leave: [
-        [1.15, 0, -0.08],
-        [1.2, 0, 1.6],
-        [-0.4, 0, 2.95],
-      ],
-      absent: [
-        [0, 0, 4],
-        [0, 0, 4],
-      ],
-    };
-    const path = routes[v.phase],
-      f = progress * (path.length - 1),
-      i = Math.min(path.length - 2, Math.floor(f)),
-      a = path[i],
-      b = path[i + 1],
-      local = f - i;
-    p.root.position.set(lerp(a[0], b[0], local), 0, lerp(a[2], b[2], local));
-    const moving =
-      v.phase !== "consider" && v.phase !== "absent" && v.phase !== "browse";
-    p.root.rotation.y = moving ? Math.atan2(b[0] - a[0], b[2] - a[2]) : Math.PI;
-    this.pose(p, time, { walk: moving ? 1 : 0, guard: !moving ? 0.2 : 0 });
+    const progress = clamp(
+      (s.clock - v.phaseAt) / VISIT_DURATIONS[v.phase],
+      0,
+      1,
+    );
+    const sample = sampleRoute(visitorRoute(v), progress),
+      moving = ["enter", "checkout", "leave"].includes(v.phase);
+    const d = Math.hypot(
+      sample.x - p.root.position.x,
+      sample.z - p.root.position.z,
+    );
+    p.distance += Math.min(d, 0.15);
+    p.root.position.set(sample.x, 0, sample.z);
+    this.turn(p, moving ? sample.heading : Math.PI, dt);
+    this.pose(p, time, { walk: moving ? 1 : 0, guard: moving ? 0 : 0.2 });
   }
   update(s, draft, dt, battleOverride = null) {
     if (!this.ready) return;
@@ -810,27 +879,25 @@ export class AtelierScene {
           progress = job
             ? clamp((s.clock - job.startedAt) / job.duration, 0, 1)
             : 0;
-        const target = job
+        const station = job
           ? progress < 0.22
-            ? [-1.05, 0, -0.45]
+            ? "heat"
             : progress > 0.8
-              ? [0.43, 0, -0.53]
-              : [-0.58, 0, 1.06]
-          : [-0.2, 0, 1.25];
-        const look =
-          progress < 0.22
-            ? [-2.2, 0, -1.2]
-            : progress > 0.8
-              ? [1.1, 0, -1.15]
-              : [-0.82, 0, 0.28];
-        const walking = this.walk(this.people.smith, target, dt, time, look);
+              ? "finish"
+              : "hammer"
+          : "idle";
+        const walking = this.walk(this.people.smith, station, dt, time);
         if (!walking)
           this.pose(this.people.smith, time, {
-            hammer: job && progress >= 0.22 && progress <= 0.8 ? 1 : 0,
-            guard: job && progress > 0.8 ? 0.4 : 0,
+            hammer: station === "hammer",
+            guard: station === "finish" ? 0.4 : 0,
           });
-        this.people.tomas.root.rotation.y = -0.6;
+        this.people.tomas.root.rotation.y = -2.687;
         this.pose(this.people.tomas, time + 4, { guard: 0.3 });
+        this.people.tomas.joints.Shoulder_R.rotation.x =
+          -0.9 + (this.reduced ? 0 : Math.sin(time * 2.2) * 0.08);
+        this.people.tomas.joints.Elbow_R.rotation.x = -0.65;
+        this.people.tomas.joints.Shoulder_L.rotation.x = -0.85;
         // Heating is temporary work feedback; the finished metal keeps its own appearance.
         this.workpiece.traverse((o) =>
           materialEach(o, (m) => {
@@ -858,39 +925,60 @@ export class AtelierScene {
         }
         this.sparkGeometry.attributes.position.needsUpdate = true;
       } else if (this.room === "shop") {
-        this.customer(s, time);
+        this.customer(s, time, dt);
         this.people.perrin.root.rotation.y = 0.2;
         this.pose(this.people.perrin, time + 3, { guard: 0.17 });
       } else {
         const units = battle?.units || [
-          { id: "mara", x: -1.5, z: 0, hp: 1 },
-          { id: "renn", x: -2.35, z: 0.95, hp: 1 },
-          { id: "warden", x: 1.45, z: 0, hp: 1 },
-          { id: "rook", x: 2.3, z: -0.95, hp: 1 },
+          { id: "mara", x: -1.65, z: 0, hp: 1 },
+          { id: "renn", x: -2.65, z: -1.1, hp: 1 },
+          { id: "warden", x: 1.65, z: 0, hp: 1 },
+          { id: "rook", x: 2.65, z: 1.1, hp: 1 },
         ];
+        const fraction = battleOverride
+          ? 0
+          : clamp((s.clock - (battle?.tickAt || s.clock)) / 50, 0, 1);
         for (const u of units) {
-          const p = this.people[u.id];
-          p.root.position.set(u.x, 0, u.z);
+          const p = this.people[u.id],
+            x =
+              battle?.status === "live" && Number.isFinite(u.prevX)
+                ? lerp(u.prevX, u.x, fraction)
+                : u.x,
+            z =
+              battle?.status === "live" && Number.isFinite(u.prevZ)
+                ? lerp(u.prevZ, u.z, fraction)
+                : u.z;
+          p.distance += Math.min(
+            0.12,
+            Math.hypot(x - p.root.position.x, z - p.root.position.z),
+          );
+          p.root.position.set(x, 0, z);
           const target = units.find((t) => t.id === u.target);
-          p.root.rotation.y = target
-            ? Math.atan2(target.x - u.x, target.z - u.z)
-            : u.x < 0
-              ? Math.PI / 2
-              : -Math.PI / 2;
-          const phase = battle ? battle.tick - u.phaseAt : 0,
-            swing =
-              u.phase === "windup"
-                ? clamp(phase / 9, 0, 1)
-                : u.phase === "recover"
-                  ? Math.max(0, 1 - phase / 8)
-                  : 0;
+          this.turn(
+            p,
+            target
+              ? Math.atan2(target.x - x, target.z - z)
+              : x < 0
+                ? Math.PI / 2
+                : -Math.PI / 2,
+            dt,
+          );
+          const age = battle ? battle.tick - u.phaseAt + fraction : 0;
           this.pose(p, time, {
-            walk: u.phase === "approach" && battle?.status === "live" ? 1 : 0,
-            guard: 0.5,
-            swing: 0,
-            attackPhase: u.phase,
-            attackProgress: clamp(phase / (u.phase === "windup" ? 9 : 8), 0, 1),
-            hurt: battle && battle.tick - u.hurtAt < 5 ? 0.7 : 0,
+            walk:
+              (u.moving || (battle?.version === 1 && u.phase === "approach")) &&
+              battle?.status === "live"
+                ? 1
+                : 0,
+            guard: 0.75,
+            attackPhase: battle?.status === "live" ? u.phase : "ready",
+            attackAge: age,
+            legacy: battle?.version === 1,
+            hurt:
+              battle?.status === "live"
+                ? Math.max(0, 1 - (battle.tick - u.hurtAt + fraction) / 7)
+                : 0,
+            block: battle?.status === "live" && battle.tick - u.blockAt < 10,
             yielded: u.hp <= 0,
           });
         }
@@ -900,6 +988,18 @@ export class AtelierScene {
         }
       }
     }
+    this.atmosphere.root.visible = !this.inspecting;
+    this.atmosphere.update(
+      this.room,
+      time,
+      this.reduced,
+      battle,
+      battleOverride
+        ? 0
+        : clamp((s.clock - (battle?.tickAt || s.clock)) / 50, 0, 1),
+      this.people,
+      this.hammerImpactAt,
+    );
     this.controls.update();
     this.drawPreview();
     this.renderer.render(this.scene, this.camera);
@@ -909,6 +1009,7 @@ export class AtelierScene {
     return `${i.render.calls} draw calls · ${Math.round(i.render.triangles / 1000)}k triangles · ${i.memory.textures} textures · Three.js ${T.REVISION}`;
   }
   dispose() {
+    this.atmosphere.dispose();
     this.previewObserver?.disconnect();
     this.previewAbort?.abort();
     this.releaseItem(this.previewItem);

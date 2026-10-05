@@ -17,6 +17,8 @@ It does not yet contain a full skinned animation library or all recipe families.
 Named QualityDetail / PrefixDetail / RuneDetail groups drive item appearance.
 Mail and Apron groups are separate visibility variants. Static environment
 meshes are joined by material; character parts are joined only within a joint.
+Pennants retain separate meshes with the ambient=cloth extra for restrained
+runtime movement. The arena uses worn stone foundations and stepped terraces.
 Coordinate convention: glTF +Y up, characters face +Z. Assets share geometry
 between instances; mutable item materials are cloned and disposed separately.
 
@@ -25,8 +27,8 @@ quality presets change resolution and shadows without changing simulation.
 World-item LODs, texture deduplication across packages and further animation
 work remain useful production improvements before full campaign integration.
 
-Measured weathered revision, 5 October 2026: GLB packages total 17,836,464 bytes. The initial
-Forge plus shared people and equipment is 10,553,152 bytes before locally served
+Measured movement revision, 5 October 2026: GLB packages total 17,580,804 bytes. The initial
+Forge plus shared people and equipment is 10,553,180 bytes before locally served
 renderer code. Shop and Arena load on first visit. These are uncompressed asset
 sizes; the basic local server sends them uncompressed. The design book's
 8 MB compressed production target has not been certified for this build.

@@ -7,19 +7,19 @@
       "file": "forge.glb",
       "objects": 28,
       "polygons": 33094,
-      "bytes": 7268756
+      "bytes": 7268784
     },
     {
       "file": "showroom.glb",
-      "objects": 13,
+      "objects": 14,
       "polygons": 24068,
-      "bytes": 4570620
+      "bytes": 4563980
     },
     {
       "file": "arena.glb",
-      "objects": 9,
-      "polygons": 11318,
-      "bytes": 2712692
+      "objects": 10,
+      "polygons": 10968,
+      "bytes": 2463644
     },
     {
       "file": "character.glb",

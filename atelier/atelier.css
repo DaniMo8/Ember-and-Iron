@@ -873,6 +873,32 @@ input[type="range"] {
 .fighter-bar.away .fighter-hp i {
   background: #b97d64;
 }
+.fighter-guard {
+  height: 2px;
+  background: #b8b0a52b;
+  margin-top: 4px;
+}
+.fighter-guard i {
+  display: block;
+  height: 100%;
+  background: #b7ae8a;
+}
+.bout-readout {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 12px 0;
+}
+.bout-summary {
+  display: grid;
+  gap: 6px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  font-size: 11px;
+}
+.bout-summary b {
+  color: #d5c7ac;
+  font-weight: 500;
+}
 #battle-caption {
   position: absolute;
   bottom: 205px;
@@ -883,6 +909,23 @@ input[type="range"] {
     18px Georgia,
     serif;
   text-shadow: 0 2px 8px #000;
+}
+.workspace[data-current-room="arena"] #combat-bars {
+  bottom: 12px;
+}
+.workspace[data-current-room="arena"] .scene-caption,
+.workspace[data-current-room="arena"] .orbit-hint {
+  display: none;
+}
+.workspace[data-current-room="arena"] .view-controls {
+  top: 12px;
+  bottom: auto;
+}
+.workspace[data-current-room="arena"] #battle-caption {
+  bottom: 98px;
+}
+.workspace[data-current-room="arena"] .room-heading h1 {
+  font-size: 34px;
 }
 .delta-up {
   color: #94c093;
@@ -1317,7 +1360,7 @@ dialog .check {
 }
 @media (max-width: 800px) {
   .workspace[data-current-room="arena"] .world-area {
-    height: 420px;
+    height: 480px;
   }
   .workspace[data-current-room="arena"] .room-heading h1 {
     font-size: 25px;
@@ -1330,10 +1373,10 @@ dialog .check {
     top: 106px;
     bottom: auto;
   }
-  #combat-bars {
+  .workspace[data-current-room="arena"] #combat-bars {
     bottom: 7px;
   }
-  #battle-caption {
+  .workspace[data-current-room="arena"] #battle-caption {
     bottom: 145px;
   }
 }
