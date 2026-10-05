@@ -1,8 +1,8 @@
-/* Pure, versioned simulation. Replays render stored events; they never run combat again. */
+/* Deterministic event-driven combat. Live state is serializable; replays are immutable records. */
 (function (root) {
   "use strict";
   const clone = (value) => JSON.parse(JSON.stringify(value));
-  const VERSION = 1;
+  const VERSION = 2;
   function random(seed) {
     let x = seed >>> 0 || 1;
     return () => {
@@ -17,20 +17,40 @@
     for (const c of text) n = Math.imul(n ^ c.charCodeAt(0), 16777619);
     return n >>> 0;
   }
-  function simulate(snapshot) {
-    const rng = random(snapshot.seed),
-      heroes = clone(snapshot.heroes),
+  function create(snapshot) {
+    const heroes = clone(snapshot.heroes),
       foes = clone(snapshot.enemies);
-    const all = [...heroes, ...foes];
-    for (const u of all) {
+    for (const u of [...heroes, ...foes]) {
       u.hp = u.health;
       u.next = u.interval * 1000;
     }
-    const events = [],
-      damage = { home: 0, away: 0 },
-      blocked = { home: 0, away: 0 };
-    let at = 0,
-      firstFall = null;
+    const result = {
+      version: VERSION,
+      victory: null,
+      duration: 180000,
+      events: [],
+      insight: "The match is underway.",
+      firstFall: null,
+      damage: { home: 0, away: 0 },
+      blocked: { home: 0, away: 0 },
+    };
+    const live = {
+      version: VERSION,
+      seed: snapshot.seed >>> 0 || 1,
+      heroes,
+      foes,
+      turns: 0,
+      at: 0,
+      done: false,
+    };
+    record(live, result, {
+      at: 0,
+      type: "start",
+      text: "The gates close. Break the front line to reach the rear.",
+    });
+    return { live, result };
+  }
+  function record(live, result, event) {
     const health = (units) =>
       units.map((u) => ({
         id: u.id,
@@ -39,24 +59,57 @@
         hp: Math.max(0, Math.round(u.hp * 10) / 10),
         maxHp: u.health,
       }));
-    function record(event) {
-      events.push({ ...event, heroes: health(heroes), enemies: health(foes) });
-    }
-    record({
-      at: 0,
-      type: "start",
-      text: "The gates close. Break the front line to reach the rear.",
+    result.events.push({
+      ...event,
+      heroes: health(live.heroes),
+      enemies: health(live.foes),
     });
-    for (let turn = 0; turn < 600; turn++) {
-      if (!heroes.some((u) => u.hp > 0) || !foes.some((u) => u.hp > 0)) break;
-      const actor = all
-        .filter((u) => u.hp > 0)
-        .sort((a, b) => a.next - b.next || a.id.localeCompare(b.id))[0];
-      at = actor.next;
-      if (at > 180000) {
-        at = 180000;
+  }
+  function nextAt(live) {
+    if (live.done) return Infinity;
+    let next = 180000;
+    for (const u of [...live.heroes, ...live.foes])
+      if (u.hp > 0) next = Math.min(next, u.next);
+    return Math.ceil(next);
+  }
+  function advance(live, result, elapsed) {
+    if (live.done) return result;
+    const { heroes, foes } = live,
+      all = [...heroes, ...foes];
+    const damage = result.damage,
+      blocked = result.blocked;
+    let firstFall = result.firstFall,
+      at = live.at;
+    const rng = () => {
+      let x = live.seed;
+      x ^= x << 13;
+      x ^= x >>> 17;
+      x ^= x << 5;
+      live.seed = x >>> 0;
+      return live.seed / 4294967296;
+    };
+    while (live.turns < 600) {
+      if (!heroes.some((u) => u.hp > 0) || !foes.some((u) => u.hp > 0)) {
+        live.done = true;
         break;
       }
+      let actor = null;
+      for (const u of all)
+        if (
+          u.hp > 0 &&
+          (!actor ||
+            u.next < actor.next ||
+            (u.next === actor.next && u.id.localeCompare(actor.id) < 0))
+        )
+          actor = u;
+      if (Math.min(actor.next, 180000) > elapsed) break;
+      if (actor.next > 180000) {
+        at = 180000;
+        live.done = true;
+        break;
+      }
+      at = actor.next;
+      live.turns++;
       const home = heroes.includes(actor),
         opponents = (home ? foes : heroes).filter((u) => u.hp > 0),
         front = opponents.filter((u) => u.line === "front");
@@ -119,7 +172,7 @@
           name: target.name,
           line: target.line,
         };
-      record({
+      record(live, result, {
         at,
         type: "strike",
         actorId: actor.id,
@@ -134,8 +187,17 @@
       });
       actor.next += actor.interval * 1000;
     }
+    live.at = at;
+    result.firstFall = firstFall;
+    if (
+      live.turns >= 600 ||
+      !heroes.some((u) => u.hp > 0) ||
+      !foes.some((u) => u.hp > 0)
+    )
+      live.done = true;
+    if (!live.done) return result;
     const victory = heroes.some((u) => u.hp > 0) && !foes.some((u) => u.hp > 0);
-    record({
+    record(live, result, {
       at,
       type: "outcome",
       text: victory
@@ -149,18 +211,23 @@
         : victory
           ? "Your formation held long enough to break the rival’s defence. Try the next style before investing blindly."
           : "The rival outlasted your damage. Compare weapon quality, protection and the rival’s signature attack.";
-    return {
+    Object.assign(result, {
       version: VERSION,
       victory,
       duration: Math.max(12000, at),
-      events,
       insight,
       firstFall,
       damage,
       blocked,
-    };
+    });
+    return result;
   }
-  const api = { VERSION, random, hash, simulate };
+  function simulate(snapshot) {
+    const { live, result } = create(snapshot);
+    advance(live, result, 180000);
+    return result;
+  }
+  const api = { VERSION, random, hash, create, advance, nextAt, simulate };
   if (typeof module === "object" && module.exports) module.exports = api;
   else root.EIHouseCombat = api;
 })(globalThis);

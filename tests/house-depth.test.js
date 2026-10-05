@@ -153,8 +153,9 @@ test("Crucible rewards are paid once; replay inspection cannot farm seals", () =
   gear(e);
   assert(e.command("ascend").ok);
   const m = e.activeMatch();
-  assert(m.result.victory);
+  assert.equal(m.result.victory, null);
   e.tick(m.endsAt - e.state.simTime);
+  assert(m.result.victory);
   assert.equal(e.state.house.campaign.trialDepth, 1);
   assert.equal(e.state.house.campaign.seals, 1);
   const gold = e.state.player.gold;
@@ -316,5 +317,59 @@ test("return ledger explains a spent supply allowance without making unauthorise
   const r = e.advanceOffline(2000).report;
   assert.equal(r.automationSpent, 0);
   assert.match(r.stopReason, /supply budget was exhausted/);
+  valid(e);
+});
+
+test("controlled endgame: the sixtieth trial can be mastered, closes the ladder and records one permanent ending", () => {
+  const e = fresh();
+  crown(e);
+  gear(e);
+  const s = e.state,
+    c = s.house.campaign;
+  s.player.legacy.generation = 19;
+  c.trialDepth = 59;
+  c.bestTrial = 59;
+  c.lineage = { edge: 80, ward: 80 };
+  for (const u of s.adventurers)
+    for (const slot of H.slots) {
+      const r = Object.values(e.data.recipes).find(
+        (r) =>
+          r.variant === 7 &&
+          r.slot === slot &&
+          e.data.archetypes[u.archetypeId].preferences.includes(r.classId),
+      );
+      if (r)
+        u.equipment[slot] = {
+          ...u.equipment[slot],
+          id: e._id("item"),
+          recipeId: r.id,
+          quality: 200,
+          createdAt: s.simTime,
+          protected: true,
+          displayed: false,
+          affixId: null,
+          enchantmentId: null,
+        };
+    }
+  for (const u of s.adventurers)
+    if (e.data.recipes[u.equipment.weapon?.recipeId]?.twoHanded)
+      u.equipment.offhand = null;
+  assert(e.command("ascend").ok);
+  const m = e.activeMatch();
+  e.tick(180000);
+  assert(m.result.victory);
+  assert.equal(c.bestTrial, 60);
+  assert.equal(c.trialDepth, 60);
+  assert.equal(e.trialPreview().eligible, false);
+  assert.match(e.trialPreview().reason, /sixty/);
+  const ending = s.house.history.filter((x) =>
+    x.text.includes("Hall of Makers"),
+  );
+  assert.equal(ending.length, 1);
+  e._settleMatch(m);
+  assert.equal(
+    s.house.history.filter((x) => x.text.includes("Hall of Makers")).length,
+    1,
+  );
   valid(e);
 });

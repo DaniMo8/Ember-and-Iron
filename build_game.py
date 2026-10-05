@@ -4,6 +4,7 @@ import re
 import base64
 import json
 import tempfile
+import zlib
 
 
 ROOT = Path(__file__).resolve().parent
@@ -56,6 +57,16 @@ def build() -> Path:
     page = page.replace('<script>\n/* Bundled source: house-app.js */', '<script>window.EIHouseArt=' + json.dumps(artwork) + ';</script>\n<script>\n/* Bundled source: house-app.js */')
     atlas = base64.b64encode((ROOT / 'assets/inventory/inventory-atlas.png').read_bytes()).decode('ascii')
     page = page.replace('<script>window.EIHouseArt=', '<script>window.EIInventoryArt="data:image/png;base64,' + atlas + '";</script><script>window.EIHouseArt=')
+    # Compressed models are expanded only when their room or shared kit is first used.
+    # They remain fully local, including when this single file is opened without a server.
+    model_paths = [ROOT / 'assets/atelier' / (name + '.glb') for name in ('forge', 'showroom', 'arena', 'character', 'hammer')]
+    model_paths += [ROOT / 'assets/house3d/catalogue.glb']
+    model_paths += sorted((ROOT / 'assets/house3d').glob('room-*.glb'))
+    model_paths += sorted((ROOT / 'assets/house3d').glob('evolution-*.glb'))
+    if len(model_paths) != 14 or any(not p.exists() for p in model_paths):
+        raise ValueError('The complete 3D room and item library must be built first.')
+    models = {p.stem: {'encoding': 'deflate', 'data': base64.b64encode(zlib.compress(p.read_bytes(), 9)).decode('ascii')} for p in model_paths}
+    page = page.replace('<script>\n/* Bundled source: house-3d.js */', '<script>window.EIHouseModels=' + json.dumps(models, separators=(',', ':')) + ';</script>\n<script>\n/* Bundled source: house-3d.js */')
     # Keep the last playable build intact if writing is interrupted.
     with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", newline="\n", dir=ROOT, prefix=".ember-build-", suffix=".tmp", delete=False) as target:
         target.write(page)

@@ -204,8 +204,9 @@ test("review: highest-tier controlled team can win the final champion and retire
   }
   assert(e.command("challenge", { kind: "champion", rival: "choir" }).ok);
   const m = e.activeMatch();
-  assert(m.result.victory);
+  assert.equal(m.result.victory, null);
   e.tick(m.endsAt - e.state.simTime);
+  assert(m.result.victory);
   assert.equal(e.state.house.champions, 5);
   assert(e.derived().legacyEligible);
   assert(E.validateSave(e.exportSave(), e.data).ok);

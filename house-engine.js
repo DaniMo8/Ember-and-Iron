@@ -238,7 +238,7 @@
           );
           check(
             m.snapshot &&
-              m.snapshot.version === 1 &&
+              [1, 2].includes(m.snapshot.version) &&
               integer(m.snapshot.seed) &&
               Array.isArray(m.snapshot.heroes) &&
               m.snapshot.heroes.length === 3 &&
@@ -247,14 +247,47 @@
             "Invalid match snapshot.",
           );
           check(
-            m.result?.version === 1 &&
-              typeof m.result.victory === "boolean" &&
+            [1, 2].includes(m.result?.version) &&
+              (typeof m.result.victory === "boolean" ||
+                (m.live && m.result.victory === null)) &&
               Array.isArray(m.result.events) &&
-              m.result.events.length >= 2 &&
+              m.result.events.length >= (m.live ? 1 : 2) &&
               m.result.events.length <= 602 &&
               Number.isFinite(m.result.duration),
             "Invalid replay.",
           );
+          if (m.live)
+            check(
+              m.live.version === 2 &&
+                Number.isInteger(m.live.seed) &&
+                m.live.seed >= 0 &&
+                m.live.seed <= 4294967295 &&
+                integer(m.live.turns) &&
+                m.live.turns <= 600 &&
+                typeof m.live.done === "boolean" &&
+                Number.isFinite(m.live.at) &&
+                m.live.at >= 0 &&
+                m.live.at <= 180000 &&
+                [m.live.heroes, m.live.foes].every(
+                  (units) =>
+                    Array.isArray(units) &&
+                    units.length === 3 &&
+                    units.every(
+                      (u) =>
+                        typeof u.id === "string" &&
+                        typeof u.name === "string" &&
+                        [u.hp, u.health, u.next, u.interval, u.attack].every(
+                          Number.isFinite,
+                        ) &&
+                        u.hp >= 0 &&
+                        u.health > 0 &&
+                        u.interval >= 0.05 &&
+                        u.next > 0 &&
+                        u.attack >= 0,
+                    ),
+                ),
+              "Invalid live match state.",
+            );
           for (const e of m.result.events)
             check(
               Number.isFinite(e.at) &&
@@ -703,7 +736,12 @@
     _extraEventTimes() {
       const times = super._extraEventTimes(),
         m = this.activeMatch();
-      if (m) times.push(m.endsAt);
+      if (m)
+        times.push(
+          m.live && !m.live.done
+            ? m.startedAt + Combat.nextAt(m.live)
+            : m.endsAt,
+        );
       return times;
     }
     activeMatch() {
@@ -1298,7 +1336,12 @@
             (j) => j.status === "active" && j.completeAt <= this.state.simTime,
           )
           .map(copy),
-        before = copy(this.state.materials);
+        before = Object.fromEntries(
+          completed.map((j) => {
+            const id = W.smelts[j.recipeId].output;
+            return [id, this.state.materials[id] || 0];
+          }),
+        );
       super._processExtraEvents();
       for (const j of completed) {
         const recipe = W.smelts[j.recipeId],
@@ -1318,7 +1361,14 @@
         before[recipe.output] = (before[recipe.output] || 0) + accepted;
       }
       const m = this.activeMatch();
-      if (m && m.endsAt <= this.state.simTime) this._settleMatch(m);
+      if (m?.live && !m.live.done) {
+        Combat.advance(m.live, m.result, this.state.simTime - m.startedAt);
+        if (m.live.done) m.endsAt = m.startedAt + Math.ceil(m.result.duration);
+      }
+      if (m && m.endsAt <= this.state.simTime && (!m.live || m.live.done)) {
+        delete m.live;
+        this._settleMatch(m);
+      }
     }
     _cancelSmelt({ id }) {
       const job = this.state.workshop.jobs.find((j) => j.id === id);
@@ -1734,7 +1784,7 @@
         enemies: v.enemies,
         doctrine: h.doctrine,
       };
-      const result = Combat.simulate(snapshot),
+      const { live, result } = Combat.create(snapshot),
         id = "match-" + h.nextMatch++,
         m = {
           id,
@@ -1745,6 +1795,7 @@
           startedAt: this.state.simTime,
           endsAt: this.state.simTime + Math.ceil(result.duration),
           snapshot,
+          live,
           result,
           paid: false,
           purse: v.purse,
@@ -1863,7 +1914,7 @@
         ...events[lo],
         index: lo,
         time,
-        finished: time >= m.result.duration,
+        finished: m.result.victory !== null && time >= m.result.duration,
         duration: m.result.duration,
       };
     }

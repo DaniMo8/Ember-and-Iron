@@ -1,0 +1,246 @@
+{
+  "version": "4.0.0",
+  "reviewedAt": "2026-10-05T11:57:17.848650+00:00",
+  "automated": {
+    "command": "npm test",
+    "passed": 325,
+    "failed": 0,
+    "output": "version-4.0.0-tests.txt",
+    "coverage": [
+      "Production and refunds, automatic routing, full-bin smelting, queue persistence and once-only offline reports",
+      "Live combat save/resume, event-driven chunk invariance, old replays and once-only payouts",
+      "DOM reconciliation keeps canvases, focus, listeners and distinct formation controls",
+      "All 340 recipes map to 17 model families; all eight rooms have their intended stages",
+      "Controlled final trial records a permanent ending once and prevents an invalid trial 61"
+    ]
+  },
+  "earnedCampaigns": [
+    {
+      "label": "release4",
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 8
+      },
+      "codeHashesAtRun": {
+        "house-engine.js": "592a9e4773ee17233e41c3c09b1ffce266da57984ff8200bd44ce3256d0eaf52",
+        "house-data.js": "fdcc63530405dc4bada49ed896ffbed28d1b39a0968a3389b9a41b3343ae1a1c",
+        "house-combat.js": "7f0f438f0cf7d7f609a894084f64a9e58d706a6c84ca2d58706f67a45310d45d",
+        "house-campaign.js": "7654cd33a4b20f3129956984c259175bfce702d4d25a11c34dbcdf10eb254f99",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      },
+      "final": {
+        "wallHours": 144.25,
+        "simHours": 144.25,
+        "activeMinutes": 420,
+        "generation": 1,
+        "champions": 5,
+        "wins": 1439,
+        "losses": 41,
+        "contracts": 904,
+        "crafts": 2568,
+        "legacyEligible": true
+      },
+      "permanentStudies": [],
+      "saveValid": true
+    },
+    {
+      "label": "release4-responsive",
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 8
+      },
+      "codeHashesAtRun": {
+        "house-engine.js": "592a9e4773ee17233e41c3c09b1ffce266da57984ff8200bd44ce3256d0eaf52",
+        "house-data.js": "fdcc63530405dc4bada49ed896ffbed28d1b39a0968a3389b9a41b3343ae1a1c",
+        "house-combat.js": "7f0f438f0cf7d7f609a894084f64a9e58d706a6c84ca2d58706f67a45310d45d",
+        "house-campaign.js": "7654cd33a4b20f3129956984c259175bfce702d4d25a11c34dbcdf10eb254f99",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      },
+      "final": {
+        "wallHours": 120.25,
+        "simHours": 120.25,
+        "activeMinutes": 360,
+        "generation": 1,
+        "champions": 5,
+        "wins": 1355,
+        "losses": 37,
+        "contracts": 822,
+        "crafts": 2363,
+        "legacyEligible": true
+      },
+      "permanentStudies": [],
+      "saveValid": true
+    },
+    {
+      "label": "release4-generation2",
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 10,
+        "resume": {
+          "file": "design/qa/house-campaign-release4-responsive-checkpoint.json",
+          "wallHours": 120.25,
+          "simHours": 120.25,
+          "note": "Continuation of an earned checkpoint; no resources changed."
+        }
+      },
+      "codeHashesAtRun": {
+        "house-engine.js": "592a9e4773ee17233e41c3c09b1ffce266da57984ff8200bd44ce3256d0eaf52",
+        "house-data.js": "fdcc63530405dc4bada49ed896ffbed28d1b39a0968a3389b9a41b3343ae1a1c",
+        "house-combat.js": "7f0f438f0cf7d7f609a894084f64a9e58d706a6c84ca2d58706f67a45310d45d",
+        "house-campaign.js": "7654cd33a4b20f3129956984c259175bfce702d4d25a11c34dbcdf10eb254f99",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      },
+      "final": {
+        "wallHours": 240,
+        "simHours": 119.7,
+        "activeMinutes": 288,
+        "generation": 2,
+        "champions": 4,
+        "wins": 865,
+        "losses": 22,
+        "contracts": 855,
+        "crafts": 2479,
+        "legacyEligible": false
+      },
+      "permanentStudies": [
+        "dispatch",
+        "thermal",
+        "survey"
+      ],
+      "saveValid": true
+    },
+    {
+      "label": "release4-gen2-finish",
+      "method": {
+        "earned": true,
+        "resourceGrants": false,
+        "mutations": "Public commands and tick only; deterministic default seed. No combat-outcome lookahead.",
+        "schedule": "First day: active hour 0–1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+        "days": 14,
+        "resume": {
+          "file": "design/qa/house-campaign-release4-generation2-checkpoint.json",
+          "wallHours": 240,
+          "simHours": 119.7,
+          "note": "Continuation of an earned checkpoint; no resources changed."
+        }
+      },
+      "codeHashesAtRun": {
+        "house-engine.js": "b482bdcada203440f8d689d43ef07ac56188178d80d55b2d6bc1cff476fe92e7",
+        "house-data.js": "fdcc63530405dc4bada49ed896ffbed28d1b39a0968a3389b9a41b3343ae1a1c",
+        "house-combat.js": "742899480a00bcd4f774b624546f380bf58560d5638c554b81245545fbe0655f",
+        "house-campaign.js": "6adcd0bf6092bb40b5078bbc87e8b517cf8e59ec44ac59b7715f56299851d13c",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      },
+      "final": {
+        "wallHours": 240.25,
+        "simHours": 119.95,
+        "activeMinutes": 15,
+        "generation": 2,
+        "champions": 5,
+        "wins": 866,
+        "losses": 22,
+        "contracts": 856,
+        "crafts": 2483,
+        "legacyEligible": true
+      },
+      "permanentStudies": [
+        "dispatch",
+        "thermal",
+        "survey"
+      ],
+      "saveValid": true
+    }
+  ],
+  "pacingConclusion": {
+    "firstLegacyElapsedHours": [
+      120.25,
+      144.25
+    ],
+    "firstLegacyActiveHours": [
+      6,
+      7
+    ],
+    "generationTwoElapsedHours": 119.95,
+    "generationTwoReviewActiveMinutes": 303,
+    "notes": [
+      "One Oathblade/default-seed campaign under two deterministic policies; not a completion-time guarantee for every calling.",
+      "Generation two resumes the responsive earned save. Its review includes a failed Crucible attempt before retiring; it does not grant another one-hour opening session.",
+      "Later presentation edits, formatting and the final-ending record do not change the economy. Exact simulation source hashes are recorded with each run.",
+      "Workshop gates still require 72 credited hours and the fifth champion before first Legacy access."
+    ]
+  },
+  "controlledEndgame": {
+    "test": "tests/house-depth.test.js: final Crucible trial",
+    "grantsUsed": true,
+    "fixture": "Generation 19, lineage 80, Q200 Eternal equipment",
+    "verified": [
+      "Final trial 60 can be won with late-game equipment",
+      "Hall of Makers ending is stored once",
+      "No trial 61 is offered",
+      "Resulting save validates"
+    ],
+    "limitation": "This is reachability and state verification, not an earned sixty-trial pacing run."
+  },
+  "browser": {
+    "saveIsolation": "All mutation/testing used localhost:8792; the player save on localhost:8777 was not replaced.",
+    "desktop": [
+      1440,
+      900
+    ],
+    "phone": [
+      390,
+      844
+    ],
+    "checks": [
+      "New-player creation starts at zero attributes with 20 points; calling preset and first hearth work",
+      "All eight scenes and appropriate hired staff/equipment/stock bindings",
+      "Forge model follows recipe/options and supports rotation",
+      "Live arena and saved replay with actual equipment and changing health",
+      "Return popup after a long absence and a productive short absence",
+      "Visible phone forge/shop/mine/employees layouts without horizontal overflow",
+      "Rendering detail, illustrated fallback and reduced motion options",
+      "Portable HTML loads its embedded compressed models over local HTTP"
+    ],
+    "limits": [
+      "Direct file:// navigation was blocked by the browser tool; direct-file launch was not verified.",
+      "Frame-rate limits are configured targets, not benchmark results."
+    ]
+  },
+  "codeEfficiency": [
+    "One shared WebGL context, room models loaded on demand, cached item geometry",
+    "Preview renders on changes; battle pass is reused; hidden tabs and static mode skip drawing",
+    "Balanced/Low target 30 fps; High targets 60 fps; device pixel ratio and shadows are capped",
+    "DOM updates change existing nodes rather than recreating canvases and controls",
+    "Live combat advances at event deadlines and retains deterministic offline equivalence",
+    "Completed smelts examine only affected output stocks rather than cloning all materials",
+    "Original version-one bouts and existing House/Classic save paths are retained"
+  ],
+  "assetScope": {
+    "rooms": 8,
+    "recipeCount": 340,
+    "modularItemFamilies": 17,
+    "embeddedModels": 14,
+    "portableBytes": 45171436,
+    "editableSource": "assets/house3d/house-source.blend",
+    "note": "Original modular Blender geometry with articulated characters, not 340 individually sculpted models. Rival houses are authored single-player opponents."
+  },
+  "releaseHashes": {
+    "house-engine.js": "b482bdcada203440f8d689d43ef07ac56188178d80d55b2d6bc1cff476fe92e7",
+    "house-combat.js": "742899480a00bcd4f774b624546f380bf58560d5638c554b81245545fbe0655f",
+    "house-campaign.js": "6adcd0bf6092bb40b5078bbc87e8b517cf8e59ec44ac59b7715f56299851d13c",
+    "house-app.js": "c4223aaed45b877a2e80f5cc84717886796beb30b8841cbb3ba8136e94477d18",
+    "house-dom.js": "2a2cad945d575ad730479555fca8e3fb6810c14138289b8622d460d4123a4045",
+    "atelier/campaign-app.js": "a8df1e9f9e3e219174ef9326d542bb19ea099ab48b9eb3efb5838b45d073d0d8",
+    "atelier/campaign-scene.js": "1ac4c61efcd2591e9a85dc370f40aaec23979a55abf25f5d3d61660dd48f2005",
+    "Ember-and-Iron.html": "9fe68ecf84575892add458eb2e6a8e9b30082d448250f6f707b94412403b18ca"
+  }
+}

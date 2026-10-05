@@ -1,0 +1,34 @@
+[
+  {
+    "file": "room-smith.glb",
+    "bytes": 5076372
+  },
+  {
+    "file": "room-mine.glb",
+    "bytes": 2751628
+  },
+  {
+    "file": "room-smelter.glb",
+    "bytes": 5624760
+  },
+  {
+    "file": "room-employees.glb",
+    "bytes": 5015764
+  },
+  {
+    "file": "room-legacy.glb",
+    "bytes": 4370684
+  },
+  {
+    "file": "evolution-forge.glb",
+    "bytes": 957940
+  },
+  {
+    "file": "evolution-shop.glb",
+    "bytes": 1434260
+  },
+  {
+    "file": "evolution-arena.glb",
+    "bytes": 1449752
+  }
+]

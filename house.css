@@ -4146,3 +4146,190 @@ input[type="range"] {
   border: 1px solid var(--line);
   border-radius: 8px;
 }
+/* House 4: a persistent living room under a stable, readable interface. */
+#house-world {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 60% 45%, #373830, #111b1d 75%);
+}
+#house-world canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+body.living-world {
+  background: transparent;
+}
+.living-world .house-shell {
+  background: transparent;
+}
+.living-world .house-shell::before,
+.living-world .creation-shell::before {
+  background-image: none;
+}
+.living-world .house-shell::after {
+  background: rgba(6, 14, 17, var(--scene-shade, 0.25));
+}
+.living-world .room-change #house-world,
+body.room-change #house-world {
+  filter: brightness(0.4);
+  transition: filter 0.2s;
+}
+#house-world {
+  transition: filter 0.3s;
+}
+.scenery-actions {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  margin: -12px 0 16px;
+}
+.living-world .scenery-actions {
+  display: flex;
+}
+.scenery-actions span {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #c4b18d;
+}
+.scenery-actions button {
+  background: #10202499;
+  min-height: 34px;
+  font-size: 11px;
+  padding: 5px 12px;
+}
+.world-status {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  max-width: calc(100vw - 32px);
+  background: #152022ee;
+  color: #e7d4b0;
+  font-size: 12px;
+  border: 1px solid #796344;
+  padding: 9px 16px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+.world-status:empty {
+  display: none;
+}
+.item-model-wrap {
+  display: none;
+  position: relative;
+  height: 250px;
+  margin: 0 0 20px;
+  border: 1px solid #82725266;
+  border-radius: 5px;
+  background: radial-gradient(ellipse at 50% 55%, #75817a33, #0a121760);
+  overflow: hidden;
+}
+.living-world .item-model-wrap {
+  display: block;
+}
+#forge-model {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.model-label {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #bcb496;
+  pointer-events: none;
+}
+#arena-model {
+  display: none;
+  width: 100%;
+  height: 360px;
+}
+.living-world #arena-model {
+  display: block;
+}
+.living-world .battle-scene {
+  background: radial-gradient(ellipse, #41504a77, #14202799);
+  min-height: 0;
+}
+.living-world .battle-lines {
+  min-height: 0;
+  gap: 20px;
+  padding: 8px 12px;
+}
+.living-world .combat-side {
+  flex: 1;
+}
+.living-world .combat-line {
+  gap: 5px;
+}
+.living-world .combatant {
+  padding: 4px;
+  min-width: 0;
+  min-height: 54px;
+  flex: 1;
+  background: #0c171966;
+}
+.living-world .combatant strong {
+  font-size: 11px;
+}
+.living-world .combatant small {
+  font-size: 9px;
+}
+.living-world .fighter-token {
+  display: none;
+}
+.living-world .combat-caption {
+  position: relative;
+}
+.house-scenic #app,
+.house-scenic #modal-root {
+  visibility: hidden;
+  pointer-events: none;
+}
+.house-scenic #house-world {
+  z-index: 0;
+  pointer-events: auto;
+}
+#leave-scenery {
+  position: fixed;
+  z-index: 600;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #172522ed;
+  border-color: #cda768;
+  padding: 12px 24px;
+}
+#leave-scenery[hidden] {
+  display: none;
+}
+@media (max-width: 640px) {
+  .item-model-wrap {
+    height: 220px;
+  }
+  #arena-model {
+    height: 260px;
+  }
+  .living-world .battle-lines {
+    gap: 8px;
+    padding: 4px;
+  }
+  .living-world .combatant strong {
+    font-size: 10px;
+  }
+  .living-world .combat-line > span {
+    font-size: 8px;
+  }
+}
+
+.watching-bout:not(.house-scenic) #house-world {
+  filter: blur(5px) brightness(0.55);
+}

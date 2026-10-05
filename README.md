@@ -2,33 +2,27 @@
 
 A playable local HTML blacksmith RPG. Build a workshop, equip an owned gladiator team, fulfil contracts and earn the crown through craftsmanship.
 
-## The first live 3D slice
+## House 4.0 — the complete living campaign
 
-**[Open the Living Atelier](atelier.html)** through the same local server as the game, for example `http://127.0.0.1:8777/atelier.html`. This is the first working implementation of the approved handcrafted-diorama design: an original Blender Forge, Showroom and small Arena, with articulated people and actual 3D equipment. Drag to orbit, inspect a piece, commission it for Renn or the shop, and watch its destination and a live bout.
+**[Play Ember & Iron](index.html)**. The main game now combines the complete production, staff, arena and inherited-career systems with the living 3D rooms. The earlier [Atelier study](atelier.html) remains available as a separate, accelerated art/combat experiment; it is no longer needed to play the 3D campaign.
 
-The study has one modular rondel family, five metal appearances, adjustable workmanship, three crafted modifiers and two inscriptions. A finished piece keeps its properties on the anvil, on a display and in Renn's hand. The founder works with a hammer; Tomas prepares fittings; Perrin serves a customer who browses, checks out and carries the purchased piece away. Paid jobs, held equipment, automatic display filling, exact refunds, return summaries and saved replays are functional.
+- All eight rooms have original Blender geometry. Hired specialists, resting employees, mining crews, the working smith and town browsers appear in their appropriate rooms. Seven rooms gain earned architectural additions; Legacy has its own memorial hall.
+- The 340 recipes use 17 modular item families, including cloth, leather, mail, off-hand daggers, shields, tools and jewellery. Material, quality, pattern grade, treatment and enchantment change the visible piece. Forge options update a rotatable close-up; equipped items appear on the actual fighters, and displayed stock appears in the shop.
+- Campaign bouts now advance a saved, deterministic combat state. Results are no longer calculated at launch. Front-line rules, damage, armour, wards, formations and progression keep their established balance; the 3D presentation adds approach, wind-up, impact, recovery, projectiles, damage cues and yielding. Original version-one replays remain playable.
+- The whole economy continues offline, including active arena matches. Production escrow, protected commissions, automatic equipment/deliveries, full-bin smelting checks and the once-only return report remain covered by regressions.
+- The Crown and 72 credited hours are both required for first Legacy access. Later generations add research, matched relic sets, oaths, inherited sigils and sixty Crucible trials. Mastering the final trial records the Eternal House ending, while the workshop remains playable.
 
-The Forge now keeps a live close-up of the intended piece above its controls. Material, workmanship, prefix and enchantment update immediately, independently of the current paid order; drag or use the arrow buttons to rotate it. All room controls overlay the full-screen scene. Options includes a saved overlay-opacity slider. The rebuilt assets introduce weathered timber, soot-toned masonry, worn leather and restrained light. The revised design book specifies adult proportions and a grittier, more realistic final art direction; current articulated characters remain transitional. See [preview and overlay checks](design/qa/atelier-forge-preview-checks.json); all eight slice regressions were rerun successfully.
+The release review covers source readability, simulation correctness, asset coverage, responsive screens and rendering costs. The interface patches changed nodes instead of replacing controls and canvases. The renderer shares one GPU context, loads rooms on demand, reuses geometry, caches equipment and targets 30 fps on Balanced/Low or 60 fps on High. Hidden tabs stop drawing. Options retains illustrated backgrounds for lower-powered devices, reduced ambient motion, overlay transparency and audio controls.
 
-The Arena advances a separate fixed-step combat state with movement, wind-up, impact, recovery, front-line eligibility and deterministic replay. It does not preselect a result for an animation. The four fighters use equipped meshes; the commissioned dagger changes Renn's actual damage. A saved replay cannot award another purse.
+The portable HTML embeds compressed models and expands them only when required. Play needs no account, CDN, network service or package installation. This is a local single-player game with authored rival houses, not a multiplayer ladder.
 
-The movement revision adds gentle cloth, smoke, floating dust and quench-water ripples, with reduced-motion support. The smith navigates around furniture and turns to face each station; the hammer's flat face meets the workpiece through a two-joint arm solution. Tomas faces his bench. Customers follow continuous, constant-speed routes around displays, including leaving without a purchase. Selecting a room during loading now opens the room selected.
-
-The rebuilt Cinder Yard has worn stone terraces, clearer camera framing and health/guard bars below the fight. Shield fighters hold the line while duelists enter distinct flanking lanes, thrust and withdraw. Guard breaks, impact recoil, upright shields, damage cues and yielding poses make exchanges readable. When a line falls, exposed fighters make a last stand; survivors route around fallen bodies and move to a clear lane for a final duel. Choose Measured, Press the attack or Hold the line before launching. Original v1 bouts and replays retain their shipped rules.
-
-Motion verification: **313 automated checks passed**, including furniture clearance, customer continuity, hammer contact, fighter spacing and replay/save compatibility. **360 simulated bouts** covered five equipment levels and three doctrines: no stalls; three defensive bouts reached the two-minute draw limit while still exchanging hits. These are exhibition benchmarks, not campaign pacing claims. All three rooms fit 320, 390, 768 and 1440px widths. See [combat results](design/qa/atelier-combat-benchmark.json), [browser checks](design/qa/atelier-motion-browser-checks.json), [desktop exchange](design/qa/atelier-arena-exchange.jpg) and [phone view](design/qa/atelier-arena-phone.jpg).
-
-**This is an accelerated, separately saved study, not a migration of the full campaign.** Sample replenishment and freely selectable visual properties are explicitly labelled. The eight-room campaign, its balance, saves and portable file are unchanged. Remaining production includes the other rooms, the full recipe catalogue, further character/animation refinement and campaign integration. A real phone hardware benchmark is still needed; narrow browser viewports verify layout only.
-
-Run the regular local server and open `atelier.html`; this module-based study is not the single-file portable release. Three.js 0.186.1 and its MIT licence are vendored locally, so the study makes no CDN requests. Source assets are in `assets/atelier/atelier-source.blend`; `design/tools/build_atelier_assets.py` regenerates the GLB models in a separate Blender background process.
-
-Verification: **307 tests passed** after adding eight study regressions, including frame-chunk independence, once-only sales/rewards, protected team work, front-line rules, escrow refunds and offline recovery. See [test output](design/qa/atelier-regression-tests.txt) and [browser evidence](design/qa/atelier-browser-checks.json). All three room layouts were checked at 320, 390, 768 and 1440 pixels. The first room's models currently total 10.6 MB uncompressed; compression, asset deduplication and draw-call reduction remain rollout work. The [design book](design/diorama-design.html) remains the direction for the later rollout.
+**Pacing evidence:** two earned first-generation runs, using the specified attendance pattern, reached Legacy at 120.25 and 144.25 elapsed hours, with 6 and 7 active hours respectively. These are prepared deterministic player policies, not a completion-time guarantee. See [release evidence](design/qa/house-release-4.json) for tests, limits and inherited-career results. Controlled late-game fixtures are reported separately from earned progression.
 
 ## Play
 
-Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or serve **[index.html](index.html)** with the source files. The portable edition embeds every script, style, background, miniature and inventory icon; it needs no installation, account or internet connection.
+Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or serve **[index.html](index.html)** with the source files. The portable edition embeds every script, style, background, miniature, inventory icon and compressed 3D model; it needs no installation, account or internet connection.
 
-The new **House edition 3.2** has its own save, backup and active-tab ownership keys. Existing Classic saves are kept. The title/menu offers an explicit carry-over, with a preview of what is retained. **[classic.html](classic.html)** runs the preserved 2.3 game from the source folder. Export before changing browser or device.
+**House edition 4.0** keeps the existing House save, backup and active-tab ownership keys. Existing Classic saves are kept. The title/menu offers an explicit carry-over, with a preview of what is retained. **[classic.html](classic.html)** runs the preserved 2.3 game from the source folder. Export before changing browser or device.
 
 **Menu → Options** offers live overlay transparency and background dimming, plus Readable, Balanced and Scenic presets. Master, music and effects volumes are independent, with a mute switch. Options are remembered on this device separately from the career. Eight original instrumental scores and procedural room sounds play locally after starting or continuing the game; they fade between rooms and pause when the page is hidden. No audio downloads are needed.
 
@@ -57,15 +51,15 @@ The new **House edition 3.2** has its own save, backup and active-tab ownership 
 - Legacy stays hidden until at least 72 credited hours and the fifth champion. Each promotion also needs current-material crafting and contracts; early-tier farming cannot replace that proof. Later careers shorten accreditation, while production and combat still matter. Defeat the fifth champion to retire. Choose a workforce, patron or archive charter; keep permanent talents, furnishings, chronicle and one chosen stored heirloom. A run reset has a typed warning and does not award sparks.
 
 - Eleven discoveries reveal new methods, three enchantments and nine permanent research projects. Sixty increasingly difficult Crucible trials award persistent seals; optional oaths, inherited sigils and matched equipment sets give later careers different goals.
-- Forty original Blender backgrounds: five evolving scenes for each of eight rooms. The mine has rough rock and packed earth, the smelter casting channels, the forge a masonry hearth, the arena fighting sand, and the house rooms warm timber interiors. Room investments and later generations change equipment and architecture quietly; the game does not reveal the thresholds.
+- Forty original Blender backgrounds: five fallback scenes for each of eight rooms, retained alongside the live 3D view. The mine has rough rock and packed earth, the smelter casting channels, the forge a masonry hearth, the arena fighting sand, and the house rooms warm timber interiors. Room investments and later generations change equipment and architecture quietly; the game does not reveal the thresholds.
 
 ## Design and verification
 
-- **[Approved 3D diorama design book](design/diorama-design.html)**: room composition and evolution, visible employees/customers, item appearance rules, real-time arena design, responsive interface layouts and Blender production briefs. Its interactive figures are planning diagrams; the separate Living Atelier above implements the first three-room slice.
+- **[Approved 3D diorama design book](design/diorama-design.html)**: room composition and evolution, visible employees/customers, item appearance rules, real-time arena design, responsive interface layouts and Blender production briefs. Its interactive figures remain planning diagrams; the main game implements all eight rooms with the complete campaign.
 - **[Long campaign guide, flowcharts and background gallery](design/campaign-guide.html)**
 - [House edition guide and room map](design/house-guide.html)
 - [Independent long-campaign review](design/qa/house-campaign-review.md)
-- [Automated test results](design/qa/version-3.2.5-tests.txt)
+- [Automated test results](design/qa/version-4.0.0-tests.txt)
 - [Offline resume browser checks](design/qa/offline-browser-checks.json)
 - [Production balance and opening-hour checks](design/qa/production-balance-checks.json)
 - [Persistent popup and full-bin browser checks](design/qa/production-browser-checks.json)
@@ -77,41 +71,49 @@ The new **House edition 3.2** has its own save, backup and active-tab ownership 
 
 The scheduled player follows **one initial hour, then 15 minutes at hours 2, 4 and 6; later days use 15-minute visits at hours 0, 2, 4 and 6**. Overnight is simulated as offline work. No resources, equipment or levels are granted to earned runs. An informed first career reached the Crown at **100.08 elapsed hours**, about 4.2 days and 5.5 active hours; a conservative policy needed about 126 hours. The 72-hour floor prevents early retirement, but it does not guarantee victory at that time. These campaign timings predate the 3.2.2 automatic-delivery and equipment changes and 3.2.3 production rebalance; they are historical pacing evidence, not a newly measured campaign benchmark.
 
-**299 automated checks pass**, including Classic regressions, long-campaign invariants, input preservation and device preferences. Five dagger checks cover dual-wield damage, class/two-handed restrictions, exact item ownership, automatic off-hand equipping and UI hand selection. Twenty-one resume checks exercise the actual application lifecycle as well as production: stale tabs, startup visibility changes, interrupted catch-up, imports, paid queue preservation, automation and once-only output. Eight additional fulfilment checks cover stock routing, automatic deliveries, delayed team equipment, comparison tradeoffs and existing-save migration. An isolated one-hour browser fixture produced three swords, six ingots and 26 mined materials, auto-equipped team upgrades and displayed mastery achievements. A separate contract fixture automatically delivered two pieces for 27g. Phone checks verified the progression panel and colored equipment comparisons without horizontal overflow. Browser audio checks render all eight actual scores, verify independent volume controls and silence when muted, and exercise room transitions and background suspension. After the production rebalance, all seven callings completed 3–4 contracts and 35–37 crafts in the first hour under the existing automated reviewer policy, with no resource grants or invalid saves. Five new production tests cover full bins, parallel furnaces, waiting/refund behaviour, slower extraction and historical recipe-cost compatibility. The rescued second career earned another Crown and four permanent studies; its timing includes the repaired automation stall and is not a clean pacing benchmark. Separate controlled tests cover save integrity, overnight limits, discoveries, research, equipment sets, oaths, seals, replay payouts and later-generation scene gates. The independent report separates these fixtures from earned second-generation results; generation-five recipes and the deepest trials are not claimed as naturally completed campaigns.
+**325 automated checks pass**, including Classic compatibility, production escrow and cancellation, automatic delivery/equipment, full-bin waiting, once-only resume reporting, long-campaign gates and device preferences. New coverage verifies saved live combat, deterministic online/offline exchanges, old replay compatibility, persistent controls/canvases, all 340 recipe-to-model mappings, all eight room stages, and the final trial’s permanent ending. Source UI and the embedded portable build were exercised using isolated browser saves, including a fresh zero-stat character, return popups, gear previews, live bouts and replay seeking.
 
-The portable build is approximately **13 MB**, including original Blender room scenes, splash, button/frame surfaces, fighter miniatures, the retained inventory atlas and all music synthesis. Earlier UI checks cover every room at 320, 390, 768 and 1440 pixel widths; this appearance update was checked at desktop and phone sizes with separate test saves.
+The portable build is approximately **45 MB**, including compressed 3D models, illustrated fallback rooms, inventory art and local music synthesis. Current visual checks cover desktop and phone layouts; older responsive checks also cover 320 and 768 pixels. The portable build was browser-tested over local HTTP. Direct `file://` navigation was blocked by the test browser, so opening the file directly remains unverified in that browser. See the [release evidence](design/qa/house-release-4.json) for the exact scope and limits.
 
 ## Code and development
 
-No framework or package installation is required to play or test. Existing production, ownership and migration logic remains covered by the Classic regression suite. House-specific code is separated into:
+No framework or package installation is required to play. Development tests and rebuilding the 3D bundle use the pinned dev dependencies (`npm ci`). Existing production, ownership and migration logic remains covered by the Classic regression suite. House-specific code is separated into:
 
-| File | Responsibility |
-|---|---|
-| `house-data.js` | Callings, traits, room guidance, rivals, leagues, treatments and upgrade content |
-| `house-combat.js` | Pure seeded combat and bounded event records |
-| `house-engine.js` | House economy, team ownership, contracts, progression, automation and explicit Classic conversion |
-| `house-campaign.js` | Accreditation, discoveries, research, inherited equipment families, Crucible trials, oaths, offline reporting and room evolution |
-| `house-app.js` / `house.css` | Event-delegated interface, responsive rooms, input preservation, introductions and overlays |
-| `house-settings.js` | Validated, separate device preferences and live surface transparency |
-| `house-audio.js` | Eight original scores, synthesized instruments, procedural foley and bounded playback scheduling |
-| `house-input.js` | Protects held mouse, touch and keyboard targets from periodic interface replacement |
-| `workshop-engine.js` and earlier engine modules | Tested shared production, staff, materials, items, Legacy and Classic compatibility |
-| `build_game.py` | Portable build from the source page's script order and local WebP assets |
-| `design/tools/render_themed_rooms.py` / `render_house_art.py` | Reproducible themed environments, five room stages and UI metalwork |
-| `design/tools/render_house_fighters.py` | Reproducible fighter miniatures |
+| File                                                          | Responsibility                                                                                                                   |
+| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `house-data.js`                                               | Callings, traits, room guidance, rivals, leagues, treatments and upgrade content                                                 |
+| `house-combat.js`                                             | Serializable event-driven combat, deterministic advancement and bounded replay records                                           |
+| `house-dom.js`                                                | Keyed updates that preserve controls, focus, scroll and live canvas buffers                                                      |
+| `atelier/campaign-app.js` / `campaign-scene.js`               | Read-only full-campaign 3D presentation and lazy asset loading                                                                   |
+| `house-3d.js`                                                 | Reproducible production bundle, including locally vendored Three.js                                                              |
+| `house-engine.js`                                             | House economy, team ownership, contracts, progression, automation and explicit Classic conversion                                |
+| `house-campaign.js`                                           | Accreditation, discoveries, research, inherited equipment families, Crucible trials, oaths, offline reporting and room evolution |
+| `house-app.js` / `house.css`                                  | Event-delegated interface, responsive rooms, input preservation, introductions and overlays                                      |
+| `house-settings.js`                                           | Validated, separate device preferences and live surface transparency                                                             |
+| `house-audio.js`                                              | Eight original scores, synthesized instruments, procedural foley and bounded playback scheduling                                 |
+| `house-input.js`                                              | Protects held mouse, touch and keyboard targets from periodic interface replacement                                              |
+| `workshop-engine.js` and earlier engine modules               | Tested shared production, staff, materials, items, Legacy and Classic compatibility                                              |
+| `build_game.py`                                               | Portable build in script order, embedded WebP fallback art and compressed GLB models                                             |
+| `design/tools/render_themed_rooms.py` / `render_house_art.py` | Reproducible themed environments, five room stages and UI metalwork                                                              |
+| `design/tools/render_house_fighters.py`                       | Reproducible fighter miniatures                                                                                                  |
 
 The new code uses shared previews for commands and UI, atomic equipment moves, material/grade escrow, integer event deadlines, once-only payouts and bounded replay history. Simulation advances separately from rendering. Embedded artwork becomes one cached Blob URL per asset; there are no network or third-party font dependencies. See the guide for the audit's trade-offs and follow-up work.
 
 The input fix defers automatic repainting during a press and its compatibility-click window. Simulation continues, and actions still validate current resources when activated. [Before/after browser checks](design/qa/input-browser-checks.json) reproduce the old missed-click behavior; [38 targeted checks](design/qa/input-regression-tests.txt) cover the repair and House regressions. Recreate the isolated browser fixture with `node design/tools/make_input_review.js` on port8792.
 
 ```sh
-node --test tests/*.test.js
+npm ci
+npm test
+npm run build:3d
+# Additional earned progression review:
 node design/qa/house-campaign-probe.js --label=review --days=7 --respond --stop-at-crown
 python build_game.py
 python -m http.server 8777
 ```
 
 To regenerate original art, use Blender 5.x in background mode with the scene and fighter render scripts. PNGs are working outputs; the checked-in WebP files are the game assets. Editable source scenes are in `assets/house`.
+
+The complete 3D library is reproducible with `design/tools/build_campaign_assets.py`, followed by `design/tools/package_campaign_rooms.py`, using Blender in background mode. Editable source is in `assets/house3d/house-source.blend`; the three original workrooms and character rig remain in `assets/atelier`. The shared item kits intentionally reuse topology and are not 340 separately sculpted models.
 
 For isolated UI fixtures, run `node design/tools/make_campaign_review.js`, serve this folder on port **8792**, and open `design/qa/campaign-review.html`. The fixture page refuses other ports and never edits the normal 8777 save. These injected visual fixtures are not pacing evidence.
 
@@ -147,13 +149,13 @@ See the [original idle review](design/qa/idle-enthusiast-v2.1-review.md), [follo
 
 Upgrade overlays have selectable sections across the top. Only the selected branch is shown, with rank progress, costs, benefits and prerequisites.
 
-| Room | Main path | Other sections |
-|---|---|---|
-| Mine | Depth | Workers · Storage |
-| Smelter | Alloys | Quality · Speed |
-| Forge | Recipes | Quality · Speed |
-| Shop | Price | Customer budgets · Customer relations |
-| Customers | Classes | Quantity · Readiness |
+| Room      | Main path | Other sections                        |
+| --------- | --------- | ------------------------------------- |
+| Mine      | Depth     | Workers · Storage                     |
+| Smelter   | Alloys    | Quality · Speed                       |
+| Forge     | Recipes   | Quality · Speed                       |
+| Shop      | Price     | Customer budgets · Customer relations |
+| Customers | Classes   | Quantity · Readiness                  |
 
 Forge recipe investments unlock standard bronze and higher material patterns; the Master armoury unlocks prestige patterns. Attributes, mastery and material machinery still apply. Smelter Quality adds metal-preparation quality to newly started crafts. Readiness improves customer health, combat, recovery and travel. Quantity adds named buyers and party capacity; it requires the relevant class before adding a new customer of that class.
 

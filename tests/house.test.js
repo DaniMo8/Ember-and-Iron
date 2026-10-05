@@ -146,7 +146,7 @@ test("a defeated unequipped team keeps gear and recovers without travel states",
   const e = fresh();
   assert(e.command("challenge", { rival: "choir" }).ok);
   const m = e.activeMatch();
-  e.tick(m.endsAt);
+  while (e.activeMatch()) e.tick(100);
   assert(!m.result.victory);
   assert.equal(e.state.house.losses, 1);
   assert(!e.teamReady());
@@ -160,6 +160,8 @@ test("simulations are deterministic, protect the front line and have bounded log
   gear(e);
   e.command("challenge", { rival: "lantern" });
   const m = e.activeMatch();
+  assert.equal(m.result.victory, null);
+  while(e.activeMatch()) e.tick(100);
   assert.deepEqual(C.simulate(m.snapshot), m.result);
   assert(m.result.events.length <= 602);
   for (let n = 1; n < m.result.events.length; n++) {

@@ -7,3 +7,9 @@
 *.svg text eol=lf
 *.py text eol=lf
 *.png binary
+
+# Vendored shader strings retain their authored whitespace in generated bundles.
+house-3d.js -whitespace linguist-generated=true
+Ember-and-Iron.html -whitespace linguist-generated=true
+*.glb binary
+*.blend binary

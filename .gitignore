@@ -21,3 +21,8 @@ design/qa/house-depth-tests.txt
 design/qa/input-before.html
 design/qa/input-after.html
 design/qa/offline-review.html
+assets/house3d/*.blend1
+assets/house3d/house-world.glb
+design/qa/live-combat-check.txt
+design/qa/full-release-tests.txt
+design/qa/content-shapes.json

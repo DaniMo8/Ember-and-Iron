@@ -471,7 +471,7 @@
       : H.rivals.find((r) => r.id === m.rival).name;
   }
   function splash() {
-    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 3.2.5</span></footer></main>`;
+    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 4.0.0</span></footer></main>`;
   }
   function creation() {
     const p = H.professions[ui.calling],
@@ -877,7 +877,7 @@
         })
         .join("")}</div>${
         r
-          ? `<div class="selected-design"><div class="design-title">${itemIcon(r)}<div><p class="eyebrow">${ui.intent === "team" ? "FOR YOUR HOUSE" : ui.intent === "catalogue" ? "FOR YOUR CLIENTS" : "FOR YOUR CRAFT"}</p><h2>${r.name}</h2><p>${r.description}</p></div></div><div class="form-two"><label>Prefix treatment<select data-ui="treatment">${Object.entries(
+          ? `<div class="selected-design"><div class="item-model-wrap"><canvas id="forge-model" aria-label="Selected item in 3D; drag or use arrow keys to rotate" tabindex="0"></canvas><span class="model-label">DESIGN STUDY · drag to turn</span></div><div class="design-title">${itemIcon(r)}<div><p class="eyebrow">${ui.intent === "team" ? "FOR YOUR HOUSE" : ui.intent === "catalogue" ? "FOR YOUR CLIENTS" : "FOR YOUR CRAFT"}</p><h2>${r.name}</h2><p>${r.description}</p></div></div><div class="form-two"><label>Prefix treatment<select data-ui="treatment">${Object.entries(
               H.treatments,
             )
               .map(
@@ -1212,7 +1212,13 @@
             "",
           )}</div><small>One study at a time. Costs are committed at the start; it runs while you are away.</small>`,
       );
-    if (room === "arena" && s.house.champions === 5) {
+    if (["smith", "arena", "legacy"].includes(room) && c.bestTrial >= 60) {
+      html += panel(
+        "The Eternal House",
+        `<p class="eyebrow">HALL OF MAKERS · CAMPAIGN MASTERED</p><h2>Your mark will outlive the forge.</h2><p>All sixty Crucible trials have fallen to your craftsmanship. Your house has earned its place among the makers of legend.</p><p>Keep refining the collection, take a new oath or pass the hammer to another generation. Your final achievement remains in the house chronicle.</p>`,
+      );
+    }
+    if (room === "arena" && s.house.champions === 5 && c.trialDepth < 60) {
       const v = game.trialPreview();
       html += panel(
         "Beyond the Crown · The Crucible",
@@ -1330,7 +1336,7 @@
   }
   function battle(m, replay = false) {
     const frame = game.battleFrame(m.id, replay ? ui.replayAt : undefined);
-    return `<div class="battle-scene" style="--arena-art:url('${asset("arena-0")}')"><div class="battle-score"><span>YOUR HOUSE</span><b>${time(frame.time / 1000)} / ${time(frame.duration / 1000)}</b><span>${recordTitle(m)}</span></div><div class="battle-lines">${[
+    return `<div class="battle-scene" style="--arena-art:url('${asset("arena-0")}')"><div class="battle-score"><span>YOUR HOUSE</span><b>${time(frame.time / 1000)}${m.result.victory === null ? " · LIVE" : " / " + time(frame.duration / 1000)}</b><span>${recordTitle(m)}</span></div><canvas id="arena-model" aria-label="Live three-dimensional arena"></canvas><div class="battle-lines">${[
       [frame.heroes, "home"],
       [frame.enemies, "away"],
     ]
@@ -1508,7 +1514,7 @@
     legacy,
   };
   function shell() {
-    return `<div class="house-shell" style="--scene:url('${asset(stage(ui.room))}')">${header()}<main id="main-content" class="room room-${ui.room}">${toolbar()}${storageMessage ? `<p role="alert" class="warning">${storageMessage}</p>` : ""}${ui.readonly ? '<p role="alert" class="warning">This house is active in another tab. This window is read-only until that tab closes.</p>' : ""}${overview()}${goal()}${ui.room === "legacy" ? "" : campaignPanel()}${renderers[ui.room]()}${ui.room === "legacy" ? campaignPanel() : ""}<footer class="room-footer"><span>${esc(game.state.shopName)} · generation ${game.state.player.legacy.generation}</span><span>Craftsmanship made visible.</span></footer></main>${game.activeMatch() && ui.room !== "arena" ? `<button class="live-bout" data-action="room" data-room="arena"><span class="pulse"></span>ARENA LIVE · ${recordTitle(game.activeMatch())}<b>Watch ↗</b></button>` : ""}</div>`;
+    return `<div class="house-shell" style="--scene:url('${asset(stage(ui.room))}')">${header()}<main id="main-content" class="room room-${ui.room}">${toolbar()}<div class="scenery-actions"><span>THE LIVING WORKSHOP</span><button data-scene-action="look">Look around ↗</button></div>${storageMessage ? `<p role="alert" class="warning">${storageMessage}</p>` : ""}${ui.readonly ? '<p role="alert" class="warning">This house is active in another tab. This window is read-only until that tab closes.</p>' : ""}${overview()}${goal()}${renderers[ui.room]()}${campaignPanel()}<footer class="room-footer"><span>${esc(game.state.shopName)} · generation ${game.state.player.legacy.generation}</span><span>Craftsmanship made visible.</span></footer></main>${game.activeMatch() && ui.room !== "arena" ? `<button class="live-bout" data-action="room" data-room="arena"><span class="pulse"></span>ARENA LIVE · ${recordTitle(game.activeMatch())}<b>Watch ↗</b></button>` : ""}</div>`;
   }
   function upgradeRows(room) {
     if (room === "employees")
@@ -1576,13 +1582,13 @@
       .join("")}</div>`;
   }
   function menu() {
-    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Options · appearance & sound", "options", {}, false, "primary")}${button("Export arena house", "export", {}, !game.state.started)}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 3.2 · 24-hour offline limit · Original Blender artwork & music · No networked ranking</p>`;
+    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Options · appearance & sound", "options", {}, false, "primary")}${button("Export arena house", "export", {}, !game.state.started)}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 4.0 · 24-hour offline limit · Original Blender artwork & music · No networked ranking</p>`;
   }
   function options() {
     const slider = (key, label, hint, max = 100) =>
       `<label class="option-slider"><span>${label}<output data-option-output="${key}">${preferences[key]}%</output></span><input type="range" min="0" max="${max}" step="1" value="${preferences[key]}" data-setting="${key}" aria-label="${label}"><small>${hint}</small></label>`;
     const theme = EIHouseAudio.themes[ui.screen === "game" ? ui.room : "smith"];
-    return `<p class="eyebrow">MAKE YOURSELF AT HOME</p><h2>Options</h2><p>Changes appear immediately and are remembered on this device.</p><section class="option-section"><h3>Appearance</h3>${slider("transparency", "Overlay transparency", "Higher lets more of the room show through. Text stays solid.", 85)}<div class="option-presets">${button("Readable", "transparency-preset", { value: 15 })}${button("Balanced", "transparency-preset", { value: 40 })}${button("Scenic", "transparency-preset", { value: 65 })}</div>${slider("backgroundShade", "Background dimming", "Darken the scenery to make information easier to read.", 70)}</section><section class="option-section"><div class="section-line"><h3>Sound</h3><label class="mute-option"><input type="checkbox" data-setting="muted" ${preferences.muted ? "checked" : ""}> Mute all</label></div>${slider("master", "Master volume", "Overall volume.")}${slider("music", "Music volume", "Original instrumental themes for each room.")}${slider("effects", "Sound effects volume", "Room ambience and sounds from your actions.")}<div class="now-playing"><span class="eyebrow">THIS ROOM’S THEME</span><strong>${esc(theme.title)}</strong><small>Music fades between rooms and pauses when the game is hidden.</small>${button("Play room theme", "preview-sound", {}, false, "quiet")}</div></section><div class="actions">${button("Restore default options", "default-options", {}, false, "quiet")}${button("Done", "close", {}, false, "primary")}</div>`;
+    return `<p class="eyebrow">MAKE YOURSELF AT HOME</p><h2>Options</h2><p>Changes appear immediately and are remembered on this device.</p><section class="option-section"><h3>Appearance</h3>${slider("transparency", "Overlay transparency", "Higher lets more of the room show through. Text stays solid.", 85)}<div class="option-presets">${button("Readable", "transparency-preset", { value: 15 })}${button("Balanced", "transparency-preset", { value: 40 })}${button("Scenic", "transparency-preset", { value: 65 })}</div>${slider("backgroundShade", "Background dimming", "Darken the scenery to make information easier to read.", 70)}</section>${window.EIHouse3D?.optionsMarkup() || ""}<section class="option-section"><div class="section-line"><h3>Sound</h3><label class="mute-option"><input type="checkbox" data-setting="muted" ${preferences.muted ? "checked" : ""}> Mute all</label></div>${slider("master", "Master volume", "Overall volume.")}${slider("music", "Music volume", "Original instrumental themes for each room.")}${slider("effects", "Sound effects volume", "Room ambience and sounds from your actions.")}<div class="now-playing"><span class="eyebrow">THIS ROOM’S THEME</span><strong>${esc(theme.title)}</strong><small>Music fades between rooms and pauses when the game is hidden.</small>${button("Play room theme", "preview-sound", {}, false, "quiet")}</div></section><div class="actions">${button("Restore default options", "default-options", {}, false, "quiet")}${button("Done", "close", {}, false, "primary")}</div>`;
   }
   function dialog() {
     let body = "";
@@ -1621,6 +1627,8 @@
       $("#app").innerHTML =
         `<main class="catchup-screen" role="status" aria-live="polite"><p class="eyebrow">THE HOUSE KEPT WORKING</p><h1>Opening the workshop ledger.</h1><p>Reconciling production, trade and your authorised matches.</p>${progress(ui.catchupProgress, 1, "Offline progress")}<strong>${Math.round(ui.catchupProgress * 100)}%</strong><small>Credited progress is saved as it is calculated.</small></main>`;
       $("#modal-root").innerHTML = "";
+      $("#app").__html = null;
+      $("#modal-root").__html = null;
       return;
     }
     if (
@@ -1641,13 +1649,20 @@
       modalScroll = $(".dialog")?.scrollTop || 0,
       focusAction = focused?.dataset.action,
       focusKey = JSON.stringify(focused?.dataset || {});
-    $("#app").innerHTML =
+    const content =
       ui.screen === "splash"
         ? splash()
         : ui.screen === "creation"
           ? creation()
           : shell();
-    $("#modal-root").innerHTML = dialog();
+    if (window.EIHouseDOM) {
+      EIHouseDOM.update($("#app"), content);
+      EIHouseDOM.update($("#modal-root"), dialog());
+    } else {
+      $("#app").innerHTML = content;
+      $("#modal-root").innerHTML = dialog();
+    }
+    window.EIHouse3D?.sync({ game, data: D, ui, preferences });
     if (ui.modal) {
       $(".dialog").scrollTop = modalScroll;
       if (force && !hadDialog)
@@ -1798,6 +1813,7 @@
     "default-options": () => {
       preferences = { ...EIHouseSettings.defaults };
       applyPreferences(true);
+      window.EIHouse3D?.resetOptions();
     },
     close: closeDialog,
     room: (d) => navigate(d.room),
@@ -2145,6 +2161,11 @@
     if (!handler) return;
     handler(b.dataset);
     render(true);
+    if (["challenge", "ascend", "replay"].includes(b.dataset.action))
+      $(".battle-scene")?.scrollIntoView?.({
+        behavior: "smooth",
+        block: "center",
+      });
   });
   document.addEventListener("input", (e) => {
     const el = e.target;

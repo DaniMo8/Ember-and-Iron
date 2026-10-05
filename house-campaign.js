@@ -1046,7 +1046,7 @@
           enemies: v.enemies,
           doctrine: h.doctrine,
         };
-        const result = Combat.simulate(snapshot),
+        const { live, result } = Combat.create(snapshot),
           id = "match-" + h.nextMatch++;
         h.matches.unshift({
           id,
@@ -1059,6 +1059,7 @@
           startedAt: this.state.simTime,
           endsAt: this.state.simTime + Math.ceil(result.duration),
           snapshot,
+          live,
           result,
           paid: false,
           purse: v.purse,
@@ -1100,6 +1101,13 @@
           m.result.victory &&
           m.depth === c.trialDepth + 1
         ) {
+          if (m.depth === 60 && c.bestTrial < 60) {
+            s.house.history.push({
+              generation: s.player.legacy.generation,
+              text: "The sixtieth trial is mastered. The Eternal House enters the Hall of Makers.",
+            });
+            s.house.history = s.house.history.slice(-20);
+          }
           c.trialDepth = m.depth;
           c.bestTrial = Math.max(c.bestTrial, m.depth);
           const seals = 1 + Math.floor((m.depth - 1) / 3);
