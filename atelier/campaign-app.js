@@ -85,7 +85,16 @@ function sync(input) {
   const draft = preview
     ? {
         recipeId: ui.recipe,
-        quality: preview.quality,
+        quality:
+          ui.intent === "catalogue" && ui.order
+            ? game.commissionPlan(ui.order, {
+                recipeId: ui.recipe,
+                treatment: ui.treatment,
+                grade: ui.grade,
+                enchantmentId: ui.enchantment || null,
+              }).quality || preview.quality
+            : preview.quality,
+        grade: ui.grade,
         treatment: ui.treatment,
         enchantmentId: ui.enchantment || null,
       }

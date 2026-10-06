@@ -26,3 +26,7 @@ assets/house3d/house-world.glb
 design/qa/live-combat-check.txt
 design/qa/full-release-tests.txt
 design/qa/content-shapes.json
+
+# Generated workflow previews and intermediate test runs
+design/qa/workflow-*-tests.txt
+design/qa/workflow-layout*.html

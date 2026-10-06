@@ -58,7 +58,7 @@
       trait:
         "+12% sale value and 8% cheaper specialist signing costs. Contracts pay 15% more.",
       milestone:
-        "Starts with a 12-gold patron advance and an extra contract choice.",
+        "Starts with a 12-gold patron advance. Newly issued commissions pay 15% more.",
       stats: [3, 4, 9, 4],
       color: "#dab970",
     },
@@ -70,7 +70,7 @@
       effects: { smeltSpeed: 0.15, staffXp: 0.2 },
       trait: "Smelting is 15% faster. Employees learn 20% faster.",
       milestone:
-        "Furnace stockkeeper starts installed. One safe ingot policy can run immediately.",
+        "Begins with three bronze ingots and two coal. Automation is earned after the third champion.",
       stats: [5, 5, 3, 7],
       color: "#91baca",
     },
@@ -81,7 +81,7 @@
         "A scholar of lost patterns who grows through deliberate practice.",
       effects: { proficiencyXp: 0.3, quality: 2 },
       trait:
-        "+30% mastery experience and +2 quality. Practice earns another 20% mastery XP.",
+        "+30% mastery experience and +2 quality. All personally ordered work earns another 20% mastery XP.",
       milestone:
         "Begins with Guild patterns; standard bronze designs are immediately discoverable.",
       stats: [3, 5, 3, 9],
@@ -154,14 +154,14 @@
     forge: [
       "The forge",
       "Make the answer to your next rival.",
-      "Choose a purpose, pattern, material, treatment and enchantment. Reserve team work or supply a contract.",
+      "Choose Hero, Commission or Shop. A hero’s slot selects compatible work; a commission fills in the patron’s requirements. Refine the design, then reserve materials.",
       "Finishing adds +20, +10, +5, +2, then +1 quality, each for more work time.",
     ],
     shop: [
-      "Shop & armoury",
-      "Keep the best. Sell the repeatable.",
-      "Team upgrades equip automatically. Warehouse contracts complete automatically; shop stock fills the displays.",
-      "Spare team gear stays protected in the warehouse. Green comparisons improve a stat; red comparisons show a tradeoff.",
+      "Shop",
+      "Stock the shelves. Welcome the town.",
+      "Shop-purpose work fills open displays automatically. Customers browse and buy while the workshop keeps working.",
+      "Spare stock waits in the compact warehouse below the displays. Protected team pieces and reserved commissions stay safe. Manage fighters in Arena and commissions in Forge.",
     ],
     arena: [
       "The proving ground",

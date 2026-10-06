@@ -406,6 +406,7 @@ test("reopening resumes automated mining, ingot targets, catalogue work and cont
     e = house(clock.now),
     s = e.state;
   s.player.gold = 2000;
+  s.house.champions = 3; // Controlled late-game automation fixture.
   s.house.upgrades = { catalogue: 1, clerk: 1 };
   s.house.autoDeliver = true;
   s.house.catalogue = {

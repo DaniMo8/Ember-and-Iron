@@ -134,7 +134,7 @@
     },
     {
       id: "dispatch",
-      room: "shop",
+      room: "forge",
       name: "Establish the guild route",
       discovery: "palimpsest",
       gold: 1000,
@@ -1156,6 +1156,7 @@
           c = h.catalogue;
         if (c.enabled && c.rotate && h.upgrades.catalogue) {
           const orders = h.orders.filter((o) => {
+            if (o.kind === "rare") return false;
             const r = this.data.recipes[o.recipeId],
               v = this.craftPreview(r?.id);
             return (

@@ -82,7 +82,7 @@ test("all seven callings create valid houses with twenty allocated points and au
       20,
     );
     assert(E.validateSave(e.exportSave(), e.data).ok, id);
-    assert.equal(e.state.house.orders.length, id === "merchant" ? 4 : 3);
+    assert.equal(e.state.house.orders.length, 1);
   }
 });
 test("team commissions auto-equip and remain protected from contracts", () => {
@@ -135,7 +135,7 @@ test("invalid equipment compatibility and full-storage swaps leave every item un
 });
 test("house roster never buys equipment or automatically departs on Classic quests", () => {
   const e = fresh();
-  item(e, "bronze_daggers");
+  item(e, "bronze_daggers", 60, {protected:true});
   e.tick(3600000);
   assert.equal(e.state.runs.length, 0);
   assert.equal(e.state.stats.sold, 0);
@@ -367,6 +367,7 @@ test("first-visit explanations persist independently per room and invalid saves 
 test("catalogue respects an offline purchase budget across save reloads", () => {
   const e = fresh();
   e.state.player.gold = 100;
+  e.state.house.champions = 3;
   e.state.house.upgrades.catalogue = 1;
   const r = e.data.recipes.bronze_swords;
   e.state.house.orders = [
@@ -405,6 +406,7 @@ test("catalogue respects an offline purchase budget across save reloads", () => 
 test("catalogue never buys or forges below the disclosed contract quality", () => {
   const e = fresh();
   e.state.player.gold = 100;
+  e.state.house.champions = 3;
   e.state.house.upgrades.catalogue = 1;
   e.state.house.orders = [
     {
@@ -508,12 +510,12 @@ test("mage cleave respects front lines and guardians protect their allies", () =
 test("commercial price bonuses apply once to contracts and affect town offers", () => {
   const e = fresh();
   for (const r of Object.values(e.data.recipes)) r.basePrice = 100;
-  e._newContracts();
+  e.state.house.orders=[]; e._roll=()=>.5; e._newContracts(true);
   const before = e.state.house.orders[0].payment;
   const piece = item(e, "bronze_swords", 80),
     town = e.salePreview(piece.id).price;
   e.state.house.upgrades.shop_prices = 6;
-  e._newContracts();
+  e.state.house.orders=[]; e._roll=()=>.5; e._newContracts(true);
   assert(e.state.house.orders[0].payment <= Math.ceil(before * 1.36));
   assert(e.state.house.orders[0].payment >= Math.floor(before * 1.36));
   assert(e.salePreview(piece.id).price > town);

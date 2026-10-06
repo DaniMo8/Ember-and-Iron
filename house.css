@@ -4333,3 +4333,37 @@ body.room-change #house-world {
 .watching-bout:not(.house-scenic) #house-world {
   filter: blur(5px) brightness(0.55);
 }
+
+
+/* Purpose-led forge: destination first, then a compact equipment workbench. */
+.purpose-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.forge-loadout { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-top:16px; }
+.forge-slot { min-width:0; min-height:122px; display:flex; flex-direction:column; align-items:flex-start; gap:7px; text-align:left; padding:13px; border-left:3px solid var(--line); }
+.forge-slot strong,.forge-slot small { overflow-wrap:anywhere; }
+.forge-slot.selected { border-color:var(--gold); background:rgba(193,151,80,.15); }
+.forge-slot .item-icon { width:32px; height:32px; }
+.forge-comparison { display:flex; gap:12px 20px; flex-wrap:wrap; margin:10px 0 18px; padding:12px; border:1px solid var(--line); }
+.forge-comparison>strong { flex-basis:100%; font-size:.8rem; }
+.stat-gain { color:#8fdbac; } .stat-loss { color:#ed9292; }
+.commission-clock { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:12px 0; font-size:.8rem; }
+.commission-clock span { color:var(--muted); }
+.commission-board { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.commission-choice { border:1px solid var(--line); padding:15px; background:rgba(9,23,26,.44); min-width:0; }
+.commission-choice h3 { font-size:1.02rem; overflow-wrap:anywhere; }
+.commission-choice p { font-size:.8rem; }
+.commission-choice.selected { border-color:var(--gold); box-shadow:inset 3px 0 var(--gold); }
+.commission-choice.rare-order { background:linear-gradient(135deg,rgba(78,35,85,.46),rgba(9,23,26,.65)); }
+.rare-order .eyebrow { color:#d6a5df; }
+.commission-reward { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; align-items:center; margin:14px 0; }
+.commission-reward strong { color:var(--gold); font-size:1.2rem; }
+.commission-spec { border-left:2px solid var(--gold); padding:10px 13px; background:rgba(174,132,57,.08); }
+.invention-label { color:#92d6bf; letter-spacing:.14em; margin:0 0 7px; font-size:.58rem; }
+@media(max-width:700px) {
+  .purpose-three { grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+  .purpose-three button { padding:10px 6px; min-width:0; }
+  .purpose-three small { font-size:.62rem; }
+  .forge-loadout { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
+  .forge-slot { padding:10px; min-height:104px; }
+  .commission-board { grid-template-columns:1fr; }
+  .forge-comparison { gap:8px 12px; font-size:.75rem; }
+}

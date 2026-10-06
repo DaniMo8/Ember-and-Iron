@@ -215,7 +215,10 @@ export class CampaignScene extends AtelierScene {
       variant: recipe.variant || 0,
       material: (recipe.materialId || "bronze_ingot").replace("_ingot", ""),
       quality: clamp(item.quality ?? 40, 0, 200),
-      prefix: item.affixId || item.treatment || null,
+      prefix:
+        item.affixId || (item.treatment !== "plain" ? item.treatment : null),
+      grade: item.grade || "standard",
+      treatment: item.treatment || "plain",
       enchant: item.enchantmentId || null,
     };
   }
@@ -246,6 +249,19 @@ export class CampaignScene extends AtelierScene {
         m.map = null;
         m.roughness = clamp(0.76 - a.quality * 0.0027, 0.2, 0.76);
         m.envMapIntensity = 1.2;
+        if (a.treatment === "glassheart") {
+          m.color.lerp(new T.Color(0xb8d5df), 0.55);
+          m.roughness = 0.12;
+        }
+        if (a.treatment === "gravebound") {
+          m.color.multiplyScalar(0.55);
+          m.roughness = 0.7;
+        }
+        if (a.grade === "moon") {
+          m.color.lerp(new T.Color(0xb5a8d4), 0.4);
+          m.emissive.setHex(0x272039);
+          m.emissiveIntensity = 0.25;
+        }
       }
       if (/Fitting metal|Aged brass/.test(m.name))
         m.color.setHex(

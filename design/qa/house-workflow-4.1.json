@@ -1,0 +1,151 @@
+{
+  "version": "4.1.0",
+  "date": "2026-10-06T04:26:15.119084+00:00",
+  "request": "Purpose-led Forge, timed six-job commissions, late automation, mechanical upgrades and a retail-only Shop.",
+  "automated": {
+    "command": "npm test",
+    "passed": 348,
+    "failed": 0,
+    "report": "version-4.1.0-tests.txt",
+    "newWorkflowTests": 23
+  },
+  "build": {
+    "command": "npm run build",
+    "portableBytes": 45216709,
+    "successful": true
+  },
+  "earnedOpeningRuns": [
+    {
+      "profession": "weaponsmith",
+      "earned": true,
+      "resourceGrants": false,
+      "hours": 1,
+      "activeMinutes": 60,
+      "gold": 115,
+      "smithLevel": 3,
+      "champions": 0,
+      "contracts": 5,
+      "crafted": 38,
+      "wins": 15,
+      "losses": 0,
+      "validSave": true,
+      "rejections": {},
+      "sourceHashesAtRun": {
+        "house-engine.js": "5ddf164639ea8d0f41bfbb5182714057cfe4e5cceb096f2bfa53d06cc28c6fcc",
+        "house-data.js": "308325bf8e84d9b587214c033536a97a65a42ae54048f0e2c5c8bf7192a7ca26",
+        "house-combat.js": "ee95c185c98bd788ffae5af673cf3b2add934750b2870fadc81962ff3425dafe",
+        "house-campaign.js": "da04955874080849c32b17b4b8bf19759b34f202b1d4e3af17461e4b5d7c7248",
+        "house-workflow.js": "6b91c823cb6ce9d8c2959bef223a2884f99a27814d9e3448c486af052df0281f",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      }
+    },
+    {
+      "profession": "mechanist",
+      "earned": true,
+      "resourceGrants": false,
+      "hours": 1,
+      "activeMinutes": 60,
+      "gold": 93,
+      "smithLevel": 3,
+      "champions": 0,
+      "contracts": 4,
+      "crafted": 34,
+      "wins": 15,
+      "losses": 0,
+      "validSave": true,
+      "rejections": {},
+      "sourceHashesAtRun": {
+        "house-engine.js": "5ddf164639ea8d0f41bfbb5182714057cfe4e5cceb096f2bfa53d06cc28c6fcc",
+        "house-data.js": "308325bf8e84d9b587214c033536a97a65a42ae54048f0e2c5c8bf7192a7ca26",
+        "house-combat.js": "ee95c185c98bd788ffae5af673cf3b2add934750b2870fadc81962ff3425dafe",
+        "house-campaign.js": "da04955874080849c32b17b4b8bf19759b34f202b1d4e3af17461e4b5d7c7248",
+        "house-workflow.js": "6b91c823cb6ce9d8c2959bef223a2884f99a27814d9e3448c486af052df0281f",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      }
+    },
+    {
+      "profession": "merchant",
+      "earned": true,
+      "resourceGrants": false,
+      "hours": 1,
+      "activeMinutes": 60,
+      "gold": 115,
+      "smithLevel": 3,
+      "champions": 0,
+      "contracts": 5,
+      "crafted": 35,
+      "wins": 15,
+      "losses": 0,
+      "validSave": true,
+      "rejections": {},
+      "sourceHashesAtRun": {
+        "house-engine.js": "5ddf164639ea8d0f41bfbb5182714057cfe4e5cceb096f2bfa53d06cc28c6fcc",
+        "house-data.js": "308325bf8e84d9b587214c033536a97a65a42ae54048f0e2c5c8bf7192a7ca26",
+        "house-combat.js": "ee95c185c98bd788ffae5af673cf3b2add934750b2870fadc81962ff3425dafe",
+        "house-campaign.js": "da04955874080849c32b17b4b8bf19759b34f202b1d4e3af17461e4b5d7c7248",
+        "house-workflow.js": "6b91c823cb6ce9d8c2959bef223a2884f99a27814d9e3448c486af052df0281f",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      }
+    }
+  ],
+  "browser": {
+    "origin": "http://127.0.0.1:8792",
+    "playerSaveOriginUntouched": "http://127.0.0.1:8777",
+    "fixtures": "Controlled middle-career review save; quantities and milestones granted for functional checks, not earned balance evidence.",
+    "liveChecks": [
+      "Hero selection and offhand destination choose compatible recipe and highest unlocked alloy.",
+      "Commission plan presets bronze dagger; Complete commission queues exactly two remaining pieces and disables duplicate submission.",
+      "Earlier paid hero and commission jobs survive reload.",
+      "Shop opens directly on displays, warehouse, customer timing and counter staff; no team or commission tabs.",
+      "Arena Fighters & formation contains stock equipment comparisons.",
+      "Portable build opens existing save and renders the new Forge and Shop.",
+      "Portable Forge upgrade overlay contains Commissions branch and black-wax seal / wagon charter with gates and prices.",
+      "Desktop content width 1265 within 1280-pixel viewport; living-room and item-preview canvases present; no error status after fresh asset load."
+    ],
+    "responsive": {
+      "method": "Static snapshots from actual app renderer inside resizable same-origin iframe; layout checks only. Functional checks used live app separately.",
+      "generator": "../tools/make_workflow_review.js",
+      "screens": [
+        "hero forge",
+        "commission forge",
+        "shop-purpose forge",
+        "shop floor"
+      ],
+      "widths": [
+        320,
+        390,
+        768
+      ],
+      "horizontalOverflow": false,
+      "measuredContentWidths": [
+        305,
+        375,
+        753
+      ]
+    },
+    "transientPreviewIssue": "One source reload used an unloaded cached stylesheet; a versioned asset refresh restored styling and normal navigation. Final portable check had no error status."
+  },
+  "balanceNotes": [
+    "The three earned first hours remain active and profitable without automatic production. They stop before the first champion’s two-hour accreditation floor.",
+    "A full board waits rather than banking arrivals. Declining and delivery never instantly replace a job.",
+    "Third-champion automation and high gold prices slow the transition to unattended production. Already paid queues still finish.",
+    "New inventions have direct mechanical regression coverage: anvil chains and queued finishing, slag returns, ore blasts, sieve overflow, premium metal, extra-life bell, defeat insurance, resting staff, supper, collector cooldown and inherited starts."
+  ],
+  "limits": [
+    "Full earned multi-day campaign timing has not been rerun after the new commission clock and automation gates. Historical 4.0 campaign timings are labelled accordingly.",
+    "Opening runs used a deterministic policy that does not optimally plan every new invention or rare premium-grade request.",
+    "The test browser runs the portable edition over HTTP; direct file opening remains unverified."
+  ],
+  "sourceHashes": {
+    "house-workflow.js": "8860688e6ba7c9c0c6ad370739dd5b8d13581893008fa44196e89f1b3e117621",
+    "house-engine.js": "5ddf164639ea8d0f41bfbb5182714057cfe4e5cceb096f2bfa53d06cc28c6fcc",
+    "house-campaign.js": "cb0f61f13d3cf07707251e048f0832cacdcd07e3217b4b8ad80a9a3fd5b89747",
+    "house-combat.js": "ee95c185c98bd788ffae5af673cf3b2add934750b2870fadc81962ff3425dafe",
+    "house-app.js": "875335fe2a19cff1d9a8c1fefda0670f685fe7ea2cea8e2a13b8412ae536d6fd",
+    "house-data.js": "bdf6d2c66d00e04fddbaf92df5ef11f8a44f40da7c91992371db196f9d70ae60",
+    "house.css": "415afe8c1b696ad1a23090af324d6ee490d68f7237f17e7eb0203d30657d688b",
+    "atelier/campaign-app.js": "1189ac35a917fa926e09b49afa9ebc0744097b855ea97a70cff58954d3cebe58",
+    "atelier/campaign-scene.js": "45f0c06cb18978787a01cf8acb50c3ab06e8a31b1c863c8c1374e56b06b61515",
+    "Ember-and-Iron.html": "2ba16db1c104f2eea7ddbfa0c5af6b9d06852a3e2eba7498e6ad90c0415d860f"
+  }
+}

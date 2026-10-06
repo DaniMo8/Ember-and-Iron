@@ -65,6 +65,14 @@
       enemies: health(live.foes),
     });
   }
+  function rally(unit) {
+    if (unit.hp === 0 && unit.secondWind && !unit.secondWindSpent) {
+      unit.secondWindSpent = true;
+      unit.hp = Math.max(1, unit.health * 0.15);
+      return true;
+    }
+    return false;
+  }
   function nextAt(live) {
     if (live.done) return Infinity;
     let next = 180000;
@@ -138,6 +146,7 @@
           (block ? 0.55 : 1) *
           (1 - protection);
       target.hp = Math.max(0, target.hp - hit);
+      const rallied = rally(target);
       damage[home ? "home" : "away"] += hit;
       // Spell cleave obeys the same front-line boundary as the primary strike.
       let splash = 0;
@@ -154,6 +163,7 @@
             ) *
             (1 - ward);
           other.hp = Math.max(0, other.hp - secondary);
+          rally(other);
           splash += secondary;
           if (!firstFall && other.hp === 0)
             firstFall = {
@@ -183,7 +193,7 @@
         critical: crit,
         blocked: block,
         dodged: dodge,
-        text: `${actor.name} ${dodge ? "misses" : block ? "is blocked by" : "strikes"} ${target.name}${dodge ? "" : ` · ${Math.round(hit)} ${kind}`}${splash ? ` + ${Math.round(splash)} nearby spell damage` : ""}${protection ? " · guarded" : ""}.`,
+        text: `${actor.name} ${dodge ? "misses" : block ? "is blocked by" : "strikes"} ${target.name}${dodge ? "" : ` · ${Math.round(hit)} ${kind}`}${splash ? ` + ${Math.round(splash)} nearby spell damage` : ""}${protection ? " · guarded" : ""}${rallied ? " · the second bell restores " + target.name : ""}.`,
       });
       actor.next += actor.interval * 1000;
     }

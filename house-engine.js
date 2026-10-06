@@ -8,6 +8,7 @@
       require("./house-data"),
       require("./house-combat"),
       require("./house-campaign"),
+      require("./house-workflow"),
     );
   else
     root.EIHouseEngine = factory(
@@ -17,8 +18,9 @@
       root.EIHouseData,
       root.EIHouseCombat,
       root.EIHouseCampaign,
+      root.EIHouseWorkflow,
     );
-})(globalThis, function (Workshop, P, W, H, Combat, Campaign) {
+})(globalThis, function (Workshop, P, W, H, Combat, Campaign, Workflow) {
   "use strict";
   const copy = (x) => JSON.parse(JSON.stringify(x)),
     yes = (message, data) => ({ ok: true, message, data }),
@@ -195,14 +197,14 @@
         );
         check(
           Array.isArray(h.orders) &&
-            h.orders.length <= 4 &&
+            h.orders.length <= 6 &&
             h.orders.every(
               (o) =>
                 typeof o.id === "string" &&
                 data.classes[o.classId] &&
                 integer(o.quantity) &&
                 o.quantity > 0 &&
-                o.quantity <= 6 &&
+                o.quantity <= 10 &&
                 integer(o.quality) &&
                 o.quality <= 200 &&
                 integer(o.tier) &&
@@ -382,7 +384,7 @@
                   W.metals.includes(metal) &&
                   Object.entries(grades).every(
                     ([grade, n]) =>
-                      ["tough", "spring"].includes(grade) && integer(n),
+                      ["tough", "spring", "moon"].includes(grade) && integer(n),
                   ) &&
                   Object.values(grades).reduce((a, b) => a + b, 0) <=
                     (j.inputs[metal + "_ingot"] || 0),
@@ -680,14 +682,19 @@
         this.state.jobs.length < this.derived().stationCount
       ) {
         const demand = h.orders.find(
-          (o) => o.classId === r.classId && o.tier <= r.tier,
+          (o) =>
+            o.kind !== "rare" &&
+            o.classId === r.classId &&
+            o.tier <= r.tier &&
+            (!o.exact || o.recipeId === r.id),
         );
         const ready = this.state.inventory.filter(
           (i) =>
             !this._protected(i) &&
             this.data.recipes[i.recipeId].classId === r.classId &&
             this.data.recipes[i.recipeId].tier >= (demand?.tier || 1) &&
-            i.quality >= (demand?.quality || 0),
+            i.quality >= (demand?.quality || 0) &&
+            (!demand || this.commissionMatches(i, demand)),
         ).length;
         if (
           demand &&
@@ -722,7 +729,11 @@
             ) &&
             this.craftPreview(r.id).eligible
           )
-            this.act("craft", { recipeId: r.id, intent: "catalogue" });
+            this.act("craft", {
+              recipeId: r.id,
+              intent: "catalogue",
+              orderId: demand.id,
+            });
         }
       }
       if (
@@ -1070,7 +1081,12 @@
       return yes(
         quantity +
           " " +
-          intent +
+          {
+            team: "hero",
+            catalogue: "commission",
+            stock: "shop",
+            practice: "practice",
+          }[intent] +
           " piece" +
           (quantity === 1 ? "" : "s") +
           " queued. Ingredients and preparation fees are reserved.",
@@ -1114,7 +1130,7 @@
         item.autoEquipPending = true;
       }
       if (
-        item.intent === "practice" &&
+        ["practice", "team", "catalogue", "stock"].includes(item.intent) &&
         this.state.world.profession === "runesage"
       ) {
         prof.xp +=
@@ -1141,6 +1157,7 @@
           : this.state.adventurers;
         for (const hero of heroes) {
           const options = this.equipmentSlots(item.recipeId)
+            .filter((slot) => !item.targetSlot || slot === item.targetSlot)
             .map((slot) => this.equipmentPreview(hero.id, item.id, slot))
             .filter((option) => option.eligible && option.improves);
           // Prefer a free-hand upgrade over weakening a stronger main weapon.
@@ -1286,7 +1303,7 @@
           : Math.max(0, amount - Math.max(0, (stocks[id] || 0) - total));
         for (const grade of preferred[id]
           ? [preferred[id]]
-          : ["tough", "spring"]) {
+          : ["tough", "spring", "moon"]) {
           const n = Math.min(needed, grades[grade] || 0);
           if (n) {
             grades[grade] -= n;
@@ -1319,7 +1336,7 @@
       if (!h) return;
       for (const [id, grades] of Object.entries(h.graded)) {
         let left = this.state.materials[id + "_ingot"] || 0;
-        for (const grade of ["tough", "spring"]) {
+        for (const grade of ["tough", "spring", "moon"]) {
           grades[grade] = Math.min(grades[grade] || 0, left);
           left -= grades[grade];
         }
@@ -1918,77 +1935,6 @@
         duration: m.result.duration,
       };
     }
-    _ensureContracts() {
-      const h = this.state.house;
-      if (!this.state.started || h.orders.length) return;
-      this._newContracts();
-    }
-    _newContracts() {
-      const h = this.state.house,
-        patterns = Object.values(this.data.recipes).filter(
-          (r) =>
-            this._recipeKnown(r) &&
-            r.variant === 0 &&
-            (!this.contractMaterialAccess || this.contractMaterialAccess(r)) &&
-            this.craftPreview(r.id).gates.every(
-              (g) => g.met || g.source === "Quarry or material shop",
-            ),
-        );
-      if (!patterns.length) return;
-      const count = this.state.world.profession === "merchant" ? 4 : 3;
-      // Always offer basic work; higher contracts only ask for capabilities already demonstrated.
-      const grouped = [
-        ...new Map(
-          patterns.sort((a, b) => a.tier - b.tier).map((r) => [r.classId, r]),
-        ).values(),
-      ];
-      h.orders = Array.from({ length: count }, (_, n) => {
-        const r = (n === 0 ? patterns.filter((r) => r.tier === 1) : grouped)[
-            (h.contractCycle + n) %
-              (n === 0
-                ? patterns.filter((r) => r.tier === 1).length
-                : grouped.length)
-          ],
-          quantity = n === 0 ? 2 : 3,
-          quality = Math.min(
-            55,
-            Math.max(10, this.craftPreview(r.id).quality - 12),
-          ),
-          inputValue = Object.entries(r.inputs).reduce(
-            (sum, [id, q]) => sum + (this.data.materials[id].price || 2) * q,
-            0,
-          ),
-          // Price effects apply once, after selecting the recipe or input-value basis.
-          pay = Math.max(
-            (r.basePrice || 1) * (0.75 + 0.004 * quality) * 1.18,
-            inputValue * 1.5 + 6,
-          );
-        return {
-          id: "contract-" + h.contractCycle + "-" + n,
-          classId: r.classId,
-          tier: r.tier,
-          quality,
-          quantity,
-          payment: Math.ceil(
-            pay *
-              quantity *
-              this.derived().priceMultiplier *
-              (1 +
-                (this._effects().contractPay || 0) +
-                (h.upgrades.patrons || 0) * 0.08 +
-                (this.state.world.profession === "merchant" ? 0.15 : 0) +
-                (H.vows[h.vow].contract || 0)),
-          ),
-          client: [
-            "The town watch",
-            "Caravan guild",
-            "Training yard",
-            "The quartermaster",
-          ][n],
-          recipeId: r.id,
-        };
-      });
-    }
     _deliverReadyContracts() {
       if (!this.state.house?.autoDeliver) return;
       for (const o of [...this.state.house.orders])
@@ -2055,7 +2001,7 @@
             !excluded.has(i.id) &&
             this.data.recipes[i.recipeId].classId === o.classId &&
             this.data.recipes[i.recipeId].tier >= o.tier &&
-            i.quality >= o.quality,
+            this.commissionMatches(i, o),
         )
         .sort((a, b) => a.quality - b.quality)
         .slice(0, o.quantity);
@@ -2083,18 +2029,6 @@
       h.contracts++;
       h.contractCycle++;
       h.orders = h.orders.filter((x) => x.id !== id);
-      if (!h.orders.length) this._newContracts();
-      else {
-        const other = [...h.orders];
-        this._newContracts();
-        const candidate = other.some((x) => x.tier === 1)
-          ? h.orders[1 + (h.contractCycle % Math.max(1, h.orders.length - 1))]
-          : h.orders[0];
-        h.orders = [
-          ...other,
-          { ...candidate, id: "contract-" + h.contractCycle + "-renewed" },
-        ];
-      }
       this._restockShelves();
       return yes("Delivered to " + o.client + " · " + o.payment + " gold.");
     }
@@ -2104,7 +2038,11 @@
         r = this.data.recipes[c.recipeId];
       if (!c.enabled || !r) return "Catalogue production is paused.";
       const o = h.orders.find(
-        (o) => o.classId === r.classId && o.tier <= r.tier,
+        (o) =>
+          o.kind !== "rare" &&
+          o.classId === r.classId &&
+          o.tier <= r.tier &&
+          (!o.exact || o.recipeId === r.id),
       );
       if (!o) return "No matching contract. Choose a requested item class.";
       const v = this.craftPreview(r.id);
@@ -2165,5 +2103,5 @@
       return yes("House policy saved.");
     }
   }
-  return Campaign.extend(House, { H, P, W, Combat });
+  return Workflow.extend(Campaign.extend(House, { H, P, W, Combat }), { H, W });
 });

@@ -136,7 +136,7 @@ test("team dagger commissions automatically fill an off hand when the main hand 
   assert(E.validateSave(e.exportSave(), e.data).ok);
 });
 
-test("armoury offers separate hand comparisons and sends the selected slot", async () => {
+test("arena equipment offers separate hand comparisons and sends the selected slot", async () => {
   const clock = { now: 1000000 },
     e = house(),
     dagger = item(e);
@@ -145,7 +145,8 @@ test("armoury offers separate hand comparisons and sends the selected slot", asy
   await tab.flush();
   await tab.click("continue");
   await tab.click("hero", { id: "renn" });
-  await tab.click("room", { room: "shop" });
+  await tab.click("room", { room: "arena" });
+  await tab.click("arena-tab", { id: "team" });
   assert.match(tab.nodes.get("#app").innerHTML, /Daggers \(either hand\)/);
   assert.match(tab.nodes.get("#app").innerHTML, /Equip main hand/);
   assert.match(tab.nodes.get("#app").innerHTML, /Equip off hand/);

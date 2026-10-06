@@ -46,7 +46,7 @@
       mine: "Mine",
       smelter: "Smelter",
       forge: "Forge",
-      shop: "Shop & armoury",
+      shop: "Shop",
       arena: "Arena",
       employees: "Employees",
       legacy: "Legacy",
@@ -77,12 +77,13 @@
     material: "bronze_ingot",
     recipe: null,
     intent: "team",
+    forgeSlot: "weapon",
+    order: null,
     hero: "mara",
     treatment: "plain",
     grade: "standard",
     enchantment: "",
     department: "mine",
-    shopTab: "armoury",
     arenaTab: "challenge",
     rival: "choir",
     viewLeague: null,
@@ -471,7 +472,7 @@
       : H.rivals.find((r) => r.id === m.rival).name;
   }
   function splash() {
-    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 4.0.0</span></footer></main>`;
+    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 4.1.0</span></footer></main>`;
   }
   function creation() {
     const p = H.professions[ui.calling],
@@ -557,7 +558,11 @@
       heading = s.player.points + " attribute points to spend";
       body = "Develop the maker behind every piece.";
       room = "smith";
-    } else if (s.player.legacy.generation > 1 && !h.catalogue.enabled) {
+    } else if (
+      s.player.legacy.generation > 1 &&
+      h.champions >= 3 &&
+      !h.catalogue.enabled
+    ) {
       heading = "Reopen the inherited workshop";
       body =
         "Your permanent knowledge survived. Rebuild the production ledger, set ingot targets and enable rotating contracts before leaving the house unattended.";
@@ -570,8 +575,8 @@
     } else if (!h.contracts) {
       heading = "Finance the next investment";
       body =
-        "Use Contract order to make warehouse pieces for an automatic delivery.";
-      room = "shop";
+        "Open Forge → Commission, choose a patron, and prepare their order for automatic delivery.";
+      room = "forge";
     } else if (h.rung === 3 && !game.campaignStatus().eligible) {
       heading = "Build the house behind the champion";
       body = game.campaignStatus().reason;
@@ -694,7 +699,7 @@
       ],
       [
         "Forge",
-        "Rebuild the ledger and run rotating contracts",
+        "After three champions, reopen the clockwork press",
         h.upgrades.catalogue && h.catalogue.enabled && h.catalogue.rotate,
         "forge",
       ],
@@ -744,7 +749,27 @@
           .join(
             "",
           )}${next ? `<article class="seam next-seam"><p class="eyebrow">NEXT WORKING</p><h3>${next.name}</h3><p>${masteryDistance(next)}${game.upgradePreview(next.id).gates.join(" · ") || "Ready to invest"}</p>${button("Review · " + next.cost + "g", "upgrades", { room: "mine" })}</article>` : ""}</div>`,
-      )}${panel("Crew assignments", `<p>A crew returns to its assigned vein as soon as there is space. Full bins redirect work to another open vein.</p><div class="crew-list">${miners.map((m) => `<label><b>Miner ${m.id.split("-")[1]}</b><select data-worker="${m.id}" aria-label="Miner ${m.id.split("-")[1]} assignment">${seams.map((v) => `<option value="${v.id}" ${m.assigned === v.id ? "selected" : ""}>${v.name}</option>`).join("")}</select><span>${D.materials[m.working].name} · ${Math.floor(m.progress * 100)}%</span>${progress(m.progress, 1, m.id + " current load")}</label>`).join("")}</div>`, button("Hire miner · " + game.hireCost() + "g", "hire-miner", {}, s.player.gold < game.hireCost() || miners.length >= game.derived().workerCapacity))}</div><aside>${panel("Purchased supplies", supplies())}${panel("People at the workings", departmentSummary("mine"))}${panel("Rich pockets", s.house.upgrades.survey ? `<p>Recover one extra cart from an open working every ten minutes. Contents are known before you choose.</p><small>${s.house.nextPocket > s.simTime ? "Next survey in " + time((s.house.nextPocket - s.simTime) / 1000) : "A pocket is ready."}</small><div class="actions">${seams.map((v) => button(D.materials[v.id].name, "pocket", { id: v.id }, s.house.nextPocket > s.simTime)).join("")}</div>` : `<p>The Surveyor’s ledger reveals optional material bursts once you have extracted 150 materials.</p>${button("Explore depth upgrades", "upgrades", { room: "mine" })}`)}<p class="footnote">${num(s.world.materialsLost || 0)} materials lost to full bins this generation.</p></aside></div>`
+      )}${panel("Crew assignments", `<p>A crew returns to its assigned vein as soon as there is space. Full bins redirect work to another open vein.</p><div class="crew-list">${miners.map((m) => `<label><b>Miner ${m.id.split("-")[1]}</b><select data-worker="${m.id}" aria-label="Miner ${m.id.split("-")[1]} assignment">${seams.map((v) => `<option value="${v.id}" ${m.assigned === v.id ? "selected" : ""}>${v.name}</option>`).join("")}</select><span>${D.materials[m.working].name} · ${Math.floor(m.progress * 100)}%</span>${progress(m.progress, 1, m.id + " current load")}</label>`).join("")}</div>`, button("Hire miner · " + game.hireCost() + "g", "hire-miner", {}, s.player.gold < game.hireCost() || miners.length >= game.derived().workerCapacity))}</div><aside>${
+        s.house.upgrades.powder_magazine
+          ? panel(
+              "Powder magazine",
+              `<p>5 coal + 8g → 12 ore. ${s.simTime < s.house.workflow.nextBlast ? "Cooling: " + time((s.house.workflow.nextBlast - s.simTime) / 1000) : "Charge ready."} Overflow is lost.</p><div class="actions">${seams
+                .filter((x) => x.id !== "fuel")
+                .map((x) =>
+                  button(
+                    "Blast " + D.materials[x.id].name,
+                    "blast",
+                    { id: x.id },
+                    s.simTime < s.house.workflow.nextBlast ||
+                      s.materials.fuel < 5 ||
+                      s.player.gold < 8 ||
+                      s.materials[x.id] >= game.binCapacity(),
+                  ),
+                )
+                .join("")}</div>`,
+            )
+          : ""
+      }${panel("Purchased supplies", supplies())}${s.house.upgrades.fossil_sieve ? panel("The fossil sieve", `<p><strong>${s.materials.gem} gems stored</strong> · next find after ${50 - (s.house.workflow.sifted % 50)} more extracted materials. Full gem bins lose new finds.</p>`) : ""}${panel("People at the workings", departmentSummary("mine"))}${panel("Rich pockets", s.house.upgrades.survey ? `<p>Recover one extra cart from an open working every ten minutes. Contents are known before you choose.</p><small>${s.house.nextPocket > s.simTime ? "Next survey in " + time((s.house.nextPocket - s.simTime) / 1000) : "A pocket is ready."}</small><div class="actions">${seams.map((v) => button(D.materials[v.id].name, "pocket", { id: v.id }, s.house.nextPocket > s.simTime)).join("")}</div>` : `<p>The Surveyor’s ledger reveals optional material bursts once you have extracted 150 materials.</p>${button("Explore depth upgrades", "upgrades", { room: "mine" })}`)}<p class="footnote">${num(s.world.materialsLost || 0)} materials lost to full bins this generation.</p></aside></div>`
     );
   }
   function departmentSummary(department) {
@@ -778,6 +803,7 @@
         `<label class="inline-field">Preparation<select data-ui="grade">${Object.entries(
           H.grades,
         )
+          .filter(([id]) => id !== "moon" || s.house.upgrades.moon_crucible)
           .map(
             ([id, g]) =>
               `<option value="${id}" ${ui.grade === id ? "selected" : ""}>${g.name}</option>`,
@@ -799,7 +825,7 @@
           .join("")}</div>`,
       )}${panel(
         "Maintain ingot stocks",
-        s.workshop.upgrades.stockkeeper
+        game.automationAccess("smelter").eligible
           ? `<p>Automatic batches use standard grade. Input reserves and bin space are respected; higher alloys request intermediates.</p><div class="target-fields">${W.metals
               .filter((id) => game.smeltPreview(id).unlocked)
               .map(
@@ -809,7 +835,7 @@
               .join(
                 "",
               )}</div><label class="inline-field">Input reserve<input name="smelt-reserve" type="number" min="0" max="1000" value="${s.workshop.smeltPolicy.reserve}"></label><div class="actions">${button(s.workshop.smeltPolicy.enabled ? "Save & keep running" : "Save & enable", "smelt-targets", {}, false, "primary")}${button("Pause", "smelt-pause", {}, !s.workshop.smeltPolicy.enabled)}</div><p class="status-line">${game.smeltPolicyStatus()}</p>`
-          : `<p>Furnace stockkeeper keeps chosen ingot stocks ready. Level 2 · 35g.</p>${button("Develop production", "upgrades", { room: "smelter" })}`,
+          : `<p>${game.automationAccess("smelter").reason} Furnace automaton: 3,200g after three champions.</p>${button("Develop production", "upgrades", { room: "smelter" })}`,
       )}</div><aside>${panel(
         "Smelting queue",
         s.workshop.jobs
@@ -819,15 +845,119 @@
           })
           .join("") ||
           empty("No batches queued. Ore is consumed when you place an order."),
-      )}${panel("Foundry staff", departmentSummary("smelter"))}</aside></div>`
+      )}${s.house.upgrades.slag_press ? panel("Slag-bread press", `<p>Next two-coal by-product in <strong>${4 - (s.house.workflow.smeltBatches % 4)} completed batches</strong>. Cancelled work does not count.</p>`) : ""}${panel("Foundry staff", departmentSummary("smelter"))}</aside></div>`
+    );
+  }
+  function forgeOptions() {
+    return {
+      intent: ui.intent,
+      treatment: ui.treatment,
+      grade: ui.grade,
+      enchantmentId: ui.enchantment || null,
+    };
+  }
+  function applyForgePlan(plan) {
+    if (!plan?.recipeId || !D.recipes[plan.recipeId]) return;
+    const r = D.recipes[plan.recipeId];
+    ui.recipe = r.id;
+    ui.type = r.classId;
+    ui.group = classGroup(r.classId);
+    ui.material = r.materialId;
+    ui.treatment = plan.treatment || "plain";
+    ui.grade = plan.grade || "standard";
+    ui.enchantment = plan.enchantmentId || "";
+  }
+  function selectHeroSlot(slot = ui.forgeSlot) {
+    ui.forgeSlot = slot;
+    const plan = game.heroForgePlan(ui.hero, slot);
+    ui.recipe = null;
+    applyForgePlan(plan);
+  }
+  function selectCommission(id) {
+    ui.order = id;
+    ui.intent = "catalogue";
+    applyForgePlan(game.commissionPlan(id));
+  }
+  function commissionCards() {
+    const board = game.commissionBoard();
+    return `<div class="commission-clock"><strong>${board.count} / ${board.cap} jobs</strong><span>One arrival every 5 minutes · ${board.count === board.cap ? "board full; no arrivals banked" : "next in " + time(board.seconds)}</span></div><div class="commission-board">${
+      game.state.house.orders
+        .map((o) => {
+          const plan = game.commissionPlan(o.id),
+            current = ui.order === o.id;
+          return `<article class="commission-choice ${o.kind === "rare" ? "rare-order" : ""} ${current ? "selected" : ""}"><p class="eyebrow">${esc(o.client)} · ${o.kind === "rare" ? "RARE REQUEST" : o.kind === "bulk" ? "BULK REQUISITION" : "COMMISSION"}</p><h3>${o.quantity} × ${esc(D.recipes[o.recipeId]?.name || D.classes[o.classId].name)}</h3><p>Q${o.quality}+${o.grade && o.grade !== "standard" ? " · " + H.grades[o.grade].name : ""}${o.treatment && o.treatment !== "plain" ? " · " + H.treatments[o.treatment].name : ""}</p><div class="commission-reward"><strong>${num(o.payment)}g</strong><small>${plan.ready || 0} ready · ${plan.queued || 0} queued</small></div><div class="actions">${button(current ? "Selected" : "Plan commission", "commission-select", { id: o.id }, false, current ? "selected" : "primary")}${button(
+            "Decline",
+            "decline-commission",
+            { id: o.id },
+            game.state.jobs.some((j) => j.orderId === o.id),
+            "quiet",
+          )}</div></article>`;
+        })
+        .join("") ||
+      empty(
+        "The board is empty. A patron arrives on the next five-minute bell; queued work continues.",
+      )
+    }</div>`;
+  }
+  function forgeDestination() {
+    if (ui.intent === "catalogue")
+      return panel(
+        "Choose a commission",
+        `<p>Choose a job to load its exact design, metal and preparation. Finishing needed for its quality target is included in the planned work. Completed pieces deliver automatically from the warehouse.</p>${commissionCards()}<div class="actions">${button(game.state.house.autoDeliver ? "Pause automatic delivery" : "Enable automatic delivery", "auto-deliver", {}, false, "quiet")}</div><small>${game.state.house.autoDeliver ? "Completed warehouse orders deliver and pay automatically." : "Automatic delivery is paused. Enable it to hand over completed orders."}</small>`,
+      );
+    if (ui.intent === "stock")
+      return panel(
+        "Stock your shop",
+        "<p>Choose every part of the design below. Finished items go straight to an open display slot. If every slot is occupied, they wait in the warehouse for the next opening.</p>",
+      );
+    const h = currentHero();
+    return panel(
+      "Choose a hero, then an equipment slot",
+      `<div class="hero-selector">${game.state.adventurers.map((x) => button(`<strong>${esc(x.name)}</strong><small>${D.archetypes[x.archetypeId].name}</small>`, "forge-hero", { id: x.id }, false, x.id === h.id ? "selected" : "")).join("")}</div><div class="forge-loadout">${H.slots
+        .map((slot) => {
+          const i = h.equipment[slot],
+            available = game.heroForgeClasses(h.id, slot);
+          return `<button class="forge-slot ${slot === ui.forgeSlot ? "selected" : ""} ${i ? quality(i.quality) : ""}" data-action="forge-slot" data-slot="${slot}" aria-pressed="${slot === ui.forgeSlot}" ${!available.length ? "disabled" : ""}><span class="slot-name">${pretty(slot)}</span>${i ? `${itemIcon(D.recipes[i.recipeId])}<strong>${esc(itemName(i))}</strong><small>${itemStatsText(i)}</small>` : `<strong>Empty</strong><small>${available.map((id) => D.classes[id].name).join(" · ") || "This class does not use this slot"}</small>`}</button>`;
+        })
+        .join(
+          "",
+        )}</div><p class="preparation-note">${esc(h.name)} · ${pretty(ui.forgeSlot)} selected. The strongest unlocked alloy and an available standard pattern are chosen for you; ingredients may still need smelting. You can change the compatible design below.</p>`,
     );
   }
   function forge() {
-    const s = game.state,
-      classes = game.availableClasses(),
-      groupClasses = classes.filter((id) => classGroup(id) === ui.group);
-    if (!groupClasses.includes(ui.type))
-      ui.type = groupClasses[0] || classes[0];
+    const s = game.state;
+    if (!s.adventurers.some((h) => h.id === ui.hero))
+      ui.hero = s.adventurers[0]?.id;
+    if (
+      ui.intent === "catalogue" &&
+      !s.house.orders.some((o) => o.id === ui.order)
+    ) {
+      ui.order = null;
+      ui.recipe = null;
+    }
+    if (
+      ui.intent === "team" &&
+      (!ui.recipe ||
+        !game
+          .heroForgeClasses(ui.hero, ui.forgeSlot)
+          .includes(D.recipes[ui.recipe]?.classId))
+    )
+      selectHeroSlot();
+    const order =
+      ui.intent === "catalogue"
+        ? s.house.orders.find((o) => o.id === ui.order)
+        : null;
+    let classes =
+      ui.intent === "team"
+        ? game.heroForgeClasses(ui.hero, ui.forgeSlot)
+        : order
+          ? [order.classId]
+          : game.availableClasses();
+    const groupClasses =
+      ui.intent === "stock"
+        ? classes.filter((id) => classGroup(id) === ui.group)
+        : classes;
+    if (!groupClasses.includes(ui.type)) ui.type = groupClasses[0];
     const patterns = Object.values(D.recipes).filter(
       (r) => r.classId === ui.type && game._recipeKnown(r),
     );
@@ -836,14 +966,12 @@
     const selected = patterns.filter((r) => r.materialId === ui.material);
     if (!selected.some((r) => r.id === ui.recipe)) ui.recipe = selected[0]?.id;
     const r = D.recipes[ui.recipe],
-      options = {
-        intent: ui.intent,
-        treatment: ui.treatment,
-        grade: ui.grade,
-        enchantmentId: ui.enchantment || null,
-      },
-      v = r && game.craftPreview(r.id, options),
-      master = s.player.proficiency[ui.type];
+      options = forgeOptions(),
+      v = r && game.craftPreview(r.id, options);
+    const plan =
+      order &&
+      game.commissionPlan(order.id, { recipeId: ui.recipe, ...options });
+    const allowed = ui.intent !== "catalogue" || !!order;
     const next = Object.values(D.recipes)
       .filter((r) => r.classId === ui.type && r.variant < 2)
       .sort((a, b) => a.tier - b.tier || a.variant - b.variant)
@@ -856,83 +984,111 @@
               (g) => !g.met && g.source !== "Quarry or material shop",
             ),
       );
-    return `<div class="room-grid forge-grid"><div>${panel(
-      "Design a piece",
-      `<div class="forge-purpose" role="group" aria-label="Craft purpose">${[
-        ["team", "Team commission", "Auto-equip a fighter’s upgrade"],
-        ["catalogue", "Contract order", "Hold in warehouse · auto-deliver"],
-        ["stock", "Shop stock", "Automatically fill the displays"],
-        ["practice", "Mastery practice", "Learn an item class"],
+    const purpose = panel(
+      "What are you making?",
+      `<div class="forge-purpose purpose-three" role="group" aria-label="Craft purpose">${[
+        ["team", "Hero", "Choose a fighter and a slot"],
+        ["catalogue", "Commission", "Build to a patron’s specification"],
+        ["stock", "Shop", "Design freely for your displays"],
       ]
         .map(
           ([id, n, d]) =>
             `<button data-action="intent" data-id="${id}" aria-pressed="${ui.intent === id}" class="${ui.intent === id ? "selected" : ""}"><strong>${n}</strong><small>${d}</small></button>`,
         )
-        .join(
-          "",
-        )}</div><div class="tabs">${["weapons", "armour", "other"].map((id) => button(pretty(id), "group", { id }, false, ui.group === id ? "selected" : "")).join("")}</div><div class="form-two"><label>Item class<select data-ui="type">${groupClasses.map((id) => `<option value="${id}" ${ui.type === id ? "selected" : ""}>${D.classes[id].name}</option>`).join("")}</select></label><label>Material tier<select data-ui="material">${tiers.map((id) => `<option value="${id}" ${ui.material === id ? "selected" : ""}>${D.materials[id].name}</option>`).join("")}</select></label></div><div class="pattern-list">${selected
-        .map((x) => {
-          const p = game.craftPreview(x.id);
-          return `<button data-action="pattern" data-id="${x.id}" class="${x.id === ui.recipe ? "selected" : ""}" aria-pressed="${x.id === ui.recipe}">${itemIcon(x)}<span><strong>${x.name}</strong><small>${["Training · economical", "Standard · reliable", "Prestige · demanding", "Relic · inherited", "Sovereign · legendary", "Oathbound · matching pair", "Astral · matching pair", "Eternal · three-piece concord"][x.variant || 0]}</small></span><b>Q${p.quality}</b></button>`;
-        })
-        .join("")}</div>${
-        r
-          ? `<div class="selected-design"><div class="item-model-wrap"><canvas id="forge-model" aria-label="Selected item in 3D; drag or use arrow keys to rotate" tabindex="0"></canvas><span class="model-label">DESIGN STUDY · drag to turn</span></div><div class="design-title">${itemIcon(r)}<div><p class="eyebrow">${ui.intent === "team" ? "FOR YOUR HOUSE" : ui.intent === "catalogue" ? "FOR YOUR CLIENTS" : "FOR YOUR CRAFT"}</p><h2>${r.name}</h2><p>${r.description}</p></div></div><div class="form-two"><label>Prefix treatment<select data-ui="treatment">${Object.entries(
-              H.treatments,
-            )
-              .map(
-                ([id, t]) =>
-                  `<option value="${id}" ${ui.treatment === id ? "selected" : ""}>${t.name}${!game.treatmentAvailable(r.id, id) ? " · locked" : ""}</option>`,
-              )
-              .join(
-                "",
-              )}</select></label><label>Metal grade<select data-ui="grade">${Object.entries(
-              H.grades,
-            )
-              .map(
-                ([id, g]) =>
-                  `<option value="${id}" ${ui.grade === id ? "selected" : ""}>${g.name}</option>`,
-              )
-              .join(
-                "",
-              )}</select></label><label>Enchantment suffix<select data-ui="enchantment"><option value="">None</option>${Object.values(
-              D.enchantments,
-            )
-              .filter(
-                (e) =>
-                  game._gates(e.requires).every((g) => g.met) &&
-                  (!e.slots?.length || e.slots.includes(r.slot)),
-              )
-              .map(
-                (e) =>
-                  `<option value="${e.id}" ${ui.enchantment === e.id ? "selected" : ""}>${e.name} · ${e.cost}g</option>`,
-              )
-              .join("")}</select></label>${
-              ui.intent === "team"
-                ? `<label>Reserve for<select data-ui="hero">${s.adventurers
-                    .filter((h) =>
-                      D.archetypes[h.archetypeId].preferences.includes(
-                        r.classId,
-                      ),
-                    )
-                    .map(
-                      (h) =>
-                        `<option value="${h.id}" ${h.id === ui.hero ? "selected" : ""}>${esc(h.name)}</option>`,
-                    )
-                    .join("")}</select></label>`
-                : ""
-            }</div><p class="preparation-note">${H.treatments[ui.treatment].text} ${ui.grade !== "standard" ? H.grades[ui.grade].text : ""}</p>${materials(v.inputs)}${metrics(
-              [
-                ["Expected quality", "Q" + v.quality],
-                ["Normal work", time(v.seconds)],
-                ["Preparation", v.gold + "g"],
-                ["Mastery", master.level],
-              ],
-            )}<div class="craft-bar">${button("Craft 1", "craft", { quantity: 1 }, !v.eligible, "primary")}${button("Craft 5", "craft", { quantity: 5 }, !game.craftPreview(r.id, { ...options, quantity: 5 }).eligible)}${button("Craft max · " + v.maxQuantity, "craft", { quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}<span>${esc(v.reason)}</span></div><small>${game.craftExperience(r).smith < 1 ? "Familiar work grants " + Math.round(game.craftExperience(r).smith * 100) + "% smith XP. Newer materials teach more. " : ""}${ui.intent === "team" ? "Team upgrades equip automatically. During a bout, or if no improvement is available, they wait protected in the warehouse." : ui.intent === "practice" ? `Earn class mastery. Town clearance returns ${game._townPrice({ recipeId: r.id, quality: v.quality })}g; materials and time are still consumed.` : "Contract pieces stay in the warehouse and deliver automatically when an order is complete. Shop stock fills displays for town buyers."}</small></div>`
-          : empty("No pattern available in this class.")
-      }`,
-    )}${
-      next
+        .join("")}</div>`,
+    );
+    let design = "";
+    if (allowed && r) {
+      const q = plan ? plan.quality : v.quality,
+        normal = plan ? plan.seconds : v.seconds;
+      let actions;
+      if (plan) {
+        const all = game.craftPreview(r.id, {
+          ...options,
+          quantity: Math.max(1, plan.remaining),
+        });
+        actions = `${button("Craft 1", "commission-craft", { complete: 0 }, !plan.eligible, "primary")}${button("Complete commission · " + plan.remaining, "commission-craft", { complete: 1 }, !plan.eligible || !all.eligible)}<span>${esc(plan.reason)}${plan.remaining > 1 && !all.eligible ? " Whole commission: " + esc(all.reason) : ""}</span>`;
+      } else
+        actions = `${button("Craft 1", "craft", { quantity: 1 }, !v.eligible, "primary")}${button("Craft 5", "craft", { quantity: 5 }, !game.craftPreview(r.id, { ...options, quantity: 5 }).eligible)}${button("Craft max · " + v.maxQuantity, "craft", { quantity: v.maxQuantity }, !v.eligible || v.maxQuantity < 1)}<span>${esc(v.reason)}</span>`;
+      const target =
+        ui.intent === "team" ? currentHero()?.equipment[ui.forgeSlot] : null;
+      let comparison = "";
+      if (ui.intent === "team") {
+        const old = game._itemCombat(target),
+          candidate = game._itemCombat({
+            recipeId: r.id,
+            quality: q,
+            grade: ui.grade,
+            treatment: ui.treatment,
+            enchantmentId: ui.enchantment || null,
+            enchantStrength: game.derived().enchantStrength,
+          });
+        comparison = `<div class="forge-comparison"><strong>Item compared with ${target ? esc(itemName(target)) : "empty " + ui.forgeSlot}</strong>${[
+          ["attack", "Damage"],
+          ["health", "Health"],
+          ["armor", "Armour"],
+        ]
+          .map(([key, label]) => {
+            const delta = (candidate[key] || 0) - (old[key] || 0);
+            return `<span>${label} ${(candidate[key] || 0).toFixed(1)} <b class="${delta > 0 ? "stat-gain" : delta < 0 ? "stat-loss" : ""}">${delta > 0 ? "+" : ""}${delta.toFixed(1)}</b></span>`;
+          })
+          .join("")}</div>`;
+      }
+      design = panel(
+        "Refine the design",
+        `${ui.intent === "stock" ? `<div class="tabs">${["weapons", "armour", "other"].map((id) => button(pretty(id), "group", { id }, false, ui.group === id ? "selected" : "")).join("")}</div>` : ""}<div class="form-two"><label>Item class<select data-ui="type">${groupClasses.map((id) => `<option value="${id}" ${ui.type === id ? "selected" : ""}>${D.classes[id].name}</option>`).join("")}</select></label><label>Alloy<select data-ui="material">${tiers.map((id) => `<option value="${id}" ${ui.material === id ? "selected" : ""}>${D.materials[id].name}</option>`).join("")}</select></label></div><div class="pattern-list">${selected.map((x) => `<button data-action="pattern" data-id="${x.id}" class="${x.id === ui.recipe ? "selected" : ""}" aria-pressed="${x.id === ui.recipe}">${itemIcon(x)}<span><strong>${x.name}</strong><small>${["Training · economical", "Standard · reliable", "Prestige · demanding", "Relic", "Sovereign", "Oathbound", "Astral", "Eternal"][x.variant || 0]}</small></span><b>Q${game.craftPreview(x.id).quality}</b></button>`).join("")}</div><div class="selected-design"><div class="item-model-wrap"><canvas id="forge-model" aria-label="Selected item in 3D; drag or use arrow keys to rotate" tabindex="0"></canvas><span class="model-label">YOUR DESIGN · drag to turn</span></div><div class="design-title">${itemIcon(r)}<div><p class="eyebrow">${order ? "COMMISSION · " + esc(order.client) : ui.intent === "team" ? esc(currentHero().name) + " · " + pretty(ui.forgeSlot) : "FOR THE SHOP DISPLAY"}</p><h2>${r.name}</h2><p>${r.description}</p></div></div>${comparison}${ui.intent === "team" && r.twoHanded && currentHero().equipment.offhand ? '<p class="warning">Two-handed design: equipping it returns the current off-hand item to the warehouse.</p>' : ""}${ui.intent === "team" && ui.forgeSlot === "offhand" && D.recipes[currentHero().equipment.weapon?.recipeId]?.twoHanded ? '<p class="warning">The current weapon needs both hands. This off-hand piece will wait protected until the hero has a one-handed weapon.</p>' : ""}<div class="form-two"><label>Prefix treatment<select data-ui="treatment">${Object.entries(
+          H.treatments,
+        )
+          .map(
+            ([id, t]) =>
+              `<option value="${id}" ${ui.treatment === id ? "selected" : ""} ${!game.treatmentAvailable(r.id, id) ? "disabled" : ""}>${t.name}${!game.treatmentAvailable(r.id, id) ? " · locked" : ""}</option>`,
+          )
+          .join(
+            "",
+          )}</select></label><label>Metal grade<select data-ui="grade">${Object.entries(
+          H.grades,
+        )
+          .filter(([id]) => id !== "moon" || s.house.upgrades.moon_crucible)
+          .map(
+            ([id, g]) =>
+              `<option value="${id}" ${ui.grade === id ? "selected" : ""}>${g.name}</option>`,
+          )
+          .join(
+            "",
+          )}</select></label><label>Enchantment suffix<select data-ui="enchantment"><option value="">None</option>${Object.values(
+          D.enchantments,
+        )
+          .filter(
+            (e) =>
+              game._gates(e.requires).every((g) => g.met) &&
+              (!e.slots?.length || e.slots.includes(r.slot)),
+          )
+          .map(
+            (e) =>
+              `<option value="${e.id}" ${ui.enchantment === e.id ? "selected" : ""}>${e.name} · ${e.cost}g</option>`,
+          )
+          .join(
+            "",
+          )}</select></label></div><p class="preparation-note">${H.treatments[ui.treatment]?.text || ""} ${ui.grade !== "standard" ? H.grades[ui.grade].text : ""}</p>${plan ? `<p class="commission-spec">${plan.ready} ready + ${plan.queued} queued · ${plan.remaining} still to make. ${plan.finishPasses ? plan.finishPasses + " finishing pass(es) included per new item to reach Q" + order.quality + "." : "No additional finishing needed."} Whole commission reserves every remaining piece; nothing is produced instantly.</p>` : ""}${v.memoryBonus ? `<p class="discovery-note">The anvil remembers: +${v.memoryBonus} quality from repeating ${D.classes[r.classId].name.toLowerCase()}.</p>` : ""}${materials(v.inputs)}${metrics(
+          [
+            ["Planned quality", "Q" + q],
+            ["Work per piece", time(normal)],
+            ["Preparation", v.gold + "g"],
+            ["Class mastery", s.player.proficiency[ui.type].level],
+          ],
+        )}<div class="craft-bar">${actions}</div><small>${ui.intent === "team" ? "This order is reserved for the selected slot. It auto-equips if it improves the hero; otherwise it stays protected in the warehouse." : ui.intent === "stock" ? "Shop stock auto-fills displays and is never taken for commissions." : "Qualifying warehouse pieces deliver automatically. Already queued pieces are counted so you cannot order the same remainder twice."}</small></div>`,
+      );
+    } else
+      design = panel(
+        "Your workbench",
+        empty(
+          ui.intent === "catalogue"
+            ? "Select a commission above to prepare its design."
+            : "No known pattern fits this slot yet. Choose another slot or develop the forge.",
+        ),
+      );
+    return `<div class="room-grid forge-grid"><div>${purpose}${forgeDestination()}<div id="forge-design">${design}</div>${
+      next && allowed
         ? panel(
             "Next standard pattern",
             `<h3>${next.name}</h3><p>${masteryDistance(next)}${
@@ -944,18 +1100,18 @@
                     )
                     .map(
                       (g) =>
-                        `${g.label}: ${g.current || 0} / ${g.required || 1}`,
+                        g.label +
+                        ": " +
+                        (g.current || 0) +
+                        " / " +
+                        (g.required || 1),
                     )
                     .join(" · ")
-                : "Develop " +
-                  (next.tier === 1
-                    ? "Guild patterns"
-                    : "tier " + next.tier + " patterns") +
-                  " in Forge upgrades."
+                : "Develop the next pattern licence in Forge upgrades."
             }</p>`,
           )
         : ""
-    }</div><aside>${panel("Purchased supplies", supplies())}${panel("Work in progress", forgeQueue())}${panel("Forge staff", departmentSummary("forge"))}${s.house.upgrades.catalogue ? panel("Catalogue production", catalogueForm()) : ""}</aside></div>`;
+    }</div><aside>${panel("Work in progress", forgeQueue())}${panel("Purchased supplies", supplies())}${panel("Forge staff", departmentSummary("forge"))}${panel("Clockwork contract press", game.automationAccess("forge").eligible ? catalogueForm() : `<p>${game.automationAccess("forge").reason}</p>${button("Review late-game automation", "upgrades", { room: "forge" })}`)}</aside></div>`;
   }
   function masteryDistance(r) {
     if (!r.classId) return "";
@@ -978,11 +1134,11 @@
         .map((j) => {
           const v = game.techniquePreview(j.id),
             cancel = game.cancellationPreview(j.id);
-          return `<article class="queue-card"><div class="section-line"><h3>${D.recipes[j.recipeId].name}</h3>${tag(j.houseIntent || "catalogue")}</div><p>${j.status === "active" ? time((j.completeAt - s.simTime) / 1000) + " remaining · Q" + j.quality : "Queued · ingredients reserved"}</p>${progress(j.status === "active" ? s.simTime - j.startedAt : 0, j.duration || 1, "Forge work")}<div class="actions">${button("Finish +" + v.qualityGain + "Q · +" + time(v.addedSeconds), "finish", { id: j.id }, !v.eligible)}${button("Cancel & refund", "cancel", { id: j.id }, !cancel.eligible, "quiet")}</div><small>Pass ${v.passes} / 5${!cancel.eligible ? " · " + cancel.reason : ""}</small></article>`;
+          return `<article class="queue-card"><div class="section-line"><h3>${D.recipes[j.recipeId].name}</h3>${tag({ team: "Hero", catalogue: "Commission", stock: "Shop", practice: "Practice" }[j.houseIntent] || "Commission")}</div><p>${j.status === "active" ? time((j.completeAt - s.simTime) / 1000) + " remaining · Q" + j.quality : "Queued · ingredients reserved"}</p>${progress(j.status === "active" ? s.simTime - j.startedAt : 0, j.duration || 1, "Forge work")}<div class="actions">${button("Finish +" + v.qualityGain + "Q · +" + time(v.addedSeconds), "finish", { id: j.id }, !v.eligible)}${button("Cancel & refund", "cancel", { id: j.id }, !cancel.eligible, "quiet")}</div><small>${j.targetSlot ? "Reserved for " + esc(s.adventurers.find((h) => h.id === j.heroId)?.name || "hero") + " · " + pretty(j.targetSlot) + " · " : ""}Pass ${v.passes} / 5${!cancel.eligible ? " · " + cancel.reason : ""}</small></article>`;
         })
         .join("") ||
       empty(
-        "Choose a purpose and pattern. Completed pieces go to the armoury or shop.",
+        "Choose a purpose and pattern. Finished work equips its hero, fulfils its commission or stocks the shop.",
       )
     );
   }
@@ -1047,83 +1203,67 @@
     };
     return `<dl class="comparison">${(preview.changes || []).map((c) => `<div><dt>${esc(c.label)}</dt><dd class="${c.improved ? "stat-gain" : "stat-loss"}">${format(c.before, c.format)} → ${format(c.after, c.format)} <strong>${c.delta > 0 ? "+" : ""}${format(c.delta, c.format)}</strong></dd></div>`).join("")}</dl>`;
   }
+  function stockEquipment(h) {
+    return panel(
+      "Equip from your stock",
+      `<p>Only items that improve at least one combat stat are shown. Green is a gain; red is a tradeoff. Swaps are free. Daggers fit either hand; a two-handed weapon blocks the off hand. Off-hand damage and bonuses add to your main-hand attacks.</p>${
+        game.state.inventory
+          .map((i) => ({
+            i,
+            options: game
+              .equipmentSlots(i.recipeId)
+              .map((slot) => game.equipmentPreview(h.id, i.id, slot))
+              .filter((v) => v.improves),
+          }))
+          .filter(({ options }) => options.length)
+          .map(({ i, options }) => {
+            const dagger = D.recipes[i.recipeId].classId === "daggers";
+            return `<article class="stock-piece ${quality(i.quality)}">${itemIcon(D.recipes[i.recipeId])}<div><h3>${esc(itemName(i))}</h3><p>${itemMeta(i)}</p><small>${itemStatsText(i)}</small>${options.map((v) => `${dagger ? `<h4>${v.slot === "weapon" ? "Main hand" : "Off hand"}</h4>` : ""}${equipmentComparison(v)}${button(dagger ? "Equip " + (v.slot === "weapon" ? "main hand" : "off hand") : "Equip on " + esc(h.name), "equip", { hero: h.id, id: i.id, slot: v.slot }, !v.eligible, "primary")}<small>${v.reason}</small>`).join("")}</div></article>`;
+          })
+          .join("") ||
+        empty(
+          "No equipment upgrades ready for this fighter. Finish the current bout or forge a stronger piece; spare stock remains in the Shop warehouse.",
+        )
+      }`,
+    );
+  }
   function shop() {
     const s = game.state,
-      h = currentHero();
-    return `<div class="tabs large-tabs">${[
-      ["armoury", "Team armoury"],
-      ["contracts", "Contracts"],
-      ["stock", "Displays & warehouse"],
-    ]
-      .map(([id, n]) =>
-        button(
-          n,
-          "shop-tab",
-          { id },
-          false,
-          ui.shopTab === id ? "selected" : "",
-        ),
-      )
-      .join("")}</div>${
-      ui.shopTab === "armoury"
-        ? `<div class="room-grid"><div>${heroSelect()}${panel("The house roster", fighterDetail(h) + equipment(h))}</div><aside>${panel(
-            "Equip from your stock",
-            `<p>Only items that improve at least one combat stat are shown. Green is a gain; red is a tradeoff. Swaps are free. Daggers fit either hand; a two-handed weapon blocks the off hand. Off-hand damage and bonuses add to your main-hand attacks.</p>${
-              s.inventory
-                .map((i) => ({
-                  i,
-                  options: game
-                    .equipmentSlots(i.recipeId)
-                    .map((slot) => game.equipmentPreview(h.id, i.id, slot))
-                    .filter((v) => v.improves),
-                }))
-                .filter(({ options }) => options.length)
-                .map(({ i, options }) => {
-                  const dagger = D.recipes[i.recipeId].classId === "daggers";
-                  return `<article class="stock-piece ${quality(i.quality)}">${itemIcon(D.recipes[i.recipeId])}<div><h3>${esc(itemName(i))}</h3><p>${itemMeta(i)}</p><small>${itemStatsText(i)}</small>${options.map((v) => `${dagger ? `<h4>${v.slot === "weapon" ? "Main hand" : "Off hand"}</h4>` : ""}${equipmentComparison(v)}${button(dagger ? "Equip " + (v.slot === "weapon" ? "main hand" : "off hand") : "Equip on " + esc(h.name), "equip", { hero: h.id, id: i.id, slot: v.slot }, !v.eligible, "primary")}<small>${v.reason}</small>`).join("")}</div></article>`;
-                })
-                .join("") ||
-              empty(
-                "No equipment upgrades ready for this fighter. Finish the current bout or forge a stronger piece; all stock remains in Displays & warehouse.",
-              )
-            }`,
-          )}</aside></div>`
-        : ui.shopTab === "contracts"
-          ? `<div class="room-grid"><div>${panel(
-              "The contract counter",
-              `<p>Disclosed orders stay until fulfilled. Orders complete automatically when enough matching pieces are ready. Only unprotected pieces are delivered, lowest quality first.</p><div class="contract-grid">${s.house.orders
-                .map((o) => {
-                  const v = game.contractPreview(o.id);
-                  return `<article class="contract"><p class="eyebrow">${esc(o.client)}</p><h3>${o.quantity} × ${D.classes[o.classId].name}</h3><p>Tier ${o.tier}+ · quality ${o.quality}+</p><strong class="contract-price">${o.payment}<small> GOLD ON DELIVERY</small></strong>${progress(v.items.length, o.quantity, "Contract completion")}<p>${v.reason}</p><div class="actions">${!s.house.autoDeliver ? button("Deliver order", "deliver", { id: o.id }, !v.eligible, "primary") : ""}${button("Plan this work", "contract-plan", { id: o.id })}</div></article>`;
-                })
-                .join("")}</div>`,
-            )}${panel("House hallmarks", s.house.hallmarks.length ? `<p>These designs accompanied a champion victory. Keep the original in your armoury and reproduce its pattern for the house.</p><div class="tag-list">${s.house.hallmarks.map((id) => tag(D.recipes[id].name)).join("")}</div>` : empty("Win a championship with your own equipment to establish a hallmark."))}</div><aside>${panel("Counter staff", departmentSummary("shop"))}${panel("Contract handling", `<p>Automatic delivery is available from the start. Finished orders pay immediately. Reserved and equipped work is safe.</p>${button(s.house.autoDeliver ? "Pause deliveries" : "Enable deliveries", "auto-deliver", {}, false, "primary")}`)}${panel(
-              "Commercial record",
-              metrics([
-                ["Delivered", s.house.contracts],
-                ["Reputation", num(s.player.reputation)],
-                ["Gold earned", num(s.stats.goldEarned)],
-              ]),
-            )}</aside></div>`
-          : `${panel(
-              "Display cases",
-              `<p>Displays automatically fill from spare stock, lowest quality first. Contract pieces stay in the warehouse; team upgrades equip automatically. Protected spare gear is never sold.</p><div class="display-grid">${s.inventory
-                .filter((i) => i.displayed)
-                .map((i) => stockRow(i))
-                .join(
-                  "",
-                )}${Array.from({ length: Math.max(0, game.derived().displayCapacity - s.inventory.filter((i) => i.displayed).length) }, (_, i) => `<div class="empty-display"><span>◇</span><strong>Open display</strong><small>Fills from unprotected stock</small></div>`).join("")}</div>`,
-            )}${panel(
-              "Warehouse",
-              `<p>${s.inventory.length} / ${game.derived().storageCapacity} storage used. Team gear stays protected. Displays refill with the lowest-quality eligible piece.</p><div class="warehouse">${
-                s.inventory
-                  .filter((i) => !i.displayed)
-                  .sort((a, b) => a.quality - b.quality)
-                  .map((i) => stockRow(i))
-                  .join("") || empty("No stored pieces.")
-              }</div>`,
-            )}`
-    }`;
+      market = s.house.market,
+      remaining = Math.max(0, (market.nextAt - s.simTime) / 1000),
+      displayed = s.inventory.filter((i) => i.displayed).length,
+      status =
+        remaining <= 17
+          ? "A customer is browsing the displays"
+          : remaining <= 24
+            ? "A customer is walking in"
+            : "The next customer is on their way";
+    return `<div class="room-grid shop-floor"><div>${panel(
+      "Display cases",
+      `<p>Displays automatically fill from spare stock, lowest quality first. Contract pieces stay in the warehouse; team upgrades equip automatically. Protected spare gear is never sold.</p><div class="display-grid">${s.inventory
+        .filter((i) => i.displayed)
+        .map((i) => stockRow(i))
+        .join(
+          "",
+        )}${Array.from({ length: Math.max(0, game.derived().displayCapacity - s.inventory.filter((i) => i.displayed).length) }, (_, i) => `<div class="empty-display"><span>◇</span><strong>Open display</strong><small>Fills from unprotected stock</small></div>`).join("")}</div>`,
+    )}${panel(
+      "Warehouse",
+      `<p>${s.inventory.length} / ${game.derived().storageCapacity} storage used. Team gear stays protected. Displays refill with the lowest-quality eligible piece.</p><div class="warehouse">${
+        s.inventory
+          .filter((i) => !i.displayed)
+          .sort((a, b) => a.quality - b.quality)
+          .map((i) => stockRow(i))
+          .join("") || empty("No stored pieces.")
+      }</div>`,
+    )}</div><aside>${panel(
+      "Customers",
+      `<p class="eyebrow">THE SHOP FLOOR</p><h3>${status}</h3><p>${remaining <= 24 ? "Their visit ends" : "Next purchase opportunity"} in ${time(remaining)}.</p><p>${displayed ? "Visitors choose from displayed stock and pay automatically. Keep the shelves filled." : "The shelves are empty. Shop-purpose work fills an open display as soon as it is finished."}</p>${metrics(
+        [
+          ["On display", displayed + " / " + game.derived().displayCapacity],
+          ["Town purchases", market.sales],
+        ],
+      )}`,
+    )}${panel("Counter staff", departmentSummary("shop"))}${s.house.upgrades.curio_window ? panel("The midnight collector", `<p>One displayed piece of Q80 or better earns triple its town price every fifteen minutes.</p><strong>${s.simTime >= s.house.workflow.nextCurio ? "Collector ready" : "Returns in " + time((s.house.workflow.nextCurio - s.simTime) / 1000)}</strong>`) : ""}</aside></div>`;
   }
   function stockRow(i) {
     const sale = game.salePreview(i.id);
@@ -1288,7 +1428,7 @@
       )
       .join("")}</div>${
       ui.arenaTab === "team"
-        ? `<div class="room-grid"><div>${heroSelect()}${panel("Fighter record", fighterDetail(currentHero()) + equipment(currentHero()))}</div><aside>${panel("Three fighters. One formation.", teamFormation())}${panel(
+        ? `<div class="room-grid"><div>${heroSelect()}${panel("Fighter record", fighterDetail(currentHero()) + equipment(currentHero()))}${stockEquipment(currentHero())}${s.house.hallmarks.length ? panel("House hallmarks", `<p>Patterns worn by your victorious champions.</p><div class="tag-list">${s.house.hallmarks.map((id) => tag(D.recipes[id].name)).join("")}</div>`) : ""}</div><aside>${panel("Three fighters. One formation.", teamFormation())}${panel(
             "Doctrines",
             `<div class="choice-list">${Object.entries(H.doctrines)
               .map(
@@ -1517,33 +1657,45 @@
     return `<div class="house-shell" style="--scene:url('${asset(stage(ui.room))}')">${header()}<main id="main-content" class="room room-${ui.room}">${toolbar()}<div class="scenery-actions"><span>THE LIVING WORKSHOP</span><button data-scene-action="look">Look around ↗</button></div>${storageMessage ? `<p role="alert" class="warning">${storageMessage}</p>` : ""}${ui.readonly ? '<p role="alert" class="warning">This house is active in another tab. This window is read-only until that tab closes.</p>' : ""}${overview()}${goal()}${renderers[ui.room]()}${campaignPanel()}<footer class="room-footer"><span>${esc(game.state.shopName)} · generation ${game.state.player.legacy.generation}</span><span>Craftsmanship made visible.</span></footer></main>${game.activeMatch() && ui.room !== "arena" ? `<button class="live-bout" data-action="room" data-room="arena"><span class="pulse"></span>ARENA LIVE · ${recordTitle(game.activeMatch())}<b>Watch ↗</b></button>` : ""}</div>`;
   }
   function upgradeRows(room) {
-    if (room === "employees")
-      return Object.values(P.nodes)
-        .filter((n) => n.section === "employees")
-        .map((n) => ({
-          ...n,
-          text: n.description,
-          rank: game.state.world.trees[n.id] || 0,
-          max: n.maxRank,
-          preview: game.treePreview(n.id),
-          action: "tree",
-        }));
-    if (room === "smelter")
-      return Object.entries(W.upgrades).map(([id, n]) => ({
-        ...n,
-        id,
-        text: n.description,
-        max: n.maxRank,
-        preview: game.smeltUpgradePreview(id),
-        action: "smelt-upgrade",
-      }));
-    return Object.values(H.upgrades)
+    const inventions = Object.values(H.upgrades)
       .filter((n) => n.room === room)
       .map((n) => ({
         ...n,
         preview: game.upgradePreview(n.id),
         action: "house-upgrade",
       }));
+    if (room === "employees")
+      return [
+        ...Object.values(P.nodes)
+          .filter((n) => n.section === "employees")
+          .map((n) => ({
+            ...n,
+            text: n.description,
+            rank: game.state.world.trees[n.id] || 0,
+            max: n.maxRank,
+            preview: game.treePreview(n.id),
+            action: "tree",
+          })),
+        ...inventions,
+      ];
+    if (room === "smelter")
+      return [
+        ...Object.entries(W.upgrades).map(([id, n]) => ({
+          ...n,
+          id,
+          name: id === "stockkeeper" ? "Furnace automaton" : n.name,
+          text:
+            id === "stockkeeper"
+              ? "Late-game ingot targets. Requires the third champion; costs 3,200g. Paid manual batches always finish offline."
+              : n.description,
+          max: n.maxRank,
+          landmark: id === "stockkeeper",
+          preview: game.smeltUpgradePreview(id),
+          action: "smelt-upgrade",
+        })),
+        ...inventions,
+      ];
+    return inventions;
   }
   function upgrades() {
     const room = ui.upgradeRoom || ui.room,
@@ -1563,7 +1715,7 @@
       );
     if (!branches.includes(ui.branch)) ui.branch = branches[0];
     const depth = room === "mine" && ui.branch === "Depth";
-    return `<p class="eyebrow">DEVELOP YOUR HOUSE</p><div class="section-line"><h2>${roomNames[room]} upgrades</h2><span class="upgrade-wallet">${num(game.state.player.gold)}<small> GOLD</small></span></div><div class="room-pills">${["mine", "smelter", "forge", "shop", "arena", "employees"].map((r) => button(roomNames[r], "upgrade-room", { room: r }, false, room === r ? "selected" : "")).join("")}</div><div class="tabs">${branches.map((b) => button(b, "branch", { id: b }, false, b === ui.branch ? "selected" : "")).join("")}</div><p>Ranks grow exponentially in cost. Achievements prove access; gold pays for the investment.</p>${depth ? `<div class="upgrade-path-note"><strong>Main path · Open deeper workings</strong><p>Iron is the first new ore. Defeat the Cinder Yard champion, mine 100 total materials, then buy the 65g Iron licence. Optional exploration below improves existing workings and does not advance this path.</p>${button("View champion requirements", "room", { room: "arena" }, false, "quiet")}</div>` : ""}<div class="upgrade-tree">${rows
+    return `<p class="eyebrow">DEVELOP YOUR HOUSE</p><div class="section-line"><h2>${roomNames[room]} upgrades</h2><span class="upgrade-wallet">${num(game.state.player.gold)}<small> GOLD</small></span></div><div class="room-pills">${["mine", "smelter", "forge", "shop", "arena", "employees"].map((r) => button(roomNames[r], "upgrade-room", { room: r }, false, room === r ? "selected" : "")).join("")}</div><div class="tabs">${branches.map((b) => button(b, "branch", { id: b }, false, b === ui.branch ? "selected" : "")).join("")}</div><p>Foundations strengthen the workshop. Inventions open new choices, by-products and trade-offs. Later ranks still grow exponentially in cost.</p>${depth ? `<div class="upgrade-path-note"><strong>Main path · Open deeper workings</strong><p>Iron is the first new ore. Defeat the Cinder Yard champion, mine 100 total materials, then buy the 65g Iron licence. Optional exploration below improves existing workings and does not advance this path.</p>${button("View champion requirements", "room", { room: "arena" }, false, "quiet")}</div>` : ""}<div class="upgrade-tree">${rows
       .filter((n) => n.branch === ui.branch)
       .map((n) => {
         const v = n.preview;
@@ -1577,12 +1729,12 @@
             ? ["Need " + num(v.cost - game.state.player.gold) + " more gold"]
             : []),
         ];
-        return `${depth && n.id === "survey" ? `<div class="upgrade-side-path"><h3>Optional exploration</h3><p>Available independently of ore licences.</p></div>` : ""}<article class="upgrade-node ${v.eligible ? "affordable" : ""} ${v.rank > 0 ? "owned" : ""}"><div class="node-track">${v.rank >= n.max ? "✓" : "◇"}</div><div><div class="section-line"><h3>${n.name}</h3>${tag((v.rank || 0) + " / " + n.max)}</div><p>${n.text}</p><div class="rank-pips">${Array.from({ length: n.max }, (_, i) => `<i class="${i < v.rank ? "filled" : ""}"></i>`).join("")}</div>${v.rank < n.max && blockers.length ? `<ul class="upgrade-blockers">${blockers.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>` : `<small>${esc(v.reason)}</small>`}</div>${button(v.rank >= n.max ? "Developed" : num(v.cost) + "g", n.action, { id: n.id }, !v.eligible, "primary")}</article>`;
+        return `${depth && n.id === "survey" ? `<div class="upgrade-side-path"><h3>Optional exploration</h3><p>Available independently of ore licences.</p></div>` : ""}<article class="upgrade-node ${v.eligible ? "affordable" : ""} ${v.rank > 0 ? "owned" : ""}"><div class="node-track">${v.rank >= n.max ? "✓" : "◇"}</div><div><div class="section-line">${n.landmark ? '<p class="eyebrow invention-label">CHANGES HOW YOU PLAY</p>' : ""}<h3>${n.name}</h3>${tag((v.rank || 0) + " / " + n.max)}</div><p>${n.text}</p><div class="rank-pips">${Array.from({ length: n.max }, (_, i) => `<i class="${i < v.rank ? "filled" : ""}"></i>`).join("")}</div>${v.rank < n.max && blockers.length ? `<ul class="upgrade-blockers">${blockers.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>` : `<small>${esc(v.reason)}</small>`}</div>${button(v.rank >= n.max ? "Developed" : num(v.cost) + "g", n.action, { id: n.id }, !v.eligible, "primary")}</article>`;
       })
       .join("")}</div>`;
   }
   function menu() {
-    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Options · appearance & sound", "options", {}, false, "primary")}${button("Export arena house", "export", {}, !game.state.started)}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 4.0 · 24-hour offline limit · Original Blender artwork & music · No networked ranking</p>`;
+    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Options · appearance & sound", "options", {}, false, "primary")}${button("Export arena house", "export", {}, !game.state.started)}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 4.1 · 24-hour offline limit · Original Blender artwork & music · No networked ranking</p>`;
   }
   function options() {
     const slider = (key, label, hint, max = 100) =>
@@ -1919,32 +2071,41 @@
     },
     intent: (d) => {
       ui.intent = d.id;
+      if (d.id === "team") selectHeroSlot();
+      if (d.id === "stock") {
+        ui.recipe = null;
+        ui.treatment = "plain";
+        ui.grade = "standard";
+        ui.enchantment = "";
+      }
     },
     pattern: (d) => {
       ui.recipe = d.id;
       ui.enchantment = "";
     },
     craft: (d) => {
-      const r = D.recipes[ui.recipe],
-        hero =
-          game.state.adventurers.find(
-            (h) =>
-              h.id === ui.hero &&
-              D.archetypes[h.archetypeId].preferences.includes(r.classId),
-          ) ||
-          game.state.adventurers.find((h) =>
-            D.archetypes[h.archetypeId].preferences.includes(r.classId),
-          );
       act("craft", {
         recipeId: ui.recipe,
         quantity: Number(d.quantity),
-        intent: ui.intent,
-        heroId: ui.intent === "team" ? hero?.id : null,
-        treatment: ui.treatment,
-        grade: ui.grade,
-        enchantmentId: ui.enchantment || null,
+        ...forgeOptions(),
+        heroId: ui.intent === "team" ? ui.hero : null,
+        targetSlot: ui.intent === "team" ? ui.forgeSlot : null,
       });
     },
+    "forge-hero": (d) => {
+      ui.hero = d.id;
+      selectHeroSlot();
+    },
+    "forge-slot": (d) => selectHeroSlot(d.slot),
+    "commission-select": (d) => selectCommission(d.id),
+    "commission-craft": (d) =>
+      act("commissionCraft", {
+        id: ui.order,
+        complete: Number(d.complete) === 1,
+        options: { recipeId: ui.recipe, ...forgeOptions() },
+      }),
+    "decline-commission": (d) => act("declineCommission", { id: d.id }),
+    blast: (d) => act("blast", { materialId: d.id }),
     finish: (d) => act("technique", { jobId: d.id }),
     cancel: (d) => act("cancel", { jobId: d.id }),
     "catalogue-save": () =>
@@ -1962,29 +2123,12 @@
       act("housePolicy", {
         catalogue: { ...game.state.house.catalogue, enabled: false },
       }),
-    "shop-tab": (d) => {
-      ui.shopTab = d.id;
-    },
     hero: (d) => {
       ui.hero = d.id;
     },
     equip: (d) => act("equip", { heroId: d.hero, itemId: d.id, slot: d.slot }),
     unequip: (d) => act("unequip", { heroId: d.hero, slot: d.slot }),
     deliver: (d) => act("deliverContract", { id: d.id }),
-    "contract-plan": (d) => {
-      const o = game.state.house.orders.find((o) => o.id === d.id);
-      if (!o) return;
-      const r = D.recipes[o.recipeId];
-      ui.type = r.classId;
-      ui.group = classGroup(r.classId);
-      ui.material = r.materialId;
-      ui.recipe = r.id;
-      ui.intent = "catalogue";
-      ui.treatment = "plain";
-      ui.grade = "standard";
-      ui.enchantment = "";
-      navigate("forge");
-    },
     "auto-deliver": () =>
       act("housePolicy", { autoDeliver: !game.state.house.autoDeliver }),
     protection: (d) => {
@@ -2161,6 +2305,11 @@
     if (!handler) return;
     handler(b.dataset);
     render(true);
+    if (["forge-slot", "commission-select"].includes(b.dataset.action))
+      $("#forge-design")?.scrollIntoView?.({
+        behavior: "smooth",
+        block: "start",
+      });
     if (["challenge", "ascend", "replay"].includes(b.dataset.action))
       $(".battle-scene")?.scrollIntoView?.({
         behavior: "smooth",
@@ -2189,7 +2338,11 @@
     if (el.dataset.ui) {
       ui[el.dataset.ui] =
         el.dataset.ui === "replaySpeed" ? Number(el.value) : el.value;
-      if (["type", "material"].includes(el.dataset.ui)) ui.recipe = null;
+      if (["type", "material"].includes(el.dataset.ui)) {
+        ui.recipe = null;
+        ui.enchantment = "";
+        ui.treatment = "plain";
+      }
       render(true);
     }
     if (el.dataset.worker)

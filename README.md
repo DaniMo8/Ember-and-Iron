@@ -2,7 +2,20 @@
 
 A playable local HTML blacksmith RPG. Build a workshop, equip an owned gladiator team, fulfil contracts and earn the crown through craftsmanship.
 
-## House 4.0 — the complete living campaign
+## House 4.1 — choose who the work is for
+
+The Forge begins with **Hero, Commission or Shop**. Hero work starts with a fighter and an equipment slot, selects a compatible standard pattern in the strongest unlocked alloy, then lets you refine the design. Finished work equips that slot if it improves the fighter; spare team pieces stay protected. Commissions fill in the patron’s pattern and preparation, calculate the finishing needed, and offer **Craft 1** or **Complete commission**. The latter queues only the pieces still needed and reserves their full cost. Shop work gives you a free design and fills open displays automatically.
+
+The **Shop** opens directly onto display cases, customers, counter staff and a compact warehouse. Stock comparisons and equipment swaps live in **Arena → Fighters & formation**; commissions and their development live in **Forge → Commission** and its upgrade tree.
+
+- One patron arrives every **five minutes**, up to **six jobs**. Full boards do not bank arrivals. Ordinary jobs request 1–6 pieces; rare patrons request 1–3 exacting pieces, with quality and sometimes metal-grade or treatment requirements. The wagon charter adds occasional 7–10-piece orders. Declining or finishing a job leaves room for the next timed arrival.
+- Rare requests occur at **12%**, doubled to **24%** by the black-wax seal. Their payment basis is 3.2× the ordinary basis, before the normal price modifiers; bulk orders pay a 25% premium. Existing signed orders retain their price and requirements.
+- New autonomous production is late-game: defeat **three champions**, then buy the **3,200g Furnace automaton** or **6,200g Clockwork contract press**. The press also requires 60 completed commissions and fourth-tier patterns. Existing early purchases remain owned but dormant until the third champion. Paid queues, miners, customer sales and automatic warehouse delivery continue offline from the beginning.
+- **Fourteen room inventions and two inherited talents** add new behaviour: targeted powder blasts; a sieve that finds gems in common workings; coal recovered from slag; Moon-tempered wards; an anvil that remembers repeated item classes; dangerous Glassheart and Gravebound treatments; larger prepaid job trays; unusual patrons and collectors; a second chance at the arena’s bell; defeat insurance; resting apprentices who keep learning; and commission-funded staff suppers. Each upgrade states its cost, gate and actual effect.
+
+**4.1 verification:** 348 automated checks, plus earned opening-hour runs for three callings and isolated browser checks of the new flow. The opening simulations completed 4–5 commissions and 34–38 pieces without autonomous production. Full multi-day pacing has not been remeasured after the new commission clock and later automation gates; older campaign timings below are historical. See [workflow evidence](design/qa/house-workflow-4.1.json).
+
+## House 4.0 foundation — the living campaign
 
 **[Play Ember & Iron](index.html)**. The main game now combines the complete production, staff, arena and inherited-career systems with the living 3D rooms. The earlier [Atelier study](atelier.html) remains available as a separate, accelerated art/combat experiment; it is no longer needed to play the 3D campaign.
 
@@ -16,13 +29,13 @@ The release review covers source readability, simulation correctness, asset cove
 
 The portable HTML embeds compressed models and expands them only when required. Play needs no account, CDN, network service or package installation. This is a local single-player game with authored rival houses, not a multiplayer ladder.
 
-**Pacing evidence:** two earned first-generation runs, using the specified attendance pattern, reached Legacy at 120.25 and 144.25 elapsed hours, with 6 and 7 active hours respectively. These are prepared deterministic player policies, not a completion-time guarantee. See [release evidence](design/qa/house-release-4.json) for tests, limits and inherited-career results. Controlled late-game fixtures are reported separately from earned progression.
+**Historical 4.0 pacing evidence:** two earned first-generation runs, using the specified attendance pattern, reached Legacy at 120.25 and 144.25 elapsed hours, with 6 and 7 active hours respectively. These are prepared deterministic player policies, not a completion-time guarantee. See [release evidence](design/qa/house-release-4.json) for tests, limits and inherited-career results. Controlled late-game fixtures are reported separately from earned progression.
 
 ## Play
 
 Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or serve **[index.html](index.html)** with the source files. The portable edition embeds every script, style, background, miniature, inventory icon and compressed 3D model; it needs no installation, account or internet connection.
 
-**House edition 4.0** keeps the existing House save, backup and active-tab ownership keys. Existing Classic saves are kept. The title/menu offers an explicit carry-over, with a preview of what is retained. **[classic.html](classic.html)** runs the preserved 2.3 game from the source folder. Export before changing browser or device.
+**House edition 4.1** keeps the existing House save, backup and active-tab ownership keys. Existing Classic saves are kept. The title/menu offers an explicit carry-over, with a preview of what is retained. **[classic.html](classic.html)** runs the preserved 2.3 game from the source folder. Export before changing browser or device.
 
 **Menu → Options** offers live overlay transparency and background dimming, plus Readable, Balanced and Scenic presets. Master, music and effects volumes are independent, with a mute switch. Options are remembered on this device separately from the career. Eight original instrumental scores and procedural room sounds play locally after starting or continuing the game; they fade between rooms and pause when the page is hidden. No audio downloads are needed.
 
@@ -40,12 +53,12 @@ Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or se
 
 - Seven callings, three origins and four working vows. Start with zero attributes and allocate 20 points; gain five per smith level, without an attribute cap.
 - Eight rooms: **Smith, Mine, Smelter, Forge, Shop & armoury, Arena, Employees and Legacy**. First-visit introductions explain each room's purpose and its next step.
-- Individually assigned miners; five material tiers; standard, toughened and spring-tempered ingots; protected team commissions, catalogue work and mastery practice.
+- Individually assigned miners; five material tiers; standard, toughened and spring-tempered ingots; protected hero work, patron commissions and shop stock. All crafting improves class mastery.
 - 17 item classes, 255 ordinary medieval patterns, 34 original Legacy patterns and 51 researched Oathbound, Astral and Eternal designs. Natural prefixes or deliberate treatments, enchanting suffixes, five diminishing finishing passes and quality ceilings up to 200.
 - A fixed starting trio; free equipment comparisons/swaps; strict front/back lines; three rival styles; doctrines; five leagues. Each of three rungs needs five scoring match wins and all three styles, followed by a manually launched champion.
 - Disclosed contracts finance the workshop. Town visitors buy spare displayed work while protected team gear and qualifying contract stock stay safe.
 - Replays preserve the actual launch equipment, deterministic outcome and event log. Play, pause, step or scrub; rewatching never pays twice. The last twelve bouts are stored.
-- Eight specialists in four employee departments, experience, stamina, manual leave and earned managed shifts. 59 room upgrade nodes plus 36 permanent Legacy talents.
+- Eight specialists in four employee departments, experience, stamina, manual leave and earned managed shifts. 73 room upgrade nodes plus 38 permanent Legacy talents.
 - Gold buys ordinary development; mined materials, contracts and victories are access records. Repeated ranks cost 1.9×, reducible to 1.6× through Legacy. Furnishings cost 2.4× per rank and survive retirement.
 - Ingot targets, contract catalogue production, automatic warehouse deliveries and cleared-rival exhibitions support prepared idle play. Offline work has a cumulative 24-hour allowance per absence and an explicit supply budget. A return ledger shows production, earnings, purchases, overflow and discoveries. Rotating contracts keep available work moving; exhibitions stop on defeat and never launch a champion. Only the first twelve suitable exhibition wins each day grant fighter XP.
 - Legacy stays hidden until at least 72 credited hours and the fifth champion. Each promotion also needs current-material crafting and contracts; early-tier farming cannot replace that proof. Later careers shorten accreditation, while production and combat still matter. Defeat the fifth champion to retire. Choose a workforce, patron or archive charter; keep permanent talents, furnishings, chronicle and one chosen stored heirloom. A run reset has a typed warning and does not award sparks.
@@ -59,7 +72,7 @@ Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or se
 - **[Long campaign guide, flowcharts and background gallery](design/campaign-guide.html)**
 - [House edition guide and room map](design/house-guide.html)
 - [Independent long-campaign review](design/qa/house-campaign-review.md)
-- [Automated test results](design/qa/version-4.0.0-tests.txt)
+- [Current automated test results](design/qa/version-4.1.0-tests.txt)
 - [Offline resume browser checks](design/qa/offline-browser-checks.json)
 - [Production balance and opening-hour checks](design/qa/production-balance-checks.json)
 - [Persistent popup and full-bin browser checks](design/qa/production-browser-checks.json)
@@ -71,7 +84,7 @@ Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or se
 
 The scheduled player follows **one initial hour, then 15 minutes at hours 2, 4 and 6; later days use 15-minute visits at hours 0, 2, 4 and 6**. Overnight is simulated as offline work. No resources, equipment or levels are granted to earned runs. An informed first career reached the Crown at **100.08 elapsed hours**, about 4.2 days and 5.5 active hours; a conservative policy needed about 126 hours. The 72-hour floor prevents early retirement, but it does not guarantee victory at that time. These campaign timings predate the 3.2.2 automatic-delivery and equipment changes and 3.2.3 production rebalance; they are historical pacing evidence, not a newly measured campaign benchmark.
 
-**325 automated checks pass**, including Classic compatibility, production escrow and cancellation, automatic delivery/equipment, full-bin waiting, once-only resume reporting, long-campaign gates and device preferences. New coverage verifies saved live combat, deterministic online/offline exchanges, old replay compatibility, persistent controls/canvases, all 340 recipe-to-model mappings, all eight room stages, and the final trial’s permanent ending. Source UI and the embedded portable build were exercised using isolated browser saves, including a fresh zero-stat character, return popups, gear previews, live bouts and replay seeking.
+**348 automated checks pass**, including Classic compatibility, production escrow and cancellation, automatic delivery/equipment, full-bin waiting, once-only resume reporting, long-campaign gates and device preferences. New coverage verifies saved live combat, deterministic online/offline exchanges, old replay compatibility, persistent controls/canvases, all 340 recipe-to-model mappings, all eight room stages, and the final trial’s permanent ending. Source UI and the embedded portable build were exercised using isolated browser saves, including a fresh zero-stat character, return popups, gear previews, live bouts and replay seeking.
 
 The portable build is approximately **45 MB**, including compressed 3D models, illustrated fallback rooms, inventory art and local music synthesis. Current visual checks cover desktop and phone layouts; older responsive checks also cover 320 and 768 pixels. The portable build was browser-tested over local HTTP. Direct `file://` navigation was blocked by the test browser, so opening the file directly remains unverified in that browser. See the [release evidence](design/qa/house-release-4.json) for the exact scope and limits.
 
@@ -87,6 +100,7 @@ No framework or package installation is required to play. Development tests and 
 | `atelier/campaign-app.js` / `campaign-scene.js`               | Read-only full-campaign 3D presentation and lazy asset loading                                                                   |
 | `house-3d.js`                                                 | Reproducible production bundle, including locally vendored Three.js                                                              |
 | `house-engine.js`                                             | House economy, team ownership, contracts, progression, automation and explicit Classic conversion                                |
+| `house-workflow.js` | Purpose-led crafting, timed commissions, late automation gates and mechanical inventions |
 | `house-campaign.js`                                           | Accreditation, discoveries, research, inherited equipment families, Crucible trials, oaths, offline reporting and room evolution |
 | `house-app.js` / `house.css`                                  | Event-delegated interface, responsive rooms, input preservation, introductions and overlays                                      |
 | `house-settings.js`                                           | Validated, separate device preferences and live surface transparency                                                             |

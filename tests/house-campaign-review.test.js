@@ -24,18 +24,19 @@ test('campaign fixture: research consumes premium input credits with the actual 
  const e=fresh(),s=e.state;s.player.gold=10000;s.house.campaign.discoveries.push('palimpsest');s.materials.steel_ingot=8;s.house.graded.steel={spring:8};
  const r=e.command('research',{id:'thermal'});assert(r.ok,r.message);assert.equal(s.materials.steel_ingot,0);assert.equal(s.house.graded.steel?.spring||0,0);valid(e);
 });
-test('campaign fixture: contract refresh offers capable higher-tier work after old orders are delivered',()=>{
+test('campaign fixture: timed commission arrivals offer capable higher-tier work after old orders are delivered',()=>{
  const e=fresh(),s=e.state;s.house.champions=1;s.house.upgrades={patterns:1,patterns_2:1,mine_iron:1};s.workshop.upgrades.iron=1;s.player.stats={strength:30,precision:30,charisma:10,knowledge:30};s.player.level=10;
  for(const p of Object.values(s.player.proficiency))p.level=30;
  let offeredHigher=0;
  for(let k=0;k<10;k++){
+  if(!s.house.orders.length)e.tick(300000);
   const order=s.house.orders[0];for(let n=0;n<order.quantity;n++)s.inventory.push({id:'fixture-'+k+'-'+n,recipeId:order.recipeId,quality:100,protected:false,reservedFor:null,displayed:false,createdAt:s.simTime});
-  const r=e.command('deliverContract',{id:order.id});assert(r.ok,r.message);if(s.house.orders.some(o=>o.tier>1))offeredHigher++;
+  const r=e.command('deliverContract',{id:order.id});assert(r.ok,r.message);e.tick(300000);if(s.house.orders.some(o=>o.tier>1))offeredHigher++;
  }
  assert(offeredHigher>0,'Every replacement remained bronze despite demonstrated iron capability.');
 });
 test('campaign fixture: equivalent whole-absence and small-step simulation discover methods at the same useful time',()=>{
- function setup(){const e=fresh(),s=e.state;s.simTime=7*hour;s.player.gold=2000;s.workshop.smelted=110;s.house.upgrades={catalogue:1,clerk:1};s.house.autoDeliver=true;s.house.catalogue={enabled:true,recipeId:'bronze_swords',reserve:0,autoBuy:true,rotate:true};s.workshop.upgrades.stockkeeper=1;s.workshop.smeltPolicy={enabled:true,targets:{bronze:14},reserve:0};s.world.miners.push({id:'miner-2',assigned:'fuel',working:'fuel',progress:0},{id:'miner-3',assigned:'tin',working:'tin',progress:0});for(const id of ['bronze','tin','fuel','bronze_ingot','leather','wood'])s.materials[id]=14;return e;}
+ function setup(){const e=fresh(),s=e.state;s.simTime=7*hour;s.player.gold=2000;s.workshop.smelted=110;s.house.champions=3;s.house.upgrades={catalogue:1,clerk:1};s.house.autoDeliver=true;s.house.catalogue={enabled:true,recipeId:'bronze_swords',reserve:0,autoBuy:true,rotate:true};s.workshop.upgrades.stockkeeper=1;s.workshop.smeltPolicy={enabled:true,targets:{bronze:14},reserve:0};s.world.miners.push({id:'miner-2',assigned:'fuel',working:'fuel',progress:0},{id:'miner-3',assigned:'tin',working:'tin',progress:0});for(const id of ['bronze','tin','fuel','bronze_ingot','leather','wood'])s.materials[id]=14;return e;}
  const whole=setup(),chunks=setup();whole.tick(2*hour,{offline:true});for(let n=0;n<120;n++)chunks.tick(60000,{offline:true});
  const view=e=>({gold:e.state.player.gold,materials:e.state.materials,crafted:e.state.stats.crafted,contracts:e.state.house.contracts,discoveries:e.state.house.campaign.discoveries,mastery:e.state.player.proficiency});
  assert.deepEqual(view(whole),view(chunks));valid(whole);valid(chunks);
