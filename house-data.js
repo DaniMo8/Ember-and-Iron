@@ -325,8 +325,8 @@
   [
     ["iron", "Iron licence", 65, { seamIron: 1 }, 1, 100],
     ["gems", "Gem pocket", 120, { seamGem: 1 }, 1, 250],
-    ["mithril", "Mithril gallery", 1700, { seamMithril: 1 }, 3, 2500],
-    ["star", "Starfall fissure", 6200, { seamStar: 1 }, 4, 6000],
+    ["mithril", "Mithril gallery", 1700, { seamMithril: 1 }, 3, 1200],
+    ["star", "Starfall fissure", 6200, { seamStar: 1 }, 4, 2400],
   ].forEach(([id, name, cost, effects, champions, mined]) =>
     node(
       "mine_" + id,

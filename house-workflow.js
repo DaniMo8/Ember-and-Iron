@@ -32,7 +32,7 @@
     Object.assign(H.upgrades.catalogue, {
       name: "Clockwork contract press",
       cost: 6200,
-      contracts: 60,
+      contracts: 24,
       champions: 3,
       parent: "patterns_4",
       landmark: true,
@@ -348,10 +348,18 @@
         );
         if (!available.length) return;
         const top = Math.max(...available.map((r) => r.tier));
+        // Reserve a route into current-material work. A full board still needs the
+        // player to finish or decline a job; signed commissions never disappear.
+        const preferTop =
+          !starter &&
+          top > 1 &&
+          (!h.orders.some((o) => o.tier === top) || this._roll() < 0.75);
         const pool = available.filter((r) =>
           starter
             ? r.tier === 1 && r.variant === 0
-            : r.tier >= Math.max(1, top - 1),
+            : preferTop
+              ? r.tier === top
+              : r.tier >= Math.max(1, top - 1),
         );
         const r = pool[Math.floor(this._roll() * pool.length)],
           v = this.craftPreview(r.id);

@@ -293,8 +293,13 @@
     if (data.houseCampaignVersion) return;
     data.houseCampaignVersion = 1;
     // Later materials are substantial commissions. Speed upgrades retain their value.
-    for (const r of Object.values(data.recipes))
-      r.baseSeconds = Math.round(r.baseSeconds * [0, 1, 2, 5, 10, 18][r.tier]);
+    for (const r of Object.values(data.recipes)) {
+      const work = [0, 1, 2, 4, 7, 12][r.tier];
+      r.baseSeconds = Math.round(r.baseSeconds * work);
+      // Longer, advanced work must teach more than endlessly repeating bronze.
+      r.classXp = Math.round(r.classXp * work);
+      r.smithXp = Math.round(r.smithXp * [0, 1, 1.4, 2, 3, 4][r.tier]);
+    }
     const names = {
       daggers: "Rondel",
       swords: "Arming Sword",
@@ -560,12 +565,12 @@
           {
             label: W.metals[index] + " pieces forged",
             current: h.campaign?.tierCrafts?.[index] || 0,
-            required: [12, 20, 25, 30, 36][index],
+            required: [12, 18, 22, 26, 30][index],
           },
           {
             label: "Tier " + (index + 1) + " contracts",
             current: h.campaign?.tierContracts?.[index] || 0,
-            required: [3, 5, 8, 10, 12][index],
+            required: [3, 4, 6, 8, 10][index],
           },
         ].map((x) => ({ ...x, met: x.current >= x.required }));
         const unmet = checks.find((x) => !x.met);
@@ -639,6 +644,28 @@
             0.04,
             0.7 ** Math.max(0, this.state.player.level - threshold),
           ),
+        };
+      }
+      learningPreview(id) {
+        const r = this.data.recipes[id];
+        if (!r) return { mastery: 0, smith: 0, familiar: false };
+        const p = this.state.player,
+          level = p.proficiency[r.classId].level,
+          familiar = r.tier === 1 && level >= 25;
+        return {
+          mastery:
+            level >= 100
+              ? 0
+              : r.classXp *
+                  (1 +
+                    0.06 * p.stats.knowledge +
+                    (this._effects().proficiencyXp || 0)) *
+                  (familiar ? 0.25 : 1) +
+                (this.state.world.profession === "runesage"
+                  ? r.classXp * 0.2
+                  : 0),
+          smith: r.smithXp * this.craftExperience(r).smith,
+          familiar,
         };
       }
       _completeJob(j) {
@@ -965,7 +992,17 @@
           this.state.house?.campaign?.burden === "silence"
         )
           return 0;
-        return super.matchPurse(league, rung, kind);
+        const purse = super.matchPurse(league, rung, kind);
+        if (kind !== "exhibition") return purse;
+        const c = this.state.house.campaign,
+          wins =
+            c.exhibitionDay === Math.floor(this.state.simTime / (24 * hour))
+              ? c.trainingWins
+              : 0;
+        return wins >= 12 ||
+          league < Math.max(0, this.state.house.champions - 1)
+          ? Math.max(1, Math.floor(purse * 0.25))
+          : purse;
       }
       _challenge(p) {
         const r = super._challenge(p);

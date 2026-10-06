@@ -1,6 +1,6 @@
 {
   "name": "ember-and-iron",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "private": true,
   "description": "A complete offline blacksmithing and arena incremental RPG",
   "scripts": {
@@ -8,7 +8,7 @@
     "build:3d": "esbuild atelier/campaign-app.js --bundle --format=iife --minify --alias:three/addons=./atelier/vendor/three/examples/jsm --alias:three=./atelier/vendor/three/build/three.module.js --outfile=house-3d.js",
     "build": "npm run build:3d && python build_game.py",
     "serve": "python -m http.server 8777",
-    "test:campaign": "node design/qa/house-campaign-probe.js --days=8 --respond --stop-at-crown --label=release4"
+    "test:campaign": "node design/qa/house-campaign-probe.js --days=12 --respond --prepared --stop-at-crown --label=review"
   },
   "devDependencies": {
     "esbuild": "0.25.12",

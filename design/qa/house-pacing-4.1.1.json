@@ -1,0 +1,708 @@
+{
+  "version": "4.1.1",
+  "generated": "2026-10-06T05:03:03.069794+00:00",
+  "request": "Simulate earned campaigns, adjust pacing and publish the tested game.",
+  "method": {
+    "earned": true,
+    "resourceGrants": false,
+    "mutations": "Public gameplay commands and tick only. No granted resources, equipment or levels; no future combat-roll knowledge.",
+    "policy": "Promotion-aware, batching and paid queues",
+    "schedule": "First day: active hour 0â€“1 then 15 minutes at hours 2,4,6. Subsequent days: 15 minutes at hours 0,2,4,6. Remaining time is offline, including overnight. Actions evaluated every 20 seconds while active.",
+    "days": 12,
+    "policyHash": "83bdef45cd593ea53df20f429a71219e356c2faa64222c42526c9e206dd6bebd",
+    "baselineCommit": "304365c",
+    "baselineRules": "Root JavaScript from that commit reconstructed into ignored design/qa/timing-baseline-runtime; the same current probe runs both rule sets.",
+    "attendance": "One hour on initial creation, then 15 minutes at hours 2, 4, 6; later days 15 minutes at hours 0, 2, 4, 6. Offline gaps are credited through the real simulation.",
+    "supplyBudget": "The policy authorizes a 50,000g offline purchase ceiling, spends only earned gold and preserves the engine minimum reserve. This is a prepared automation setup, not default settings."
+  },
+  "runs": [
+    {
+      "label": "final-baseline",
+      "calling": "Oathblade",
+      "rules": "4.1.0 (304365c)",
+      "earned": true,
+      "resourceGrants": false,
+      "validSave": true,
+      "elapsedHours": 240.25,
+      "careerHours": 240.25,
+      "activeHoursInThisProbe": 11.0,
+      "generation": 1,
+      "champions": 5,
+      "legacyEligible": true,
+      "firstCraftMinutes": 1.667,
+      "championTimeline": [
+        {
+          "champion": 1,
+          "elapsedHours": 2.006,
+          "careerHours": 2.006
+        },
+        {
+          "champion": 2,
+          "elapsedHours": 74.228,
+          "careerHours": 74.228
+        },
+        {
+          "champion": 3,
+          "elapsedHours": 144.006,
+          "careerHours": 144.006
+        },
+        {
+          "champion": 4,
+          "elapsedHours": 192.006,
+          "careerHours": 192.006
+        },
+        {
+          "champion": 5,
+          "elapsedHours": 240.006,
+          "careerHours": 240.006
+        }
+      ],
+      "automation": [
+        {
+          "upgrade": "stockkeeper",
+          "elapsedHours": 144.017
+        },
+        {
+          "upgrade": "catalogue",
+          "elapsedHours": 168
+        }
+      ],
+      "end": {
+        "gold": 176320,
+        "smith": 23,
+        "crafts": 1359,
+        "contracts": 177,
+        "mined": 8340,
+        "smelted": 5203,
+        "wins": 2756,
+        "losses": 8
+      },
+      "trackedRevenue": {
+        "contracts": 269377,
+        "exhibitions": 130362,
+        "market": 10895
+      },
+      "offline": {
+        "requestedHours": 229.25,
+        "creditedHours": 229.25,
+        "crafted": 754,
+        "commissions": 132
+      },
+      "daily": [
+        {
+          "elapsedHours": 24,
+          "champions": 1,
+          "crafted": 106,
+          "commissions": 24,
+          "gold": 3353,
+          "smith": 5
+        },
+        {
+          "elapsedHours": 48,
+          "champions": 1,
+          "crafted": 225,
+          "commissions": 34,
+          "gold": 3599,
+          "smith": 7
+        },
+        {
+          "elapsedHours": 72,
+          "champions": 1,
+          "crafted": 381,
+          "commissions": 37,
+          "gold": 4757,
+          "smith": 9
+        },
+        {
+          "elapsedHours": 96,
+          "champions": 2,
+          "crafted": 495,
+          "commissions": 45,
+          "gold": 7565,
+          "smith": 10
+        },
+        {
+          "elapsedHours": 120,
+          "champions": 2,
+          "crafted": 615,
+          "commissions": 49,
+          "gold": 9932,
+          "smith": 12
+        },
+        {
+          "elapsedHours": 144,
+          "champions": 2,
+          "crafted": 709,
+          "commissions": 57,
+          "gold": 12514,
+          "smith": 13
+        },
+        {
+          "elapsedHours": 168,
+          "champions": 3,
+          "crafted": 795,
+          "commissions": 60,
+          "gold": 17367,
+          "smith": 14
+        },
+        {
+          "elapsedHours": 192,
+          "champions": 3,
+          "crafted": 1116,
+          "commissions": 135,
+          "gold": 83700,
+          "smith": 19
+        },
+        {
+          "elapsedHours": 216,
+          "champions": 4,
+          "crafted": 1198,
+          "commissions": 150,
+          "gold": 89806,
+          "smith": 21
+        },
+        {
+          "elapsedHours": 240,
+          "champions": 4,
+          "crafted": 1356,
+          "commissions": 177,
+          "gold": 199888,
+          "smith": 23
+        }
+      ],
+      "sourceHashes": {
+        "house-engine.js": "5ddf164639ea8d0f41bfbb5182714057cfe4e5cceb096f2bfa53d06cc28c6fcc",
+        "house-data.js": "5552d36a569443e3f6f3a3cf5fdbd3bc5011a6e7e0795d03dba8d792a2139428",
+        "house-combat.js": "ee95c185c98bd788ffae5af673cf3b2add934750b2870fadc81962ff3425dafe",
+        "house-campaign.js": "c14157bef5003be34954fb639af8ae3f1592672610ec51885e1dc32898bc0c4a",
+        "house-workflow.js": "8860688e6ba7c9c0c6ad370739dd5b8d13581893008fa44196e89f1b3e117621",
+        "workshop-engine.js": "0d92ba34d99b397cb8e14259c93a5077262e1fb9e796e0d732fcd998b5c6e393"
+      },
+      "policyHash": "83bdef45cd593ea53df20f429a71219e356c2faa64222c42526c9e206dd6bebd",
+      "resume": null
+    },
+    {
+      "label": "final-smith",
+      "calling": "Oathblade",
+      "rules": "4.1.1",
+      "earned": true,
+      "resourceGrants": false,
+      "validSave": true,
+      "elapsedHours": 244.25,
+      "careerHours": 244.25,
+      "activeHoursInThisProbe": 11.5,
+      "generation": 1,
+      "champions": 5,
+      "legacyEligible": true,
+      "firstCraftMinutes": 1.667,
+      "championTimeline": [
+        {
+          "champion": 1,
+          "elapsedHours": 2.006,
+          "careerHours": 2.006
+        },
+        {
+          "champion": 2,
+          "elapsedHours": 48.044,
+          "careerHours": 48.044
+        },
+        {
+          "champion": 3,
+          "elapsedHours": 100.033,
+          "careerHours": 100.033
+        },
+        {
+          "champion": 4,
+          "elapsedHours": 174.006,
+          "careerHours": 174.006
+        },
+        {
+          "champion": 5,
+          "elapsedHours": 244.006,
+          "careerHours": 244.006
+        }
+      ],
+      "automation": [
+        {
+          "upgrade": "stockkeeper",
+          "elapsedHours": 122
+        },
+        {
+          "upgrade": "catalogue",
+          "elapsedHours": 144
+        }
+      ],
+      "end": {
+        "gold": 393183,
+        "smith": 36,
+        "crafts": 984,
+        "contracts": 194,
+        "mined": 8117,
+        "smelted": 4791,
+        "wins": 2246,
+        "losses": 80
+      },
+      "trackedRevenue": {
+        "contracts": 587829,
+        "exhibitions": 37317,
+        "market": 3354
+      },
+      "offline": {
+        "requestedHours": 232.75,
+        "creditedHours": 232.75,
+        "crafted": 755,
+        "commissions": 155
+      },
+      "daily": [
+        {
+          "elapsedHours": 24,
+          "champions": 1,
+          "crafted": 106,
+          "commissions": 24,
+          "gold": 1142,
+          "smith": 5
+        },
+        {
+          "elapsedHours": 48,
+          "champions": 1,
+          "crafted": 178,
+          "commissions": 35,
+          "gold": 1459,
+          "smith": 7
+        },
+        {
+          "elapsedHours": 72,
+          "champions": 2,
+          "crafted": 232,
+          "commissions": 41,
+          "gold": 1148,
+          "smith": 9
+        },
+        {
+          "elapsedHours": 96,
+          "champions": 2,
+          "crafted": 279,
+          "commissions": 46,
+          "gold": 1858,
+          "smith": 11
+        },
+        {
+          "elapsedHours": 120,
+          "champions": 3,
+          "crafted": 361,
+          "commissions": 58,
+          "gold": 3044,
+          "smith": 12
+        },
+        {
+          "elapsedHours": 144,
+          "champions": 3,
+          "crafted": 416,
+          "commissions": 62,
+          "gold": 6432,
+          "smith": 15
+        },
+        {
+          "elapsedHours": 168,
+          "champions": 3,
+          "crafted": 608,
+          "commissions": 115,
+          "gold": 71012,
+          "smith": 24
+        },
+        {
+          "elapsedHours": 192,
+          "champions": 4,
+          "crafted": 773,
+          "commissions": 155,
+          "gold": 134645,
+          "smith": 30
+        },
+        {
+          "elapsedHours": 216,
+          "champions": 4,
+          "crafted": 864,
+          "commissions": 176,
+          "gold": 205435,
+          "smith": 33
+        },
+        {
+          "elapsedHours": 240,
+          "champions": 4,
+          "crafted": 944,
+          "commissions": 188,
+          "gold": 338381,
+          "smith": 35
+        }
+      ],
+      "sourceHashes": {
+        "house-engine.js": "5ddf164639ea8d0f41bfbb5182714057cfe4e5cceb096f2bfa53d06cc28c6fcc",
+        "house-data.js": "ec96027b8c6ee15502ea2a740fc710d38cfbf3dc363e7cc566cdddd69ee0ed22",
+        "house-combat.js": "ee95c185c98bd788ffae5af673cf3b2add934750b2870fadc81962ff3425dafe",
+        "house-campaign.js": "c035a8f5bd1aa7a33ba5b795cdf49784b9e210c89fc0b015b5330a88cdd12934",
+        "house-workflow.js": "de1a5d513dda847f7c7fcf37de6ea28f06695a1578b2474daa01a836087bb1bb",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      },
+      "policyHash": "83bdef45cd593ea53df20f429a71219e356c2faa64222c42526c9e206dd6bebd",
+      "resume": null
+    },
+    {
+      "label": "final-merchant",
+      "calling": "Guild factor",
+      "rules": "4.1.1",
+      "earned": true,
+      "resourceGrants": false,
+      "validSave": true,
+      "elapsedHours": 194.25,
+      "careerHours": 194.25,
+      "activeHoursInThisProbe": 9.25,
+      "generation": 1,
+      "champions": 5,
+      "legacyEligible": true,
+      "firstCraftMinutes": 2.0,
+      "championTimeline": [
+        {
+          "champion": 1,
+          "elapsedHours": 2.006,
+          "careerHours": 2.006
+        },
+        {
+          "champion": 2,
+          "elapsedHours": 50.089,
+          "careerHours": 50.089
+        },
+        {
+          "champion": 3,
+          "elapsedHours": 102.028,
+          "careerHours": 102.028
+        },
+        {
+          "champion": 4,
+          "elapsedHours": 168.006,
+          "careerHours": 168.006
+        },
+        {
+          "champion": 5,
+          "elapsedHours": 194.006,
+          "careerHours": 194.006
+        }
+      ],
+      "automation": [
+        {
+          "upgrade": "stockkeeper",
+          "elapsedHours": 120
+        },
+        {
+          "upgrade": "catalogue",
+          "elapsedHours": 144
+        }
+      ],
+      "end": {
+        "gold": 64338,
+        "smith": 28,
+        "crafts": 820,
+        "contracts": 136,
+        "mined": 5694,
+        "smelted": 3352,
+        "wins": 2204,
+        "losses": 45
+      },
+      "trackedRevenue": {
+        "contracts": 242821,
+        "exhibitions": 25617,
+        "market": 5055
+      },
+      "offline": {
+        "requestedHours": 185.0,
+        "creditedHours": 185.0,
+        "crafted": 501,
+        "commissions": 100
+      },
+      "daily": [
+        {
+          "elapsedHours": 24,
+          "champions": 1,
+          "crafted": 99,
+          "commissions": 19,
+          "gold": 1053,
+          "smith": 5
+        },
+        {
+          "elapsedHours": 48,
+          "champions": 1,
+          "crafted": 189,
+          "commissions": 28,
+          "gold": 1456,
+          "smith": 7
+        },
+        {
+          "elapsedHours": 72,
+          "champions": 2,
+          "crafted": 242,
+          "commissions": 33,
+          "gold": 2870,
+          "smith": 9
+        },
+        {
+          "elapsedHours": 96,
+          "champions": 2,
+          "crafted": 308,
+          "commissions": 49,
+          "gold": 5023,
+          "smith": 11
+        },
+        {
+          "elapsedHours": 120,
+          "champions": 3,
+          "crafted": 392,
+          "commissions": 63,
+          "gold": 3790,
+          "smith": 13
+        },
+        {
+          "elapsedHours": 144,
+          "champions": 3,
+          "crafted": 488,
+          "commissions": 69,
+          "gold": 8482,
+          "smith": 16
+        },
+        {
+          "elapsedHours": 168,
+          "champions": 3,
+          "crafted": 618,
+          "commissions": 102,
+          "gold": 28904,
+          "smith": 22
+        },
+        {
+          "elapsedHours": 192,
+          "champions": 4,
+          "crafted": 801,
+          "commissions": 133,
+          "gold": 135811,
+          "smith": 28
+        }
+      ],
+      "sourceHashes": {
+        "house-engine.js": "5ddf164639ea8d0f41bfbb5182714057cfe4e5cceb096f2bfa53d06cc28c6fcc",
+        "house-data.js": "ec96027b8c6ee15502ea2a740fc710d38cfbf3dc363e7cc566cdddd69ee0ed22",
+        "house-combat.js": "ee95c185c98bd788ffae5af673cf3b2add934750b2870fadc81962ff3425dafe",
+        "house-campaign.js": "c035a8f5bd1aa7a33ba5b795cdf49784b9e210c89fc0b015b5330a88cdd12934",
+        "house-workflow.js": "de1a5d513dda847f7c7fcf37de6ea28f06695a1578b2474daa01a836087bb1bb",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      },
+      "policyHash": "83bdef45cd593ea53df20f429a71219e356c2faa64222c42526c9e206dd6bebd",
+      "resume": null
+    },
+    {
+      "label": "inherited",
+      "calling": "Guild factor",
+      "rules": "4.1.1",
+      "earned": true,
+      "resourceGrants": false,
+      "validSave": true,
+      "elapsedHours": 244.25,
+      "careerHours": 49.95,
+      "activeHoursInThisProbe": 2.3,
+      "generation": 2,
+      "champions": 2,
+      "legacyEligible": false,
+      "firstCraftMinutes": null,
+      "championTimeline": [
+        {
+          "champion": 1,
+          "elapsedHours": 216.094,
+          "careerHours": 21.794
+        },
+        {
+          "champion": 2,
+          "elapsedHours": 244.006,
+          "careerHours": 49.706
+        }
+      ],
+      "automation": [],
+      "end": {
+        "gold": 322,
+        "smith": 7,
+        "crafts": 157,
+        "contracts": 26,
+        "mined": 704,
+        "smelted": 416,
+        "wins": 340,
+        "losses": 2
+      },
+      "trackedRevenue": {
+        "contracts": 3176,
+        "exhibitions": 1166,
+        "market": 165
+      },
+      "offline": {
+        "requestedHours": 47.7,
+        "creditedHours": 47.7,
+        "crafted": 75,
+        "commissions": 12
+      },
+      "daily": [
+        {
+          "elapsedHours": 216,
+          "champions": 0,
+          "crafted": 32,
+          "commissions": 3,
+          "gold": 93,
+          "smith": 3
+        },
+        {
+          "elapsedHours": 240,
+          "champions": 1,
+          "crafted": 117,
+          "commissions": 17,
+          "gold": 1154,
+          "smith": 5
+        }
+      ],
+      "sourceHashes": {
+        "house-engine.js": "5ddf164639ea8d0f41bfbb5182714057cfe4e5cceb096f2bfa53d06cc28c6fcc",
+        "house-data.js": "ec96027b8c6ee15502ea2a740fc710d38cfbf3dc363e7cc566cdddd69ee0ed22",
+        "house-combat.js": "ee95c185c98bd788ffae5af673cf3b2add934750b2870fadc81962ff3425dafe",
+        "house-campaign.js": "c035a8f5bd1aa7a33ba5b795cdf49784b9e210c89fc0b015b5330a88cdd12934",
+        "house-workflow.js": "de1a5d513dda847f7c7fcf37de6ea28f06695a1578b2474daa01a836087bb1bb",
+        "workshop-engine.js": "608492e83bc4200cf62ddb04aa660d82ff8cab0b576c94ff044a2c1d876f0780"
+      },
+      "policyHash": "83bdef45cd593ea53df20f429a71219e356c2faa64222c42526c9e206dd6bebd",
+      "resume": {
+        "file": "design/qa/house-campaign-pacing-final-merchant-checkpoint.json",
+        "wallHours": 194.25,
+        "simHours": 194.25,
+        "note": "Continuation of an earned checkpoint; no resources changed."
+      }
+    }
+  ],
+  "interpretation": [
+    "This is a rebalance of the work leading to promotions, not a promise of shorter overall careers. Oathblade reached its third champion at 100.033h instead of 144.006h, while its Crown completion was 244.006h instead of 240.006h.",
+    "Total first-career crafts fell from 1359 to 984 for the paired Oathblade policy (27.6% less repetition). Guild factor finished its separate revised run at 194.006h.",
+    "Exhibition revenue in the paired runs fell from 130362g to 37317g. Actual workshop commissions supply most late-career income.",
+    "The remaining longer waits were preparing stronger armour, wards and accessories for later champions. The 72-hour first-Legacy floor and all five champions are still required.",
+    "Large late Oathblade cash reserves are visible in the evidence. This policy buys selected machinery but skips first-career permanent furnishings and research; unused cash alone is not evidence that every optional progression sink is exhausted."
+  ],
+  "changes": {
+    "recipeTimeMultipliersByTier": {
+      "before": [
+        1,
+        2,
+        5,
+        10,
+        18
+      ],
+      "after": [
+        1,
+        2,
+        4,
+        7,
+        12
+      ]
+    },
+    "masteryXpMultipliersByTier": [
+      1,
+      2,
+      4,
+      7,
+      12
+    ],
+    "smithXpMultipliersByTier": [
+      1,
+      1.4,
+      2,
+      3,
+      4
+    ],
+    "promotionCraftCounts": [
+      12,
+      18,
+      22,
+      26,
+      30
+    ],
+    "promotionCommissionCounts": [
+      3,
+      4,
+      6,
+      8,
+      10
+    ],
+    "mithrilAndStarfallMinedRequirements": [
+      1200,
+      2400
+    ],
+    "forgeAutomation": {
+      "champions": 3,
+      "commissions": 24,
+      "gold": 6200,
+      "patternsTier": 4
+    },
+    "smelterAutomation": {
+      "champions": 3,
+      "gold": 3200
+    },
+    "exhibitions": "Full quoted purse within the first 12 daily wins against current/previous league; later wins and older leagues pay 25%, minimum 1g. Already-launched quotes are preserved.",
+    "commissions": "Guaranteed highest capable tier when absent and a timed arrival slot is free; otherwise 75% preferential selection of that tier, with the remaining pool including the previous tier. Six-job cap and five-minute arrivals retained.",
+    "guidance": "Promotion-eligible jobs are marked; missing production milestones open Forge commissions; learning per piece and the familiar-bronze penalty are visible."
+  },
+  "inheritedCheck": {
+    "parent": "final-merchant earned checkpoint",
+    "sparksAwarded": 59,
+    "talentsAtRetirement": [
+      "inherited_crew",
+      "fuller_moulds",
+      "enduring_tools"
+    ],
+    "heirloomId": "item-8173",
+    "crucibleAttempt": [
+      {
+        "depth": 1,
+        "victory": false,
+        "seals": 0
+      }
+    ],
+    "careerHoursChecked": 49.95,
+    "champions": 2,
+    "commissions": 26,
+    "note": "Continuation keeps the existing short-visit schedule; it does not give a new initial active hour. This is an inherited-opening check, not a completed second career or a directly matched speed comparison."
+  },
+  "verification": {
+    "testsPassed": 356,
+    "testsFailed": 0,
+    "newPacingTests": 8,
+    "report": "version-4.1.1-tests.txt",
+    "targetedUiTestsAfterCopyEdit": "8 passed",
+    "build": "npm run build plus final portable rebuild",
+    "browser": {
+      "origin": "http://127.0.0.1:8792",
+      "realSaveOriginUntouched": "http://127.0.0.1:8777",
+      "liveChecks": [
+        "Source Forge purpose selection and marked promotion commissions",
+        "Actual mastery/smith XP preview in the design panel",
+        "Portable 4.1.1 title and Continue"
+      ],
+      "layout": "Actual-renderer static fixtures at 320, 390 and 768px; no horizontal overflow. Desktop live Forge visually inspected.",
+      "fixtureLimit": "Browser fixtures grant progression for UI inspection; they are not included in earned timing results."
+    },
+    "portableBytes": 45220307,
+    "portableSha256": "9347da128d0d0703da463858ce602e9936866babbc835bd3bb1f23cec6b89687"
+  },
+  "reproduce": [
+    "npm test",
+    "npm run test:campaign",
+    "node design/qa/house-campaign-probe.js --days=12 --respond --prepared --stop-at-crown --runtime=design/qa/timing-baseline-runtime --label=pacing-final-baseline",
+    "node design/qa/house-campaign-probe.js --days=12 --respond --prepared --stop-at-crown --label=pacing-final-smith",
+    "node design/qa/house-campaign-probe.js --days=12 --respond --prepared --stop-at-crown --profession=merchant --label=pacing-final-merchant",
+    "node design/qa/house-campaign-probe.js --days=11 --hours=244 --respond --prepared --profession=merchant --resume=design/qa/house-campaign-pacing-final-merchant-checkpoint.json --retire --trial-before-retire --research --label=pacing-inherited"
+  ],
+  "limits": [
+    "One deterministic seed per calling, not a multi-seed population study or exhaustive optimal-play search. Commission and combat outcomes diverge as decisions change.",
+    "Only two of seven callings received revised full-career probes in this pass.",
+    "The tested attendance and prepared supply budgets matter; infrequent, unprepared or different play will take longer.",
+    "No complete second-generation or sixty-trial earned run was repeated in this patch; existing late-game regression tests passed.",
+    "Direct file:// navigation was not tested; portable browser checks used local HTTP."
+  ]
+}

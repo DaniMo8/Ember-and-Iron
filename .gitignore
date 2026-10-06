@@ -30,3 +30,6 @@ design/qa/content-shapes.json
 # Generated workflow previews and intermediate test runs
 design/qa/workflow-*-tests.txt
 design/qa/workflow-layout*.html
+
+# Reconstructed released rules for progression A/B simulations
+design/qa/timing-baseline-runtime/

@@ -472,7 +472,7 @@
       : H.rivals.find((r) => r.id === m.rival).name;
   }
   function splash() {
-    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 4.1.0</span></footer></main>`;
+    return `<main class="splash" style="--scene:url('${asset("splash")}')"><div class="splash-top"><span class="wordmark">E<span>&</span>I</span><span>A BLACKSMITH’S HOUSE · AN IDLE RPG</span>${button("Menu", "menu")}</div><div class="splash-copy"><p class="eyebrow">THE HOUSE OF THE HAMMER</p><h1>Ember<br><span>&</span> Iron<span class="title-dot">.</span></h1><p class="splash-sub">Make the blade.<br>Build the house.<br><em>Crown the champion.</em></p><div class="splash-actions">${game.state.started ? button("Continue your house <span>↗</span>", "continue", {}, false, "primary large") : button("Found your house <span>↗</span>", "begin", {}, false, "primary large")}${game.state.started ? `<p>${esc(game.state.shopName)} · ${esc(game.state.player.name)} · ${H.leagues[Math.min(4, game.state.house.champions)].name}</p>` : "<p>A humble workshop. Three hopeful fighters.<br>Your craftsmanship will make the difference.</p>"}${!saved && get(CLASSIC) ? button("Carry over Classic workshop", "convert", {}, false, "quiet") : ""}</div></div><div class="splash-caption"><span>CRAFTSMANSHIP MADE VISIBLE</span><p>Mine. Refine. Create. Prove.</p></div><footer class="splash-footer"><span>Local saves · No account · No daily deadlines</span><span>HOUSE EDITION / 4.1.1</span></footer></main>`;
   }
   function creation() {
     const p = H.professions[ui.calling],
@@ -553,7 +553,10 @@
       pinned = H.rivals.find((r) => r.id === h.goal);
     if (pinned)
       return `<div class="goal-rail"><span>PINNED RESPONSE</span><strong>${pinned.response}</strong><p>${pinned.hint}</p>${button("Forge a response", "room", { room: "forge" }, false, "quiet")}${button("×", "pin", { id: "" }, false, "icon-button")}</div>`;
-    let heading, body, room;
+    let heading,
+      body,
+      room,
+      commissionGoal = false;
     if (s.player.points) {
       heading = s.player.points + " attribute points to spend";
       body = "Develop the maker behind every piece.";
@@ -578,9 +581,17 @@
         "Open Forge → Commission, choose a patron, and prepare their order for automatic delivery.";
       room = "forge";
     } else if (h.rung === 3 && !game.campaignStatus().eligible) {
-      heading = "Build the house behind the champion";
-      body = game.campaignStatus().reason;
-      room = "smith";
+      const status = game.campaignStatus(),
+        production = status.checks.find((c) => !c.met && c.unit !== "time");
+      heading = production
+        ? "Prepare the next promotion"
+        : "The guild is reviewing your house";
+      body = production
+        ? `${production.label}: ${production.current} / ${production.required}. Current-tier commissions count toward both production and delivery requirements. Unlock the alloy and pattern, then select promotion work in Forge.`
+        : status.reason +
+          ". Prepare equipment and paid queues while the house matures.";
+      room = production ? "forge" : "smith";
+      commissionGoal = !!production;
     } else if (h.rung === 3) {
       heading = "The league champion awaits";
       body =
@@ -597,7 +608,7 @@
           : "Five match victories and all three rival styles unlock the next rung.";
       room = h.champions === 5 ? "legacy" : "arena";
     }
-    return `<div class="goal-rail"><span>NEXT MILESTONE</span><strong>${heading}</strong><p>${body}</p>${button("Open " + roomNames[room] + " →", "room", { room }, false, "quiet")}</div>`;
+    return `<div class="goal-rail"><span>NEXT MILESTONE</span><strong>${heading}</strong><p>${body}</p>${button(commissionGoal ? "Find promotion work →" : "Open " + roomNames[room] + " →", commissionGoal ? "forge-commissions" : "room", { room }, false, "quiet")}</div>`;
   }
   function header() {
     const s = game.state,
@@ -879,13 +890,15 @@
     applyForgePlan(game.commissionPlan(id));
   }
   function commissionCards() {
-    const board = game.commissionBoard();
-    return `<div class="commission-clock"><strong>${board.count} / ${board.cap} jobs</strong><span>One arrival every 5 minutes · ${board.count === board.cap ? "board full; no arrivals banked" : "next in " + time(board.seconds)}</span></div><div class="commission-board">${
+    const board = game.commissionBoard(),
+      promotion = game.campaignStatus().checks[2],
+      tier = Math.min(5, game.state.house.champions + 1);
+    return `${game.state.house.champions < 5 ? `<div class="preparation-note"><strong>Promotion work · Tier ${tier}: ${promotion.current} / ${promotion.required} commissions</strong><p>Marked jobs count toward the next champion. New patrons favour your strongest craftable alloy. If this board is full of older work, finish or decline a job to make room for the next arrival. New alloys still need their licences, patterns and class mastery.</p></div>` : ""}<div class="commission-clock"><strong>${board.count} / ${board.cap} jobs</strong><span>One arrival every 5 minutes · ${board.count === board.cap ? "board full; no arrivals banked" : "next in " + time(board.seconds)}</span></div><div class="commission-board">${
       game.state.house.orders
         .map((o) => {
           const plan = game.commissionPlan(o.id),
             current = ui.order === o.id;
-          return `<article class="commission-choice ${o.kind === "rare" ? "rare-order" : ""} ${current ? "selected" : ""}"><p class="eyebrow">${esc(o.client)} · ${o.kind === "rare" ? "RARE REQUEST" : o.kind === "bulk" ? "BULK REQUISITION" : "COMMISSION"}</p><h3>${o.quantity} × ${esc(D.recipes[o.recipeId]?.name || D.classes[o.classId].name)}</h3><p>Q${o.quality}+${o.grade && o.grade !== "standard" ? " · " + H.grades[o.grade].name : ""}${o.treatment && o.treatment !== "plain" ? " · " + H.treatments[o.treatment].name : ""}</p><div class="commission-reward"><strong>${num(o.payment)}g</strong><small>${plan.ready || 0} ready · ${plan.queued || 0} queued</small></div><div class="actions">${button(current ? "Selected" : "Plan commission", "commission-select", { id: o.id }, false, current ? "selected" : "primary")}${button(
+          return `<article class="commission-choice ${o.kind === "rare" ? "rare-order" : ""} ${current ? "selected" : ""}"><p class="eyebrow">${o.tier === tier && game.state.house.champions < 5 ? "PROMOTION CREDIT · " : ""}${esc(o.client)} · ${o.kind === "rare" ? "RARE REQUEST" : o.kind === "bulk" ? "BULK REQUISITION" : "COMMISSION"}</p><h3>${o.quantity} × ${esc(D.recipes[o.recipeId]?.name || D.classes[o.classId].name)}</h3><p>Q${o.quality}+${o.grade && o.grade !== "standard" ? " · " + H.grades[o.grade].name : ""}${o.treatment && o.treatment !== "plain" ? " · " + H.treatments[o.treatment].name : ""}</p><div class="commission-reward"><strong>${num(o.payment)}g</strong><small>${plan.ready || 0} ready · ${plan.queued || 0} queued</small></div><div class="actions">${button(current ? "Selected" : "Plan commission", "commission-select", { id: o.id }, false, current ? "selected" : "primary")}${button(
             "Decline",
             "decline-commission",
             { id: o.id },
@@ -1000,7 +1013,8 @@
     let design = "";
     if (allowed && r) {
       const q = plan ? plan.quality : v.quality,
-        normal = plan ? plan.seconds : v.seconds;
+        normal = plan ? plan.seconds : v.seconds,
+        learning = game.learningPreview(r.id);
       let actions;
       if (plan) {
         const all = game.craftPreview(r.id, {
@@ -1076,7 +1090,7 @@
             ["Preparation", v.gold + "g"],
             ["Class mastery", s.player.proficiency[ui.type].level],
           ],
-        )}<div class="craft-bar">${actions}</div><small>${ui.intent === "team" ? "This order is reserved for the selected slot. It auto-equips if it improves the hero; otherwise it stays protected in the warehouse." : ui.intent === "stock" ? "Shop stock auto-fills displays and is never taken for commissions." : "Qualifying warehouse pieces deliver automatically. Already queued pieces are counted so you cannot order the same remainder twice."}</small></div>`,
+        )}<p class="preparation-note">Learning per piece: +${learning.mastery.toFixed(1)} mastery XP · +${learning.smith.toFixed(1)} smith XP.${learning.familiar ? " Familiar bronze work gives reduced mastery from level 25; advanced patterns teach more." : ""}</p><div class="craft-bar">${actions}</div><small>${ui.intent === "team" ? "This order is reserved for the selected slot. It auto-equips if it improves the hero; otherwise it stays protected in the warehouse." : ui.intent === "stock" ? "Shop stock auto-fills displays and is never taken for commissions." : "Qualifying warehouse pieces deliver automatically. Already queued pieces are counted so you cannot order the same remainder twice."}</small></div>`,
       );
     } else
       design = panel(
@@ -1121,7 +1135,7 @@
     if (typeof target !== "number" || target <= p.level) return "";
     let xp = -p.xp;
     for (let level = p.level; level < target; level++) xp += 6 + 2 * level;
-    return `Mastery ${p.level} → ${target}: ${Math.ceil(xp)} class XP remaining. Repeat familiar patterns to practise. `;
+    return `Mastery ${p.level} → ${target}: ${Math.ceil(xp)} class XP remaining. Compare learning per piece when choosing your next work. `;
   }
   function classGroup(id) {
     const slot = D.classes[id].slot;
@@ -1295,7 +1309,7 @@
     if (!choice)
       return "<p>Beat a rival to open an exhibition. Exhibitions earn a smaller purse and experience, without qualification credit.</p>";
     const v = game.matchPreview({ ...choice, kind: "exhibition" });
-    return `<p>Repeat a beaten rival every five minutes. The first 12 daily wins against the current or previous league train fighters. All wins earn their purse; exhibitions never qualify the team. Repetition stops on defeat.</p><label>Cleared opponent<select data-ui="exhibitionChoice">${choices.map((c) => `<option value="${c.key}" ${c === choice ? "selected" : ""}>${c.label}</option>`).join("")}</select></label><p>${v.purse}g victory purse · ${v.reason}</p><div class="actions">${button("Launch exhibition", "exhibit", choice, !v.eligible)}${h.exhibition ? button("Stop exhibitions", "stop-exhibitions") : h.upgrades.exhibitions ? button("Authorize repeat", "repeat", choice, !v.eligible) : ""}</div>${h.exhibition ? `<small>Repeating ${H.rivals.find((r) => r.id === h.exhibition.rival).name} in league ${h.exhibition.league + 1}, rung ${h.exhibition.rung + 1}.</small>` : !h.upgrades.exhibitions ? "<small>Develop Exhibition steward after five wins for automatic repetition.</small>" : ""}`;
+    return `<p>Repeat a beaten rival every five minutes. The first 12 daily exhibition wins train fighters and pay a full purse when the rival is in the current or previous league. Later wins and older leagues pay 25% (at least 1g); exhibitions never qualify the team. Repetition stops on defeat.</p><label>Cleared opponent<select data-ui="exhibitionChoice">${choices.map((c) => `<option value="${c.key}" ${c === choice ? "selected" : ""}>${c.label}</option>`).join("")}</select></label><p>${v.purse}g victory purse · ${v.reason}</p><div class="actions">${button("Launch exhibition", "exhibit", choice, !v.eligible)}${h.exhibition ? button("Stop exhibitions", "stop-exhibitions") : h.upgrades.exhibitions ? button("Authorize repeat", "repeat", choice, !v.eligible) : ""}</div>${h.exhibition ? `<small>Repeating ${H.rivals.find((r) => r.id === h.exhibition.rival).name} in league ${h.exhibition.league + 1}, rung ${h.exhibition.rung + 1}.</small>` : !h.upgrades.exhibitions ? "<small>Develop Exhibition steward after five wins for automatic repetition.</small>" : ""}`;
   }
   function returnSummary() {
     if (!game.state.pendingOfflineReport) return "";
@@ -1734,7 +1748,7 @@
       .join("")}</div>`;
   }
   function menu() {
-    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Options · appearance & sound", "options", {}, false, "primary")}${button("Export arena house", "export", {}, !game.state.started)}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 4.1 · 24-hour offline limit · Original Blender artwork & music · No networked ranking</p>`;
+    return `<p class="eyebrow">YOUR HOUSE, YOUR SAVE</p><h2>House menu</h2><p>Saved locally in this browser. Export a file before moving devices.</p><div class="menu-actions">${button("Options · appearance & sound", "options", {}, false, "primary")}${button("Export arena house", "export", {}, !game.state.started)}${button("Import arena house", "import")}${button("Return to title", "title")}${button("Reset this run…", "reset-preview", {}, !game.state.started, "danger")}</div><hr><h3>Classic workshop</h3><p>The original save is kept separately. Carrying it over preserves equipment, materials, employees and purchased capabilities; local arena qualification starts at the yard.</p>${button("Review Classic carry-over", "convert", {}, !get(CLASSIC))}<p><a href="classic.html" target="_blank" rel="noopener">Open the preserved Classic game ↗</a></p><hr><p class="footnote">House edition 4.1.1 · 24-hour offline limit · Original Blender artwork & music · No networked ranking</p>`;
   }
   function options() {
     const slider = (key, label, hint, max = 100) =>
@@ -1969,6 +1983,11 @@
     },
     close: closeDialog,
     room: (d) => navigate(d.room),
+    "forge-commissions": () => {
+      ui.intent = "catalogue";
+      ui.order = null;
+      navigate("forge");
+    },
     calling: (d) => {
       ui.calling = d.id;
     },

@@ -2,6 +2,30 @@
 
 A playable local HTML blacksmith RPG. Build a workshop, equip an owned gladiator team, fulfil contracts and earn the crown through craftsmanship.
 
+## House 4.1.1 — measured campaign pacing
+
+The balance now rewards learning advanced alloys instead of repeating bronze indefinitely. Higher-tier patterns award mastery in proportion to their work time, plus more smith experience. Steel, mithril and starforged work takes less time while remaining substantially longer than bronze. The Forge shows expected mastery and smith XP per piece, including the familiar-bronze penalty after mastery 25.
+
+New patrons favour the highest tier you can actually craft, with a guaranteed current-capability job when none is represented and an arrival slot is free. Existing signed commissions keep their requirements and rewards. Promotion jobs are marked in the Forge, and the next-milestone prompt leads there when production is the missing requirement.
+
+- Promotion proof now needs **12 / 18 / 22 / 26 / 30** pieces and **3 / 4 / 6 / 8 / 10** commissions across the five tiers. The separate age, ladder and champion requirements remain.
+- Mithril and starfall workings require **1,200 / 2,400** total materials extracted, alongside their existing championship and gold gates. Miners and bins retain their slower production rules.
+- The contract press requires **24 commissions**, three champions, fourth-tier patterns and 6,200g. The 3,200g furnace automaton still needs three champions. Automation therefore remains a late-career reward.
+- Within the first twelve exhibition wins per credited day, current- or previous-league rivals pay a full purse and train the team. Further wins and outgrown leagues pay **25%**, at least 1g. Championship purses are unchanged; already launched bouts keep their quoted purse.
+- First Legacy access still requires **72 credited hours and all five champions**. The changes remove repetitive stalls rather than bypassing that minimum.
+
+The earned pacing runs use the attendance schedule below, real costs, paid queues and offline production. Their compact results and source fingerprints are recorded in [4.1.1 pacing evidence](design/qa/house-pacing-4.1.1.json). These deterministic policies are reproducible benchmarks, not guaranteed human completion times.
+
+| Run | Legacy eligible by end of visit | Active play |
+| --- | ---: | ---: |
+| Previous 4.1.0 · Oathblade | 240.25 elapsed hours | 11 hours |
+| Revised 4.1.1 · Oathblade | 244.25 elapsed hours | 11.5 hours |
+| Revised 4.1.1 · Guild factor | 194.25 elapsed hours | 9.25 hours |
+
+The paired Oathblade run reached its third champion at **100.03 hours instead of 144.01**, and needed **984 pieces instead of 1,359** over the whole career. Overall Crown timing remained similar: the later equipment battles still matter. Exhibition income fell from 130,362g to 37,317g, with workshop commissions becoming the main earner. The earned Guild factor save then retired, retained an heirloom and talents, and won two champions across the first 49.95 hours of its next career. That continuation used short visits rather than receiving another initial active hour.
+
+The probe uses a generous, explicitly authorized offline supply budget, funded only by earned gold. It does not buy every optional furnishing or study, so its late cash reserves are not a claim that all progression sinks have been exhausted. This pass covers two callings and one deterministic seed per calling; it is not an exhaustive optimal-play or multi-seed study.
+
 ## House 4.1 — choose who the work is for
 
 The Forge begins with **Hero, Commission or Shop**. Hero work starts with a fighter and an equipment slot, selects a compatible standard pattern in the strongest unlocked alloy, then lets you refine the design. Finished work equips that slot if it improves the fighter; spare team pieces stay protected. Commissions fill in the patron’s pattern and preparation, calculate the finishing needed, and offer **Craft 1** or **Complete commission**. The latter queues only the pieces still needed and reserves their full cost. Shop work gives you a free design and fills open displays automatically.
@@ -10,10 +34,10 @@ The **Shop** opens directly onto display cases, customers, counter staff and a c
 
 - One patron arrives every **five minutes**, up to **six jobs**. Full boards do not bank arrivals. Ordinary jobs request 1–6 pieces; rare patrons request 1–3 exacting pieces, with quality and sometimes metal-grade or treatment requirements. The wagon charter adds occasional 7–10-piece orders. Declining or finishing a job leaves room for the next timed arrival.
 - Rare requests occur at **12%**, doubled to **24%** by the black-wax seal. Their payment basis is 3.2× the ordinary basis, before the normal price modifiers; bulk orders pay a 25% premium. Existing signed orders retain their price and requirements.
-- New autonomous production is late-game: defeat **three champions**, then buy the **3,200g Furnace automaton** or **6,200g Clockwork contract press**. The press also requires 60 completed commissions and fourth-tier patterns. Existing early purchases remain owned but dormant until the third champion. Paid queues, miners, customer sales and automatic warehouse delivery continue offline from the beginning.
+- New autonomous production is late-game: defeat **three champions**, then buy the **3,200g Furnace automaton** or **6,200g Clockwork contract press**. The press also requires 24 completed commissions and fourth-tier patterns. Existing early purchases remain owned but dormant until the third champion. Paid queues, miners, customer sales and automatic warehouse delivery continue offline from the beginning.
 - **Fourteen room inventions and two inherited talents** add new behaviour: targeted powder blasts; a sieve that finds gems in common workings; coal recovered from slag; Moon-tempered wards; an anvil that remembers repeated item classes; dangerous Glassheart and Gravebound treatments; larger prepaid job trays; unusual patrons and collectors; a second chance at the arena’s bell; defeat insurance; resting apprentices who keep learning; and commission-funded staff suppers. Each upgrade states its cost, gate and actual effect.
 
-**4.1 verification:** 348 automated checks, plus earned opening-hour runs for three callings and isolated browser checks of the new flow. The opening simulations completed 4–5 commissions and 34–38 pieces without autonomous production. Full multi-day pacing has not been remeasured after the new commission clock and later automation gates; older campaign timings below are historical. See [workflow evidence](design/qa/house-workflow-4.1.json).
+**Historical 4.1 verification:** 348 automated checks, plus earned opening-hour runs for three callings and isolated browser checks of the new flow. The opening simulations completed 4–5 commissions and 34–38 pieces without autonomous production. Full multi-day pacing is measured in 4.1.1 above. See [workflow evidence](design/qa/house-workflow-4.1.json).
 
 ## House 4.0 foundation — the living campaign
 
@@ -52,7 +76,7 @@ Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or se
 **Mine → smelt → forge → automatic equipment or delivery → challenge → review → improve.**
 
 - Seven callings, three origins and four working vows. Start with zero attributes and allocate 20 points; gain five per smith level, without an attribute cap.
-- Eight rooms: **Smith, Mine, Smelter, Forge, Shop & armoury, Arena, Employees and Legacy**. First-visit introductions explain each room's purpose and its next step.
+- Eight rooms: **Smith, Mine, Smelter, Forge, Shop, Arena, Employees and Legacy**. First-visit introductions explain each room's purpose and its next step.
 - Individually assigned miners; five material tiers; standard, toughened and spring-tempered ingots; protected hero work, patron commissions and shop stock. All crafting improves class mastery.
 - 17 item classes, 255 ordinary medieval patterns, 34 original Legacy patterns and 51 researched Oathbound, Astral and Eternal designs. Natural prefixes or deliberate treatments, enchanting suffixes, five diminishing finishing passes and quality ceilings up to 200.
 - A fixed starting trio; free equipment comparisons/swaps; strict front/back lines; three rival styles; doctrines; five leagues. Each of three rungs needs five scoring match wins and all three styles, followed by a manually launched champion.
@@ -72,7 +96,7 @@ Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or se
 - **[Long campaign guide, flowcharts and background gallery](design/campaign-guide.html)**
 - [House edition guide and room map](design/house-guide.html)
 - [Independent long-campaign review](design/qa/house-campaign-review.md)
-- [Current automated test results](design/qa/version-4.1.0-tests.txt)
+- [Current automated test results](design/qa/version-4.1.1-tests.txt)
 - [Offline resume browser checks](design/qa/offline-browser-checks.json)
 - [Production balance and opening-hour checks](design/qa/production-balance-checks.json)
 - [Persistent popup and full-bin browser checks](design/qa/production-browser-checks.json)
@@ -84,7 +108,7 @@ Open **[Ember-and-Iron.html](Ember-and-Iron.html)** for the portable game, or se
 
 The scheduled player follows **one initial hour, then 15 minutes at hours 2, 4 and 6; later days use 15-minute visits at hours 0, 2, 4 and 6**. Overnight is simulated as offline work. No resources, equipment or levels are granted to earned runs. An informed first career reached the Crown at **100.08 elapsed hours**, about 4.2 days and 5.5 active hours; a conservative policy needed about 126 hours. The 72-hour floor prevents early retirement, but it does not guarantee victory at that time. These campaign timings predate the 3.2.2 automatic-delivery and equipment changes and 3.2.3 production rebalance; they are historical pacing evidence, not a newly measured campaign benchmark.
 
-**348 automated checks pass**, including Classic compatibility, production escrow and cancellation, automatic delivery/equipment, full-bin waiting, once-only resume reporting, long-campaign gates and device preferences. New coverage verifies saved live combat, deterministic online/offline exchanges, old replay compatibility, persistent controls/canvases, all 340 recipe-to-model mappings, all eight room stages, and the final trial’s permanent ending. Source UI and the embedded portable build were exercised using isolated browser saves, including a fresh zero-stat character, return popups, gear previews, live bouts and replay seeking.
+**356 automated checks pass**, including Classic compatibility, production escrow and cancellation, automatic delivery/equipment, full-bin waiting, once-only resume reporting, long-campaign gates and device preferences. Pacing coverage verifies learning previews, advanced mastery rewards, commission tier selection, exhibition payouts across reloads, late automation gates and the unchanged Legacy minimum. Earlier coverage verifies saved live combat, deterministic online/offline exchanges, old replay compatibility, persistent controls/canvases, all 340 recipe-to-model mappings, all eight room stages, and the final trial’s permanent ending. Source UI and the embedded portable build are exercised using isolated browser saves.
 
 The portable build is approximately **45 MB**, including compressed 3D models, illustrated fallback rooms, inventory art and local music synthesis. Current visual checks cover desktop and phone layouts; older responsive checks also cover 320 and 768 pixels. The portable build was browser-tested over local HTTP. Direct `file://` navigation was blocked by the test browser, so opening the file directly remains unverified in that browser. See the [release evidence](design/qa/house-release-4.json) for the exact scope and limits.
 
@@ -120,7 +144,7 @@ npm ci
 npm test
 npm run build:3d
 # Additional earned progression review:
-node design/qa/house-campaign-probe.js --label=review --days=7 --respond --stop-at-crown
+npm run test:campaign
 python build_game.py
 python -m http.server 8777
 ```
